@@ -17,16 +17,22 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    
+    // bibiserv stuff is hosted on jitpack.io
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:21.0'
+    
+    // get bibiserv abstraction from jitpack.io
+    compile 'com.github.BiBiServ.bibiserv:bibiservabstraction:2.1.0'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
 }
 
 // Define the main class for the application
-mainClassName = 'App'
+mainClassName = 'de/unibi/cebitec/bibiworkflow/app/App'
 
