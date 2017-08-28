@@ -13,6 +13,7 @@ import de.unibi.techfak.bibiserv.cms.Tparam;
 import de.unibi.techfak.bibiserv.cms.TparamGroup.Paramref;
 import java.net.URL;
 import java.util.List;
+import javax.xml.bind.JAXBException;
 
 /**
  *
@@ -20,8 +21,6 @@ import java.util.List;
  */
 public interface IBs2Document {
     
-    
-    void loadBs2File(URL url);
     
     public List<Tfunction> getFunctions();
     

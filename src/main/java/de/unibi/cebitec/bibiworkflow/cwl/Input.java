@@ -11,4 +11,17 @@ package de.unibi.cebitec.bibiworkflow.cwl;
  */
 public class Input {
     
+    
+    private String id;
+    
+    private String type;
+    
+    private InputBinding inputBinding;
+    
+    
+    public String getId()
+    {
+        // TODO
+        return null;
+    }
 }

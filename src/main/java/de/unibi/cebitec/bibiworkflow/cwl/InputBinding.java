@@ -11,4 +11,10 @@ package de.unibi.cebitec.bibiworkflow.cwl;
  */
 public class InputBinding {
     
+    
+    protected String prefix;
+    
+    protected boolean separate;
+    
+    protected int position;
 }

@@ -11,4 +11,11 @@ package de.unibi.cebitec.bibiworkflow.cwl;
  */
 public class OutputBinding {
     
+    protected String glob;
+    
+    // what is this???
+    protected boolean loadContent;
+    
+    // what is this???
+    protected String outputEval;
 }

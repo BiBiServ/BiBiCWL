@@ -11,4 +11,16 @@ package de.unibi.cebitec.bibiworkflow.cwl;
  */
 public class Output {
     
+    private String id;
+    
+    private String type;
+    
+    private OutputBinding outputBinding;
+    
+    
+    public String getId()
+    {
+        // TODO
+        return null;
+    }
 }

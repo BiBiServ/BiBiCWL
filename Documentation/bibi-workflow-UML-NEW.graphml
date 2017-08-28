@@ -132,10 +132,10 @@
             <y:MethodLabel>- loadBS2File() : void
 + getFunctions() : List&lt;Tfunction&gt;
 + getFunctionInput() : 
-- getIntputByReferenc(InputRef) : Tinputoutput
-- getPositionOfInput(TinputRef) : int
-- getPositionOfParameter(TparamRef) : int
-- getParamByReference(TparamRef) : Tparam/ Tenumparam
+- getIntputByReferenc(Inputref) : Tinputoutput
+- getPositionOfInput(Inputref) : int
+- getPositionOfParameter(Paramref) : int
+- getParamByReference(Paramref) : Tparam/ Tenumparam
 - getCommandLineOrder(Tfunction) : List&lt;Input-Output-Param-Ref&gt;</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>

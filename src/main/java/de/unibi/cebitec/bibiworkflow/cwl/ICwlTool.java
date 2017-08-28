@@ -8,12 +8,13 @@ package de.unibi.cebitec.bibiworkflow.cwl;
 /**
  *
  * @author pol3waf
+ * @param T bla ?????????????
  */
-public interface ICwlTool {
+public interface ICwlTool<T> {
     
-    String cwlVersion = "v1.0";
-    // rename parameter "cwlClass" into "class" ????
-    String cwlClass = "CWLTool";
+    String CWLVERSION = "v1.0";
+    // rename parameter "CWLCLASS" into "class" ????
+    String CWLCLASS = "CWLTool";
     
     
     public void addInput(String id, String type, InputBinding inputBinding);

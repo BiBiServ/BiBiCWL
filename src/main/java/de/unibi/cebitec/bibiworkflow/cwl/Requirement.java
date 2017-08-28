@@ -8,7 +8,12 @@ package de.unibi.cebitec.bibiworkflow.cwl;
 /**
  *
  * @author pol3waf
+ * @param T why use this??????
  */
-public class Requirement {
+public class Requirement<T> {
     
+    
+    private String cwlClass;
+    
+    private T attribute;
 }
