@@ -9,13 +9,23 @@ package de.unibi.cebitec.bibiworkflow.cwl;
  *
  * @author pol3waf
  */
-public class OutputBinding {
+class OutputBinding {
     
-    protected String glob;
-    
-    // what is this???
-    protected boolean loadContent;
+    private final String glob;
     
     // what is this???
-    protected String outputEval;
+    private final boolean loadContent;
+    
+    // what is this???
+    private final String outputEval;
+    
+    
+    
+    protected OutputBinding(final String glob, final boolean loadContent, final String outputEval)
+    {
+        this.glob = glob;
+        this.loadContent = loadContent;
+        this.outputEval = outputEval;
+    }
+    
 }

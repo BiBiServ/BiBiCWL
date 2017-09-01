@@ -42,7 +42,7 @@
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="77.0" width="150.0" x="434.55039682539683" y="129.62812615101288"/>
+          <y:Geometry height="77.0" width="150.0" x="525.0" y="13.020833333333314"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="124.91015625" x="12.544921875" y="3.0">CwlRequirement<y:LabelModel>
@@ -53,8 +53,7 @@
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>- class : string
-- attribute : &lt;T&gt;</y:AttributeLabel>
+            <y:AttributeLabel>- class : string</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
@@ -128,22 +127,22 @@
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel/>
-            <y:MethodLabel>- loadBS2File() : void
+            <y:AttributeLabel>- TrunnableItem runnableItem</y:AttributeLabel>
+            <y:MethodLabel>+ getBaseCommand() : String
++ getCommandLineOrder(Tfunction) : List&lt;Input-Output-Param-Ref&gt;
 + getFunctions() : List&lt;Tfunction&gt;
 + getFunctionInput() : 
 - getIntputByReferenc(Inputref) : Tinputoutput
+- getParamByReference(Paramref) : Tparam/ Tenumparam
 - getPositionOfInput(Inputref) : int
 - getPositionOfParameter(Paramref) : int
-- getParamByReference(Paramref) : Tparam/ Tenumparam
-- getCommandLineOrder(Tfunction) : List&lt;Input-Output-Param-Ref&gt;</y:MethodLabel>
+- loadBS2File() : void</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
     </node>
     <node id="n5">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="219.0" width="381.9999999999999" x="591.9742063492065" y="252.5973507868742"/>
@@ -168,7 +167,6 @@
     </node>
     <node id="n6">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="90.02083333333331" width="171.6072928176796" x="40.196353591160204" y="0.0"/>
@@ -192,7 +190,6 @@
     </node>
     <node id="n7">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="90.02083333333331" width="183.0" x="241.80396825396826" y="0.0"/>
@@ -209,6 +206,28 @@
             <y:AttributeLabel>- prefix = null : string
 - separate = null : boolean
 - position : int</y:AttributeLabel>
+            <y:MethodLabel/>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n8">
+      <data key="d4"/>
+      <data key="d5"/>
+      <data key="d6">
+        <y:UMLClassNode>
+          <y:Geometry height="61.716022099447514" width="162.61546961325973" x="398.69226519337013" y="-180.85801104972376"/>
+          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="166.5888671875" x="-1.9866987871201331" y="3.0">ResourceRequirement<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel/>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
@@ -255,7 +274,6 @@
     </edge>
     <edge id="e3" source="n5" target="n4">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="190.99999999999994" sy="0.0" tx="-214.20736648250443" ty="0.0"/>
@@ -267,7 +285,6 @@
     </edge>
     <edge id="e4" source="n5" target="n3">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-190.99999999999994" sy="0.0" tx="208.66990059434116" ty="0.0"/>
@@ -279,7 +296,6 @@
     </edge>
     <edge id="e5" source="n2" target="n6">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-58.107292817679564" tx="0.0" ty="45.01041666666666"/>
@@ -291,12 +307,23 @@
     </edge>
     <edge id="e6" source="n0" target="n7">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-58.107292817679564" tx="0.0" ty="45.01041666666666"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="diamond" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e7" source="n1" target="n8">
+      <data key="d8"/>
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="white_delta"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>

@@ -6,14 +6,23 @@
 package de.unibi.cebitec.bibiworkflow.cwl;
 
 /**
- *
+ * abstract Requirement class every other requirement class extends this one.
  * @author pol3waf
- * @param T why use this??????
  */
-public class Requirement<T> {
+abstract class Requirement
+{
+
+    protected final String requirementClass;
+
+    Requirement() {
+        this.requirementClass = "";
+    }
     
+}
+
+
+
+class ResourceRequirement extends Requirement
+{
     
-    private String cwlClass;
-    
-    private T attribute;
 }

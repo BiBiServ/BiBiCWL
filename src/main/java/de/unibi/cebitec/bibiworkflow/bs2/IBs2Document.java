@@ -11,9 +11,8 @@ import de.unibi.techfak.bibiserv.cms.Tfunction.Inputref;
 import de.unibi.techfak.bibiserv.cms.TinputOutput;
 import de.unibi.techfak.bibiserv.cms.Tparam;
 import de.unibi.techfak.bibiserv.cms.TparamGroup.Paramref;
-import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.JAXBException;
 
 /**
  *
@@ -24,7 +23,7 @@ public interface IBs2Document {
     
     public List<Tfunction> getFunctions();
     
-    TinputOutput getIntputByReferenc(Inputref inputref);
+    TinputOutput getIntputById(String id) throws Exception;
     
     int getPositionOfInput(Inputref inputref);
     
@@ -32,7 +31,24 @@ public interface IBs2Document {
     
     int getPositionOfParameter(TenumParam enumparam);
     
-    <T> T getParamByReference(Paramref paramref);
+    Tparam getParamById(String id) throws Exception;
     
-    List<TinputOutput> getCommandLineOrder(Tfunction function);
+    /**
+     * Gets a list of references of the command line arguments in the order they 
+     * should be used. 
+     * @param function the function that should be checked for its argument order
+     * @return ordered list of IDs of each input or parameter
+     */
+    ArrayList<String> getCommandLineArgumentOrderAsReferences(Tfunction function);
+    
+    /**
+     * Get the base command of the bs2-file which would be used on the command 
+     * line to start the tool described in the bs2-file. Often this base command
+     * does not suffice and it has to be combined with different command line 
+     * parameters/ options/ arguments (e.g. from function input and parameters).
+     * @param function the function
+     * @return 
+     */
+    String getBaseCommand();
+    
 }

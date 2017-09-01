@@ -9,7 +9,7 @@ package de.unibi.cebitec.bibiworkflow.cwl;
  *
  * @author pol3waf
  */
-public class Input {
+class Input {
     
     
     private String id;
@@ -19,7 +19,15 @@ public class Input {
     private InputBinding inputBinding;
     
     
-    public String getId()
+    
+    protected Input(String id, String type, InputBinding inputBinding)
+    {
+        this.id = id;
+        this.type = type;
+        this.inputBinding = inputBinding;
+    }
+    
+    protected String getId()
     {
         // TODO
         return null;

@@ -9,7 +9,7 @@ package de.unibi.cebitec.bibiworkflow.cwl;
  *
  * @author pol3waf
  */
-public class Output {
+class Output {
     
     private String id;
     
@@ -18,7 +18,16 @@ public class Output {
     private OutputBinding outputBinding;
     
     
-    public String getId()
+    
+    protected Output(String id, String type, OutputBinding outputBinding)
+    {
+        this.id = id;
+        this.type = type;
+        this.outputBinding = outputBinding;
+    }
+    
+    
+    protected String getId()
     {
         // TODO
         return null;

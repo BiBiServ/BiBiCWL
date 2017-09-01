@@ -9,12 +9,20 @@ package de.unibi.cebitec.bibiworkflow.cwl;
  *
  * @author pol3waf
  */
-public class InputBinding {
+class InputBinding {
     
     
-    protected String prefix;
+    private String prefix;
     
-    protected boolean separate;
+    private boolean separate;
     
-    protected int position;
+    private int position;
+    
+    
+    protected InputBinding(String prefix, boolean separate, int position)
+    {
+        this.prefix = prefix;
+        this.separate = separate;
+        this.position = position;
+    }
 }

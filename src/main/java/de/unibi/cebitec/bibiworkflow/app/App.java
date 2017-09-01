@@ -5,6 +5,7 @@ import de.unibi.cebitec.bibiworkflow.bs2.IBs2Document;
 import de.unibi.techfak.bibiserv.cms.Tfunction;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
@@ -29,7 +30,12 @@ public class App {
         try {
             IBs2Document bs2document = new Bs2Document(path);
             Tfunction function = bs2document.getFunctions().get(0);
-            bs2document.getCommandLineOrder(function);
+            ArrayList<String> orderedArgumentList = bs2document.getCommandLineArgumentOrderAsReferences(function);
+            
+            for (String e : orderedArgumentList)
+            {
+                System.out.println(e.toString());
+            }
         } catch (JAXBException ex) {
             Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
         }
