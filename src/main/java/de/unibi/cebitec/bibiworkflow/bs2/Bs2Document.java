@@ -43,7 +43,7 @@ public class Bs2Document implements IBs2Document {
     {
         this.runnableItem = loadBs2FileRootElement(path);
     }
-    
+
     
     
     /**
@@ -182,24 +182,54 @@ public class Bs2Document implements IBs2Document {
         }
     }
 
+    
+    
+    /**
+     * Get EnumParam by its ID. Throws an error in case the ID is not found.
+     * @param id ID which is to be searched for
+     * @return TenumParam with the given ID
+     * @throws Exception if there is no such ID
+     */
     @Override
-    public int getPositionOfInput(Tfunction.Inputref inputref) 
+    public TenumParam getEnumParamById(String id) throws Exception
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        TenumParam enumParam = null;
+                
+        List<TenumParam> enumParamList = runnableItem.getExecutable().getEnumParam();
+        for (TenumParam p : enumParamList)
+        {
+            if (p.getId().equals(id))
+            {
+                enumParam = p;
+            }
+        }
+        
+        if (enumParam == null)
+        {
+            throw new Exception("No such param with id " + id);
+        }
+        else
+        {
+            return enumParam;
+        }
     }
 
+    
+    
+    /**
+     * Get the base command of the bs2-file. Usually this is the name of or the 
+     * path to the script/ tool which is described by the bs2-file.
+     * @return base command
+     */
     @Override
-    public int getPositionOfParameter(TenumParam enumparam) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getBaseCommand() {
+        String baseCommand = this.runnableItem.getExecutable().getExecInfo().getCallingInformation();
+        return baseCommand;
     }
-
-    @Override
-    public int getPositionOfParameter(Tparam param) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
-
+    
+    
+    
+    
     /**
      * Loads a bs2 file and un-marshalls it into POJOs.
      * @param path path to the bs2-file
@@ -219,18 +249,21 @@ public class Bs2Document implements IBs2Document {
 
     
     
-    /**
-     * Get the base command of the bs2-file. Usually this is the name of or the 
-     * path to the script/ tool which is described by the bs2-file.
-     * @return base command
-     */
+    
     @Override
-    public String getBaseCommand() {
-        String baseCommand = this.runnableItem.getExecutable().getExecInfo().getCallingInformation();
-        return baseCommand;
+    public int getPositionOfInput(Tfunction.Inputref inputref) 
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
+
+    @Override
+    public int getPositionOfParameter(TenumParam enumparam) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getPositionOfParameter(Tparam param) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

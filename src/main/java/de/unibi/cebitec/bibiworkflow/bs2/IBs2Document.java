@@ -33,6 +33,8 @@ public interface IBs2Document {
     
     Tparam getParamById(String id) throws Exception;
     
+    TenumParam getEnumParamById(String id) throws Exception;
+    
     /**
      * Gets a list of references of the command line arguments in the order they 
      * should be used. 

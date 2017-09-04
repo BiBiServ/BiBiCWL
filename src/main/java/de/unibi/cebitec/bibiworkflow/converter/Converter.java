@@ -5,6 +5,8 @@
  */
 package de.unibi.cebitec.bibiworkflow.converter;
 
+import de.unibi.cebitec.bibiworkflow.bs2.Bs2Document;
+import de.unibi.cebitec.bibiworkflow.bs2.IBs2Document;
 import de.unibi.cebitec.bibiworkflow.cwl.CwlTool;
 import java.net.URL;
 import java.util.List;
@@ -16,8 +18,10 @@ import java.util.List;
 public class Converter implements IConverter {
 
     @Override
-    public List<CwlTool> convertBs2ToCwl(URL url) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<CwlTool> convertBs2ToCwl(String path) throws Exception {
+        IBs2Document bs2doc = new Bs2Document(path);
+        
+        throw new NoSuchMethodException();
     }
     
     
