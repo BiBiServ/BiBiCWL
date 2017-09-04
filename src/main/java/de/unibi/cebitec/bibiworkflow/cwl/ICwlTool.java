@@ -10,7 +10,7 @@ package de.unibi.cebitec.bibiworkflow.cwl;
  * @author pol3waf
  * @param T bla ?????????????
  */
-public interface ICwlTool<T> {
+public interface ICwlTool {
     
     String CWLVERSION = "v1.0";
     // rename parameter "CWLCLASS" into "class" ????

@@ -17,11 +17,19 @@ import java.util.List;
  */
 public class Converter implements IConverter {
 
+    /**
+     * Convert the whole bs2-file (located at the given path) into a single 
+     * CWL-Tool. There will be another function which will create a workflow out
+     * of CWL-Tools.
+     * @param path Path to the bs2-file in the file system
+     * @return returns a CWL-Tool object
+     * @throws Exception if Conversion fails
+     */
     @Override
-    public List<CwlTool> convertBs2ToCwl(String path) throws Exception {
+    public List<CwlTool> convertBs2ToCwlTool(String path) throws Exception {
         IBs2Document bs2doc = new Bs2Document(path);
         
-        throw new NoSuchMethodException();
+        throw new NoSuchMethodException("Still a dummy ... remove this line and put a return statement here");
     }
     
     

@@ -18,6 +18,6 @@ public interface IConverter {
     
     
     
-    public List<CwlTool> convertBs2ToCwl(String path) throws Exception;
+    public List<CwlTool> convertBs2ToCwlTool(String path) throws Exception;
     
 }
