@@ -8,7 +8,6 @@ package de.unibi.cebitec.bibiworkflow.cwl;
 /**
  *
  * @author pol3waf
- * @param T bla ?????????????
  */
 public interface ICwlTool {
     
@@ -17,9 +16,60 @@ public interface ICwlTool {
     String CWLCLASS = "CWLTool";
     
     
-    public void addInput(String id, String type, InputBinding inputBinding);
+    /*
     
-    public void addOutput(String id, String type, InputBinding outputBinding);
+    ??????????????????????????????????????????????
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!?
+    Add Enum for selecting requirement classes???
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!?
+    ??????????????????????????????????????????????
     
-    public <T> void addRequirement(String requirementClass, T attribute);
+    */
+    
+    public enum RequirementClass
+    {
+        InlineJavascriptRequirement,
+        SchemaDefRequirement,
+        DockerRequirement,
+        SoftwareRequirement,
+        InitialWorkDirRequirement,
+        EnvVarRequirement,
+        ShellCommandRequirement,
+        ResourceRequirement
+    }
+    
+    
+    /**
+     * 
+     * @param id
+     * @param type
+     * @param position
+     * @param prefix
+     * @param separate 
+     */
+    public void addInput(String id, String type, int position, String prefix, boolean separate);
+    
+    
+    /**
+     * Adds an output to the outputs ArrayList of the the CWLTool.
+     * (Probably other params should be added ... see CWL-Documentation)
+     * @param id ID of the output - this will be the name for the field
+     * @param type type of the output (stdout, File, ...)
+     * @param glob glob-pattern for searching for files in the output of the called tool
+     */
+    public void addOutput(String id, String type, String glob);
+    
+    
+    /**
+     * Adds a sub-class of Requirement to the Requirement array of the CWLTool.
+     * @param requirementClass
+     */
+    public void addRequirement(RequirementClass requirementClass);
+    
+    
+    /**
+     * Adds an argument to the CWLTool
+     * @param argument 
+     */
+    public void addArgument(String argument);
 }

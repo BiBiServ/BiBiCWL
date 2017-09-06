@@ -12,17 +12,80 @@ package de.unibi.cebitec.bibiworkflow.cwl;
 abstract class Requirement
 {
 
-    protected final String requirementClass;
+    protected String requirementClass;
 
-    Requirement() {
-        this.requirementClass = "";
-    }
+//    Requirement() {
+//        this.requirementClass = "";
+//    }
     
 }
 
 
+
+class DockerRequirement extends Requirement
+{
+    protected DockerRequirement()
+    {
+        super.requirementClass = this.getClass().getName();
+    }
+    
+    // TODO: do more ...
+}
+
+
+class EnvVarRequirement extends Requirement
+{
+    protected EnvVarRequirement()
+    {
+        super.requirementClass = this.getClass().getName();
+    }
+}
+
+class InitialWorkdirRequirement extends Requirement
+{
+    protected InitialWorkdirRequirement()
+    {
+        super.requirementClass = this.getClass().getName();
+    }
+}
+
+class InlineJavaScriptRequirement extends Requirement
+{
+    protected InlineJavaScriptRequirement()
+    {
+        super.requirementClass = this.getClass().getName();
+    }
+}
+
+class SchemaDefRequirement extends Requirement
+{
+    protected SchemaDefRequirement()
+    {
+        super.requirementClass = this.getClass().getName();
+    }
+}
+
+class ShellCommandRequirement extends Requirement
+{
+    protected ShellCommandRequirement()
+    {
+        super.requirementClass = this.getClass().getName();
+    }
+}
+
+class SoftwareRequirement extends Requirement
+{
+    protected SoftwareRequirement()
+    {
+        super.requirementClass = this.getClass().getName();
+    }
+}
 
 class ResourceRequirement extends Requirement
 {
-    
+    protected ResourceRequirement()
+    {
+        super.requirementClass = this.getClass().getName();
+    }
 }
+

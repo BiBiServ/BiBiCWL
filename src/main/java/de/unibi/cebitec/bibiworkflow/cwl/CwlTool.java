@@ -5,7 +5,10 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -98,10 +101,15 @@ public class CwlTool implements ICwlTool {
     }
 
     @Override
-    public void addRequirement(String requirementClass, Object attribute) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addRequirement(RequirementClass requirementClassEnum) {
+        try {
+            Requirement requirement = (Requirement) Class.forName(requirementClassEnum.name()).newInstance();
+            this.requirementsList.add(requirement);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            Logger.getLogger(CwlTool.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
+  
     
     
 }

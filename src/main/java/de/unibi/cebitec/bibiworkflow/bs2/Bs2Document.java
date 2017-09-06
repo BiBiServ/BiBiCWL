@@ -50,7 +50,7 @@ public class Bs2Document implements IBs2Document {
      * Gets a list of references of the command line arguments in the order they 
      * should be used. 
      * @param function the function that should be checked for its argument order
-     * @return ordered list of ids of each input or parameter
+     * @return ordered list of IDs of each input or parameter
      */
     @Override
     public ArrayList<String> getCommandLineArgumentOrderAsReferences(Tfunction function)
