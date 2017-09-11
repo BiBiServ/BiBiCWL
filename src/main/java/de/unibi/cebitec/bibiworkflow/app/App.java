@@ -2,9 +2,8 @@ package de.unibi.cebitec.bibiworkflow.app;
 
 import de.unibi.cebitec.bibiworkflow.bs2.Bs2Document;
 import de.unibi.cebitec.bibiworkflow.bs2.IBs2Document;
+import de.unibi.cebitec.bibiworkflow.gui.MainGUI;
 import de.unibi.techfak.bibiserv.cms.Tfunction;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +25,10 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        
+        // create GUI
+        MainGUI mainGUI = new MainGUI();
+        mainGUI.startMainGUI(args);
         
         try {
             IBs2Document bs2document = new Bs2Document(path);

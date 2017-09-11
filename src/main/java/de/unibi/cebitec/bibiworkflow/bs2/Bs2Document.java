@@ -9,7 +9,6 @@ import de.unibi.techfak.bibiserv.cms.TenumParam;
 import de.unibi.techfak.bibiserv.cms.Tfunction;
 import de.unibi.techfak.bibiserv.cms.TinputOutput;
 import de.unibi.techfak.bibiserv.cms.Tparam;
-import de.unibi.techfak.bibiserv.cms.TparamGroup;
 import de.unibi.techfak.bibiserv.cms.TrunnableItem;
 import java.util.List;
 import java.util.ArrayList;

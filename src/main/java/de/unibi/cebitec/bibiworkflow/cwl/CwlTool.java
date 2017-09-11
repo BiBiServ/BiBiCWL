@@ -5,7 +5,6 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -89,25 +88,49 @@ public class CwlTool implements ICwlTool {
     
     
     
-    @Override
-    public void addInput(String id, String type, InputBinding inputBinding) {
+    
+    private void addInput(String id, String type, InputBinding inputBinding) {
         Input input = new Input(id, type, inputBinding);
         this.inputs.add(input);
     }
 
-    @Override
-    public void addOutput(String id, String type, InputBinding outputBinding) {
+    
+    private void addOutput(String id, String type, InputBinding outputBinding) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    /**
+     * 
+     * @param requirementClassEnum 
+     */
     @Override
     public void addRequirement(RequirementClass requirementClassEnum) {
         try {
+            // create the Requirement SubClass depending on the enum given by 
+            // creating the required constructor and then creating the instance
             Requirement requirement = (Requirement) Class.forName(requirementClassEnum.name()).newInstance();
             this.requirementsList.add(requirement);
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(CwlTool.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    
+    
+    @Override
+    public void addInput(String id, String type, int position, String prefix, boolean separate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addOutput(String id, String type, String glob) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addArgument(String argument) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
   
     

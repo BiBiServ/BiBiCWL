@@ -8,7 +8,6 @@ package de.unibi.cebitec.bibiworkflow.converter;
 import de.unibi.cebitec.bibiworkflow.bs2.Bs2Document;
 import de.unibi.cebitec.bibiworkflow.bs2.IBs2Document;
 import de.unibi.cebitec.bibiworkflow.cwl.CwlTool;
-import java.net.URL;
 import java.util.List;
 
 /**
