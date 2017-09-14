@@ -2,7 +2,10 @@ package de.unibi.cebitec.bibiworkflow.app;
 
 import de.unibi.cebitec.bibiworkflow.bs2.Bs2Document;
 import de.unibi.cebitec.bibiworkflow.bs2.IBs2Document;
-import de.unibi.cebitec.bibiworkflow.gui.MainGUI;
+import de.unibi.cebitec.bibiworkflow.control.OpenFileEventHandler;
+import de.unibi.cebitec.bibiworkflow.fileio.FileHandler;
+import de.unibi.cebitec.bibiworkflow.gui.IMainGui;
+import de.unibi.cebitec.bibiworkflow.gui.MainGui;
 import de.unibi.techfak.bibiserv.cms.Tfunction;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -15,7 +18,7 @@ import javax.xml.bind.JAXBException;
 public class App {
     
     
-    private static String path = "/home/pol3waf/Programming/Projects/basedoc/BasespaceConverter/SampleFiles/blast_final_2.bs2";
+    private static final String FILEPATH = "/home/pol3waf/Programming/Projects/basedoc/BasespaceConverter/SampleFiles/blast_final_2.bs2";
     
     
     
@@ -27,11 +30,18 @@ public class App {
         System.out.println(new App().getGreeting());
         
         // create GUI
-        MainGUI mainGUI = new MainGUI();
-        mainGUI.startMainGUI(args);
+        
+        
+        // add some file handling stuff
+        FileHandler fh = new FileHandler();
+        IMainGui mainGui = new MainGui();
+        
+        // start the GUI
+        MainGui.launchGUI(new OpenFileEventHandler(fh));
+        
         
         try {
-            IBs2Document bs2document = new Bs2Document(path);
+            IBs2Document bs2document = new Bs2Document(FILEPATH);
             Tfunction function = bs2document.getFunctions().get(0);
             ArrayList<String> orderedArgumentList = bs2document.getCommandLineArgumentOrderAsReferences(function);
             

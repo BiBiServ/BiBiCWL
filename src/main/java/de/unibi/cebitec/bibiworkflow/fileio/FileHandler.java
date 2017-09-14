@@ -5,6 +5,8 @@
  */
 package de.unibi.cebitec.bibiworkflow.fileio;
 
+import java.io.File;
+
 /**
  *
  * @author pol3waf
@@ -21,8 +23,16 @@ public class FileHandler {
     }
     
     
-    public XXX readFile(File file)
+    public void readFile(File file)
     {
         
     }
+    
+    
+    public void setFile(File file)
+    {
+        this.file = file;
+    }
+    
+    
 }
