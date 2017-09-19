@@ -7,12 +7,16 @@ package de.unibi.cebitec.bibiworkflow.gui;
 
 
 
-import de.unibi.cebitec.bibiworkflow.control.OpenFileEventHandler;
-import de.unibi.cebitec.bibiworkflow.fileio.FileHandler;
+import de.unibi.cebitec.bibiworkflow.app.IControl;
+import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
+import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
+import de.unibi.cebitec.bibiworkflow.io.FileHandler;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
 import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -27,6 +31,7 @@ import javafx.stage.Stage;
 public final class MainGui extends Application implements IMainGui
 {
     private static OpenFileEventHandler openFileEventHandler;
+    private static ConvertBs2ToCwlEventHandler convertBs2ToCwlEventHandler;
     
     private Stage mainWindow;
     
@@ -41,6 +46,7 @@ public final class MainGui extends Application implements IMainGui
     // Scene
     private Scene scene;
     
+    
     /**
      * Constructor for the MainGUI.
      */
@@ -50,9 +56,12 @@ public final class MainGui extends Application implements IMainGui
     }
     
     
-    public static void launchGUI(OpenFileEventHandler ofeh)
+    
+    @Override
+    public void launchGUI(OpenFileEventHandler ofeh, ConvertBs2ToCwlEventHandler ceh)
     {
         openFileEventHandler = ofeh;
+        convertBs2ToCwlEventHandler = ceh;
         Application.launch(MainGui.class);
     }
     
@@ -67,31 +76,6 @@ public final class MainGui extends Application implements IMainGui
     }
 
     
-    
-    @Override
-    public void setUpGui()
-    {
-        this.loadedFileLabel = new Label("-none-");
-        this.welcomeLabel = new Label("welcome");
-        
-        this.openFileButton = new Button("openFile");
-        this.startConversionButton = new Button("convert");
-        
-        this.setOpenFileAction(openFileEventHandler);
-        
-        FlowPane flowPane= new FlowPane();
-        flowPane.setOrientation(Orientation.VERTICAL);
-        
-        // add stuff to stackplane
-        flowPane.getChildren().addAll(
-                this.welcomeLabel, 
-                this.loadedFileLabel, 
-                this.openFileButton,
-                this.startConversionButton
-        );
-        
-        this.scene = new Scene(flowPane, 200, 300);
-    }
     
     
     
@@ -108,6 +92,10 @@ public final class MainGui extends Application implements IMainGui
     }
 
     
+    /**
+     * Set the open action.
+     * @param eh 
+     */
     @Override
     public void setOpenFileAction(final EventHandler<ActionEvent> eh) {
         try
@@ -122,13 +110,47 @@ public final class MainGui extends Application implements IMainGui
     
 
     @Override
-    public void setSaveFileAction(EventHandler eh) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setSaveFileAction(final EventHandler<ActionEvent> eh) {
+        
     }
 
     @Override
-    public void setStartConversionAction(EventHandler eh) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setStartConversionAction(final EventHandler<ActionEvent> eh) {
+        this.startConversionButton.setOnAction(eh);
     }
+    
+    
+    
+    /**
+     * Set up the the whole GUI: populate it with labels, buttons and so on ...
+     */
+    private void setUpGui()
+    {
+        this.loadedFileLabel = new Label("-none-");
+        this.welcomeLabel = new Label("welcome");
+        
+        this.openFileButton = new Button("openFile");
+        this.startConversionButton = new Button("convert");
+        
+        this.setOpenFileAction(openFileEventHandler);
+        this.setStartConversionAction(convertBs2ToCwlEventHandler);
+        
+        // set the layout
+        FlowPane flowPane= new FlowPane();
+        flowPane.setOrientation(Orientation.VERTICAL);
+        flowPane.setAlignment(Pos.CENTER);
+        flowPane.setColumnHalignment(HPos.CENTER);
+        
+        // add stuff to layout (flowpane)
+        flowPane.getChildren().addAll(
+                this.welcomeLabel, 
+                this.loadedFileLabel, 
+                this.openFileButton,
+                this.startConversionButton
+        );
+        
+        this.scene = new Scene(flowPane, 200, 150);
+    }
+    
     
 }

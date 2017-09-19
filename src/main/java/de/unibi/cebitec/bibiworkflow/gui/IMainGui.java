@@ -5,6 +5,9 @@
  */
 package de.unibi.cebitec.bibiworkflow.gui;
 
+import de.unibi.cebitec.bibiworkflow.app.IControl;
+import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
+import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -14,16 +17,38 @@ import javafx.event.EventHandler;
  */
 public interface IMainGui {
     
+    /**
+     * launch the GUI. This provide the GUI with every EventHandler needed and
+     * place them in static variables. The GUI will be called statically as 
+     * well.
+     * @param ofeh EventHandler for opening files
+     * @param ceh EventHandler for converting files
+     */
+    void launchGUI(OpenFileEventHandler ofeh, ConvertBs2ToCwlEventHandler ceh);
     
-    void setUpGui();
-    
+    /**
+     *
+     * @param shouldShow
+     */
     void showGui(boolean shouldShow);
     
-    void setOpenFileAction(EventHandler<ActionEvent> eh);
+    /**
+     *
+     * @param eh
+     */
+    void setOpenFileAction(final EventHandler<ActionEvent> eh);
     
-    void setSaveFileAction(EventHandler eh);
+    /**
+     *
+     * @param eh
+     */
+    void setSaveFileAction(final EventHandler<ActionEvent> eh);
     
-    void setStartConversionAction(EventHandler eh);
+    /**
+     *
+     * @param eh
+     */
+    void setStartConversionAction(final EventHandler<ActionEvent> eh);
     
     
     

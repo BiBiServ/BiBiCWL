@@ -2,8 +2,10 @@ package de.unibi.cebitec.bibiworkflow.app;
 
 import de.unibi.cebitec.bibiworkflow.bs2.Bs2Document;
 import de.unibi.cebitec.bibiworkflow.bs2.IBs2Document;
-import de.unibi.cebitec.bibiworkflow.control.OpenFileEventHandler;
-import de.unibi.cebitec.bibiworkflow.fileio.FileHandler;
+import de.unibi.cebitec.bibiworkflow.converter.Converter;
+import de.unibi.cebitec.bibiworkflow.converter.IConverter;
+import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
+import de.unibi.cebitec.bibiworkflow.io.FileHandler;
 import de.unibi.cebitec.bibiworkflow.gui.IMainGui;
 import de.unibi.cebitec.bibiworkflow.gui.MainGui;
 import de.unibi.techfak.bibiserv.cms.Tfunction;
@@ -18,40 +20,35 @@ import javax.xml.bind.JAXBException;
 public class App {
     
     
-    private static final String FILEPATH = "/home/pol3waf/Programming/Projects/basedoc/BasespaceConverter/SampleFiles/blast_final_2.bs2";
-    
-    
     
     public String getGreeting() {
-        return "Hello world.";
+        return "Greetings! This is the BibiServ CWL Workflow Converter.";
     }
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
         
-        // create GUI
         
-        
-        // add some file handling stuff
-        FileHandler fh = new FileHandler();
+        IConverter converter = new Converter();
         IMainGui mainGui = new MainGui();
-        
-        // start the GUI
-        MainGui.launchGUI(new OpenFileEventHandler(fh));
+        Controller controller = new Controller(converter, mainGui);
         
         
-        try {
-            IBs2Document bs2document = new Bs2Document(FILEPATH);
-            Tfunction function = bs2document.getFunctions().get(0);
-            ArrayList<String> orderedArgumentList = bs2document.getCommandLineArgumentOrderAsReferences(function);
-            
-            for (String e : orderedArgumentList)
-            {
-                System.out.println(e.toString());
-            }
-        } catch (JAXBException ex) {
-            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        
+        
+//        try {
+//            IBs2Document bs2document = new Bs2Document(FILEPATH);
+//            Tfunction function = bs2document.getFunctions().get(0);
+//            ArrayList<String> orderedArgumentList = bs2document.getCommandLineArgumentOrderAsReferences(function);
+//            
+//            for (String e : orderedArgumentList)
+//            {
+//                System.out.println(e.toString());
+//            }
+//        } catch (JAXBException ex) {
+//            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
     }
 }

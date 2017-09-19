@@ -13,12 +13,8 @@ import de.unibi.techfak.bibiserv.cms.TrunnableItem;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
 
 /**
  *
@@ -35,12 +31,12 @@ public class Bs2Document implements IBs2Document {
     
     /**
      * Wrapper class for the bs2-document.
-     * @param path path to the bs2-file
+     * @param ri runnableItem of the document
      * @throws JAXBException 
      */
-    public Bs2Document(String path) throws JAXBException
+    public Bs2Document(TrunnableItem ri) throws JAXBException
     {
-        this.runnableItem = loadBs2FileRootElement(path);
+        this.runnableItem = ri;
     }
 
     
@@ -229,22 +225,22 @@ public class Bs2Document implements IBs2Document {
     
     
     
-    /**
-     * Loads a bs2 file and un-marshalls it into POJOs.
-     * @param path path to the bs2-file
-     * @return TrunnableItem, which is the root of the bs2document.
-     * @throws JAXBException 
-     */
-    private TrunnableItem loadBs2FileRootElement(String path) throws JAXBException
-    {
-        Source source = new StreamSource(path);
-        JAXBContext ctx = JAXBContext.newInstance(new Class[] {TrunnableItem.class});
-        Unmarshaller unmarshaller = ctx.createUnmarshaller();
-        TrunnableItem root = unmarshaller.unmarshal(source, TrunnableItem.class).getValue();
-        
-        return root;
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    /**
+//     * Loads a bs2 file and un-marshalls it into POJOs.
+//     * @param path path to the bs2-file
+//     * @return TrunnableItem, which is the root of the bs2document.
+//     * @throws JAXBException 
+//     */
+//    private void setRunnableItem(String path) throws JAXBException
+//    {
+//        Source source = new StreamSource(path);
+//        JAXBContext ctx = JAXBContext.newInstance(new Class[] {TrunnableItem.class});
+//        Unmarshaller unmarshaller = ctx.createUnmarshaller();
+//        TrunnableItem root = unmarshaller.unmarshal(source, TrunnableItem.class).getValue();
+//        
+//        this.runnableItem = runnableItem;
+////        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     
     

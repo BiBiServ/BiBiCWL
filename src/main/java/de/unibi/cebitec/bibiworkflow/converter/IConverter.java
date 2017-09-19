@@ -7,6 +7,7 @@ package de.unibi.cebitec.bibiworkflow.converter;
 
 import de.unibi.cebitec.bibiworkflow.cwl.CwlTool;
 import de.unibi.techfak.bibiserv.cms.Tfunction;
+import de.unibi.techfak.bibiserv.cms.TrunnableItem;
 import java.net.URL;
 import java.util.List;
 
@@ -18,6 +19,6 @@ public interface IConverter {
     
     
     
-    public List<CwlTool> convertBs2ToCwlTool(String path) throws Exception;
+    public CwlTool convertBs2ToCwlTool(TrunnableItem runnableItem) throws Exception;
     
 }
