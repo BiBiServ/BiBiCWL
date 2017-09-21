@@ -7,10 +7,8 @@ package de.unibi.cebitec.bibiworkflow.gui;
 
 
 
-import de.unibi.cebitec.bibiworkflow.app.IControl;
 import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
-import de.unibi.cebitec.bibiworkflow.io.FileHandler;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

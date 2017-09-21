@@ -64,7 +64,7 @@ public class Bs2Document implements IBs2Document {
                 /*
                 additionalStrings have to be saved separately in a hashmap with 
                 custom key each so that they can be found again via the 
-                their reference key. (This is because this function shoudl just
+                their reference key. (This is because this function should just
                 return references.)
                 */
                 String key = "additionalString_" + e.toString();
@@ -208,6 +208,15 @@ public class Bs2Document implements IBs2Document {
             return enumParam;
         }
     }
+    
+    
+    @Override
+    public String getAdditionalStringById(String id)
+    {
+        String additionalString = this.additionalStrings.get(id);
+        
+        return additionalString;
+    }
 
     
     
@@ -225,39 +234,77 @@ public class Bs2Document implements IBs2Document {
     
     
     
-//    /**
-//     * Loads a bs2 file and un-marshalls it into POJOs.
-//     * @param path path to the bs2-file
-//     * @return TrunnableItem, which is the root of the bs2document.
-//     * @throws JAXBException 
-//     */
-//    private void setRunnableItem(String path) throws JAXBException
-//    {
-//        Source source = new StreamSource(path);
-//        JAXBContext ctx = JAXBContext.newInstance(new Class[] {TrunnableItem.class});
-//        Unmarshaller unmarshaller = ctx.createUnmarshaller();
-//        TrunnableItem root = unmarshaller.unmarshal(source, TrunnableItem.class).getValue();
-//        
-//        this.runnableItem = runnableItem;
-////        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-
+    /**
+     * Checks what type of "input" an id is pointing at. The function checks 
+     * all TinputOutputs, Tparams, TenumParams of the TrunnableItem and the 
+     * additionalStrings list of the bs2Document.
+     * @param id ID of the object to be
+     * @return type or null (if didn't find ID)
+     */
+    @Override
+    public InputType getTypeOfInputArgumentsById(String id)
+    {
+        InputType type = null;
+        
+        // search inputs for the given id
+        for (TinputOutput input : this.runnableItem.getExecutable().getInput())
+        {
+            String inputId = input.getId();
+            if (inputId.equals(id))
+            {
+                type = InputType.input;
+            }
+        }
+        
+        // search params for given id
+        for (Tparam param : this.runnableItem.getExecutable().getParam())
+        {
+            String paramId = param.getId();
+            if (paramId.equals(id))
+            {
+                type = InputType.param;
+            }
+        }
+        
+        // search enumParams for given id
+        for (TenumParam eparam : this.runnableItem.getExecutable().getEnumParam())
+        {
+            String eParamId = eparam.getId();
+            if (eParamId.equals(id))
+            {
+                type = InputType.enumParam;
+            }
+        }
+        
+        // search the additionalStrings
+        for (String key : this.additionalStrings.keySet())
+        {
+            if (key.equals(id))
+            {
+                type = InputType.additionalString;
+            }
+        }
+        
+        return type;
+    }
     
     
     
     @Override
-    public int getPositionOfInput(Tfunction.Inputref inputref) 
+    public int getPositionOfInput(Tfunction.Inputref inputref)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public int getPositionOfParameter(TenumParam enumparam) {
+    public int getPositionOfParameter(TenumParam enumparam)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public int getPositionOfParameter(Tparam param) {
+    public int getPositionOfParameter(Tparam param)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

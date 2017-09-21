@@ -10,7 +10,6 @@ import de.unibi.techfak.bibiserv.cms.Tfunction;
 import de.unibi.techfak.bibiserv.cms.Tfunction.Inputref;
 import de.unibi.techfak.bibiserv.cms.TinputOutput;
 import de.unibi.techfak.bibiserv.cms.Tparam;
-import de.unibi.techfak.bibiserv.cms.TparamGroup.Paramref;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,5 +51,22 @@ public interface IBs2Document {
      * @return 
      */
     String getBaseCommand();
+    
+    
+    /**
+     * Checks what type of "input" an id is pointing at. The function checks 
+     * all TinputOutputs, Tparams, TenumParams of the TrunnableItem and the 
+     * additionalStrings list of the bs2Document.
+     * @param id ID of the object to be
+     * @return type of the input or null if didn't find ID
+     */
+    InputType getTypeOfInputArgumentsById(String id);
+    
+    /**
+     * Gets the "additionalString" with the assigned id.
+     * @param id
+     * @return 
+     */
+    String getAdditionalStringById(String id);
     
 }

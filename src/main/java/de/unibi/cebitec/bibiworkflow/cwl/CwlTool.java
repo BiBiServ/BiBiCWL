@@ -132,6 +132,11 @@ public class CwlTool implements ICwlTool {
     public void addArgument(String argument) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void setBaseCommand(String baseCommad) {
+        this.baseCommand = baseCommad;
+    }
   
     
     

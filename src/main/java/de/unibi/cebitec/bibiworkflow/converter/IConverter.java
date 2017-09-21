@@ -6,10 +6,7 @@
 package de.unibi.cebitec.bibiworkflow.converter;
 
 import de.unibi.cebitec.bibiworkflow.cwl.CwlTool;
-import de.unibi.techfak.bibiserv.cms.Tfunction;
 import de.unibi.techfak.bibiserv.cms.TrunnableItem;
-import java.net.URL;
-import java.util.List;
 
 /**
  *

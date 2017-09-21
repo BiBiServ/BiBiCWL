@@ -72,4 +72,13 @@ public interface ICwlTool {
      * @param argument 
      */
     public void addArgument(String argument);
+    
+    
+    /**
+     * Sets the base command of the CWL-Tool. If a base command is set, the 
+     * CWL-Tool will use it as first argument on the command line (to start a
+     * a program/ workflow.
+     * @param baseCommand 
+     */
+    public void setBaseCommand(String baseCommand);
 }

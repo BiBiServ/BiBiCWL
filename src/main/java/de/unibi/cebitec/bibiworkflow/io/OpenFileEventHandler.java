@@ -5,7 +5,6 @@
  */
 package de.unibi.cebitec.bibiworkflow.io;
 
-import de.unibi.cebitec.bibiworkflow.io.FileHandler;
 import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.stage.FileChooser;
