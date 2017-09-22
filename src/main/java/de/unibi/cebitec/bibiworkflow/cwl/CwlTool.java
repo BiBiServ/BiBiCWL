@@ -119,7 +119,7 @@ public class CwlTool implements ICwlTool {
     
     
     @Override
-    public void addInput(String id, String type, int position, String prefix, boolean separate) {
+    public void addInput(int position, String id, String type, String prefix, boolean separate) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -129,7 +129,7 @@ public class CwlTool implements ICwlTool {
     }
 
     @Override
-    public void addArgument(String argument) {
+    public void addArgument(int position, String argument) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

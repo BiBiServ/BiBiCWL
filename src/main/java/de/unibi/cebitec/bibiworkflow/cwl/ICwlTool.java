@@ -47,7 +47,7 @@ public interface ICwlTool {
      * @param prefix
      * @param separate 
      */
-    public void addInput(String id, String type, int position, String prefix, boolean separate);
+    public void addInput(int position, String id, String type, String prefix, boolean separate);
     
     
     /**
@@ -71,7 +71,7 @@ public interface ICwlTool {
      * Adds an argument to the CWLTool
      * @param argument 
      */
-    public void addArgument(String argument);
+    public void addArgument(int position, String argument);
     
     
     /**
