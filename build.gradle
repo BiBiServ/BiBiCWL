@@ -18,6 +18,9 @@ repositories {
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
     
+    // use maven central
+    mavenCentral()
+
     // bibiserv stuff is hosted on jitpack.io
     maven { url 'https://jitpack.io' }
 }
@@ -28,7 +31,12 @@ dependencies {
     
     // get bibiserv abstraction from jitpack.io
     compile 'com.github.BiBiServ.bibiserv:bibiservabstraction:2.1.0'
-
+    
+    // add jackson yaml functionality
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.0'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.0'
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.9.0'
+    
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
 }
@@ -36,3 +44,9 @@ dependencies {
 // Define the main class for the application
 mainClassName = 'de/unibi/cebitec/bibiworkflow/app/App'
 
+
+
+task copyDeps(type: Copy) {
+  from configurations.runtime
+  into 'build/lib'
+}
