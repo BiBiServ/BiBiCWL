@@ -49,6 +49,10 @@ public interface ICwlTool {
      */
     public void addInput(int position, String id, String type, String prefix, boolean separate);
     
+    public void addInput(int position, String id, String type, String prefix, boolean separate, String fileType);
+    
+    public void addInput(int position, String id, String type, String prefix, boolean separate, int min, int max);
+    
     
     /**
      * Adds an output to the outputs ArrayList of the the CWLTool.

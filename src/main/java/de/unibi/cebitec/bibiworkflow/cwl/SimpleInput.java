@@ -9,20 +9,14 @@ package de.unibi.cebitec.bibiworkflow.cwl;
  *
  * @author pol3waf
  */
-abstract class Input 
-{
-    protected String id;
-    
-    protected String type;
-    
-    protected InputBinding inputBinding;
-    
-    protected String format;
+class SimpleInput extends Input {
     
     
-    
-    protected String getId()
+    public SimpleInput(int position, String id, String type, String prefix, boolean seprate)
     {
-        return this.id;
+        super.id = id;
+        super.type = type;
+        super.inputBinding = new InputBinding(prefix, seprate, position);
     }
+    
 }

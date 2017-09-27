@@ -6,6 +6,7 @@
 package de.unibi.cebitec.bibiworkflow.cwl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,7 +29,7 @@ public class CwlTool implements ICwlTool {
      * _List_ of inputs of the CWL-Tool. This member variable will be read when 
      * writing the CWL-Tool into a file.
      */
-    private ArrayList<Input> inputs;
+    private ArrayList<SimpleInput> inputs;
     /**
      * _List_ of outputs of the CWL-Tool. This member variable will be read when 
      * writing the CWL-Tool into a file.
@@ -87,19 +88,6 @@ public class CwlTool implements ICwlTool {
     
     
     
-    
-    
-    private void addInput(String id, String type, InputBinding inputBinding) {
-        Input input = new Input(id, type, inputBinding);
-        this.inputs.add(input);
-    }
-
-    
-    private void addOutput(String id, String type, InputBinding outputBinding) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
     /**
      * 
      * @param requirementClassEnum 
@@ -120,6 +108,21 @@ public class CwlTool implements ICwlTool {
     
     @Override
     public void addInput(int position, String id, String type, String prefix, boolean separate) {
+        SimpleInput input = new SimpleInput(position, id, type, prefix, separate);
+        
+        inputs.add(input);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    @Override
+    public void addInput(int position, String id, String type, String prefix, boolean separate, String fileType) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    @Override
+    public void addInput(int position, String id, String type, String prefix, boolean separate, int min, int max) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -136,6 +139,11 @@ public class CwlTool implements ICwlTool {
     @Override
     public void setBaseCommand(String baseCommad) {
         this.baseCommand = baseCommad;
+    }
+
+
+    public void addExclusiveMultiFieldInput(int position, String id, HashMap<String, String> options) {
+        MultiFieldInput mfi = new MultiFieldInput(position, id, options);
     }
   
     

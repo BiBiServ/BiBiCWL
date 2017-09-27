@@ -50,7 +50,7 @@ public interface IBs2Document {
      * @param function the function
      * @return 
      */
-    String getBaseCommand();
+    String getBaseCommand() throws Exception;
     
     
     /**
@@ -60,13 +60,13 @@ public interface IBs2Document {
      * @param id ID of the object to be
      * @return type of the input or null if didn't find ID
      */
-    InputType getTypeOfInputArgumentsById(String id);
+    InputType getTypeOfInputArgumentsById(String id) throws Exception;
     
     /**
      * Gets the "additionalString" with the assigned id.
      * @param id
      * @return 
      */
-    String getAdditionalStringById(String id);
+    String getAdditionalStringById(String id) throws Exception;
     
 }

@@ -211,7 +211,7 @@ public class Bs2Document implements IBs2Document {
     
     
     @Override
-    public String getAdditionalStringById(String id)
+    public String getAdditionalStringById(String id) throws Exception
     {
         String additionalString = this.additionalStrings.get(id);
         
@@ -226,7 +226,8 @@ public class Bs2Document implements IBs2Document {
      * @return base command
      */
     @Override
-    public String getBaseCommand() {
+    public String getBaseCommand() throws Exception
+    {
         String baseCommand = this.runnableItem.getExecutable().getExecInfo().getCallingInformation();
         return baseCommand;
     }
@@ -288,6 +289,14 @@ public class Bs2Document implements IBs2Document {
         return type;
     }
     
+    
+    
+    
+    
+    
+    
+    
+    /// to be removed ------------------------------------------------------
     
     
     @Override
