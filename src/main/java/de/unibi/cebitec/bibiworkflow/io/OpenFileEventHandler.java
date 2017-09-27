@@ -44,7 +44,7 @@ public class OpenFileEventHandler implements javafx.event.EventHandler<ActionEve
         openFileStage.setAlwaysOnTop(true);
         
         File file = fc.showOpenDialog(openFileStage);
-        fileHandler.setFile(file);
+        fileHandler.setInFile(file);
     }
     
     
