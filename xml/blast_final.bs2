@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns4:runnableItem xmlns:ns2="bibiserv:de.unibi.techfak.bibiserv.cms.microhtml" xmlns:ns3="bibiserv:de.unibi.techfak.bibiserv.cms.minihtml" xmlns:ns4="bibiserv:de.unibi.techfak.bibiserv.cms" xmlns:ns5="http://java.sun.com/dtd/jnlp-6.0.dtd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="blast" xsi:schemaLocation="bibiserv:de.unibi.techfak.bibiserv.cms http://bibiserv.techfak.uni-bielefeld.de/xsd/bibiserv2/BiBiServAbstraction.xsd">
+    <ns4:name xml:lang="en">Blast</ns4:name>
+    <ns4:shortDescription xml:lang="en">The Basic Local Alignment Search Tool (BLAST) finds regions of local similarity between sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance of matches. BLAST can be used to infer functional and evolutionary relationships between sequences as well as help identify members of gene families. </ns4:shortDescription>
+    <ns4:description xml:lang="en">
+        
+    
+    
+    
+    
+    <ns2:p>
+The 
+        
+        <ns2:strong>B</ns2:strong>asic 
+        
+        <ns2:strong>L</ns2:strong>ocal 
+        
+        <ns2:strong>A</ns2:strong>lignment Search Tool (
+        
+        <ns2:strong>BLAST</ns2:strong>) is the most widely used 
+sequence similarity tool. There are versions of BLAST that compare 
+protein queries to protein databases, nucleotide queries to nucleotide 
+databases, as well as versions that translate nucleotide queries or 
+databases in all six frames and compare to protein databases or queries.
+ </ns2:p>
+        
+    
+    
+    
+    
+    <ns2:p/>
+        
+    
+    
+    
+    
+    <ns2:p>BLAST calculates the statistical
+significance of matches. BLAST can be used to infer functional and
+evolutionary relationships between sequences as well as help identify
+members of gene families. </ns2:p>
+        
+    
+    <ns2:p>
+            
+        
+        <ns2:a href="http://blast.ncbi.nlm.nih.gov/Blast.cgi">http://blast.ncbi.nlm.nih.gov/Blast.cgi</ns2:a>
+        </ns2:p>
+    
+</ns4:description>
+    <ns4:toolTipText xml:lang="en">The Basic Local Alignment Search Tool (BLAST) finds regions of local similarity between sequences.</ns4:toolTipText>
+    <ns4:keywords xml:lang="en">BLAST similarities evolutionary relationships</ns4:keywords>
+    <ns4:responsibleAuthor>
+        <ns4:firstname>S.F.</ns4:firstname>
+        <ns4:lastname>Altschul</ns4:lastname>
+        <ns4:organisation>NCBI</ns4:organisation>
+        <ns4:email>info@ncbi.nlm.nih.gov</ns4:email>
+    </ns4:responsibleAuthor>
+    <ns4:references>
+        <ns4:reference>@article{alt:gis:mil:mye:lip:1990,
+author={Altschul, S. F. and Gish, W. and Miller, W. and Myers, E. W. and Lipman, D. J.},
+title={Basic local alignment search tool},
+journal={J. Mol. Biol.},
+year={1990},
+note={215: 403-410}}</ns4:reference>
+    </ns4:references>
+    <ns4:executable>
+        <ns4:version>1</ns4:version>
+        <ns4:execInfo>
+            <ns4:path></ns4:path>
+            <ns4:callingInformation>docker_run.bash</ns4:callingInformation>
+        </ns4:execInfo>
+        <ns4:input id="blast_input_nucleotide_search_sequence">
+            <ns4:name xml:lang="en">Nucleotide Search Sequence</ns4:name>
+            <ns4:shortDescription xml:lang="en">The query sequence of the search.</ns4:shortDescription>
+            <ns4:description xml:lang="en">
+
+    
+    
+    
+    
+    
+    
+    
+    <ns2:p>
+The query sequence that is searched in the database.</ns2:p>
+                
+    
+    
+    
+    
+    
+    
+    
+    <ns2:p/>
+                
+    
+    
+    
+    
+    
+    
+    
+    <ns2:p>Sequences are expected to be represented in the standard IUB/IUPAC nucleic acid codes. Lower case letters and upper case letters are handled the same way.</ns2:p>
+
+</ns4:description>
+            <ns4:type>Fasta_NAamb</ns4:type>
+            <ns4:handling>file</ns4:handling>
+            <ns4:option>-y </ns4:option>
+            <ns4:streamsSupported>false</ns4:streamsSupported>
+        </ns4:input>
+        <ns4:output id="blast_output_blast_output">
+            <ns4:name xml:lang="en">Blast Output</ns4:name>
+            <ns4:shortDescription xml:lang="en">A text-file containing the output of a blast call.</ns4:shortDescription>
+            <ns4:description xml:lang="en">
+                
+    
+    
+    
+    
+    
+    
+    
+    <ns2:p>
+A text-file containing the output of a blast call. The format is defined by the 
+        
+        
+        
+        
+        
+        
+        
+        <ns2:em>alignment view option </ns2:em>parameter.</ns2:p>
+            </ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>stdout</ns4:handling>
+        </ns4:output>
+        <ns4:outputfile id="blast_additionaloutput_krona">
+            <ns4:name xml:lang="en">Krona Plot</ns4:name>
+            <ns4:filename>result.krona.html</ns4:filename>
+            <ns4:contenttype>application/html</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:param id="blast_parameter_gap_extend">
+            <ns4:name xml:lang="en">Gap Extend</ns4:name>
+            <ns4:shortDescription xml:lang="en">Cost to extend a gap.</ns4:shortDescription>
+            <ns4:description xml:lang="en">
+Cost to extend a gap in the alignment.
+</ns4:description>
+            <ns4:type>int</ns4:type>
+            <ns4:option>-gapextend </ns4:option>
+            <ns4:defaultValue>2</ns4:defaultValue>
+            <ns4:min included="true">1.0</ns4:min>
+            <ns4:max included="true">10000.0</ns4:max>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="blast_parameter_match_reward">
+            <ns4:name xml:lang="en">Match Reward</ns4:name>
+            <ns4:shortDescription xml:lang="en">Reward for nucleotide matches.</ns4:shortDescription>
+            <ns4:description xml:lang="en">
+Reward for nucleotide matches.
+</ns4:description>
+            <ns4:type>int</ns4:type>
+            <ns4:option>-reward </ns4:option>
+            <ns4:defaultValue>1</ns4:defaultValue>
+            <ns4:min included="true">1.0</ns4:min>
+            <ns4:max included="true">10000.0</ns4:max>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="blast_parameter_gap_open">
+            <ns4:name xml:lang="en">Gap Open</ns4:name>
+            <ns4:shortDescription xml:lang="en">Cost for Opening a gap.</ns4:shortDescription>
+            <ns4:description xml:lang="en">
+                
+    
+    
+    
+    
+    
+    
+    
+    <ns2:p>
+Cost for opening a gap in the alignment.</ns2:p>
+            </ns4:description>
+            <ns4:type>int</ns4:type>
+            <ns4:option>-gapopen </ns4:option>
+            <ns4:defaultValue>5</ns4:defaultValue>
+            <ns4:min included="true">1.0</ns4:min>
+            <ns4:max included="true">10000.0</ns4:max>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="blast_parameter_mismatch_penalty">
+            <ns4:name xml:lang="en">Mismatch Penalty</ns4:name>
+            <ns4:shortDescription xml:lang="en">Penalty for nucleotide mismatches.</ns4:shortDescription>
+            <ns4:description xml:lang="en">
+Penalty for nucleotide mismatches.
+</ns4:description>
+            <ns4:type>int</ns4:type>
+            <ns4:option>-penalty </ns4:option>
+            <ns4:defaultValue>-3</ns4:defaultValue>
+            <ns4:min included="true">-1000.0</ns4:min>
+            <ns4:max included="true">0.0</ns4:max>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="blast_parameter_reported_hits">
+            <ns4:name xml:lang="en">Reported Hits</ns4:name>
+            <ns4:shortDescription xml:lang="en">Maximal number of reported hits per sequence.</ns4:shortDescription>
+            <ns4:description xml:lang="en">
+
+    <ns2:p>
+Maximal number of reported hits per sequence. This option limits the number of hits shown by BLAST.</ns2:p>
+</ns4:description>
+            <ns4:type>int</ns4:type>
+            <ns4:option>-max_target_seqs </ns4:option>
+            <ns4:defaultValue>500</ns4:defaultValue>
+            <ns4:min included="true">1.0</ns4:min>
+            <ns4:max included="true">1000.0</ns4:max>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        <ns4:enumParam id="blast_parameter_algorithm" minoccurs="1" maxoccurs="1">
+            <ns4:name xml:lang="en">Algorithm</ns4:name>
+            <ns4:shortDescription xml:lang="en">The algorithm that is used for BLAST.</ns4:shortDescription>
+            <ns4:description xml:lang="en">
+    
+    
+    <ns2:p>
+The algorithm that is used for BLAST. Either BLASTN or MEGABLAST.</ns2:p>
+</ns4:description>
+            <ns4:type>string</ns4:type>
+            <ns4:option> -task </ns4:option>
+            <ns4:separator>,</ns4:separator>
+            <ns4:values defaultValue="false">
+                <ns4:key>blastn</ns4:key>
+                <ns4:value>blastn</ns4:value>
+                <ns4:name xml:lang="en">BLASTN</ns4:name>
+            </ns4:values>
+            <ns4:values defaultValue="true">
+                <ns4:key>megablast</ns4:key>
+                <ns4:value>megablast</ns4:value>
+                <ns4:name xml:lang="en">MEGABLAST</ns4:name>
+            </ns4:values>
+            <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
+        </ns4:enumParam>
+        <ns4:paramGroup id="blast_paramgroup_costs_and_rewards">
+            <ns4:name xml:lang="en">Costs and Rewards</ns4:name>
+            <ns4:description xml:lang="en">
+                
+    
+    
+    
+    
+    
+    
+    
+    <ns2:p>
+These parameters define the costs and rewards for mismatches, gaps and matches of the alignment.</ns2:p>
+            </ns4:description>
+            <ns4:paramref ref="blast_parameter_gap_open"/>
+            <ns4:paramref ref="blast_parameter_gap_extend"/>
+            <ns4:paramref ref="blast_parameter_match_reward"/>
+            <ns4:paramref ref="blast_parameter_mismatch_penalty"/>
+        </ns4:paramGroup>
+        <ns4:paramGroup id="blast_paramgroup_general_parameters">
+            <ns4:name xml:lang="en">General Parameters</ns4:name>
+            <ns4:paramref ref="blast_parameter_algorithm"/>
+            <ns4:paramref ref="blast_parameter_reported_hits"/>
+        </ns4:paramGroup>
+        <ns4:function id="blast_function_nucleotide_blast_16s">
+            <ns4:name xml:lang="en">nucleotide blast 16S</ns4:name>
+            <ns4:shortDescription xml:lang="en">Search a nucleotide query against the 16SMicrobial database.</ns4:shortDescription>
+            <ns4:inputref ref="blast_input_nucleotide_search_sequence"/>
+            <ns4:outputref ref="blast_output_blast_output"/>
+            <ns4:outputfileref ref="blast_additionaloutput_krona"/>
+            <ns4:paramGroup id="blast_paramgroup_blastn">
+                <ns4:paramGroupref ref="blast_paramgroup_costs_and_rewards"/>
+                <ns4:paramGroupref ref="blast_paramgroup_general_parameters"/>
+            </ns4:paramGroup>
+            <ns4:paramAndInputOutputOrder>
+                <ns4:additionalString>-p -c "blastn</ns4:additionalString>
+                <ns4:reference>blast_parameter_match_reward</ns4:reference>
+                <ns4:reference>blast_parameter_gap_open</ns4:reference>
+                <ns4:reference>blast_parameter_mismatch_penalty</ns4:reference>
+                <ns4:reference>blast_parameter_gap_extend</ns4:reference>
+                <ns4:reference>blast_parameter_algorithm</ns4:reference>
+                <ns4:reference>blast_parameter_reported_hits</ns4:reference>
+                <ns4:additionalString>"</ns4:additionalString>
+                <ns4:reference>blast_input_nucleotide_search_sequence</ns4:reference>
+                <ns4:reference>blast_output_blast_output</ns4:reference>
+            </ns4:paramAndInputOutputOrder>
+            <ns4:example>
+                <ns4:name xml:lang="en">3 short 16S sequences</ns4:name>
+                <ns4:description xml:lang="en"></ns4:description>
+                <ns4:prop idref="blast_input_nucleotide_search_sequence">PmdpfDQ0NDMwMzkxMXxyZWZ8TlJfMDc0MzM0LjF8IEFyY2hhZW9nbG9idXMgZnVsZ2lkdXMgc3Ry&#xD;
+YWluIERTTSA0MzA0IDE2UyByaWJvc29tYWwgUk5BIGdlbmUsIGNvbXBsZXRlIHNlcXVlbmNlDQpB&#xD;
+VFRDVEdHVFRHQVRDQ1RHQ0NBR0FHR0NDR0NUR0NUQVRDQ0dHQ1RHR0dBQ1RBQUdDQ0FUR0NHQUdU&#xD;
+Q0FBR0dHR0NUVEdUQVRDQ0NUVENHRw0KR0dBVEdDQUFHQ0FDQ0dHQ0dHQUNHR0NUQ0FHVEFBQ0FD&#xD;
+R1RHR0FDQUFDQ1RHQ0NDVENHR0dUR0dHR0dBVEFBQ0NDQ0dHR0FBQUNUR0dHR0MNClRBQVRDQ0ND&#xD;
+Q0FUQUdHR0dBVEdHR1RBQ1RHR0FBVEdUQ0NDQVRDVENDR0FBQUdDR0NUVEFHQ0dDQ0NHQUdHQVRH&#xD;
+R0dUQ1RHQ0dHQ0dHQVRUDQpBR0dUVEdUVEdHVEdHR0dUQUFDR0dDQ0NBQ0NBQUdDQ0dBQUdBVEND&#xD;
+R1RBQ0dHR0NDQVRHQUdBR1RHR0dBR0NDQ0dHQUdBVEdHQUNDQ1RHQQ0KR0FDQUNHR0dUQ0NBR0dD&#xD;
+Q0NUQUNHR0dHQ0dDQUdDQUdHQ0dDR0FBQUNDVENDR0NBQVRHQ0dHR0FBQUNDR0NHQUNHR0dHVENB&#xD;
+R0NDR0dBR1QNCkdDVENHQ0dDQVRDR0NHQ0dHR0NUR1RDR0dHR1RHQ0NUQUFBQUFHQ0FDQ0NDQUNB&#xD;
+R0NBQUdHR0NDR0dHQ0FBR0dDQ0dHVEdHQ0FHQ0NHQ0NHDQpDR0dUQUFUQUNDR0dDR0dDQ0NHQUdU&#xD;
+R0dDR0dDQ0FDVFRUVEFUVEdHR0NDVEFBQUdDR1RDQ0dUQUdDQ0dHR0NUR0dUQUFHVENDVENDR0dH&#xD;
+QQ0KQUFUQ1RHR0NHR0NUVEFBQ0NHVENBR0FDVEdDQ0dHQUdHQVRBQ1RHQ0NBR0NDVEFHR0dBQ0NH&#xD;
+R0dBR0FHR0NDR0dHR0dUQVRUQ0NDR0dBR1QNCkFHR0dHVEdBQUFUQ0NUR1RBQVRDQ0NHR0dBR0dB&#xD;
+Q0NBQ0NUR1RHR0NHQUFHR0NHQ0NDR0dDVEdHQUFDR0dHVENDR0FDR0dUR0FHR0dBQ0dBDQpBR0dD&#xD;
+Q0FHR0dHQUdDR0FBQ0NHR0FUVEFHQVRBQ0NDR0dHVEFHVENDVEdHQ1RHVEFBQUNHQVRHQ0dHQUNU&#xD;
+QUdHVEdUQ0FDQ0dBQUdDVEFDRw0KQUdDVFRDR0dUR0dUR0NDR0dBR0dHQUFHQ0NHVFRBQUdUQ0NH&#xD;
+Q0NHQ0NUR0dHR0FHVEFDR0dDQ0dDQUFHR0NUR0FBQUNUVEFBQUdHQUFUVEcNCkdDR0dHR0dBR0NB&#xD;
+Q1RBQ0FBQ0dHR1RHR0FHQ0NUR0NHR1RUVEFBVFRHR0FUVENBQUNHQ0NHR0dBQUdDVFRBQ0NHR0dH&#xD;
+R0FHQUNBR0NHR0dBDQpUR0FBR0dUQ0dHR0NUR0FBR0FDQ1RUQUNDQUdBQ1RBR0NUR0FHQUdHVEdH&#xD;
+VEdDQVRHR0NDR0NDR1RDQUdUVENHVEFDVEdUR0FBR0NBVENDVA0KR1RUQUFHVENBR0dDQUFDR0FH&#xD;
+Q0dBR0FDQ0NHQ0dDQ0NDQ0FHVFRHQ0NBR0NHR1RUQ0NDVFRDR0dHR0FBR0NDR0dHQ0FDQUNUR0dH&#xD;
+R0dHQUMNClRHQ0NHR0NHQ1RBQUdDQ0dHQUdHQUFHR1RHQ0dHR0NBQUNHR0NBR0dUQ0NHVEFUR0ND&#xD;
+Q0NHQUFUQ0NDQ0NHR0dDVEFDQUNHQ0dHR0NUQUNBDQpBVEdHQ0NHR0dBQ0FBVEdHR1RBQ0NHQUND&#xD;
+Q0NHQUFBR0dHR1RBR0dUQUFUQ0NDQ1RBQUFDQ0NHR1RDVEFBQ0NUR0dHQVRDR0FHR0dDVEdDQQ0K&#xD;
+QUNUQ0dDQ0NUQ0dUR0FBQ0NUR0dBQVRDQ0dUQUdUQUFUQ0dDR0NDVENBQUFBVEdHQ0dDR0dUR0FB&#xD;
+VEFDR1RDQ0NUR0NUQ0NUVEdDQUNBQ0ENCkNDR0NDQ0dUQ0FBR0NDQUNDQ0dBR1RHR0dDQ0FHR0dH&#xD;
+Q0dBR0dHR0dUR0dDQ0NUQUdHQ0NBQ0NUVENHQUdDQ0NBR0dHVENDR0NHQUdHR0dHDQpHQ1RBQUdU&#xD;
+Q0dUQUFDQUFHR1RBR0NDR1RBR0dHR0FBVENUR0NHR0NUR0dBVENBQ0NUQ0NUDQo+Z2l8MzQzMjA2&#xD;
+MjQ2fHJlZnxOUl8wNDQ4MzguMXwgQXRvcG9iaXVtIG1pbnV0dW0gc3RyYWluIE5DRkIgMjc1MSAx&#xD;
+NlMgcmlib3NvbWFsIFJOQSBnZW5lLCBjb21wbGV0ZSBzZXF1ZW5jZQ0KVFRHQUFDR0dBR0FHVFRD&#xD;
+R0FOQ0NUR0dDVENBR0dBVEdBQUNHQ1RHR0NHR0NHQ0dDQ1RBQUNBQ0FUR0NBQUdUQ0dBQUNHQVRU&#xD;
+QUFBR0NBVEMNClRUVFRBR0FUR1RHVEFUQUFBR1RHR0NHQUFDR0dDVEdBR1RBQUNBQ0dUR0dHQ0FB&#xD;
+Q0NUR0NDQ1RUVFRDVFRUR0dHQVRBR0NUQUNHR0dBQUFDDQpDR1RHR0dUQUFUQUNDR0FBVEFUVFRD&#xD;
+VFRHQUdUR1RDR0NBVEdHQ0FDQUNBQUdBQ0FBQUdDR1RDVEFHQ0dHQUFBQUdHQVRHR0dDQ0NHQ0dH&#xD;
+Qw0KQ1RHVFRBR0NUVEdUVEdHVEdHR0dUQUFUR0dDQ1RBQ0NBQUdHQ0FHVFRBVEdHR1RBR0NDR0dH&#xD;
+VFRHQUdBR0FDQ0dBQ0NHR0NDQUdBVFRHR0cNCkFDVEdBR0FDQUNHR0NDQ0FHQUNUQ0NUQUNHR0dB&#xD;
+R0dDQUdDQUdUR0dHR0FBVENUVEdDR0NBQVRHR0dHR0FBQUNDQ1RHQUNHQ0FHQ0dBQ0dDDQpDR0NH&#xD;
+VEdDR0dHQVRHQUFHR0NDVFRDR0dHVFRHVEFBQUNDR0NUVFRDQUdDQUdHR0FDR0FHR0NDR0NBQUdH&#xD;
+VEdBQ0dHVEFDQ1RHQ0FHQUFHQQ0KQUdDVENDR0dDVEFBQVRBQ0dUR0NDQUdDQUdDQ0dDR0dUQUFU&#xD;
+QUNHVEFUR0dBR0NBQUdDR1RUQVRDQ0dHQVRUQ0FUVEdHR0NHVEFBQUdDR0MNClRDR1RBR0dDR0dU&#xD;
+Q1RHVFRBR0dUQ0dHVEFBR1RUQUFBVENDR0dHR0dDVENBQUNDQ0NDR1RDQ0dDVFRDQ0dBVEFDQ0dH&#xD;
+Q0FHQUNUVEdBR1RUDQpUR0dUQUdHR0dBQUdHVEdHQUFUVENDVEFHVEdUQUdDR0dUR0dBQVRHQ0dD&#xD;
+QUdBVEFUVEFHR0FBR0FBQ0FDQ0dHVEdHQ0dBQUdHQ0dHQ0NUVA0KQ1RHR0dDQ0FUQUFDVEdBQ0dD&#xD;
+VEdBR0dBR0NHQUFBR0NUQUdHR0dBR0NHQUFDQUdHQVRUQUdBVEFDQ0NUR0dUQUdUQ0NUQUdDQ0dU&#xD;
+QUFBQ0cNCkFUR0dBQ0FDVEFHR1RHVEdHR0dHR0FUR1RBQ0NUVENDR1RHQ0NHQ0FHQ1RBQUNHQ0FU&#xD;
+VEFBR1RHVENDQ0dDQ1RHR0dHQUdUQUNHQUNDR0NBDQpBR0dUVEFBQUFDVENBQUFHR0FBVFRHQUNH&#xD;
+R0dHR0NDQ0dDQUNBQUdDQUdDR0dBR0NBVEdUR0dDVFRBQVRUQ0dBQUdDQUFDR0NHQUFHQUFDQw0K&#xD;
+VFRBQ0NBR0dHQ1RUR0FDQVRUVEFHR1RHQUFHQ0dHQ0dHQUFBQ0dUQ0dUR0dDQ0dBQUFHR0FHQ0NU&#xD;
+QUFBQ0FHR1RHR1RHQ0FUR0dDVEdUQ0cNClRDQUdDVENHVEdUQ0dUR0FHQVRHVFRHR0dUVEFBR1RD&#xD;
+Q0NHQ0FBQ0dBR0NHQ0FBQ0NDVFRHVENHQ0FUR1RUR0NDQUdDQUdHVENBQUdDVEdHDQpHQ0FDQ0NH&#xD;
+VEdDR0FHQUNDR0NDR0dDR1RDQUFHQ0NHR0FHR0FBR0dUR0dHR0FDR0FDR1RDQUFHVENBVENBVEdD&#xD;
+Q0NDVFRBVEdUQ0NUR0dHQw0KVEdDQUNBQ0dUR0NUQUNBQVRHR1RDR0dDQUNBR0NHR0dBQUdDQUFB&#xD;
+Q1RUR0NHQUFBR1RBQUdDQ0FBVENDQ1RUQUFBR0NDR0dDQ0NDQUdUVEMNCkdHQVRUR0dBR0dDVEdD&#xD;
+QUFDQ0NHQ0NUQ0NBVEdBQUdUQ0dHQUdUVEdDVEFHVEFBVENHQ0dHQVRDQUdDQUNHQ0NHQ0dHVEdB&#xD;
+QVRHQ0dUVENDDQpDR0dHQ0NUVEdUQUNBQ0FDQ0dDQ0NHVENBQ0FDQ0FDQ0NHQUdUQ1RUVE5HQ0FD&#xD;
+Q0NHQUFHVENHVENHR0NDVEFBQ0NDR0NBQUdHR0FHR0dBRw0KR0NHQ0NHQUFHVEdUR0cNCj5naXwz&#xD;
+NDMyMDYyMzB8cmVmfE5SXzA0NDgyMi4xfCBQc2V1ZG9ub2NhcmRpYSBuaXRyaWZpY2FucyBzdHJh&#xD;
+aW4gSUZBTSAzNzkgMTZTIHJpYm9zb21hbCBSTkEgZ2VuZSwgcGFydGlhbCBzZXF1ZW5jZQ0KQUND&#xD;
+R0dBVEFOR0FDQ0FDVE5BVENHQ0FUTlRDR0dUR0dHVEdHQUFBR1RUVFRUVENHR1RHR0dHR0FUR0dD&#xD;
+Q0NHQ0dHQ0NUQVRDQUdDVE5HVFQNCkdHVEdHR0dUQUFUR0dDQ1RBQ0NBQUdHQ0dHVEdBQ0dHR1RB&#xD;
+R0NDR0dDQ1RHQUdBR0dHVEdBQ0NHR0NDQUNBQ1RHR0dBQ1RHQUdBQ0FDR0dDDQpDVEFHQUNUQ0NU&#xD;
+QUNHR0dBR0dDQUdDQUdUR0dHR0FBVEFUVEdDR0NBQVRHR0dDR0dBQUdDQ1ROQUNHQ0FHQ0dBQ0dD&#xD;
+Q0dDR1RHR0dHR0FURw0KQUNHR0NUVENHR0dUVEdUQUFBQ0NUQ1RUVENHQ0NBR0dHQUNHQUFHQUdD&#xD;
+QUFUVEdBQ0dHVEFHR1ROR0FHQUFHQUFHQ0FDQ0dHQ0NBQUNUQUMNCkdUR0NDQUdDQUdDQ0dDR0dU&#xD;
+QUFDQUNHVEFHR0dUR0NHQUdDR1RUR1RDQ0dHQUFUVEFUVEdHR0NHVEFBQUdBR0NUQ0dUQUdHQ0dH&#xD;
+VEdUR1RDDQpHQ0dUQ0dHQ0NHVEdBQUFBQ1RUR0dHR0NUVEFBQ1RDVEdBR0NHVEdDR0dUQ0dBVEFD&#xD;
+R0dHQ0FUQ0FDVFRHQUdUVENHR0NBR0dHR0FHQUNURw0KR0FBVFRDQ1RHR1RHVEFHQ0dHVEdBQUFU&#xD;
+R0NHQ0FHQVRBVENBR0dBR0dBQUNBQ0NHR1RHR0NHQUFHR0NHR0dOQ1RDVE5HR0NDR0FUQUNUR0EN&#xD;
+CkNHQ1RHQUdHQUdBR0FBQUdDR1RHR0dHQUdDR0FBQ0FHR0FUVEFHQVRBQ0NDVEdHVEFHVENDQUNH&#xD;
+Q0NHVEFBQUNHVFRHR0dDR0NUQUdHVEdUDQpHR0dHQUNDQVRUQ0NBQ0dHVFRUQ1RHVEdDQ0dDQUdD&#xD;
+VEFBQ0dDQVRUQUFHQ0dDQ0NDR0NDVEdHR0dBR1RBQ0dHQ0NHQ0FBR0dDVEFBQUFDVA==&#xD;
+</ns4:prop>
+            </ns4:example>
+        </ns4:function>
+    </ns4:executable>
+    <ns4:view type="submission" id="blast_view_submission">
+        <ns4:title xml:lang="en"></ns4:title>
+    </ns4:view>
+    <ns4:view type="webservice" id="blast_view_webservice">
+        <ns4:title xml:lang="en"></ns4:title>
+    </ns4:view>
+    <ns4:manual id="blast_manual_manual">
+        <ns4:introductoryText xml:lang="en">
+            
+    
+    
+    
+    
+    <ns2:p>
+The following versions of BLAST are available:</ns2:p>
+        </ns4:introductoryText>
+    </ns4:manual>
+</ns4:runnableItem>
