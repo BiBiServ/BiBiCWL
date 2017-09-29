@@ -9,24 +9,36 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
+ * Input with multiple fields which hold different values. Those
+ * input fields are designed as boolean CWL inputs and the contained values
+ * can therefore be toggled on or off when the CwlTool is invoked.
+ * The input fields of the MultiFieldInput are also designed to be exclusive,
+ * hence the use of one CommandInputRecord for each input field.
  * @author pol3waf
  */
-public class MultiFieldInput extends Input
+public class MultiFieldInput extends Input<ArrayList<CommandInputRecord>>
 {
-    private final ArrayList<CommandInputRecord> type = new ArrayList<>();
+    //private final ArrayList<CommandInputRecord> type = new ArrayList<>();
     
     private final String inputType = "boolean";
     
     
     
     
-    /*
-    Eventually this has to be handled differently ... give this class a list of inputs and let it decide how to use it ...
-    */
+    /**
+     * Creates an input with multiple fields which hold different values. Those
+     * input fields are designed as boolean CWL inputs and the contained values
+     * can therefore be toggled on or off when the CwlTool is invoked.
+     * The input fields of the MultiFieldInput are also designed to be exclusive,
+     * hence the use of one CommandInputRecord for each input field.
+     * @param position Position at which the MultiFieldInput fields should be put on the command line command
+     * @param id ID of the CWL Input
+     * @param options HashMap containing a identifier and the value (i.e. prefix) for each field
+     */
     public MultiFieldInput(int position, String id, HashMap<String, String> options)
     {
         super.id = id;
+        super.type = new ArrayList<>();
         this.addCommandInputRecords(position, options);
     }
     
@@ -44,6 +56,8 @@ public class MultiFieldInput extends Input
             String prefix = options.get(key);
             SimpleInput input = new SimpleInput(position, name, this.inputType, prefix, false);
             CommandInputRecord cir = new CommandInputRecord(input);
+            
+            super.type.add(cir);
         }
     }
     

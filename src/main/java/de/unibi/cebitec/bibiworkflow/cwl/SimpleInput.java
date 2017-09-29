@@ -9,7 +9,7 @@ package de.unibi.cebitec.bibiworkflow.cwl;
  *
  * @author pol3waf
  */
-class SimpleInput extends Input {
+class SimpleInput extends Input<String> {
     
     
     public SimpleInput(int position, String id, String type, String prefix, boolean seprate)

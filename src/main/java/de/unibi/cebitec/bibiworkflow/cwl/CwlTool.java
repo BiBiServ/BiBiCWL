@@ -218,6 +218,7 @@ public class CwlTool implements ICwlTool {
      */
     public void addExclusiveMultiFieldInput(int position, String id, HashMap<String, String> options) {
         MultiFieldInput mfi = new MultiFieldInput(position, id, options);
+        this.inputs.add(mfi);
     }
   
     

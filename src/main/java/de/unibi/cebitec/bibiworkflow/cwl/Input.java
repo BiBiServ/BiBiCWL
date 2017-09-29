@@ -9,11 +9,11 @@ package de.unibi.cebitec.bibiworkflow.cwl;
  *
  * @author pol3waf
  */
-abstract class Input 
+abstract class Input <T>
 {
     protected String id;
     
-    protected String type;
+    protected T type;
     
     protected InputBinding inputBinding;
     
