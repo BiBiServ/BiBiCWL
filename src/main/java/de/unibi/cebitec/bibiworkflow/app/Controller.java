@@ -6,10 +6,12 @@
 package de.unibi.cebitec.bibiworkflow.app;
 
 import de.unibi.cebitec.bibiworkflow.converter.IConverter;
+import de.unibi.cebitec.bibiworkflow.cwl.CwlTool;
 import de.unibi.cebitec.bibiworkflow.gui.IMainGui;
 import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.FileHandler;
 import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
+import de.unibi.cebitec.bibiworkflow.io.YamlWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -52,7 +54,11 @@ public class Controller implements IControl {
     public void convertToCWL()
     {
         try {
-            converter.convertBs2ToCwlTool(this.fileHandler.convertBs2ToRunnableItem());
+            CwlTool cwlTool = converter.convertBs2ToCwlTool(this.fileHandler.convertBs2ToRunnableItem());
+            YamlWriter ym = new YamlWriter();
+            String yamlText = ym.writeObjectToYaml(cwlTool);
+            System.out.println("\n\n----------" + yamlText + "----------\n\n");
+//            fileHandler.writeStringToFile(yamlText);
         } catch (Exception ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
