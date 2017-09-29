@@ -172,7 +172,7 @@ public class Converter implements IConverter {
                                                                 
         String prefix = input.getOption();                      // the option usually encompasses the separator in the bs2 format
         boolean separate = false;                               // should I really hard-code this?
-        cwlTool.addInput(position, id, type, prefix, separate, fileType);
+        cwlTool.addInputFile(position, id, prefix, separate, fileType);
     }
     
     

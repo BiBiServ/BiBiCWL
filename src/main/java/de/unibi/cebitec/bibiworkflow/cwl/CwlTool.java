@@ -29,7 +29,7 @@ public class CwlTool implements ICwlTool {
      * _List_ of inputs of the CWL-Tool. This member variable will be read when 
      * writing the CWL-Tool into a file.
      */
-    private ArrayList<SimpleInput> inputs;
+    private ArrayList<Input> inputs;
     /**
      * _List_ of outputs of the CWL-Tool. This member variable will be read when 
      * writing the CWL-Tool into a file.
@@ -47,6 +47,11 @@ public class CwlTool implements ICwlTool {
      * the CWL-Tool into a file.
      */
     private ArrayList<Requirement> requirementsList;
+    
+    
+    private Argument[] arguments;
+    
+    private ArrayList<Argument> argumentList;
     
     
     
@@ -103,45 +108,114 @@ public class CwlTool implements ICwlTool {
             Logger.getLogger(CwlTool.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
     
     
+    
+    /**
+     * Adds a simple input field to the list of inputs.
+     * @param position
+     * @param id
+     * @param type
+     * @param prefix
+     * @param separate 
+     */
     @Override
     public void addInput(int position, String id, String type, String prefix, boolean separate) {
         SimpleInput input = new SimpleInput(position, id, type, prefix, separate);
-        
         inputs.add(input);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
+    
+    /**
+     * Adds an input of type "File" to the list of inputs.
+     * @param position
+     * @param id
+     * @param type
+     * @param prefix
+     * @param separate
+     * @param fileType 
+     */
     @Override
-    public void addInput(int position, String id, String type, String prefix, boolean separate, String fileType) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addInputFile(int position, String id, String prefix, boolean separate, String fileType) {
+        FileInput input = new FileInput(position, id, prefix, separate, fileType);
+        this.inputs.add(input);
     }
     
     
+    
+    /**
+     * Adds a simple input to the list of inputs, but checks also adds input requirements to it.
+     * Input requirements can be minimum of maximum integer values.
+     * 
+     * /// SHOULD THIS REALLY BE USED??? ///
+     * 
+     * @param position
+     * @param id
+     * @param type
+     * @param prefix
+     * @param separate
+     * @param min
+     * @param max
+     */
     @Override
     public void addInput(int position, String id, String type, String prefix, boolean separate, int min, int max) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    
+    
+    /**
+     * Adds an output to the list of outputs.
+     * @param id
+     * @param type
+     * @param glob 
+     */
     @Override
     public void addOutput(String id, String type, String glob) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    
+    
+    /**
+     * Adds an Argument to the List of arguments.
+     * @param position position where the argument should be placed in the command line command
+     * @param argument the argument to be used
+     */
     @Override
-    public void addArgument(int position, String argument) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addArgument(int position, String argument)
+    {
+        Argument a = new Argument(position, argument);
+        this.argumentList.add(a);
     }
-
+    
+    
+    
+    /**
+     * Set the BaseCommand of the Tool. This can be left out but the CWL 
+     * implementation will then choose the fist argument or input as a 
+     * substitute.
+     * @param baseCommad 
+     */
     @Override
-    public void setBaseCommand(String baseCommad) {
+    public void setBaseCommand(String baseCommad) 
+    {
         this.baseCommand = baseCommad;
     }
-
-
+    
+    
+    
+    /**
+     * Adds an input to the list of inputs which contains several input fields
+     * which are exclusive to each other.
+     * Those sub-input-fields will be created as boolean inputs but their prefix 
+     * will contain the relevant information so that they act as switches which 
+     * can be turned on or off when invoking the CWL tool.
+     * @param position position at which the chosen option should be placed on the command line
+     * @param id id of the input
+     * @param options HashMap containing an identifier for each sub-input-field and the prefix to be used
+     */
     public void addExclusiveMultiFieldInput(int position, String id, HashMap<String, String> options) {
         MultiFieldInput mfi = new MultiFieldInput(position, id, options);
     }
