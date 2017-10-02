@@ -31,7 +31,7 @@ public class ConvertBs2ToCwlEventHandler implements javafx.event.EventHandler<Ac
     @Override
     public void handle(ActionEvent event)
     {
-        controller.convertToCWL();
+        controller.convertBs2ToCWL();
     }
     
 }

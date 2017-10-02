@@ -11,6 +11,6 @@ package de.unibi.cebitec.bibiworkflow.app;
  */
 public interface IControl {
 
-    void convertToCWL();
+    void convertBs2ToCWL();
     
 }

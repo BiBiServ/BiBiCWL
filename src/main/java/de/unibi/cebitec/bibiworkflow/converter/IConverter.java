@@ -7,6 +7,9 @@ package de.unibi.cebitec.bibiworkflow.converter;
 
 import de.unibi.cebitec.bibiworkflow.cwl.CwlTool;
 import de.unibi.techfak.bibiserv.cms.TrunnableItem;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -16,6 +19,6 @@ public interface IConverter {
     
     
     
-    public CwlTool convertBs2ToCwlTool(TrunnableItem runnableItem) throws Exception;
+    public HashMap<String, CwlTool> convertBs2(TrunnableItem runnableItem) throws Exception;
     
 }

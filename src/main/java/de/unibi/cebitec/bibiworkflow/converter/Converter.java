@@ -23,7 +23,6 @@ import java.util.HashMap;
 public class Converter implements IConverter {
 
     private Bs2Document bs2Doc;
-    private CwlTool cwlTool;
     
     
     
@@ -36,36 +35,39 @@ public class Converter implements IConverter {
     
     
     /**
-     * Convert the whole bs2 document into a single CWL-Tool. 
+     * Convert the whole bs2 document into a multiple CWL-Tools. 
      * There will be another function which will create a workflow out
      * of CWL-Tools.
      * @param runnableItem
-     * @return returns a CWL-Tool object
+     * @return returns a List of CWL-Tool objects
      * @throws Exception if Conversion fails
      */
     @Override
-    public CwlTool convertBs2ToCwlTool(TrunnableItem runnableItem) throws Exception
+    public HashMap<String, CwlTool> convertBs2(TrunnableItem runnableItem) throws Exception
     {
+        HashMap<String, CwlTool> cwlTools = new HashMap<>();
         this.bs2Doc = new Bs2Document(runnableItem);
-        this.cwlTool = new CwlTool();
         
         // testing some stuff
-        Tfunction function = bs2Doc.getFunctions().get(0);
-        String test_output = "";
-        for (String s : bs2Doc.getCommandLineArgumentOrderAsReferences(function))
+        for (Tfunction function : bs2Doc.getFunctions())
         {
-            test_output += "\n" + s;
+            CwlTool cwlTool = convertFunctionToCwlTool(function);
+            cwlTools.put(function.getName().get(0).getValue(), cwlTool);
         }
-        System.out.println(test_output);
-        
-        
-        // more testing ...
-        convertBaseCommand();
-        convertFunctionInputs(function);
         
         
         // DO SOMETHING !!!
-        return this.cwlTool;
+        return cwlTools;
+    }
+    
+    
+    
+    private CwlTool convertFunctionToCwlTool(Tfunction function) throws Exception
+    {
+        CwlTool cwlTool = new CwlTool();
+        convertBaseCommand(cwlTool);
+        convertFunctionInputs(function, cwlTool);
+        return cwlTool;
     }
     
     
@@ -74,7 +76,7 @@ public class Converter implements IConverter {
      * Converts the base command of the bs2 file to be set as the CWL base
      * command.
      */
-    private void convertBaseCommand() throws Exception
+    private void convertBaseCommand(CwlTool cwlTool) throws Exception
     {
         String baseCommadBs2 = bs2Doc.getBaseCommand();
         cwlTool.setBaseCommand(baseCommadBs2);
@@ -90,7 +92,7 @@ public class Converter implements IConverter {
      * of a given bs2 function into a CWL input.
      * @param function 
      */
-    private void convertFunctionInputs(Tfunction function) throws Exception
+    private void convertFunctionInputs(Tfunction function, CwlTool cwlTool) throws Exception
     {
         int position = 0;
         for (String id : bs2Doc.getCommandLineArgumentOrderAsReferences(function))
@@ -108,22 +110,22 @@ public class Converter implements IConverter {
                 case additionalString:
                     System.out.println("convert additional string");
                     String additionalString = bs2Doc.getAdditionalStringById(id);
-                    convertAdditionalString(additionalString, position);
+                    convertAdditionalString(additionalString, position, cwlTool);
                     break;
                 case enumParam:
                     System.out.println("convert enumparam");
                     TenumParam enumParam = bs2Doc.getEnumParamById(id);
-                    convertEnumParam(enumParam, position);
+                    convertEnumParam(enumParam, position, cwlTool);
                     break;
                 case input:
                     System.out.println("convert input");
                     TinputOutput input = bs2Doc.getIntputById(id);
-                    convertInput(input, position);
+                    convertInput(input, position, cwlTool);
                     break;
                 case param:
                     System.out.println("convert param");
                     Tparam param = bs2Doc.getParamById(id);
-                    convertParam(param, position);
+                    convertParam(param, position, cwlTool);
                     break;
                 default:
                     System.out.println("nothing to convert here");
@@ -148,7 +150,7 @@ public class Converter implements IConverter {
      * @param as 
      * @param position 
      */
-    private void convertAdditionalString(String as, int position)
+    private void convertAdditionalString(String as, int position, CwlTool cwlTool)
     {
         cwlTool.addArgument(position, as);
     }
@@ -163,7 +165,7 @@ public class Converter implements IConverter {
      * @param input
      * @param position 
      */
-    private void convertInput(TinputOutput input, int position)
+    private void convertInput(TinputOutput input, int position, CwlTool cwlTool)
     {
         String id = input.getId();                              // using the ID is better than the element's name, right?
         String type = "File";                                   // no string input allowed?
@@ -185,7 +187,7 @@ public class Converter implements IConverter {
      * @param param
      * @param position 
      */
-    private void convertParam(Tparam param, int position)
+    private void convertParam(Tparam param, int position, CwlTool cwlTool)
     {
         String id = param.getId();
         String type = param.getType().value();
@@ -207,7 +209,7 @@ public class Converter implements IConverter {
      * @param enumParam
      * @param position 
      */
-    private void convertEnumParam(TenumParam enumParam, int position) throws Exception
+    private void convertEnumParam(TenumParam enumParam, int position, CwlTool cwlTool) throws Exception
     {
         /*
         The values + names of the enumParam need to be collected and be stored in a way so that 
