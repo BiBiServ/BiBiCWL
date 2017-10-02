@@ -5,18 +5,21 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  *
  * @author pol3waf
  */
 abstract class Input <T>
 {
+    @JsonProperty
     protected String id;
-    
+    @JsonProperty
     protected T type;
-    
+    @JsonProperty
     protected InputBinding inputBinding;
-    
+    @JsonProperty
     protected String format;
     
     

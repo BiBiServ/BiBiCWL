@@ -54,10 +54,16 @@ public class Controller implements IControl {
     public void convertToCWL()
     {
         try {
+            System.out.println("Start conversion of bs2 to CWL Tool ...");
             CwlTool cwlTool = converter.convertBs2ToCwlTool(this.fileHandler.convertBs2ToRunnableItem());
+            System.out.println("CWL Tool created: " + cwlTool.toString());
+            
+            System.out.println("Start conversion to YAML ...");
             YamlWriter ym = new YamlWriter();
             String yamlText = ym.writeObjectToYaml(cwlTool);
-            System.out.println("\n\n----------" + yamlText + "----------\n\n");
+            
+            System.out.println("\n\n" + yamlText + "\n\n");
+
 //            fileHandler.writeStringToFile(yamlText);
         } catch (Exception ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);

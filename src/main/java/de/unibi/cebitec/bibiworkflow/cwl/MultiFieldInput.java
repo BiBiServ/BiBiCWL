@@ -5,6 +5,7 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -18,10 +19,10 @@ import java.util.HashMap;
  */
 public class MultiFieldInput extends Input<ArrayList<CommandInputRecord>>
 {
-    //private final ArrayList<CommandInputRecord> type = new ArrayList<>();
     
-    private final String inputType = "boolean";
-    
+    // dont serialize this!!!
+    private final String INPUTTYPE_DONTSERIALIZE = "boolean";
+
     
     
     
@@ -54,7 +55,7 @@ public class MultiFieldInput extends Input<ArrayList<CommandInputRecord>>
         {
             String name = key;
             String prefix = options.get(key);
-            SimpleInput input = new SimpleInput(position, name, this.inputType, prefix, false);
+            SimpleInput input = new SimpleInput(position, name, this.INPUTTYPE_DONTSERIALIZE, prefix, false);
             CommandInputRecord cir = new CommandInputRecord(input);
             
             super.type.add(cir);

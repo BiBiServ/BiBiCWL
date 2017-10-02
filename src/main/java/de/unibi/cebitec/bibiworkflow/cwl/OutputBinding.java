@@ -5,18 +5,24 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  *
  * @author pol3waf
  */
-class OutputBinding {
+class OutputBinding
+{
     
+    @JsonProperty
     private final String glob;
     
     // what is this???
+    @JsonProperty
     private final boolean loadContent;
     
     // what is this???
+    @JsonProperty
     private final String outputEval;
     
     

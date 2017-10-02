@@ -5,12 +5,15 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  *
  * @author pol3waf
  */
 public class FileInput extends Input
 {
+    @JsonProperty
     String fileType;
     
     public FileInput(int position, String id, String prefix, boolean separate, String fileType)

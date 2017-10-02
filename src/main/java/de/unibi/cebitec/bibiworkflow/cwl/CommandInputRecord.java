@@ -5,6 +5,7 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +14,9 @@ import java.util.ArrayList;
  */
 public class CommandInputRecord {
     
+    @JsonProperty
     private final String type = "record";
+    @JsonProperty
     private final ArrayList<SimpleInput> fields = new ArrayList<>();
     
     

@@ -5,6 +5,8 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -16,12 +18,13 @@ import java.util.logging.Logger;
  */
 public class CwlTool implements ICwlTool {
 
-    
+    @JsonProperty
     private String cwlVersion;  //make this a enum? why? --> name mismatching cwl defenition
+    @JsonProperty
     private String cwlClass;    //make this a enum? why? --> name mismatching cwl defenition
-    
+    @JsonProperty
     private String baseCommand;
-    
+    @JsonProperty
     private String stdout;
     
     
@@ -29,28 +32,32 @@ public class CwlTool implements ICwlTool {
      * _List_ of inputs of the CWL-Tool. This member variable will be read when 
      * writing the CWL-Tool into a file.
      */
+    @JsonProperty
     private ArrayList<Input> inputs;
     /**
      * _List_ of outputs of the CWL-Tool. This member variable will be read when 
      * writing the CWL-Tool into a file.
      */
+    @JsonProperty
     private ArrayList<Output> outputs;
     
     /**
      * _Array_ of requirements of the CWL-Tool. This member variable will be read when 
      * writing the CWL-Tool into a file.
      */
+    @JsonProperty
     private Requirement[] requirements;
     
     /**
      * List of requirements which will be converted into an array when writing 
      * the CWL-Tool into a file.
      */
+    @JsonProperty
     private ArrayList<Requirement> requirementsList;
     
-    
+    @JsonProperty
     private Argument[] arguments;
-    
+    @JsonProperty
     private ArrayList<Argument> argumentList;
     
     
@@ -69,6 +76,7 @@ public class CwlTool implements ICwlTool {
         this.outputs = new ArrayList<>();
         this.requirements = null;
         this.requirementsList = new ArrayList<>();
+        this.argumentList = new ArrayList<>();
     }
     
     
@@ -89,6 +97,7 @@ public class CwlTool implements ICwlTool {
         this.outputs = new ArrayList<>();
         this.requirements = null;
         this.requirementsList = new ArrayList<>();
+        this.argumentList = new ArrayList<>();
     }
     
     

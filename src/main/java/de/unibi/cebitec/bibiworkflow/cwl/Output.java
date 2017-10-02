@@ -5,16 +5,20 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  *
  * @author pol3waf
  */
-class Output {
+class Output
+{
     
+    @JsonProperty
     private String id;
-    
+    @JsonProperty
     private String type;
-    
+    @JsonProperty
     private OutputBinding outputBinding;
     
     

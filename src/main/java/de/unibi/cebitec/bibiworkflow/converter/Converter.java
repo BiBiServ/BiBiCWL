@@ -46,8 +46,8 @@ public class Converter implements IConverter {
     @Override
     public CwlTool convertBs2ToCwlTool(TrunnableItem runnableItem) throws Exception
     {
-        bs2Doc = new Bs2Document(runnableItem);
-        cwlTool = new CwlTool();
+        this.bs2Doc = new Bs2Document(runnableItem);
+        this.cwlTool = new CwlTool();
         
         // testing some stuff
         Tfunction function = bs2Doc.getFunctions().get(0);
@@ -63,8 +63,9 @@ public class Converter implements IConverter {
         convertBaseCommand();
         convertFunctionInputs(function);
         
+        
         // DO SOMETHING !!!
-        return null;
+        return this.cwlTool;
     }
     
     
@@ -137,7 +138,7 @@ public class Converter implements IConverter {
     
     private void convertOutputs()
     {
-        
+        // TODO
     }
     
     
@@ -227,7 +228,7 @@ public class Converter implements IConverter {
         String prefix = enumParam.getOption();
         boolean separate = false;
         
-        if (enumParam.getGuiElement().equals("SELECTIONRADIO"))
+        if (enumParam.getGuiElement().equals("SELECTONERADIO"))
         {
             for (TenumValue value : enumParam.getValues())
             {

@@ -5,13 +5,16 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * abstract Requirement class every other requirement class extends this one.
  * @author pol3waf
  */
 abstract class Requirement
 {
-
+    
+    @JsonProperty
     protected String requirementClass;
 
 //    Requirement() {

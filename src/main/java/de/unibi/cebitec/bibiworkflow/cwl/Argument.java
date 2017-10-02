@@ -5,13 +5,19 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  *
  * @author pol3waf
  */
-class Argument {
+class Argument
+{
     
+    
+    @JsonProperty
     private final String valueFrom;
+    @JsonProperty
     private final int position;
     
     
