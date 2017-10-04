@@ -13,8 +13,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 abstract class Input <T>
 {
-    @JsonProperty
+//    @JsonProperty
     protected String id;
+    
     @JsonProperty
     protected T type;
     @JsonProperty

@@ -33,7 +33,7 @@ public class CwlTool implements ICwlTool {
      * writing the CWL-Tool into a file.
      */
     @JsonProperty
-    private ArrayList<Input> inputs;
+    private HashMap<String, Input> inputs;
     /**
      * _List_ of outputs of the CWL-Tool. This member variable will be read when 
      * writing the CWL-Tool into a file.
@@ -72,7 +72,7 @@ public class CwlTool implements ICwlTool {
         this.cwlVersion = "v1.0";
         this.cwlClass = "CommandLineTool";
         this.stdout = null;
-        this.inputs = new ArrayList<>();
+        this.inputs = new HashMap<>();
         this.outputs = new ArrayList<>();
         this.requirements = null;
         this.requirementsList = new ArrayList<>();
@@ -93,7 +93,7 @@ public class CwlTool implements ICwlTool {
         this.cwlVersion = cwlVersion;
         this.cwlClass = cwlClass;
         this.stdout = null;
-        this.inputs = new ArrayList<>();
+        this.inputs = new HashMap<>();
         this.outputs = new ArrayList<>();
         this.requirements = null;
         this.requirementsList = new ArrayList<>();
@@ -131,7 +131,7 @@ public class CwlTool implements ICwlTool {
     @Override
     public void addInput(int position, String id, String type, String prefix, boolean separate) {
         SimpleInput input = new SimpleInput(position, id, type, prefix, separate);
-        inputs.add(input);
+        inputs.put(id, input);
     }
     
     
@@ -148,7 +148,7 @@ public class CwlTool implements ICwlTool {
     @Override
     public void addInputFile(int position, String id, String prefix, boolean separate, String fileType) {
         FileInput input = new FileInput(position, id, prefix, separate, fileType);
-        this.inputs.add(input);
+        this.inputs.put(id, input);
     }
     
     
@@ -227,9 +227,9 @@ public class CwlTool implements ICwlTool {
      */
     public void addExclusiveMultiFieldInput(int position, String id, HashMap<String, String> options) {
         MultiFieldInput mfi = new MultiFieldInput(position, id, options);
-        this.inputs.add(mfi);
+        this.inputs.put(id, mfi);
     }
-  
+    
     
     
 }

@@ -7,6 +7,7 @@ package de.unibi.cebitec.bibiworkflow.cwl;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -17,17 +18,20 @@ public class CommandInputRecord {
     @JsonProperty
     private final String type = "record";
     @JsonProperty
-    private final ArrayList<SimpleInput> fields = new ArrayList<>();
+    private HashMap<String, Input> fields = new HashMap<>();
     
     
-    protected CommandInputRecord(ArrayList<SimpleInput> inputs)
+    protected CommandInputRecord(ArrayList<Input> inputs)
     {
-        fields.addAll(inputs);
+        for (Input input : inputs)
+        {
+            fields.put(input.id, input);
+        }
     }
 
     public CommandInputRecord(SimpleInput input)
     {
-        fields.add(input);
+        fields.put(input.id, input);
     }
     
     
