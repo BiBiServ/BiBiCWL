@@ -7,7 +7,9 @@ package de.unibi.cebitec.bibiworkflow.bs2;
 
 import de.unibi.techfak.bibiserv.cms.TenumParam;
 import de.unibi.techfak.bibiserv.cms.Tfunction;
+import de.unibi.techfak.bibiserv.cms.Tfunction.Outputfileref;
 import de.unibi.techfak.bibiserv.cms.TinputOutput;
+import de.unibi.techfak.bibiserv.cms.ToutputFile;
 import de.unibi.techfak.bibiserv.cms.Tparam;
 import de.unibi.techfak.bibiserv.cms.TrunnableItem;
 import java.util.List;
@@ -210,6 +212,8 @@ public class Bs2Document implements IBs2Document {
     }
     
     
+    
+    
     @Override
     public String getAdditionalStringById(String id) throws Exception
     {
@@ -217,7 +221,61 @@ public class Bs2Document implements IBs2Document {
         
         return additionalString;
     }
-
+    
+    
+    
+    
+    @Override
+    public TinputOutput getOutputById(String id) throws Exception
+    {
+        TinputOutput output = null;
+        List<TinputOutput> outputs = this.runnableItem.getExecutable().getOutput();
+        
+        for (TinputOutput o : outputs)
+        {
+            if (o.getId().equals(id))
+            {
+                output = o;
+            }
+        }
+        
+        if (output == null)
+        {
+            throw new Exception("No such output with id " + id);
+        }
+        else
+        {
+            return output;
+        }
+    }
+    
+    
+    
+    
+    @Override
+    public ToutputFile getOutputFileById(String id) throws Exception
+    {
+        ToutputFile outputFile = null;
+        List<ToutputFile> outputFiles = this.runnableItem.getExecutable().getOutputfile();
+        
+        for (ToutputFile of : outputFiles)
+        {
+            if (of.getId().equals(id))
+            {
+                outputFile = of;
+            }
+        }
+        
+        if (outputFile == null)
+        {
+            throw new Exception("No such outputFile with id " + id);
+        }
+        else
+        {
+            return outputFile;
+        }
+    }
+    
     
     
     /**
@@ -243,9 +301,9 @@ public class Bs2Document implements IBs2Document {
      * @return type or null (if didn't find ID)
      */
     @Override
-    public InputType getTypeOfInputArgumentsById(String id)
+    public ArgumentType getTypeOfArgumentById(String id)
     {
-        InputType type = null;
+        ArgumentType type = null;
         
         // search inputs for the given id
         for (TinputOutput input : this.runnableItem.getExecutable().getInput())
@@ -253,7 +311,7 @@ public class Bs2Document implements IBs2Document {
             String inputId = input.getId();
             if (inputId.equals(id))
             {
-                type = InputType.input;
+                type = ArgumentType.input;
             }
         }
         
@@ -263,7 +321,7 @@ public class Bs2Document implements IBs2Document {
             String paramId = param.getId();
             if (paramId.equals(id))
             {
-                type = InputType.param;
+                type = ArgumentType.param;
             }
         }
         
@@ -273,7 +331,7 @@ public class Bs2Document implements IBs2Document {
             String eParamId = eparam.getId();
             if (eParamId.equals(id))
             {
-                type = InputType.enumParam;
+                type = ArgumentType.enumParam;
             }
         }
         
@@ -282,12 +340,25 @@ public class Bs2Document implements IBs2Document {
         {
             if (key.equals(id))
             {
-                type = InputType.additionalString;
+                type = ArgumentType.additionalString;
+            }
+        }
+        
+        // search outputs for given id
+        for (TinputOutput output : this.runnableItem.getExecutable().getOutput())
+        {
+            if (output.getId().equals(id))
+            {
+                type = ArgumentType.output;
             }
         }
         
         return type;
     }
+    
+    
+    
+    
     
     
     
@@ -316,5 +387,42 @@ public class Bs2Document implements IBs2Document {
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
+    
+    /**
+     * Gets the output of a function. 
+     * 
+     * TODO: should probably use IDs instead of function ... or not?
+     * 
+     * @param function
+     * @return 
+     */
+    public TinputOutput getFunctionOutput(Tfunction function)
+    {
+        return (TinputOutput)(function.getOutputref().getRef());
+    }
+    
+    
+    
+    /**
+     * Gets a List of OutputFile objects which are connected to a given function.
+     * @param function
+     * @return OutputFiles for a given function
+     */
+    public ArrayList<ToutputFile> getFunctionOutputFiles(Tfunction function)
+    {
+        ArrayList<ToutputFile> outputFiles = new ArrayList<>();
+        for (Outputfileref ofr : function.getOutputfileref())
+        {
+            ToutputFile o = (ToutputFile)ofr.getRef();
+            outputFiles.add(o);
+        }
+        return outputFiles;
+    }
+    
+    
+
+    
     
 }

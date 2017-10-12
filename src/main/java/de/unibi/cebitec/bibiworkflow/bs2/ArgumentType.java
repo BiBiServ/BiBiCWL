@@ -9,9 +9,11 @@ package de.unibi.cebitec.bibiworkflow.bs2;
  *
  * @author pol3waf
  */
-public enum InputType {
+public enum ArgumentType {
     input,
     param,
     enumParam,
-    additionalString
+    additionalString,
+    output,
+    outputFile
 }

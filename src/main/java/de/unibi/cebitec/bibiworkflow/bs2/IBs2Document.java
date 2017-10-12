@@ -9,6 +9,7 @@ import de.unibi.techfak.bibiserv.cms.TenumParam;
 import de.unibi.techfak.bibiserv.cms.Tfunction;
 import de.unibi.techfak.bibiserv.cms.Tfunction.Inputref;
 import de.unibi.techfak.bibiserv.cms.TinputOutput;
+import de.unibi.techfak.bibiserv.cms.ToutputFile;
 import de.unibi.techfak.bibiserv.cms.Tparam;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +61,7 @@ public interface IBs2Document {
      * @param id ID of the object to be
      * @return type of the input or null if didn't find ID
      */
-    InputType getTypeOfInputArgumentsById(String id) throws Exception;
+    ArgumentType getTypeOfArgumentById(String id) throws Exception;
     
     /**
      * Gets the "additionalString" with the assigned id.
@@ -69,4 +70,16 @@ public interface IBs2Document {
      */
     String getAdditionalStringById(String id) throws Exception;
     
+    
+    /**
+     * Get the output with the assigned id.
+     * @param id ID which should be used to search for the output
+     * @return TinputOutput object with id (or null if there was none)
+     * @throws Exception 
+     */
+    TinputOutput getOutputById(String id) throws Exception;
+    
+    
+    
+    ToutputFile getOutputFileById(String id) throws Exception;
 }

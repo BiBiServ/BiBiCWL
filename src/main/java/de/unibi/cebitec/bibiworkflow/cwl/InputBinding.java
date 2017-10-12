@@ -23,7 +23,16 @@ class InputBinding {
     
     protected InputBinding(String prefix, boolean separate, int position)
     {
-        this.prefix = prefix;
+        // prefix is optional ???
+        if (prefix == null)
+        {
+            System.out.println("no prefix used for this input");
+        }
+        else
+        {
+            this.prefix = prefix;
+        }
+        
         this.separate = separate;
         this.position = position;
     }

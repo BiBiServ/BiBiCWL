@@ -6,23 +6,29 @@
 package de.unibi.cebitec.bibiworkflow.converter;
 
 import de.unibi.cebitec.bibiworkflow.bs2.Bs2Document;
-import de.unibi.cebitec.bibiworkflow.bs2.InputType;
+import de.unibi.cebitec.bibiworkflow.bs2.ArgumentType;
 import de.unibi.cebitec.bibiworkflow.cwl.CwlTool;
 import de.unibi.techfak.bibiserv.cms.TenumParam;
 import de.unibi.techfak.bibiserv.cms.TenumValue;
 import de.unibi.techfak.bibiserv.cms.Tfunction;
 import de.unibi.techfak.bibiserv.cms.TinputOutput;
+import de.unibi.techfak.bibiserv.cms.ToutputFile;
 import de.unibi.techfak.bibiserv.cms.Tparam;
 import de.unibi.techfak.bibiserv.cms.TrunnableItem;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 /**
  *
  * @author pol3waf
  */
-public class Converter implements IConverter {
-
+public class Converter implements IConverter
+{
+    
+    private final static Logger LOGGER = Logger.getLogger(Converter.class.getName());
     private Bs2Document bs2Doc;
+    private final ArrayList<String> outputsThatUseInputs = new ArrayList<>();
     
     
     
@@ -67,6 +73,7 @@ public class Converter implements IConverter {
         CwlTool cwlTool = new CwlTool();
         convertBaseCommand(cwlTool);
         convertFunctionInputs(function, cwlTool);
+        convertFunctionOutputs(function, cwlTool);
         return cwlTool;
     }
     
@@ -97,7 +104,7 @@ public class Converter implements IConverter {
         int position = 0;
         for (String id : bs2Doc.getCommandLineArgumentOrderAsReferences(function))
         {
-            InputType inputType_bs2 = bs2Doc.getTypeOfInputArgumentsById(id);
+            ArgumentType inputType_bs2 = bs2Doc.getTypeOfArgumentById(id);
             
             if (null == inputType_bs2)
             {
@@ -127,6 +134,20 @@ public class Converter implements IConverter {
                     Tparam param = bs2Doc.getParamById(id);
                     convertParam(param, position, cwlTool);
                     break;
+                    
+                    // move this somewhere else???????????????????????????????????
+                case output:
+                    // ??? DOES THIS MAKE SENSE ???
+                    System.out.println("convert output ... yes, checks for outputs should be moved somewhere else ...");
+                    TinputOutput output = bs2Doc.getOutputById(id);
+                    convertOutputArguments(output, position, cwlTool);
+                    break;
+                case outputFile:
+                    // ????
+                    System.out.println("convert outputFile ... yes, checks for outputFiles should probably be moved somewhere else ...");
+                    ToutputFile outputFile = bs2Doc.getOutputFileById(id);
+                    //??? what to do with this?
+                    break;
                 default:
                     System.out.println("nothing to convert here");
                     break;
@@ -137,10 +158,64 @@ public class Converter implements IConverter {
     
     
     
-    
-    private void convertOutputs()
+    /**
+     * Convert bs2 outputs and file-outputs of a given bs2 function into CWL 
+     * outputs.
+     * @param function
+     * @param cwlTool 
+     */
+    private void convertFunctionOutputs(Tfunction function, CwlTool cwlTool)
     {
-        // TODO
+        // convert the single output (of type TinputOutput) of the function
+        TinputOutput output = bs2Doc.getFunctionOutput(function);
+        
+        String oId = output.getId();
+        String oType = output.getType();
+        String oHandling = output.getHandling();
+        
+        if (oHandling.equals("stdout"))
+        {
+            cwlTool.addOutput(oId, "stdout", null);              // doesn't need the "glob" field because this is set in the stdout field of the CwlTool
+            String inputReference = oId + "_inputFileName";      // this will be used to find the suitable input with the file's name
+            cwlTool.setupStdout(inputReference);
+        }
+        else
+        {
+            if (outputsThatUseInputs.contains(oId))
+            {
+                String inputReference = oId + "_inputFileName";
+                cwlTool.addOutput(oId, oType, inputReference);
+            }
+            else
+            {
+                cwlTool.addOutput(oId, oType, null);              // @TODO: should probably use something else ...
+            }
+        }
+        
+        
+        // convert all outputFiles (of type ToutputFile) of the function
+        ArrayList<ToutputFile> outputFiles = bs2Doc.getFunctionOutputFiles(function);
+        for (ToutputFile of : outputFiles)
+        {
+            String ofId = of.getId();
+            String ofType = "File";
+            String ofFileType = of.getContenttype();                // check if stuff is set up properly before applying things ...
+            String ofFileName = of.getFilename();
+            String ofFirectory = of.getFolder();
+            String ofName = of.getName().get(0).getValue();        // leave as is ???
+            
+            if (outputsThatUseInputs.contains(ofId))
+            {
+                String inputReference = ofId + "_inputFileName";
+                cwlTool.addOutput(ofId, ofType, inputReference);
+            }
+            else
+            {
+                cwlTool.addOutput(ofId, ofType, ofFileName);        // just use the filename from the outputFile object ???
+            }                                                       // or read some input field?
+        }
+        
+        
     }
     
     
@@ -169,11 +244,18 @@ public class Converter implements IConverter {
     {
         String id = input.getId();                              // using the ID is better than the element's name, right?
         String type = "File";                                   // no string input allowed?
-        
+        String prefix;
         String fileType = input.getType();                      // what about different file types? How should this be handled --> check CWL documentation
                                                                 // CWL supports ontologies like EDAM! USE IT!!!!
-                                                                
-        String prefix = input.getOption();                      // the option usually encompasses the separator in the bs2 format
+        
+        if (input.isSetOption())
+        {
+            prefix = input.getOption();                      // the option usually encompasses the separator in the bs2 format
+        }
+        else
+        {
+            prefix = null;
+        }
         boolean separate = false;                               // should I really hard-code this?
         cwlTool.addInputFile(position, id, prefix, separate, fileType);
     }
@@ -252,7 +334,7 @@ public class Converter implements IConverter {
         }
         else
         {
-            // TODO: Does this case ever occur?
+            // TODO: Does this case ever occur?   --- yes of course, see: CHECKBOXFIELD
             throw new Exception("Non-exclusive multi-field input found!");
         }
         
@@ -286,6 +368,75 @@ public class Converter implements IConverter {
                       fields:
                         - itemE
         */
+    }
+    
+    
+    
+    /**
+     * Convert a given bs2 output object to the equivalent CWL output object.
+     * This process does not cover the command line argument in which the output
+     * type or file is processed (this would be part of the input (/argument) 
+     * conversion).
+     * @param output bs2 output to be converted
+     * @param cwlTool CwlTool which should receive the output
+     */
+    private void convertOutput(TinputOutput output, CwlTool cwlTool)
+    {
+        
+    }
+    
+    
+    
+    /**
+     * Converts the command line argument for the output of the bs2 tool into
+     * CWL input (or arguments) (while taking its position and the types of outputs into
+     * consideration).
+     * 
+     * @TODO: Macht das so Sinn???
+     * Evtl muss man checken, ob der BibiServ da manuell ein pipien nach STDOUT macht ...
+     * Dann dürfte das hier gar nicht als input mit aufgeführt werden, sondern müsste einfach über
+     * das stdout feld vom CWL Tool behandelt werden, da man da ja einfach über $( inputs.inputname )
+     * ein nicht in den inputs spezifiziertes input feld referenzieren kann.
+     * ??? ??? ???
+     * HELP !!!
+     * ??? ??? ???
+     * 
+     * @param output
+     * @param position
+     * @param cwlTool 
+     */
+    private void convertOutputArguments(TinputOutput output, int position, CwlTool cwlTool)
+    {
+        
+        String id = output.getId() + "_ouputFileName";      // how to name this ???
+        String handling = output.getHandling();
+        
+        // check the handling: if it is stdout the argument shoudl not be used 
+        // in CWL as a declared input but rather as a reference in the stdout
+        // field. The latter will be done when checking and creating outputs.
+        if (handling.equals("stdout"))
+        {
+            LOGGER.info("Entry" + id + " in bs2 ParamAndInputputOrder will be omitted, because stdout is handled differently in CWL and will be processed in the convertFunctionOuputs() function.");
+        }
+        else
+        {
+    //        String type = output.getType();                     // what about this ???
+            String type = "String";                             // is this OK ???
+            boolean separate = false;
+            String prefix;
+            if (output.isSetOption())
+            {
+                prefix = output.getOption();
+            }
+            else
+            {
+                prefix = null;
+            }
+            cwlTool.addInput(position, id, type, prefix, separate);
+        }
+        outputsThatUseInputs.add(id);
+        
+        
     }
     
     

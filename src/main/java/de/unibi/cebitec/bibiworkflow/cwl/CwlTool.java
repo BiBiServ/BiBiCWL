@@ -182,7 +182,8 @@ public class CwlTool implements ICwlTool {
      */
     @Override
     public void addOutput(String id, String type, String glob) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Output output = new Output(id, type, glob);
+        outputs.add(output);
     }
     
     
@@ -228,6 +229,17 @@ public class CwlTool implements ICwlTool {
     public void addExclusiveMultiFieldInput(int position, String id, HashMap<String, String> options) {
         MultiFieldInput mfi = new MultiFieldInput(position, id, options);
         this.inputs.put(id, mfi);
+    }
+    
+    
+    
+    /**
+     * Sets up a stdout for the CWL tool with the given reference of the 
+     * dependant input.
+     * @param inputReference input field to be used as source for the output file's name
+     */
+    public void setupStdout(String inputReference) {
+        this.stdout = "$( inputs." + inputReference + " )";
     }
     
     

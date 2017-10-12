@@ -23,11 +23,13 @@ class Output
     
     
     
-    protected Output(String id, String type, OutputBinding outputBinding)
+    
+    protected Output(String id, String type, String glob)
     {
         this.id = id;
         this.type = type;
-        this.outputBinding = outputBinding;
+        
+        OutputBinding ob = new OutputBinding(glob);
     }
     
     

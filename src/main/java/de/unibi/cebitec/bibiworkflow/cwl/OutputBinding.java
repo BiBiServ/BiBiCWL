@@ -19,7 +19,7 @@ class OutputBinding
     
     // what is this???
     @JsonProperty
-    private final boolean loadContent;
+    private final Boolean loadContent;
     
     // what is this???
     @JsonProperty
@@ -32,6 +32,13 @@ class OutputBinding
         this.glob = glob;
         this.loadContent = loadContent;
         this.outputEval = outputEval;
+    }
+    
+    protected OutputBinding(final String glob)
+    {
+        this.glob = glob;
+        this.loadContent = null;
+        this.outputEval = null;
     }
     
 }
