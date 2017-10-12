@@ -15,6 +15,7 @@ import de.unibi.techfak.bibiserv.cms.TrunnableItem;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Logger;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 
@@ -22,8 +23,10 @@ import javax.xml.bind.JAXBException;
  *
  * @author pol3waf
  */
-public class Bs2Document implements IBs2Document {
-
+public class Bs2Document implements IBs2Document
+{
+    
+    private static final Logger LOGGER = Logger.getLogger(Bs2Document.class.getName());
     
     private final TrunnableItem runnableItem;
     private final HashMap<String, String> additionalStrings = new HashMap<>();
@@ -94,7 +97,7 @@ public class Bs2Document implements IBs2Document {
                 }
                 else
                 {
-                    System.out.println("ParamAndInputOutputOrder : unexpected instance type");
+                    LOGGER.info("ParamAndInputOutputOrder : unexpected instance type");
                 }
             }
         }

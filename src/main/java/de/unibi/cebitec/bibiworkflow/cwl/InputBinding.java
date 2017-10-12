@@ -6,12 +6,15 @@
 package de.unibi.cebitec.bibiworkflow.cwl;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.logging.Logger;
 
 /**
  *
  * @author pol3waf
  */
 class InputBinding {
+    
+    private static final Logger LOGGER = Logger.getLogger(InputBinding.class.getName());
     
     @JsonProperty
     private String prefix;
@@ -26,7 +29,7 @@ class InputBinding {
         // prefix is optional ???
         if (prefix == null)
         {
-            System.out.println("no prefix used for this input");
+            LOGGER.fine("no prefix used for this inputbinding");
         }
         else
         {

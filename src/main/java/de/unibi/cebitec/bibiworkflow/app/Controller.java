@@ -23,6 +23,7 @@ import java.util.logging.Logger;
  */
 public class Controller implements IControl {
     
+    private static final Logger LOGGER = Logger.getLogger(Controller.class.getName());
     private final IConverter converter;
     private final IMainGui mainGui;
     private final FileHandler fileHandler;
@@ -57,10 +58,10 @@ public class Controller implements IControl {
     {
         try
         {
-            System.out.println("Start conversion of bs2 to CWL Tool ...");
+            LOGGER.info("Start conversion of bs2 to CWL Tool ...");
             HashMap<String, CwlTool> cwlTools = converter.convertBs2(this.fileHandler.convertBs2ToRunnableItem());
             
-            System.out.println("Start conversion to YAML ...");
+            LOGGER.info("Start conversion to YAML ...");
             YamlWriter ym = new YamlWriter();
             
             // write each cwlTool to a separate file
@@ -69,7 +70,7 @@ public class Controller implements IControl {
                 String fileName = key;
                 CwlTool cwlTool = cwlTools.get(key);
                 String yamlText = ym.writeObjectToYaml(cwlTool);
-                System.out.println("\n\n" + fileName + "\n" + yamlText + "\n\n");
+                LOGGER.info("\n\n" + fileName + "\n" + yamlText + "\n\n");
 //                fileHandler.writeStringToFile(yamlText, fileName);
             }
         }

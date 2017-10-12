@@ -88,7 +88,7 @@ public class Converter implements IConverter
         String baseCommadBs2 = bs2Doc.getBaseCommand();
         cwlTool.setBaseCommand(baseCommadBs2);
         
-        System.out.println("converte basecommand: " + baseCommadBs2);
+        LOGGER.info("converte basecommand: " + baseCommadBs2);
     }
     
     
@@ -108,29 +108,29 @@ public class Converter implements IConverter
             
             if (null == inputType_bs2)
             {
-                System.out.println("nothing to convert here");
+                LOGGER.info("No Input to convert here");
             }
             else
             {
                 position++;
                 switch (inputType_bs2) {
                 case additionalString:
-                    System.out.println("convert additional string");
+                    LOGGER.fine("convert additional string");
                     String additionalString = bs2Doc.getAdditionalStringById(id);
                     convertAdditionalString(additionalString, position, cwlTool);
                     break;
                 case enumParam:
-                    System.out.println("convert enumparam");
+                    LOGGER.fine("convert enumparam");
                     TenumParam enumParam = bs2Doc.getEnumParamById(id);
                     convertEnumParam(enumParam, position, cwlTool);
                     break;
                 case input:
-                    System.out.println("convert input");
+                    LOGGER.fine("convert input");
                     TinputOutput input = bs2Doc.getIntputById(id);
                     convertInput(input, position, cwlTool);
                     break;
                 case param:
-                    System.out.println("convert param");
+                    LOGGER.fine("convert param");
                     Tparam param = bs2Doc.getParamById(id);
                     convertParam(param, position, cwlTool);
                     break;
@@ -138,18 +138,18 @@ public class Converter implements IConverter
                     // move this somewhere else???????????????????????????????????
                 case output:
                     // ??? DOES THIS MAKE SENSE ???
-                    System.out.println("convert output ... yes, checks for outputs should be moved somewhere else ...");
+                    LOGGER.fine("convert output ... yes, checks for outputs should be moved somewhere else ...");
                     TinputOutput output = bs2Doc.getOutputById(id);
                     convertOutputArguments(output, position, cwlTool);
                     break;
                 case outputFile:
                     // ????
-                    System.out.println("convert outputFile ... yes, checks for outputFiles should probably be moved somewhere else ...");
+                    LOGGER.fine("convert outputFile ... yes, checks for outputFiles should probably be moved somewhere else ...");
                     ToutputFile outputFile = bs2Doc.getOutputFileById(id);
                     //??? what to do with this?
                     break;
                 default:
-                    System.out.println("nothing to convert here");
+                    LOGGER.fine("Input is of unknow type ...");
                     break;
                 }
             }

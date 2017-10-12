@@ -7,14 +7,9 @@ package de.unibi.cebitec.bibiworkflow.io;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
-import java.io.FileOutputStream;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
@@ -24,6 +19,8 @@ import java.util.logging.Logger;
  */
 public class YamlWriter
 {
+    
+    private static final Logger LOGGER = Logger.getLogger(YamlWriter.class.getName());
     
     private final YAMLMapper mapper = new YAMLMapper();
     
@@ -40,14 +37,14 @@ public class YamlWriter
         String yamlString = null;
         try
         {
-            System.out.println("trying to write yamlString ...");
+            LOGGER.info("trying to write yamlString ...");
             mapper.setSerializationInclusion(Include.NON_NULL);
             mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
             yamlString = mapper.writeValueAsString(object);
         }
         catch (JsonProcessingException ex) 
         {
-            Logger.getLogger(YamlWriter.class.getName()).log(Level.SEVERE, null, ex);
+            LOGGER.warning("Couldn't create YAML doc from Object " + object.toString());
         }
         
         return yamlString;

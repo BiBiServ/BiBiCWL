@@ -9,6 +9,7 @@ package de.unibi.cebitec.bibiworkflow.gui;
 
 import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,6 +29,8 @@ import javafx.stage.Stage;
  */
 public final class MainGui extends Application implements IMainGui
 {
+    private static final Logger LOGGER = Logger.getLogger(MainGui.class.getName());
+    
     private static OpenFileEventHandler openFileEventHandler;
     private static ConvertBs2ToCwlEventHandler convertBs2ToCwlEventHandler;
     
@@ -102,7 +105,7 @@ public final class MainGui extends Application implements IMainGui
         }
         catch (Exception e)
         {
-            System.out.println("Cant set action for button" + openFileButton.toString());
+            LOGGER.warning("Cant set action for button" + openFileButton.toString());
         }
     }
     
