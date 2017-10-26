@@ -12,7 +12,6 @@ import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.FileHandler;
 import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.YamlWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,7 +75,7 @@ public class Controller implements IControl {
         }
         catch (Exception ex)
         {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            LOGGER.log(Level.SEVERE, null, ex);
         }
     }
     

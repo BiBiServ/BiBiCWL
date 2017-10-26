@@ -5,9 +5,9 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 /**
  * Input with multiple fields which hold different values. Those
@@ -21,8 +21,9 @@ public class MultiFieldInput extends Input<ArrayList<CommandInputRecord>>
 {
     
     // dont serialize this!!!
-    private final String INPUTTYPE_DONTSERIALIZE = "boolean";
+    private final String INPUTTYPE = "boolean";
 
+    private final static Logger LOGGER = Logger.getLogger(MultiFieldInput.class.getName());
     
     
     
@@ -38,6 +39,7 @@ public class MultiFieldInput extends Input<ArrayList<CommandInputRecord>>
      */
     public MultiFieldInput(int position, String id, HashMap<String, String> options)
     {
+        LOGGER.info("Creating MultiFieldInput. Remember to check if the 'type' field should really be an ArrayList");
         super.id = id;
         super.type = new ArrayList<>();
         this.addCommandInputRecords(position, options);
@@ -55,7 +57,7 @@ public class MultiFieldInput extends Input<ArrayList<CommandInputRecord>>
         {
             String name = key;
             String prefix = options.get(key);
-            SimpleInput input = new SimpleInput(position, name, this.INPUTTYPE_DONTSERIALIZE, prefix, false);
+            SimpleInput input = new SimpleInput(position, name, this.INPUTTYPE, prefix, false);
             CommandInputRecord cir = new CommandInputRecord(input);
             
             super.type.add(cir);

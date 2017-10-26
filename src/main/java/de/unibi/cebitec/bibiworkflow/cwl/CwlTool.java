@@ -17,6 +17,8 @@ import java.util.logging.Logger;
  * @author pol3waf
  */
 public class CwlTool implements ICwlTool {
+    
+    private final static Logger LOGGER = Logger.getLogger(CwlTool.class.getName());
 
     @JsonProperty
     private String cwlVersion;  //make this a enum? why? --> name mismatching cwl defenition
@@ -39,7 +41,7 @@ public class CwlTool implements ICwlTool {
      * writing the CWL-Tool into a file.
      */
     @JsonProperty
-    private ArrayList<Output> outputs;
+    private HashMap<String, Output> outputs;
     
     /**
      * _Array_ of requirements of the CWL-Tool. This member variable will be read when 
@@ -73,7 +75,7 @@ public class CwlTool implements ICwlTool {
         this.cwlClass = "CommandLineTool";
         this.stdout = null;
         this.inputs = new HashMap<>();
-        this.outputs = new ArrayList<>();
+        this.outputs = new HashMap<>();
         this.requirements = null;
         this.requirementsList = new ArrayList<>();
         this.argumentList = new ArrayList<>();
@@ -94,7 +96,7 @@ public class CwlTool implements ICwlTool {
         this.cwlClass = cwlClass;
         this.stdout = null;
         this.inputs = new HashMap<>();
-        this.outputs = new ArrayList<>();
+        this.outputs = new HashMap<>();
         this.requirements = null;
         this.requirementsList = new ArrayList<>();
         this.argumentList = new ArrayList<>();
@@ -114,7 +116,7 @@ public class CwlTool implements ICwlTool {
             Requirement requirement = (Requirement) Class.forName(requirementClassEnum.name()).newInstance();
             this.requirementsList.add(requirement);
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-            Logger.getLogger(CwlTool.class.getName()).log(Level.SEVERE, null, ex);
+            LOGGER.log(Level.SEVERE, null, ex);
         }
     }
     
@@ -179,11 +181,12 @@ public class CwlTool implements ICwlTool {
      * @param id
      * @param type
      * @param glob 
+     * @param format 
      */
     @Override
-    public void addOutput(String id, String type, String glob) {
-        Output output = new Output(id, type, glob);
-        outputs.add(output);
+    public void addOutput(String id, String type, String glob, String format) {
+        Output output = new Output(id, type, glob, format);
+        outputs.put(id, output);
     }
     
     

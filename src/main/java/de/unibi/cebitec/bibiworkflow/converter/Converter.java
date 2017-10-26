@@ -166,7 +166,10 @@ public class Converter implements IConverter
      */
     private void convertFunctionOutputs(Tfunction function, CwlTool cwlTool)
     {
-        // convert the single output (of type TinputOutput) of the function
+        /*
+          convert the single output (of type TinputOutput) of the function
+        */
+        LOGGER.finest("Processing bs2 funciton output.");
         TinputOutput output = bs2Doc.getFunctionOutput(function);
         
         String oId = output.getId();
@@ -175,7 +178,7 @@ public class Converter implements IConverter
         
         if (oHandling.equals("stdout"))
         {
-            cwlTool.addOutput(oId, "stdout", null);              // doesn't need the "glob" field because this is set in the stdout field of the CwlTool
+            cwlTool.addOutput(oId, "stdout", null, null);              // doesn't need the "glob" field because this is set in the stdout field of the CwlTool
             String inputReference = oId + "_inputFileName";      // this will be used to find the suitable input with the file's name
             cwlTool.setupStdout(inputReference);
         }
@@ -183,17 +186,19 @@ public class Converter implements IConverter
         {
             if (outputsThatUseInputs.contains(oId))
             {
-                String inputReference = oId + "_inputFileName";
-                cwlTool.addOutput(oId, oType, inputReference);
+                String inputReference = oId + "_outputFileName";
+                cwlTool.addOutput(oId, oType, inputReference, null);
             }
             else
             {
-                cwlTool.addOutput(oId, oType, null);              // @TODO: should probably use something else ...
+                cwlTool.addOutput(oId, oType, null, null);              // @TODO: should probably use something else ...
             }
         }
         
         
-        // convert all outputFiles (of type ToutputFile) of the function
+        /*
+          convert all outputFiles (of type ToutputFile) of the function
+        */
         ArrayList<ToutputFile> outputFiles = bs2Doc.getFunctionOutputFiles(function);
         for (ToutputFile of : outputFiles)
         {
@@ -206,13 +211,13 @@ public class Converter implements IConverter
             
             if (outputsThatUseInputs.contains(ofId))
             {
-                String inputReference = ofId + "_inputFileName";
-                cwlTool.addOutput(ofId, ofType, inputReference);
+                String inputReference = ofId + "_outputFileName";
+                cwlTool.addOutput(ofId, ofType, inputReference, ofFileType);
             }
             else
             {
-                cwlTool.addOutput(ofId, ofType, ofFileName);        // just use the filename from the outputFile object ???
-            }                                                       // or read some input field?
+                cwlTool.addOutput(ofId, ofType, ofFileName, ofFileType);        // just use the filename from the outputFile object ???
+            }                                                                   // or read some input field?
         }
         
         

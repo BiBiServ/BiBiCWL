@@ -60,8 +60,9 @@ public interface ICwlTool {
      * @param id ID of the output - this will be the name for the field
      * @param type type of the output (stdout, File, ...)
      * @param glob glob-pattern for searching for files in the output of the called tool
+     * @param format
      */
-    public void addOutput(String id, String type, String glob);
+    public void addOutput(String id, String type, String glob, String format);
     
     
     /**
