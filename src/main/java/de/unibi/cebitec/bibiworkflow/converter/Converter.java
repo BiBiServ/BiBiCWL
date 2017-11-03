@@ -413,10 +413,10 @@ public class Converter implements IConverter
     private void convertOutputArguments(TinputOutput output, int position, CwlTool cwlTool)
     {
         
-        String id = output.getId() + "_ouputFileName";      // how to name this ???
+        String id = output.getId() + "_ouputFileName";      // how to name this ??? is this even needed? 
         String handling = output.getHandling();
         
-        // check the handling: if it is stdout the argument shoudl not be used 
+        // check the handling: if it's "stdout", the argument should not be used 
         // in CWL as a declared input but rather as a reference in the stdout
         // field. The latter will be done when checking and creating outputs.
         if (handling.equals("stdout"))
@@ -425,8 +425,10 @@ public class Converter implements IConverter
         }
         else
         {
-    //        String type = output.getType();                     // what about this ???
-            String type = "String";                             // is this OK ???
+            // add an input which is used to determine the output location/ file
+            // of the corresponding output.
+            
+            String type = "String";                             // hard-coded ... is this OK ???
             boolean separate = false;
             String prefix;
             if (output.isSetOption())
@@ -439,12 +441,22 @@ public class Converter implements IConverter
             }
             cwlTool.addInput(position, id, type, prefix, separate);
         }
+        
         outputsThatUseInputs.add(id);
-        
-        
     }
     
     
+    
+    /**
+     * @TODO: everything ......
+     * @param output
+     * @param position
+     * @param cwlTool 
+     */
+    private void convertOutputArguments(ToutputFile output, int position, CwlTool cwlTool)
+    {
+        throw new UnsupportedOperationException("converting OutputFile fields as arguments is not yet implemented ...");
+    }
     
     
 }

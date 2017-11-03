@@ -6,6 +6,7 @@
 package de.unibi.cebitec.bibiworkflow.cwl;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,6 +14,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 class Output
 {
+    
+    private final static Logger LOGGER = Logger.getLogger(Output.class.toString());
     
 //    @JsonProperty ... Dont use this property! The ID will be used as key in the HashMap which contains the outputs.
     private final String id;
@@ -47,7 +50,8 @@ class Output
         // only fill in the format if it is specified ...
         if ( (format != null) && (format.length() > 0) )
         {
-            this.format = format;
+//            this.format = format;
+            LOGGER.warning("Using information on the output format is not yet supported.");
         }
     }
     
