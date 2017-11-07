@@ -401,6 +401,7 @@ public class Bs2Document implements IBs2Document
      * @param function
      * @return 
      */
+    @Override
     public TinputOutput getFunctionOutput(Tfunction function)
     {
         return (TinputOutput)(function.getOutputref().getRef());
@@ -413,6 +414,7 @@ public class Bs2Document implements IBs2Document
      * @param function
      * @return OutputFiles for a given function
      */
+    @Override
     public ArrayList<ToutputFile> getFunctionOutputFiles(Tfunction function)
     {
         ArrayList<ToutputFile> outputFiles = new ArrayList<>();

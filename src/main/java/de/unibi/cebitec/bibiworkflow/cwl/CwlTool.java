@@ -229,6 +229,7 @@ public class CwlTool implements ICwlTool {
      * @param id id of the input
      * @param options HashMap containing an identifier for each sub-input-field and the prefix to be used
      */
+    @Override
     public void addExclusiveMultiFieldInput(int position, String id, HashMap<String, String> options) {
         MultiFieldInput mfi = new MultiFieldInput(position, id, options);
         this.inputs.put(id, mfi);

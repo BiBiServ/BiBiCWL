@@ -82,4 +82,10 @@ public interface IBs2Document {
     
     
     ToutputFile getOutputFileById(String id) throws Exception;
+    
+    
+    TinputOutput getFunctionOutput(Tfunction function);
+    
+    
+    ArrayList<ToutputFile> getFunctionOutputFiles(Tfunction function);
 }

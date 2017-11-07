@@ -7,6 +7,7 @@ package de.unibi.cebitec.bibiworkflow.app;
 
 import de.unibi.cebitec.bibiworkflow.converter.IConverter;
 import de.unibi.cebitec.bibiworkflow.cwl.CwlTool;
+import de.unibi.cebitec.bibiworkflow.cwl.ICwlTool;
 import de.unibi.cebitec.bibiworkflow.gui.IMainGui;
 import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.FileHandler;
@@ -58,7 +59,7 @@ public class Controller implements IControl {
         try
         {
             LOGGER.info("Start conversion of bs2 to CWL Tool ...");
-            HashMap<String, CwlTool> cwlTools = converter.convertBs2(this.fileHandler.convertBs2ToRunnableItem());
+            HashMap<String, ICwlTool> cwlTools = converter.convertBs2(this.fileHandler.convertBs2ToRunnableItem());
             
             LOGGER.info("Start conversion to YAML ...");
             YamlWriter ym = new YamlWriter();
@@ -67,7 +68,7 @@ public class Controller implements IControl {
             for (String key : cwlTools.keySet())
             {
                 String fileName = key;
-                CwlTool cwlTool = cwlTools.get(key);
+                ICwlTool cwlTool = cwlTools.get(key);
                 String yamlText = ym.writeObjectToYaml(cwlTool);
                 LOGGER.info("\n\n" + fileName + "\n" + yamlText + "\n\n");
 //                fileHandler.writeStringToFile(yamlText, fileName);
@@ -79,5 +80,13 @@ public class Controller implements IControl {
         }
     }
     
+    
+    
+    
+    
+    private void notifyDocumentChange()
+    {
+        
+    }
     
 }

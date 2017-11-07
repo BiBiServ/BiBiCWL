@@ -7,7 +7,9 @@ package de.unibi.cebitec.bibiworkflow.converter;
 
 import de.unibi.cebitec.bibiworkflow.bs2.Bs2Document;
 import de.unibi.cebitec.bibiworkflow.bs2.ArgumentType;
+import de.unibi.cebitec.bibiworkflow.bs2.IBs2Document;
 import de.unibi.cebitec.bibiworkflow.cwl.CwlTool;
+import de.unibi.cebitec.bibiworkflow.cwl.ICwlTool;
 import de.unibi.techfak.bibiserv.cms.TenumParam;
 import de.unibi.techfak.bibiserv.cms.TenumValue;
 import de.unibi.techfak.bibiserv.cms.Tfunction;
@@ -27,7 +29,7 @@ public class Converter implements IConverter
 {
     
     private final static Logger LOGGER = Logger.getLogger(Converter.class.getName());
-    private Bs2Document bs2Doc;
+    private IBs2Document bs2Doc;
     private final ArrayList<String> outputsThatUseInputs = new ArrayList<>();
     
     
@@ -49,15 +51,15 @@ public class Converter implements IConverter
      * @throws Exception if Conversion fails
      */
     @Override
-    public HashMap<String, CwlTool> convertBs2(TrunnableItem runnableItem) throws Exception
+    public HashMap<String, ICwlTool> convertBs2(TrunnableItem runnableItem) throws Exception
     {
-        HashMap<String, CwlTool> cwlTools = new HashMap<>();
+        HashMap<String, ICwlTool> cwlTools = new HashMap<>();
         this.bs2Doc = new Bs2Document(runnableItem);
         
         // testing some stuff
         for (Tfunction function : bs2Doc.getFunctions())
         {
-            CwlTool cwlTool = convertFunctionToCwlTool(function);
+            ICwlTool cwlTool = convertFunctionToCwlTool(function);
             cwlTools.put(function.getName().get(0).getValue(), cwlTool);
         }
         
@@ -68,9 +70,9 @@ public class Converter implements IConverter
     
     
     
-    private CwlTool convertFunctionToCwlTool(Tfunction function) throws Exception
+    private ICwlTool convertFunctionToCwlTool(Tfunction function) throws Exception
     {
-        CwlTool cwlTool = new CwlTool();
+        ICwlTool cwlTool = new CwlTool();
         convertBaseCommand(cwlTool);
         convertFunctionInputs(function, cwlTool);
         convertFunctionOutputs(function, cwlTool);
@@ -83,7 +85,7 @@ public class Converter implements IConverter
      * Converts the base command of the bs2 file to be set as the CWL base
      * command.
      */
-    private void convertBaseCommand(CwlTool cwlTool) throws Exception
+    private void convertBaseCommand(ICwlTool cwlTool) throws Exception
     {
         String baseCommadBs2 = bs2Doc.getBaseCommand();
         cwlTool.setBaseCommand(baseCommadBs2);
@@ -99,7 +101,7 @@ public class Converter implements IConverter
      * of a given bs2 function into a CWL input.
      * @param function 
      */
-    private void convertFunctionInputs(Tfunction function, CwlTool cwlTool) throws Exception
+    private void convertFunctionInputs(Tfunction function, ICwlTool cwlTool) throws Exception
     {
         int position = 0;
         for (String id : bs2Doc.getCommandLineArgumentOrderAsReferences(function))
@@ -164,7 +166,7 @@ public class Converter implements IConverter
      * @param function
      * @param cwlTool 
      */
-    private void convertFunctionOutputs(Tfunction function, CwlTool cwlTool)
+    private void convertFunctionOutputs(Tfunction function, ICwlTool cwlTool)
     {
         /*
           convert the single output (of type TinputOutput) of the function
@@ -230,7 +232,7 @@ public class Converter implements IConverter
      * @param as 
      * @param position 
      */
-    private void convertAdditionalString(String as, int position, CwlTool cwlTool)
+    private void convertAdditionalString(String as, int position, ICwlTool cwlTool)
     {
         cwlTool.addArgument(position, as);
     }
@@ -245,7 +247,7 @@ public class Converter implements IConverter
      * @param input
      * @param position 
      */
-    private void convertInput(TinputOutput input, int position, CwlTool cwlTool)
+    private void convertInput(TinputOutput input, int position, ICwlTool cwlTool)
     {
         String id = input.getId();                              // using the ID is better than the element's name, right?
         String type = "File";                                   // no string input allowed?
@@ -274,7 +276,7 @@ public class Converter implements IConverter
      * @param param
      * @param position 
      */
-    private void convertParam(Tparam param, int position, CwlTool cwlTool)
+    private void convertParam(Tparam param, int position, ICwlTool cwlTool)
     {
         String id = param.getId();
         String type = param.getType().value();
@@ -296,7 +298,7 @@ public class Converter implements IConverter
      * @param enumParam
      * @param position 
      */
-    private void convertEnumParam(TenumParam enumParam, int position, CwlTool cwlTool) throws Exception
+    private void convertEnumParam(TenumParam enumParam, int position, ICwlTool cwlTool) throws Exception
     {
         /*
         The values + names of the enumParam need to be collected and be stored in a way so that 
@@ -385,7 +387,7 @@ public class Converter implements IConverter
      * @param output bs2 output to be converted
      * @param cwlTool CwlTool which should receive the output
      */
-    private void convertOutput(TinputOutput output, CwlTool cwlTool)
+    private void convertOutput(TinputOutput output, ICwlTool cwlTool)
     {
         
     }
@@ -410,7 +412,7 @@ public class Converter implements IConverter
      * @param position
      * @param cwlTool 
      */
-    private void convertOutputArguments(TinputOutput output, int position, CwlTool cwlTool)
+    private void convertOutputArguments(TinputOutput output, int position, ICwlTool cwlTool)
     {
         
         String id = output.getId() + "_ouputFileName";      // how to name this ??? is this even needed? 
@@ -453,7 +455,7 @@ public class Converter implements IConverter
      * @param position
      * @param cwlTool 
      */
-    private void convertOutputArguments(ToutputFile output, int position, CwlTool cwlTool)
+    private void convertOutputArguments(ToutputFile output, int position, ICwlTool cwlTool)
     {
         throw new UnsupportedOperationException("converting OutputFile fields as arguments is not yet implemented ...");
     }

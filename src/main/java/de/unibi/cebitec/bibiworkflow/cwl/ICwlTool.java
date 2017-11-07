@@ -5,6 +5,8 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
+import java.util.HashMap;
+
 /**
  *
  * @author pol3waf
@@ -86,4 +88,10 @@ public interface ICwlTool {
      * @param baseCommand 
      */
     public void setBaseCommand(String baseCommand);
+    
+    
+    public void addExclusiveMultiFieldInput(int position, String id, HashMap<String, String> options);
+    
+    
+    public void setupStdout(String inputReference);
 }
