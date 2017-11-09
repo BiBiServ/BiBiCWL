@@ -13,25 +13,16 @@ import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javax.swing.text.TextAction;
 
 
 /**
@@ -48,8 +39,6 @@ public final class MainGui extends Application implements IMainGui
     private Stage mainWindow;
     
     // Labels
-    private Label welcomeLabel;
-    private Label loadedFileLabel;
     private Label statusInfo;
     
     // Buttons
@@ -57,7 +46,7 @@ public final class MainGui extends Application implements IMainGui
     private Button openFileButton;
     
     // Textboxes
-    private TextArea documentView;
+    private static TextArea documentView;
             
     
     // Scene
@@ -168,6 +157,7 @@ public final class MainGui extends Application implements IMainGui
           document view area
         */
         documentView = new TextArea();
+//        documentView.setEditable(false);
         documentPane.setPadding(new Insets(10));
         documentPane.getChildren().add(documentView);
         
@@ -209,6 +199,13 @@ public final class MainGui extends Application implements IMainGui
         this.scene = new Scene(borderPane, 800, 600);
         borderPane.setPrefSize(scene.getWidth(), scene.getWidth());
     }
+
     
+    
+    @Override
+    public void updateDocument(String document)
+    {
+        documentView.setText(document);
+    }
     
 }

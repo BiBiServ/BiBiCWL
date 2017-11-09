@@ -13,4 +13,7 @@ public interface IControl {
 
     void convertBs2ToCWL();
     
+    
+    
+    
 }

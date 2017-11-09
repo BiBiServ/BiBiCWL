@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.unibi.cebitec.bibiworkflow.gui;
+package de.unibi.cebitec.bibiworkflow.app;
 
 /**
  * Listener interface for the Model to use and update the GUI.
@@ -11,9 +11,9 @@ package de.unibi.cebitec.bibiworkflow.gui;
  */
 public interface IModelListener {
     
-    public void documentHasChanged(String document);
+    public void documentHasChanged();
     
-    public void newDocumentCreated(String document);
+    public void newDocumentCreated();
     
     
 }

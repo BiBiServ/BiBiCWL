@@ -50,6 +50,11 @@ public interface IMainGui {
     void setStartConversionAction(final EventHandler<ActionEvent> eh);
     
     
+    /**
+     * Updates the presented Document.
+     * @param document 
+     */
+    void updateDocument(String document);
     
     
     

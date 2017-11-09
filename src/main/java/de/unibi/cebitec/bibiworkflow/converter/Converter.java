@@ -5,6 +5,7 @@
  */
 package de.unibi.cebitec.bibiworkflow.converter;
 
+import de.unibi.cebitec.bibiworkflow.app.IModelListener;
 import de.unibi.cebitec.bibiworkflow.bs2.Bs2Document;
 import de.unibi.cebitec.bibiworkflow.bs2.ArgumentType;
 import de.unibi.cebitec.bibiworkflow.bs2.IBs2Document;
@@ -32,7 +33,9 @@ public class Converter implements IConverter
     private IBs2Document bs2Doc;
     private final ArrayList<String> outputsThatUseInputs = new ArrayList<>();
     
+    private final HashMap<String, ICwlTool> cwlTools = new HashMap<>();
     
+    private final ArrayList<IModelListener> modelListeners = new ArrayList<>();
     
     
     public Converter()
@@ -53,20 +56,31 @@ public class Converter implements IConverter
     @Override
     public HashMap<String, ICwlTool> convertBs2(TrunnableItem runnableItem) throws Exception
     {
-        HashMap<String, ICwlTool> cwlTools = new HashMap<>();
+//        HashMap<String, ICwlTool> cwlTools = new HashMap<>();
         this.bs2Doc = new Bs2Document(runnableItem);
         
-        // testing some stuff
         for (Tfunction function : bs2Doc.getFunctions())
         {
             ICwlTool cwlTool = convertFunctionToCwlTool(function);
-            cwlTools.put(function.getName().get(0).getValue(), cwlTool);
+            this.cwlTools.put(function.getName().get(0).getValue(), cwlTool);
         }
         
-        
         // DO SOMETHING !!!
-        return cwlTools;
+        return (HashMap<String, ICwlTool>) this.cwlTools.clone();
     }
+    
+    
+    
+    public HashMap<String, ICwlTool> getCwlTools()
+    {
+        if (this.cwlTools.isEmpty())
+        {
+            LOGGER.info("Trying to gather CwlTools but there are none. Remember to create them first (e.g. by converting bs2 documents)");
+        }
+        return (HashMap<String, ICwlTool>) this.cwlTools.clone();
+    }
+    
+    
     
     
     
@@ -90,7 +104,7 @@ public class Converter implements IConverter
         String baseCommadBs2 = bs2Doc.getBaseCommand();
         cwlTool.setBaseCommand(baseCommadBs2);
         
-        LOGGER.info("converte basecommand: " + baseCommadBs2);
+        LOGGER.info("converted basecommand: " + baseCommadBs2);
     }
     
     
@@ -458,6 +472,48 @@ public class Converter implements IConverter
     private void convertOutputArguments(ToutputFile output, int position, ICwlTool cwlTool)
     {
         throw new UnsupportedOperationException("converting OutputFile fields as arguments is not yet implemented ...");
+    }
+    
+    
+    
+    
+    
+    /*
+        adding and removing Listners and nofitying them about stuff ...
+    */
+    
+    @Override
+    public void addModelListener(IModelListener modelListener)
+    {
+        this.modelListeners.add(modelListener);
+    }
+    
+    
+    
+    @Override
+    public void removeModelListener(IModelListener modelListener)
+    {
+        this.modelListeners.remove(modelListener);
+    }
+    
+    
+    
+    private void notifyModelListenersAboutNewDocument()
+    {
+        for (IModelListener l : this.modelListeners)
+        {
+            l.newDocumentCreated();
+        }
+    }
+    
+    
+    
+    private void notifyModelListenersAboutDocumentChange()
+    {
+        for (IModelListener l : this.modelListeners)
+        {
+            l.documentHasChanged();
+        }
     }
     
     

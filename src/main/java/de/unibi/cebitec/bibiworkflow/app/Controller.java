@@ -6,7 +6,6 @@
 package de.unibi.cebitec.bibiworkflow.app;
 
 import de.unibi.cebitec.bibiworkflow.converter.IConverter;
-import de.unibi.cebitec.bibiworkflow.cwl.CwlTool;
 import de.unibi.cebitec.bibiworkflow.cwl.ICwlTool;
 import de.unibi.cebitec.bibiworkflow.gui.IMainGui;
 import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
@@ -14,6 +13,7 @@ import de.unibi.cebitec.bibiworkflow.io.FileHandler;
 import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.YamlWriter;
 import java.util.HashMap;
+import java.util.function.BiConsumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,7 +21,8 @@ import java.util.logging.Logger;
  *
  * @author pol3waf
  */
-public class Controller implements IControl {
+public class Controller implements IControl, IModelListener
+{
     
     private static final Logger LOGGER = Logger.getLogger(Controller.class.getName());
     private final IConverter converter;
@@ -60,19 +61,33 @@ public class Controller implements IControl {
         {
             LOGGER.info("Start conversion of bs2 to CWL Tool ...");
             HashMap<String, ICwlTool> cwlTools = converter.convertBs2(this.fileHandler.convertBs2ToRunnableItem());
+            HashMap<String, String> yamlCwlTools = new HashMap<>();
             
             LOGGER.info("Start conversion to YAML ...");
             YamlWriter ym = new YamlWriter();
             
             // write each cwlTool to a separate file
-            for (String key : cwlTools.keySet())
-            {
-                String fileName = key;
-                ICwlTool cwlTool = cwlTools.get(key);
-                String yamlText = ym.writeObjectToYaml(cwlTool);
-                LOGGER.info("\n\n" + fileName + "\n" + yamlText + "\n\n");
-//                fileHandler.writeStringToFile(yamlText, fileName);
-            }
+            
+            cwlTools.forEach((name, cwlTool) -> {
+                String yamlDocument = parseCwlToolsToYaml(cwlTool);
+                LOGGER.info("\n\n" + name + "\n" + yamlDocument + "\n\n");
+                yamlCwlTools.put(name, yamlDocument);
+                
+                // temporary ... delete this
+                updateDocumentView(yamlDocument);
+                
+            });
+//            
+//            for (String toolName : cwlTools.keySet())
+//            {
+//                
+//                parseCwlToolsToYaml(toolName, cwlTool);
+//                String fileName = toolName;
+//                ICwlTool cwlTool = cwlTools.get(toolName);
+//                String yamlText = ym.writeObjectToYaml(cwlTool);
+//                LOGGER.info("\n\n" + fileName + "\n" + yamlText + "\n\n");
+////                fileHandler.writeStringToFile(yamlText, fileName);
+//            }
         }
         catch (Exception ex)
         {
@@ -82,11 +97,65 @@ public class Controller implements IControl {
     
     
     
-    
-    
-    private void notifyDocumentChange()
+    private String parseCwlToolsToYaml(ICwlTool cwlTool)
     {
+        YamlWriter ym = new YamlWriter();
+        String yamlText = ym.writeObjectToYaml(cwlTool);
         
+        return yamlText;
     }
+    
+    
+    
+    
+    
+    
+    /**
+     * Updates the currently displayed document of the GUI.
+     * @param document.
+     */
+    @Override
+    public void documentHasChanged()
+    {
+        HashMap<String, ICwlTool> cwlTools = converter.getCwlTools();
+//        String document = 
+        // update notify the GUI to update the diplayed document
+//        this.updateDocumentView(document);
+    }
+    
+    
+    
+    @Override
+    public void newDocumentCreated()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
+    
+    /**
+     * Creates a new document in the GUI. If a document already exists, a new 
+     * one is created. (May be used to show different documents in tabs or 
+     * whatever ... ...) 
+     * @param document 
+     */
+    private void createNewDocumentView()
+    {
+        // update the GUI to display a new document
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
+    /**
+     * Updates the GUI's displayed document.
+     * @param document
+     */
+    private void updateDocumentView(String document) {
+        this.mainGui.updateDocument(document);
+    }
+    
+    
     
 }

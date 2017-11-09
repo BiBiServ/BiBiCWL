@@ -5,12 +5,10 @@
  */
 package de.unibi.cebitec.bibiworkflow.converter;
 
-import de.unibi.cebitec.bibiworkflow.cwl.CwlTool;
+import de.unibi.cebitec.bibiworkflow.app.IModelListener;
 import de.unibi.cebitec.bibiworkflow.cwl.ICwlTool;
 import de.unibi.techfak.bibiserv.cms.TrunnableItem;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  *
@@ -20,6 +18,11 @@ public interface IConverter {
     
     
     
-    public HashMap<String, ICwlTool> convertBs2(TrunnableItem runnableItem) throws Exception;
+    HashMap<String, ICwlTool> convertBs2(TrunnableItem runnableItem) throws Exception;
+    
+    HashMap<String, ICwlTool> getCwlTools();
+    
+    void addModelListener(IModelListener modelListener);
+    void removeModelListener(IModelListener modelListener);
     
 }
