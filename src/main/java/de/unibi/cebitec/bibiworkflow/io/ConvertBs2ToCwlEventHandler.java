@@ -5,7 +5,7 @@
  */
 package de.unibi.cebitec.bibiworkflow.io;
 
-import de.unibi.cebitec.bibiworkflow.app.Controller;
+import de.unibi.cebitec.bibiworkflow.app.GuiControl;
 import javafx.event.ActionEvent;
 
 /**
@@ -15,13 +15,13 @@ import javafx.event.ActionEvent;
 public class ConvertBs2ToCwlEventHandler implements javafx.event.EventHandler<ActionEvent>
 {
 
-    private final Controller controller;
+    private final GuiControl controller;
     
     /**
      *
      * @param controller
      */
-    public ConvertBs2ToCwlEventHandler(Controller controller)
+    public ConvertBs2ToCwlEventHandler(GuiControl controller)
     {
         this.controller = controller;
     }

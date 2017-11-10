@@ -47,7 +47,7 @@ public final class MainGui extends Application implements IMainGui
     
     // Textboxes
     private static TextArea documentView;
-            
+    
     
     // Scene
     private Scene scene;
@@ -120,11 +120,7 @@ public final class MainGui extends Application implements IMainGui
     }
     
 
-    @Override
-    public void setSaveFileAction(final EventHandler<ActionEvent> eh) {
-        
-    }
-
+    
     @Override
     public void setStartConversionAction(final EventHandler<ActionEvent> eh) {
         this.startConversionButton.setOnAction(eh);
@@ -157,7 +153,7 @@ public final class MainGui extends Application implements IMainGui
           document view area
         */
         documentView = new TextArea();
-//        documentView.setEditable(false);
+        documentView.setEditable(false);
         documentPane.setPadding(new Insets(10));
         documentPane.getChildren().add(documentView);
         
@@ -206,6 +202,11 @@ public final class MainGui extends Application implements IMainGui
     public void updateDocument(String document)
     {
         documentView.setText(document);
+    }
+
+    @Override
+    public void setSaveFileAction(EventHandler<ActionEvent> eh) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

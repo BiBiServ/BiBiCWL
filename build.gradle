@@ -37,6 +37,9 @@ dependencies {
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.0'
     compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.9.0'
     
+    // https://mvnrepository.com/artifact/commons-cli/commons-cli
+    compile group: 'commons-cli', name: 'commons-cli', version: '1.3.1'
+    
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
 }
@@ -44,9 +47,20 @@ dependencies {
 // Define the main class for the application
 mainClassName = 'de/unibi/cebitec/bibiworkflow/app/App'
 
+//ext.mainClass = 'de.unibi.cebitec.bibiworkflow.app.App'
+//ext.cliargs = '-g'
+
+//run.args = ['--gui-mode']
 
 
 task copyDeps(type: Copy) {
   from configurations.runtime
   into 'build/lib'
 }
+
+// custom run task
+//task runargs(type : JavaExec ){
+//   main = mainClass
+//   classpath = sourceSets.main.runtimeClasspath
+//   args cliargs
+//}

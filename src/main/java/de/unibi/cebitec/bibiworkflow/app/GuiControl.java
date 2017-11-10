@@ -21,10 +21,10 @@ import java.util.logging.Logger;
  *
  * @author pol3waf
  */
-public class Controller implements IControl, IModelListener
+public class GuiControl implements IControl, IModelListener
 {
     
-    private static final Logger LOGGER = Logger.getLogger(Controller.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(GuiControl.class.getName());
     private final IConverter converter;
     private final IMainGui mainGui;
     private final FileHandler fileHandler;
@@ -35,22 +35,13 @@ public class Controller implements IControl, IModelListener
      * @param converter Implementation of a IConverter
      * @param mainGui Implementation of IMainGUI
      */
-    public Controller(IConverter converter, IMainGui mainGui)
+    public GuiControl(IConverter converter, IMainGui mainGui)
     {
         this.converter = converter;
         this.mainGui = mainGui;
         this.fileHandler = new FileHandler();
         
         this.setUpGUI();
-    }
-    
-    private void setUpGUI()
-    {
-        // create all event handlers and pass them to the GUI
-        OpenFileEventHandler ofeh = new OpenFileEventHandler(this.fileHandler);
-        ConvertBs2ToCwlEventHandler ceh = new ConvertBs2ToCwlEventHandler(this);
-        
-        this.mainGui.launchGUI(ofeh, ceh);
     }
     
     
@@ -95,6 +86,15 @@ public class Controller implements IControl, IModelListener
         }
     }
     
+    
+    private void setUpGUI()
+    {
+        // create all event handlers and pass them to the GUI
+        OpenFileEventHandler ofeh = new OpenFileEventHandler(this.fileHandler);
+        ConvertBs2ToCwlEventHandler ceh = new ConvertBs2ToCwlEventHandler(this);
+        
+        this.mainGui.launchGUI(ofeh, ceh);
+    }
     
     
     private String parseCwlToolsToYaml(ICwlTool cwlTool)
