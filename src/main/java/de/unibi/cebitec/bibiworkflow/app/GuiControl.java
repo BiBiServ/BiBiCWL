@@ -51,40 +51,32 @@ public class GuiControl implements IControl, IModelListener
         try
         {
             LOGGER.info("Start conversion of bs2 to CWL Tool ...");
-            HashMap<String, ICwlTool> cwlTools = converter.convertBs2(this.fileHandler.convertBs2ToRunnableItem());
+            HashMap<String, ICwlTool> cwlTools = converter.convertBs2(this.fileHandler.importBs2AsRunnableItem());
             HashMap<String, String> yamlCwlTools = new HashMap<>();
             
             LOGGER.info("Start conversion to YAML ...");
             YamlWriter ym = new YamlWriter();
             
-            // write each cwlTool to a separate file
             
+            // write each cwlTool to a separate string object
             cwlTools.forEach((name, cwlTool) -> {
                 String yamlDocument = parseCwlToolsToYaml(cwlTool);
                 LOGGER.info("\n\n" + name + "\n" + yamlDocument + "\n\n");
                 yamlCwlTools.put(name, yamlDocument);
                 
                 // temporary ... delete this
-                updateDocumentView(yamlDocument);
-                
+                updateDocumentView(yamlDocument);               // why should I delete this ????????????????????????
             });
-//            
-//            for (String toolName : cwlTools.keySet())
-//            {
-//                
-//                parseCwlToolsToYaml(toolName, cwlTool);
-//                String fileName = toolName;
-//                ICwlTool cwlTool = cwlTools.get(toolName);
-//                String yamlText = ym.writeObjectToYaml(cwlTool);
-//                LOGGER.info("\n\n" + fileName + "\n" + yamlText + "\n\n");
-////                fileHandler.writeStringToFile(yamlText, fileName);
-//            }
+            
+            
         }
         catch (Exception ex)
         {
             LOGGER.log(Level.SEVERE, null, ex);
         }
     }
+    
+    
     
     
     private void setUpGUI()
@@ -95,6 +87,8 @@ public class GuiControl implements IControl, IModelListener
         
         this.mainGui.launchGUI(ofeh, ceh);
     }
+    
+    
     
     
     private String parseCwlToolsToYaml(ICwlTool cwlTool)
@@ -125,6 +119,7 @@ public class GuiControl implements IControl, IModelListener
     
     
     
+    
     @Override
     public void newDocumentCreated()
     {
@@ -148,6 +143,7 @@ public class GuiControl implements IControl, IModelListener
     
     
     
+    
     /**
      * Updates the GUI's displayed document.
      * @param document
@@ -155,6 +151,8 @@ public class GuiControl implements IControl, IModelListener
     private void updateDocumentView(String document) {
         this.mainGui.updateDocument(document);
     }
+    
+    
     
     
     
