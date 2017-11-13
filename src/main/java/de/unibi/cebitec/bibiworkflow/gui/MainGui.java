@@ -9,6 +9,7 @@ package de.unibi.cebitec.bibiworkflow.gui;
 
 import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
+import de.unibi.cebitec.bibiworkflow.io.SaveToDirectoryEventHandler;
 import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -35,6 +36,7 @@ public final class MainGui extends Application implements IMainGui
     
     private static OpenFileEventHandler openFileEventHandler;
     private static ConvertBs2ToCwlEventHandler convertBs2ToCwlEventHandler;
+    private static SaveToDirectoryEventHandler saveToDirectoryEventHandler;
     
     private Stage mainWindow;
     
@@ -44,6 +46,7 @@ public final class MainGui extends Application implements IMainGui
     // Buttons
     private Button startConversionButton;
     private Button openFileButton;
+    private Button saveToDirectoryButton;
     
     // Textboxes
     private static TextArea documentView;
@@ -167,20 +170,24 @@ public final class MainGui extends Application implements IMainGui
         
         // buttons and some labels
         
-        this.openFileButton = new Button("openFile");
-        this.startConversionButton = new Button("convert");
+        this.openFileButton = new Button("Open BS2 File");
+        this.startConversionButton = new Button("Convert to CWL");
+        this.saveToDirectoryButton = new Button("Save to Directory");
         
         this.openFileButton.setMaxWidth(Double.MAX_VALUE);
         this.startConversionButton.setMaxWidth(Double.MAX_VALUE);
+        this.saveToDirectoryButton.setMaxWidth(Double.MAX_VALUE);
 
         // set button actions
         this.setOpenFileAction(openFileEventHandler);
         this.setStartConversionAction(convertBs2ToCwlEventHandler);
+        this.setSaveToDirectoryAction(saveToDirectoryEventHandler);
         
         // add button-stuff to buttonFlowPane (flowpane)
         buttonPane.getChildren().addAll( 
                 this.openFileButton,
-                this.startConversionButton
+                this.startConversionButton,
+                this.saveToDirectoryButton
         );
         
         
@@ -207,6 +214,10 @@ public final class MainGui extends Application implements IMainGui
     @Override
     public void setSaveFileAction(EventHandler<ActionEvent> eh) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setSaveToDirectoryAction(SaveToDirectoryEventHandler saveToDirectoryEventHandler) {
+        this.saveToDirectoryButton.setOnAction(saveToDirectoryEventHandler);
     }
     
 }

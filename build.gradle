@@ -50,8 +50,8 @@ mainClassName = 'de/unibi/cebitec/bibiworkflow/app/App'
 //ext.mainClass = 'de.unibi.cebitec.bibiworkflow.app.App'
 //ext.cliargs = '-i'
 
-//run.args = ['--gui-mode']
-run.args = ["--input=/home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/xml/blast_final.bs2"]
+run.args = ['--gui-mode']
+//run.args = ["--input=/home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/xml/blast_final.bs2"]
 
 
 task copyDeps(type: Copy) {

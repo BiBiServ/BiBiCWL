@@ -5,8 +5,10 @@
  */
 package de.unibi.cebitec.bibiworkflow.io;
 
+import de.unibi.cebitec.bibiworkflow.app.GuiControl;
 import java.io.File;
 import javafx.event.ActionEvent;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -31,6 +33,10 @@ public class OpenFileEventHandler implements javafx.event.EventHandler<ActionEve
     
     
 
+    
+                
+                
+                
     @Override
     public void handle(ActionEvent event) {
         // Create a FileChooser and set it up.
@@ -42,10 +48,11 @@ public class OpenFileEventHandler implements javafx.event.EventHandler<ActionEve
         // Put the FileChooser into a new Stage and get the file
         Stage openFileStage = new Stage();
         openFileStage.setAlwaysOnTop(true);
-        
         File file = fc.showOpenDialog(openFileStage);
         
+        // set the filehandler's input file field.
         fileHandler.setInFile(file);
+        
     }
     
     

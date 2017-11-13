@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.unibi.cebitec.bibiworkflow.io;
+package de.unibi.cebitec.bibiworkflow.converter;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
+import java.util.HashMap;
 
 import java.util.logging.Logger;
 
@@ -50,6 +51,28 @@ public class YamlWriter
         return yamlString;
     }
     
+    
+    
+    
+    /**
+     * Converts a set of CwlTools into a set of YAML Strings.
+     * @param objects
+     * @return 
+     */
+    public HashMap<String, String> convertMultipleObjectsToYaml(HashMap<String, ?> objects)
+    {
+        HashMap<String, String> yamlDocuments = new HashMap<>();
+        
+        objects.forEach( (name, cwlTool) ->
+        {
+            String yamlDocument = this.writeObjectToYaml(cwlTool);
+            LOGGER.info("\nYAML output is:\n" + name + "\n" + yamlDocument + "\n\n");
+            yamlDocuments.put(name, yamlDocument);
+        }
+        );
+        
+        return yamlDocuments;
+    }
     
     
 }

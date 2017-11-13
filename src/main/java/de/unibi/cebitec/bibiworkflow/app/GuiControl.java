@@ -11,9 +11,8 @@ import de.unibi.cebitec.bibiworkflow.gui.IMainGui;
 import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.FileHandler;
 import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
-import de.unibi.cebitec.bibiworkflow.io.YamlWriter;
+import de.unibi.cebitec.bibiworkflow.converter.YamlWriter;
 import java.util.HashMap;
-import java.util.function.BiConsumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -50,24 +49,18 @@ public class GuiControl implements IControl, IModelListener
     {
         try
         {
-            LOGGER.info("Start conversion of bs2 to CWL Tool ...");
-            HashMap<String, ICwlTool> cwlTools = converter.convertBs2(this.fileHandler.importBs2AsRunnableItem());
-            HashMap<String, String> yamlCwlTools = new HashMap<>();
             
-            LOGGER.info("Start conversion to YAML ...");
+            LOGGER.info("Converting bs2-document to CwlTools ...");
+            this.converter.convertBs2(this.fileHandler.importBs2AsRunnableItem() );
+            
+            
+            LOGGER.info("Converting CwlTools to YAML ...");
+            HashMap<String, ICwlTool> cwlTools = this.converter.getCwlTools();
             YamlWriter ym = new YamlWriter();
+            HashMap<String, String> yamlCwlTools = ym.convertMultipleObjectsToYaml(cwlTools);
             
-            
-            // write each cwlTool to a separate string object
-            cwlTools.forEach((name, cwlTool) -> {
-                String yamlDocument = parseCwlToolsToYaml(cwlTool);
-                LOGGER.info("\n\n" + name + "\n" + yamlDocument + "\n\n");
-                yamlCwlTools.put(name, yamlDocument);
-                
-                // temporary ... delete this
-                updateDocumentView(yamlDocument);               // why should I delete this ????????????????????????
-            });
-            
+            LOGGER.info("Updating GUI ...");
+            updateDocumentView(yamlCwlTools);
             
         }
         catch (Exception ex)
@@ -145,11 +138,22 @@ public class GuiControl implements IControl, IModelListener
     
     
     /**
-     * Updates the GUI's displayed document.
-     * @param document
+     * Updates the GUI's displayed documents. The set of documents are 
+     * concatenated into a combined document and passed to the GUI.
+     * @param documents set of documents
      */
-    private void updateDocumentView(String document) {
-        this.mainGui.updateDocument(document);
+    private void updateDocumentView(HashMap<String, String> documents)
+    {
+        String concatenatedDocuments = "";
+                
+        documents.forEach( (name, document) ->
+        {
+            concatenatedDocuments.concat("\n\n" + name + "\n" + document);
+        }
+        );
+        
+        this.mainGui.updateDocument(concatenatedDocuments);
+        System.out.println(concatenatedDocuments);
     }
     
     

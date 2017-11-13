@@ -5,14 +5,13 @@
  */
 package de.unibi.cebitec.bibiworkflow.io;
 
-import de.unibi.cebitec.bibiworkflow.app.GuiControl;
 import de.unibi.techfak.bibiserv.cms.TrunnableItem;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBContext;
@@ -62,6 +61,7 @@ public class FileHandler {
     
     
     
+    
     public void setInFile(String fileName) throws FileNotFoundException
     {
         File file = new File(fileName);
@@ -79,10 +79,21 @@ public class FileHandler {
     
     
     
+    
     public void setOutFile(File file)
     {
         this.outFile = file;
     }
+    
+    
+    
+    
+    
+    public void setOutDir(File directory)
+    {
+        this.outDir = directory;
+    }
+    
     
     
     
@@ -100,6 +111,7 @@ public class FileHandler {
             throw new FileNotFoundException("The output directory " + directory + "could not be found.");
         }
     }
+    
     
     
     
@@ -122,6 +134,7 @@ public class FileHandler {
             return null;
         }
     }
+    
     
     
     
@@ -152,6 +165,33 @@ public class FileHandler {
     
     
     
+    
+    
+    /**
+     * Writes a set of Strings to the output directory which is specified in the FileHandler object.
+     * @param documents 
+     */
+    public void writeMultipleStringsToDisk(HashMap<String, String> documents)
+    {
+        documents.forEach( (name, yamlCwlTool) ->
+        {
+            try {
+                this.writeStringToFile(name, yamlCwlTool);
+                LOGGER.info("Saved " + name + " to file: " + this.getOuputFilePath());
+            } catch (IOException ex) {
+                LOGGER.log(Level.SEVERE, null, ex);
+            }
+        }
+        );
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * Returns the output directory's path as a String.
      * @return output directory path
@@ -162,10 +202,15 @@ public class FileHandler {
     }
     
     
+    
+    
+    
     public String getOuputFilePath()
     {
         return this.outFile.toPath().toString();
     }
+    
+    
     
     
     

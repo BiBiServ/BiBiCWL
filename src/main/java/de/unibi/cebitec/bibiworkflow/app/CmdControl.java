@@ -8,15 +8,13 @@ package de.unibi.cebitec.bibiworkflow.app;
 import de.unibi.cebitec.bibiworkflow.converter.IConverter;
 import de.unibi.cebitec.bibiworkflow.cwl.ICwlTool;
 import de.unibi.cebitec.bibiworkflow.io.FileHandler;
-import de.unibi.cebitec.bibiworkflow.io.YamlWriter;
+import de.unibi.cebitec.bibiworkflow.converter.YamlWriter;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import static java.lang.System.exit;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.Options;
 
 /**
  *
@@ -73,12 +71,13 @@ public class CmdControl implements IControl
             
             LOGGER.info("Converting CwlTools to YAML ...");
             HashMap<String, ICwlTool> cwlTools = this.converter.getCwlTools();
-            HashMap<String, String> yamlCwlTools = this.convertCwlToolsToYaml(cwlTools);
+            YamlWriter ym = new YamlWriter();
+            HashMap<String, String> yamlCwlTools = ym.convertMultipleObjectsToYaml(cwlTools);
             
             
             LOGGER.info("Writing CWL-YAML-Tools into output directory " 
                     + this.fileHandler.getOutputDirectoryPath() + " ...");
-            this.writeYamlCwlToolsToDisk(yamlCwlTools);
+            this.fileHandler.writeMultipleStringsToDisk(yamlCwlTools);
             
         }
         catch (Exception ex)
@@ -156,51 +155,6 @@ public class CmdControl implements IControl
             LOGGER.severe("No input.");
             return false;
         }
-    }
-    
-    
-    
-    
-    /**
-     * Converts a set of CwlTools into a set of YAML Strings.
-     * @param cwlTools
-     * @return 
-     */
-    private HashMap<String, String> convertCwlToolsToYaml(HashMap<String, ICwlTool> cwlTools)
-    {
-        HashMap<String, String> yamlCwlTools = new HashMap<>();
-        
-        cwlTools.forEach( (name, cwlTool) ->
-        {
-            YamlWriter ym = new YamlWriter();
-            String yamlDocument = ym.writeObjectToYaml(cwlTool);
-            LOGGER.info("\n\n" + name + "\n" + yamlDocument + "\n\n");
-            yamlCwlTools.put(name, yamlDocument);
-        }
-        );
-        
-        return yamlCwlTools;
-    }
-    
-    
-    
-    
-    /**
-     * Writes a set of YAML-CWL-Tools (or other strings) to an output directory.
-     * @param yamlCwlTools 
-     */
-    private void writeYamlCwlToolsToDisk(HashMap<String, String> yamlCwlTools)
-    {
-        yamlCwlTools.forEach( (name, yamlCwlTool) ->
-        {
-            try {
-                this.fileHandler.writeStringToFile(name, yamlCwlTool);
-                LOGGER.info("Saved " + name + " to file: " + this.fileHandler.getOuputFilePath());
-            } catch (IOException ex) {
-                LOGGER.log(Level.SEVERE, null, ex);
-            }
-        }
-        );
     }
     
     
