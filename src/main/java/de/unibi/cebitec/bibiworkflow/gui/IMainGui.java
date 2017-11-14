@@ -7,6 +7,8 @@ package de.unibi.cebitec.bibiworkflow.gui;
 
 import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
+import de.unibi.cebitec.bibiworkflow.io.SaveToDirectoryEventHandler;
+import java.util.HashMap;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -20,10 +22,10 @@ public interface IMainGui {
      * launch the GUI. This provide the GUI with every EventHandler needed and
      * place them in static variables. The GUI will be called statically as 
      * well.
-     * @param ofeh EventHandler for opening files
-     * @param ceh EventHandler for converting files
+     * @param oh EventHandler for opening files
+     * @param ch EventHandler for converting files
      */
-    void launchGUI(OpenFileEventHandler ofeh, ConvertBs2ToCwlEventHandler ceh);
+    void launchGUI(OpenFileEventHandler oh, ConvertBs2ToCwlEventHandler ch, SaveToDirectoryEventHandler sh);
     
     /**
      *
@@ -49,13 +51,25 @@ public interface IMainGui {
      */
     void setStartConversionAction(final EventHandler<ActionEvent> eh);
     
+    /**
+     * 
+     * @param saveToDirectoryEventHandler 
+     */
+    void setSaveToDirectoryAction(SaveToDirectoryEventHandler saveToDirectoryEventHandler);
+    
     
     /**
-     * Updates the presented Document.
-     * @param document 
+     * Updates the document view. Takes one document.
+     * @param document a document to be displayed
      */
     void updateDocument(String document);
     
+    
+    /**
+     * Updates the document view. Takes multiple documents.
+     * @param documents set of documents to be displayed
+     */
+    void updateDocument(HashMap<String, String> documents);
     
     
 }

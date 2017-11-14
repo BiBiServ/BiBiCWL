@@ -64,26 +64,32 @@ public class CmdControl implements IControl
             LOGGER.info("Converting bs2-document to CwlTools ...");
             this.converter.convertBs2(this.fileHandler.importBs2AsRunnableItem() );
             
-            
             LOGGER.info("Processing additional command line arguments if they exist ...");
             this.processAdditionalCommandLineArguments();
             
-            
-            LOGGER.info("Converting CwlTools to YAML ...");
-            HashMap<String, ICwlTool> cwlTools = this.converter.getCwlTools();
-            YamlWriter ym = new YamlWriter();
-            HashMap<String, String> yamlCwlTools = ym.convertMultipleObjectsToYaml(cwlTools);
-            
-            
-            LOGGER.info("Writing CWL-YAML-Tools into output directory " 
-                    + this.fileHandler.getOutputDirectoryPath() + " ...");
-            this.fileHandler.writeMultipleStringsToDisk(yamlCwlTools);
+            saveCwlTools();
             
         }
         catch (Exception ex)
         {
             LOGGER.log(Level.SEVERE, null, ex);
         }
+    }
+    
+    
+    
+    
+    public void saveCwlTools()
+    {
+        LOGGER.info("Converting CwlTools to YAML ...");
+        HashMap<String, ICwlTool> cwlTools = this.converter.getCwlTools();
+        YamlWriter ym = new YamlWriter();
+        HashMap<String, String> yamlCwlTools = ym.convertMultipleObjectsToYaml(cwlTools);
+
+
+        LOGGER.info("Writing CWL-YAML-Tools into output directory " 
+                + this.fileHandler.getOutputDirectoryPath() + " ...");
+        this.fileHandler.writeMultipleStringsToDisk(yamlCwlTools);
     }
     
     

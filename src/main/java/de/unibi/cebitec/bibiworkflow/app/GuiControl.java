@@ -12,6 +12,7 @@ import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.FileHandler;
 import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
 import de.unibi.cebitec.bibiworkflow.converter.YamlWriter;
+import de.unibi.cebitec.bibiworkflow.io.SaveToDirectoryEventHandler;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +30,11 @@ public class GuiControl implements IControl, IModelListener
     private final FileHandler fileHandler;
     
     
+    
+    
+    
+    
+    
     /**
      * Constructor for the Controller with a given GUI and 
      * @param converter Implementation of a IConverter
@@ -44,6 +50,11 @@ public class GuiControl implements IControl, IModelListener
     }
     
     
+    
+    
+    
+    
+    
     @Override
     public void convertBs2ToCWL()
     {
@@ -53,14 +64,13 @@ public class GuiControl implements IControl, IModelListener
             LOGGER.info("Converting bs2-document to CwlTools ...");
             this.converter.convertBs2(this.fileHandler.importBs2AsRunnableItem() );
             
-            
             LOGGER.info("Converting CwlTools to YAML ...");
             HashMap<String, ICwlTool> cwlTools = this.converter.getCwlTools();
             YamlWriter ym = new YamlWriter();
             HashMap<String, String> yamlCwlTools = ym.convertMultipleObjectsToYaml(cwlTools);
             
             LOGGER.info("Updating GUI ...");
-            updateDocumentView(yamlCwlTools);
+            this.mainGui.updateDocument(yamlCwlTools);
             
         }
         catch (Exception ex)
@@ -72,26 +82,33 @@ public class GuiControl implements IControl, IModelListener
     
     
     
+    @Override
+    public void saveCwlTools()
+    {
+        LOGGER.info("Converting CwlTools to YAML ...");
+        HashMap<String, ICwlTool> cwlTools = this.converter.getCwlTools();
+        YamlWriter ym = new YamlWriter();
+        HashMap<String, String> yamlCwlTools = ym.convertMultipleObjectsToYaml(cwlTools);
+
+
+        LOGGER.info("Writing CWL-YAML-Tools into output directory " 
+                + this.fileHandler.getOutputDirectoryPath() + " ...");
+        this.fileHandler.writeMultipleStringsToDisk(yamlCwlTools);
+    }
+    
+    
+    
+    
+    
     private void setUpGUI()
     {
         // create all event handlers and pass them to the GUI
         OpenFileEventHandler ofeh = new OpenFileEventHandler(this.fileHandler);
         ConvertBs2ToCwlEventHandler ceh = new ConvertBs2ToCwlEventHandler(this);
+        SaveToDirectoryEventHandler s = new SaveToDirectoryEventHandler(this, fileHandler);
         
-        this.mainGui.launchGUI(ofeh, ceh);
+        this.mainGui.launchGUI(ofeh, ceh, s);
     }
-    
-    
-    
-    
-    private String parseCwlToolsToYaml(ICwlTool cwlTool)
-    {
-        YamlWriter ym = new YamlWriter();
-        String yamlText = ym.writeObjectToYaml(cwlTool);
-        
-        return yamlText;
-    }
-    
     
     
     
@@ -113,6 +130,7 @@ public class GuiControl implements IControl, IModelListener
     
     
     
+    
     @Override
     public void newDocumentCreated()
     {
@@ -121,40 +139,6 @@ public class GuiControl implements IControl, IModelListener
     
     
     
-    
-    /**
-     * Creates a new document in the GUI. If a document already exists, a new 
-     * one is created. (May be used to show different documents in tabs or 
-     * whatever ... ...) 
-     * @param document 
-     */
-    private void createNewDocumentView()
-    {
-        // update the GUI to display a new document
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
-    
-    /**
-     * Updates the GUI's displayed documents. The set of documents are 
-     * concatenated into a combined document and passed to the GUI.
-     * @param documents set of documents
-     */
-    private void updateDocumentView(HashMap<String, String> documents)
-    {
-        String concatenatedDocuments = "";
-                
-        documents.forEach( (name, document) ->
-        {
-            concatenatedDocuments.concat("\n\n" + name + "\n" + document);
-        }
-        );
-        
-        this.mainGui.updateDocument(concatenatedDocuments);
-        System.out.println(concatenatedDocuments);
-    }
     
     
     

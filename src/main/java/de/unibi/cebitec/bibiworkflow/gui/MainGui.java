@@ -10,6 +10,7 @@ package de.unibi.cebitec.bibiworkflow.gui;
 import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.SaveToDirectoryEventHandler;
+import java.util.HashMap;
 import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -70,10 +71,11 @@ public final class MainGui extends Application implements IMainGui
     
     
     @Override
-    public void launchGUI(OpenFileEventHandler ofeh, ConvertBs2ToCwlEventHandler ceh)
+    public void launchGUI(OpenFileEventHandler oh, ConvertBs2ToCwlEventHandler ch, SaveToDirectoryEventHandler sh)
     {
-        openFileEventHandler = ofeh;
-        convertBs2ToCwlEventHandler = ceh;
+        openFileEventHandler = oh;
+        convertBs2ToCwlEventHandler = ch;
+        saveToDirectoryEventHandler = sh;
         Application.launch(MainGui.class);
     }
     
@@ -210,13 +212,21 @@ public final class MainGui extends Application implements IMainGui
     {
         documentView.setText(document);
     }
+    
+    @Override
+    public void updateDocument(HashMap<String, String> documents)
+    {
+        documentView.setText(documents.toString());
+    }
 
     @Override
     public void setSaveFileAction(EventHandler<ActionEvent> eh) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void setSaveToDirectoryAction(SaveToDirectoryEventHandler saveToDirectoryEventHandler) {
+    
+    @Override
+    public void setSaveToDirectoryAction(SaveToDirectoryEventHandler saveToDirectoryEventHandler) {
         this.saveToDirectoryButton.setOnAction(saveToDirectoryEventHandler);
     }
     

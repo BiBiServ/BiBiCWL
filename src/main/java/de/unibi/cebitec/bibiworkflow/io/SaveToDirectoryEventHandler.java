@@ -33,7 +33,8 @@ public class SaveToDirectoryEventHandler implements javafx.event.EventHandler<Ac
     
     
     @Override
-    public void handle(ActionEvent event) {
+    public void handle(ActionEvent event)
+    {
         // Create a DirectoryChooser and set it up.
         DirectoryChooser dc = new DirectoryChooser();
         dc.setTitle("Choose output directory");
@@ -47,7 +48,7 @@ public class SaveToDirectoryEventHandler implements javafx.event.EventHandler<Ac
         fileHandler.setOutDir(directory);
         
         // tell the controller to save everything (convert to YAML and write to file(s))
-//        this.controller.
+        this.controller.saveCwlTools();
     }
     
     
