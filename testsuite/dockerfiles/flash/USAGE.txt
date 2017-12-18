@@ -1,0 +1,9 @@
+./flash2 ~/Programming/Projects/MasterProject/SampleData/FASTQ/test/frag_2.fastq.gz ~/Programming/Projects/MasterProject/SampleData/FASTQ/test/frag_2.fastq.gz -m 10 -M 65 -d /tmp -o "prefix" -x 0.01 -O
+
+
+-m min-size
+-M max-size
+-d output-dir
+-o prefix for the output-file-name
+-x density ... some strange stuff
+-O flag for allow outies

@@ -1,0 +1,6 @@
+sudo docker run --mount type=bind,source=/home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/test,target=/mnt flash:v2.2.00 flash2 /mnt/frag_2.fastq.gz /mnt/frag_2.fastq.gz -m 10 -M 65 -d /mnt -o "prefix" -x 0.01 -O
+
+
+The data has to mounted somewhere (--mount bla ..) and the results
+should be put into the same volume.
+The flash command is the same as before with the single difference, that the path to the data has changed to that of the mounted volume.
