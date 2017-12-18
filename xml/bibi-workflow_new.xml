@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<runnableItem xmlns="bibiserv:de.unibi.techfak.bibiserv.cms"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="bibiserv:de.unibi.techfak.bibiserv.cms url:http://bibiserv.techfak.uni-bielefeld.de/xsd/bibiserv2/BiBiServAbstraction.xsd" id="bibi_workflow">
+    <name>Bibi-Workflow</name>
+    <shortDescription>Tool for creating CWL Tools from BiBiApp descriptions</shortDescription>
+    <description>
+        The Bibi-Workflow tool aims to convert BiBiApp descriptions into CommandLineTools 
+        of the Common Workflow Language (CWL). These could then be used to compose CWL 
+        workflows.
+    </description>
+    <responsibleAuthor>
+        <firstname>Jean</firstname>
+        <lastname>Saydo</lastname>
+        <email>jsaydo@techfak.uni-bielefeld.de</email>
+    </responsibleAuthor>
+    <executable>
+        <version>0.1</version>
+        <execInfo>
+            <path>/homes/jsaydo/BiBiServInstance/bin/</path>
+            <callingInformation>bibi-workflow</callingInformation>
+        </execInfo>
+        <input id="bs2_input">
+            <name>Bs2 input file</name>
+            <shortDescription></shortDescription>
+            <description></description>
+            <type>ToolDependentRepresentation</type>
+            <handling>file</handling>
+            <option>--input </option>
+        </input>
+        <output id="cwl_tool_output">
+            <name>CWL Tool Output</name>
+            <shortDescription>CWL CommandLineTool</shortDescription>
+            <description>
+                The CWL document which describes the converted BibiApp as CWL  
+                CommandLineTool.
+            </description>
+            <type>ToolDependentRepresentation</type>
+            <handling>file</handling>
+            <option>--output </option>
+        </output>
+        <function id="convert_bibiapp_to_cwl">
+            <shortDescription>Convert BiBiApp to CWL CommandLineTool</shortDescription>
+            <inputref ref="bs2_input"/>
+            <outputref ref="cwl_tool_output"/>
+            <paramAndInputOutputOrder>
+                <reference>bs2_input</reference>
+                <reference>cwl_tool_output</reference>
+            </paramAndInputOutputOrder>
+        </function>
+    </executable>
+    <view type="submission" id="bibiworkflow_view">
+        <title>my title</title>
+    </view>
+    <manual id="bibiworkflow_manual">
+        <introductoryText>
+            This is the introductory text. Where will it show up?
+        </introductoryText>
+    </manual>
+</runnableItem>

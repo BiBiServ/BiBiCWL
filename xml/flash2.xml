@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<runnableItem xmlns="bibiserv:de.unibi.techfak.bibiserv.cms"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="bibiserv:de.unibi.techfak.bibiserv.cms url:http://bibiserv.techfak.uni-bielefeld.de/xsd/bibiserv2/BiBiServAbstraction.xsd" id="bibi_workflow">
+    <name>FLASH2</name>
+    <shortDescription>A very fast read merger.</shortDescription>
+    <description>
+        FLASH (Fast Length Adjustment of SHort reads) is a very fast and 
+        accurate software tool to merge paired-end reads from next-generation 
+        sequencing experiments. FLASH is designed to merge pairs of reads 
+        when the original DNA fragments are shorter than twice the length 
+        of reads. The resulting longer reads can significantly improve 
+        genome assemblies. They can also improve transcriptome assembly 
+        when FLASH is used to merge RNA-seq data.
+        
+        Flash2 has some improvements from flash_1 including new logic from 
+        innie and outie overlaps as well as some initial steps for flash 
+        for amplicons.
+    </description>
+    <responsibleAuthor>
+        <!-- I'm just the guy who put this into a BiBiApp -->
+        <firstname>Jean</firstname>
+        <lastname>Saydo</lastname>
+        <email>jsaydo@techfak.uni-bielefeld.de</email>
+    </responsibleAuthor>
+    <author>
+        <firstname>Tanja</firstname>
+        <lastname>Magoč</lastname>
+        <email></email>
+    </author>
+    <author>
+        <firstname>Steven L.</firstname>
+        <lastname>Salzberg</lastname>
+        <email></email>
+    </author>
+    <author>
+        <!-- This author is responsible for some improvements on FLASH 
+            (hence the version FLASH2) -->
+        <firstname>David</firstname>
+        <lastname>Streett</lastname>
+        <email></email>
+    </author>
+    <executable>
+        <version>0.1</version>
+        <execInfo>
+            <executableType>docker</executableType>
+            <image>flash:v2.2.00</image>
+            <path>/progs/flash</path>
+            <callingInformation>flash2</callingInformation>
+        </execInfo>
+        
+        
+        <input id="fastq_1">
+            <name>FASTQ_1</name>
+            <shortDescription>first FASTQ file</shortDescription>
+            <description></description>
+            <type>ToolDependentRepresentation</type>
+            <handling>FILE</handling>
+        </input>
+        <input id="fastq_2">
+            <name>FASTQ_2</name>
+            <shortDescription>second FASTQ file</shortDescription>
+            <description></description>
+            <type>ToolDependentRepresentation</type>
+            <handling>FILE</handling>
+        </input>
+        
+        
+        <output id="flash2_output">
+            <name>FLASH2 output</name>
+            <shortDescription>StdOut output of FLASH2</shortDescription>
+            <description>
+                StdOut output of FLASH2, describing the progress and status 
+                of the merge operation.
+            </description>
+            <type>ToolDependentRepresentation</type>
+            <handling>STDOUT</handling>
+        </output>
+        
+        
+        <outputfile id="extendedFrags">
+            <name>Extended Frags</name>
+            <filename></filename>
+            <contenttype></contenttype>
+        </outputfile>
+        <outputfile id="hist">
+            <name></name>
+            <filename></filename>
+            <contenttype></contenttype>
+        </outputfile>
+        <outputfile id="histogram">
+            <name></name>
+            <filename></filename>
+            <contenttype></contenttype>
+        </outputfile>
+        <outputfile id="notCombined_1">
+            <name></name>
+            <filename></filename>
+            <contenttype></contenttype>
+        </outputfile>
+        <outputfile id="notCombined_2">
+            <name></name>
+            <filename></filename>
+            <contenttype></contenttype>
+        </outputfile>
+        
+        
+        <param id="min-size">
+            <name>Min-size</name>
+            <shortDescription>Minimal size of overlap</shortDescription>
+            <description></description>
+            <type>int</type>
+            <guiElement>INPUTTEXT</guiElement>
+            <option>-m </option>
+        </param>
+        <param id="max-size">
+            <name>Max-size</name>
+            <shortDescription>Maximum size of overlap</shortDescription>
+            <description></description>
+            <type>int</type>
+            <guiElement>INPUTTEXT</guiElement>
+            <option>-M </option>
+        </param>
+        <param id="density">
+            <name>Density</name>
+            <shortDescription></shortDescription>
+            <description></description>
+            <type>int</type>
+            <guiElement>INPUTTEXT</guiElement>
+            <option>-x </option>
+        </param>
+        
+        <!-- Wie soll man damit umgehen? Einfach als additionalString
+        bei der paramAndInputOutputOrder angeben? -->
+        <param id="out-dir">
+            <name>Output directory</name>
+            <shortDescription>Output directory for the FLASH2</shortDescription>
+            <description></description>
+            <type>string</type>
+            <guiElement>INPUTTEXT</guiElement>
+            <option>-d </option>
+        </param>
+        <!-- Auch hier bin ich mir nicht sicher. Wie soll das gemacht werden? -->
+        <param id="prefix">
+            <name>Prefix</name>
+            <shortDescription>Prefix for the output filenames</shortDescription>
+            <description></description>
+            <type>string</type>
+            <guiElement>INPUTTEXT</guiElement>
+            <option>-o </option>
+        </param>
+        
+        
+        <!-- Ist das korrekt so? -->
+        <enumParam id="outies">
+            <name>Use outies</name>
+            <shortDescription>Wheter or not outies shoudl be used</shortDescription>
+            <description></description>
+            <type>string</type>
+            <values>
+                <key>outies</key>
+                <value>-O </value>
+                <name>Use outies</name>
+            </values>
+            <guiElement>SELECTMANYCHECKBOX</guiElement>
+        </enumParam>
+        
+        
+        <function id="merge_reads">
+            <shortDescription>Merges reads of paired-end reads.</shortDescription>
+            
+            <inputref ref="fastq_1"/>
+            <inputref ref="fastq_2"/>
+            
+            <outputref ref="flash2_output"/>
+            
+            <outputfileref ref="extendedFrags"/>
+            <outputfileref ref="hist"/>
+            <outputfileref ref="histogram"/>
+            <outputfileref ref="notCombined_1"/>
+            <outputfileref ref="notCombined_2"/>
+            
+            <paramGroup id="input_arguments">
+                <paramref ref="min-size"/>
+                <paramref ref="max-size"/>
+                <paramref ref="density"/>
+                <paramref ref="outies"/>
+                <!--paramref ref="prefix"/>
+                <paramref ref="out-dir"/-->
+            </paramGroup>
+            
+            <paramAndInputOutputOrder>
+                <reference>fastq_1</reference>
+                <reference>fastq_2</reference>
+                <reference>min-size</reference>
+                <reference>max-size</reference>
+                <reference>density</reference>
+                <reference>outies</reference>
+                <!--reference>prefix</reference>
+                <reference>out-dir</reference-->
+            </paramAndInputOutputOrder>
+        </function>
+        
+        
+    </executable>
+    <view type="submission" id="bibiworkflow_view">
+        <title>my title</title>
+    </view>
+    <manual id="bibiworkflow_manual">
+        <introductoryText>
+            This is the introductory text. Where will it show up?
+        </introductoryText>
+    </manual>
+</runnableItem>
