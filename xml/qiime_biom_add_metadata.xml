@@ -16,6 +16,7 @@
     
     
     
+    
     <!-- 
         TODO!!!!
         
@@ -69,8 +70,8 @@
             <ns4:shortDescription>File with Metadata of the sample.</ns4:shortDescription>
             <ns4:description>
                 The sample metadata mapping file (will add
-                                  sample metadata to the input BIOM table, if
-                                  provided).
+                  sample metadata to the input BIOM table, if
+                  provided).
             </ns4:description>
             <ns4:type>string</ns4:type>
             <ns4:option>-m </ns4:option>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns4:runnableItem 
+    xmlns:ns2="bibiserv:de.unibi.techfak.bibiserv.cms.microhtml" 
+    xmlns:ns3="bibiserv:de.unibi.techfak.bibiserv.cms.minihtml" 
+    xmlns:ns4="bibiserv:de.unibi.techfak.bibiserv.cms" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    id="qiime_alpha_diversity"
+    xsi:schemaLocation="bibiserv:de.unibi.techfak.bibiserv.cms http://bibiserv.techfak.uni-bielefeld.de/xsd/bibiserv2/BiBiServAbstraction.xsd">
+    
+    
+    
+    
+    <ns4:name>QIIME compute alpha diversity</ns4:name>
+    <ns4:shortDescription></ns4:shortDescription>
+    <ns4:description></ns4:description>
+    
+    
+    
+    
+    <!-- 
+        TODO!!!!
+        
+        QIIME requires a lot of credit-stuff. there are a dozen people who
+        worked on QIIME and additionally QIIME wraps other tools which also 
+        have to be cited!!!
+        
+        /TODO!!!!
+    -->
+    <ns4:responsibleAuthor>
+        <ns4:firstname></ns4:firstname>
+        <ns4:lastname></ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:responsibleAuthor>
+    
+    
+    
+    
+    <ns4:executable>
+        <ns4:version>0.1</ns4:version>
+        <ns4:execInfo>
+            <ns4:executableType>docker</ns4:executableType>
+            <ns4:image>quay.io/biocontainers/qiime</ns4:image>
+            <ns4:path></ns4:path>
+            <ns4:callingInformation>biom add-metadata</ns4:callingInformation>
+        </ns4:execInfo>
+        
+        
+        <ns4:input id="input_otu_table">
+            <ns4:name>OTU table</ns4:name>
+            <ns4:shortDescription>OTU table for computing alpha diversity</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-i </ns4:option>
+        </ns4:input>
+        <ns4:input id="input_mapping">
+            <ns4:name>Mapping</ns4:name>
+            <ns4:shortDescription>path to mapping file</ns4:shortDescription>
+            <ns4:description>
+                path to the mapping file [REQUIRED]
+            </ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-m </ns4:option>
+        </ns4:input>
+        <ns4:input id="input_tree_file">
+            <ns4:name>Tree file</ns4:name>
+            <ns4:shortDescription>path to tree file</ns4:shortDescription>
+            <ns4:description>
+                path to the tree file [default: none; REQUIRED for
+                phylogenetic measures]
+            </ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-t </ns4:option>
+        </ns4:input>
+        <ns4:input id="input_parameter_file">
+            <ns4:name>Parameter file</ns4:name>
+            <ns4:shortDescription>path to parameter file</ns4:shortDescription>
+            <ns4:description>
+                path to the parameter file, which specifies changes to
+                the default behavior. See
+                http://www.qiime.org/documentation/file_formats.html#qiime-parameters . 
+                [if omitted, default values will be used]
+            </ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+        </ns4:input>
+        
+        
+        <ns4:output id="output_alpha_diversity">
+            <ns4:name>QIIME ouput</ns4:name>
+            <ns4:shortDescription>Output of QIIME.</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-o </ns4:option>
+        </ns4:output>
+        
+        
+        <ns4:param id="jobs_to_start">
+            <ns4:name>Jobs to start</ns4:name>
+            <ns4:shortDescription>Number of jobs to start.</ns4:shortDescription>
+            <ns4:description>
+                Number of jobs to start. NOTE: you must also pass -a
+                to run in parallel, this defines the number of jobs to
+                be started if and only if -a is passed [default: 1]
+            </ns4:description>
+            <ns4:type>int</ns4:type>
+            <ns4:option>-O </ns4:option>
+            <ns4:guiElement>INTPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        
+        
+        <ns4:enumParam id="parallel">
+            <ns4:name>Run in parallel</ns4:name>
+            <ns4:shortDescription>Whether or not parallel computation should be used</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>string</ns4:type>
+            <ns4:values>
+                <ns4:key>use_parallel</ns4:key>
+                <ns4:value>-a </ns4:value>
+                <ns4:name>yes</ns4:name>
+            </ns4:values>
+            <ns4:values>
+                <ns4:key>do_not_use_parallel</ns4:key>
+                <ns4:value></ns4:value>
+                <ns4:name>no</ns4:name>
+            </ns4:values>
+            <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
+        </ns4:enumParam>
+        
+        
+        <ns4:function id="function_qiime_alpha_diversity">
+            <ns4:name>Compute alpha diversity</ns4:name>
+            <ns4:shortDescription></ns4:shortDescription>
+            <ns4:inputref ref="input_mapping"/>
+            <ns4:inputref ref="input_otu_table"/>
+            <ns4:inputref ref="input_parameter_file"/>
+            <ns4:inputref ref="input_tree_file"/>
+            <ns4:outputref ref="output_alpha_diversity"/>
+            
+            <ns4:paramGroup id="qiime_alpha_diversity_paramgroup">
+                <ns4:paramref ref="parallel"/>
+            </ns4:paramGroup>
+            
+            <ns4:paramAndInputOutputOrder>
+                <ns4:reference>input_otu_table</ns4:reference>
+                <ns4:reference>input_mapping</ns4:reference>
+                <ns4:reference>input_tree_file</ns4:reference>
+                <ns4:reference>input_parameter_file</ns4:reference>
+                <ns4:reference>output_alpha_diversity</ns4:reference>
+                <ns4:reference>parallel</ns4:reference>
+                <ns4:reference>jobs_to_start</ns4:reference>
+            </ns4:paramAndInputOutputOrder>
+        </ns4:function>
+        
+        
+    </ns4:executable>
+    
+    
+    
+    
+    <ns4:view type="submission" id="view_submission">
+        <ns4:title>QIIME alpha diversity Submission</ns4:title>
+        <ns4:customContent xml:lang="en"/>
+    </ns4:view>
+    
+    <ns4:view type="webservice" id="view_webservice">
+        <ns4:title xml:lang="en">QIIME alpha diversity WebService</ns4:title>
+        <ns4:customContent xml:lang="en"/>
+    </ns4:view>
+    
+    
+    
+</ns4:runnableItem>
