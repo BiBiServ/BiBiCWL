@@ -105,7 +105,7 @@
         </outputfile>
         
         
-        <param id="min-size">
+        <param id="min_size">
             <name>Min-size</name>
             <shortDescription>Minimal size of overlap</shortDescription>
             <description></description>
@@ -113,7 +113,7 @@
             <guiElement>INPUTTEXT</guiElement>
             <!--option>-m </option-->
         </param>
-        <param id="max-size">
+        <param id="max_size">
             <name>Max-size</name>
             <shortDescription>Maximum size of overlap</shortDescription>
             <description></description>
@@ -132,7 +132,7 @@
         
         <!-- Wie soll man damit umgehen? Einfach als additionalString
         bei der paramAndInputOutputOrder angeben? -->
-        <param id="out-dir">
+        <param id="out_dir">
             <name>Output directory</name>
             <shortDescription>Output directory for the FLASH2</shortDescription>
             <description></description>
@@ -186,8 +186,8 @@
             <outputfileref ref="notCombined_2"/>
             
             <paramGroup id="input_arguments">
-                <paramref ref="min-size"/>
-                <paramref ref="max-size"/>
+                <paramref ref="min_size"/>
+                <paramref ref="max_size"/>
                 <paramref ref="density"/>
                 <paramref ref="outies"/>
                 <!--paramref ref="prefix"/>
@@ -197,8 +197,8 @@
             <paramAndInputOutputOrder>
                 <reference>fastq_1</reference>
                 <reference>fastq_2</reference>
-                <reference>min-size</reference>
-                <reference>max-size</reference>
+                <reference>min_size</reference>
+                <reference>max_size</reference>
                 <reference>density</reference>
                 <reference>outies</reference>
                 <!--reference>prefix</reference>

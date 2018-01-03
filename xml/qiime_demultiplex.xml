@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns4:runnableItem 
+    xmlns:ns2="bibiserv:de.unibi.techfak.bibiserv.cms.microhtml" 
+    xmlns:ns3="bibiserv:de.unibi.techfak.bibiserv.cms.minihtml" 
+    xmlns:ns4="bibiserv:de.unibi.techfak.bibiserv.cms" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    id="qiime_demultiplex"
+    xsi:schemaLocation="bibiserv:de.unibi.techfak.bibiserv.cms http://bibiserv.techfak.uni-bielefeld.de/xsd/bibiserv2/BiBiServAbstraction.xsd">
+    
+    
+    
+    
+    <ns4:name>QIIME Demultiplexing</ns4:name>
+    <ns4:shortDescription>Demultiplexing function of QIIME</ns4:shortDescription>
+    <ns4:description></ns4:description>
+    
+    
+    
+    <!-- 
+        TODO!!!!
+        
+        QIIME requires a lot of credit-stuff. there are a dozen people who
+        worked on QIIME and additionally QIIME wraps other tools which also 
+        have to be cited!!!
+        
+        /TODO!!!!
+    -->
+    <ns4:responsibleAuthor>
+        <ns4:firstname>S.</ns4:firstname>
+        <ns4:lastname>Andrews</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:responsibleAuthor>
+    
+    
+    
+    
+    <ns4:executable>
+        <ns4:version>0.1</ns4:version>
+        <ns4:execInfo>
+            <ns4:executableType>docker</ns4:executableType>
+            <ns4:image>quay.io/biocontainers/qiime</ns4:image>
+            <ns4:path></ns4:path>
+            <ns4:callingInformation>split_libraries_fastq.py</ns4:callingInformation>
+        </ns4:execInfo>
+        
+        
+        <ns4:input id="qiime_input">
+            <ns4:name>QIIME input</ns4:name>
+            <ns4:shortDescription>FASTQ Input for QIIME</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-i </ns4:option>
+        </ns4:input>
+        
+        
+        <ns4:output id="qiime_output">
+            <ns4:name>QIIME ouput</ns4:name>
+            <ns4:shortDescription>Output of QIIME.</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-o </ns4:option>
+        </ns4:output>
+        
+        
+        <ns4:param id="sample_id">
+            <ns4:name>Sample ID</ns4:name>
+            <ns4:shortDescription>ID of the sample.</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>string</ns4:type>
+            <ns4:option>--sample_id </ns4:option>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="qhred_quality_threshold">
+            <ns4:name>Phred quality threshold</ns4:name>
+            <ns4:shortDescription>Maximum nonacceptable Phred quality score</ns4:shortDescription>
+            <ns4:description>
+                The maximum unacceptable Phred quality score (e.g.,
+                        for Q20 and better, specify -q 19) [default: 3]
+            </ns4:description>
+            <ns4:type>int</ns4:type>
+            <ns4:option>-q </ns4:option>
+            <ns4:defaultValue>19</ns4:defaultValue>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="barcode_type">
+            <ns4:name>Barcode type</ns4:name>
+            <ns4:shortDescription>The type of barcode used.</ns4:shortDescription>
+            <ns4:description>
+                The type of barcode used. This can be an integer, e.g.
+                        for length 6 barcodes, or "golay_12" for golay error-
+                        correcting barcodes. Error correction will only be
+                        applied for "golay_12" barcodes. If data is not
+                        barcoded, pass "not-barcoded". [default: golay_12]
+            </ns4:description>
+            <ns4:type>string</ns4:type>
+            <ns4:option>--barcode_type </ns4:option>
+            <ns4:defaultValue>not-barcoded</ns4:defaultValue>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="metadata_mapping_files">
+            <ns4:name>metadata mapping files</ns4:name>
+            <ns4:shortDescription>metadata mapping files (comma-separated if more than one)</ns4:shortDescription>
+            <ns4:description>
+                metadata mapping files (comma-separated if more than
+                        one) [default: none]
+            </ns4:description>
+            <ns4:type>string</ns4:type>
+            <ns4:option>-m </ns4:option>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        
+        
+        
+        <ns4:function id="fastqc_function">
+            <ns4:shortDescription>Performs a fast quality control on the FASTQ file</ns4:shortDescription>
+            <ns4:inputref ref="qiime_input"/>
+            <ns4:outputref ref="qiime_output"/>
+            
+            <ns4:paramGroup id="qiime_demultiplex_params">
+                <ns4:paramref ref="metadata_mapping_files"/>
+                <ns4:paramref ref="barcode_type"/>
+                <ns4:paramref ref="qhred_quality_threshold"/>
+                <ns4:paramref ref="sample_id"/>
+            </ns4:paramGroup>
+            
+            <ns4:paramAndInputOutputOrder>
+                <ns4:reference>qiime_input</ns4:reference>
+                <ns4:reference>sample_id</ns4:reference>
+                <ns4:reference>qiime_output</ns4:reference>
+                <ns4:reference>qhred_quality_threshold</ns4:reference>
+                <ns4:reference>barcode_type</ns4:reference>
+                <ns4:reference>metadata_mapping_files</ns4:reference>
+            </ns4:paramAndInputOutputOrder>
+        </ns4:function>
+        
+        
+    </ns4:executable>
+    
+    
+    
+    
+    <ns4:view type="submission" id="view_submission">
+        <ns4:title>QIIME demultiplex submission</ns4:title>
+        <ns4:customContent xml:lang="en"/>
+    </ns4:view>
+    
+    <ns4:view type="webservice" id="view_webservice">
+        <ns4:title xml:lang="en">QIIME demultiplex WebService</ns4:title>
+        <ns4:customContent xml:lang="en"/>
+    </ns4:view>
+    
+    
+    
+</ns4:runnableItem>

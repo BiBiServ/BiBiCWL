@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns4:runnableItem 
+    xmlns:ns2="bibiserv:de.unibi.techfak.bibiserv.cms.microhtml" 
+    xmlns:ns3="bibiserv:de.unibi.techfak.bibiserv.cms.minihtml" 
+    xmlns:ns4="bibiserv:de.unibi.techfak.bibiserv.cms" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    id="qiime_biom_add_metadata"
+    xsi:schemaLocation="bibiserv:de.unibi.techfak.bibiserv.cms http://bibiserv.techfak.uni-bielefeld.de/xsd/bibiserv2/BiBiServAbstraction.xsd">
+    
+    
+    
+    
+    <ns4:name>QIIME biom add-metadata</ns4:name>
+    <ns4:shortDescription></ns4:shortDescription>
+    <ns4:description></ns4:description>
+    
+    
+    
+    <!-- 
+        TODO!!!!
+        
+        QIIME requires a lot of credit-stuff. there are a dozen people who
+        worked on QIIME and additionally QIIME wraps other tools which also 
+        have to be cited!!!
+        
+        /TODO!!!!
+    -->
+    <ns4:responsibleAuthor>
+        <ns4:firstname>S.</ns4:firstname>
+        <ns4:lastname>Andrews</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:responsibleAuthor>
+    
+    
+    
+    
+    <ns4:executable>
+        <ns4:version>0.1</ns4:version>
+        <ns4:execInfo>
+            <ns4:executableType>docker</ns4:executableType>
+            <ns4:image>quay.io/biocontainers/qiime</ns4:image>
+            <ns4:path></ns4:path>
+            <ns4:callingInformation>biom add-metadata</ns4:callingInformation>
+        </ns4:execInfo>
+        
+        
+        <ns4:input id="qiime_input">
+            <ns4:name>QIIME input</ns4:name>
+            <ns4:shortDescription>FASTQ Input for QIIME</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-i </ns4:option>
+        </ns4:input>
+        
+        
+        <ns4:output id="qiime_output">
+            <ns4:name>QIIME ouput</ns4:name>
+            <ns4:shortDescription>Output of QIIME.</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-o </ns4:option>
+        </ns4:output>
+        
+        
+        <ns4:param id="sample_metadata">
+            <ns4:name>Sample metadata</ns4:name>
+            <ns4:shortDescription>File with Metadata of the sample.</ns4:shortDescription>
+            <ns4:description>
+                The sample metadata mapping file (will add
+                                  sample metadata to the input BIOM table, if
+                                  provided).
+            </ns4:description>
+            <ns4:type>string</ns4:type>
+            <ns4:option>-m </ns4:option>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        
+        
+        <ns4:function id="function_qiime_biom_add_metadata">
+            <ns4:shortDescription>Performs a fast quality control on the FASTQ file</ns4:shortDescription>
+            <ns4:inputref ref="qiime_input"/>
+            <ns4:outputref ref="qiime_output"/>
+            
+            <ns4:paramGroup id="qiime_biom_add_metadata_paramgroup">
+                <ns4:paramref ref="sample_metadata"/>
+            </ns4:paramGroup>
+            
+            <ns4:paramAndInputOutputOrder>
+                <ns4:reference>qiime_input</ns4:reference>
+                <ns4:reference>qiime_output</ns4:reference>
+                <ns4:reference>sample_metadata</ns4:reference>
+            </ns4:paramAndInputOutputOrder>
+        </ns4:function>
+        
+        
+    </ns4:executable>
+    
+    
+    
+    
+    <ns4:view type="submission" id="view_submission">
+        <ns4:title>QIIME demultiplex submission</ns4:title>
+        <ns4:customContent xml:lang="en"/>
+    </ns4:view>
+    
+    <ns4:view type="webservice" id="view_webservice">
+        <ns4:title xml:lang="en">QIIME demultiplex WebService</ns4:title>
+        <ns4:customContent xml:lang="en"/>
+    </ns4:view>
+    
+    
+    
+</ns4:runnableItem>

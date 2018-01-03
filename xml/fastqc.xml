@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns4:runnableItem 
+    xmlns:ns2="bibiserv:de.unibi.techfak.bibiserv.cms.microhtml" 
+    xmlns:ns3="bibiserv:de.unibi.techfak.bibiserv.cms.minihtml" 
+    xmlns:ns4="bibiserv:de.unibi.techfak.bibiserv.cms" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    id="fastqc"
+    xsi:schemaLocation="bibiserv:de.unibi.techfak.bibiserv.cms http://bibiserv.techfak.uni-bielefeld.de/xsd/bibiserv2/BiBiServAbstraction.xsd">
+    
+    
+    
+    
+    <ns4:name>FastQC</ns4:name>
+    <ns4:shortDescription></ns4:shortDescription>
+    <ns4:description></ns4:description>
+    
+    
+    
+    
+    <ns4:responsibleAuthor>
+        <ns4:firstname>S.</ns4:firstname>
+        <ns4:lastname>Andrews</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:responsibleAuthor>
+    
+    
+    
+    
+    <ns4:executable>
+        <ns4:version>0.1</ns4:version>
+        <ns4:execInfo>
+            <ns4:executableType>docker</ns4:executableType>
+            <ns4:image>quay.io/biocontainers/fastqc:0.11.5--pl5.22.0_3</ns4:image>
+            <ns4:path></ns4:path>
+            <ns4:callingInformation>fastqc</ns4:callingInformation>
+        </ns4:execInfo>
+        
+        
+        <ns4:input id="fastqc_input">
+            <ns4:name>FastQC input</ns4:name>
+            <ns4:shortDescription>FASTQ input for the FastQC tool</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+        </ns4:input>
+        
+        
+        <ns4:output id="fastqc_output">
+            <ns4:name>FastQC ouput</ns4:name>
+            <ns4:shortDescription>Output of FastQC.</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-o </ns4:option>
+        </ns4:output>
+        
+        
+        <ns4:function id="fastqc_function">
+            <ns4:shortDescription>Performs a fast quality control on the FASTQ file</ns4:shortDescription>
+            <ns4:inputref ref="fastqc_input"/>
+            <ns4:outputref ref="fastqc_output"/>
+            <ns4:paramAndInputOutputOrder>
+                <ns4:reference>fastqc_output</ns4:reference>
+                <ns4:reference>fastqc_input</ns4:reference>
+            </ns4:paramAndInputOutputOrder>
+        </ns4:function>
+        
+        
+    </ns4:executable>
+    
+    
+    
+    
+    <ns4:view type="submission" id="view_submission">
+        <ns4:title>FastQC submission</ns4:title>
+        <ns4:customContent xml:lang="en"/>
+    </ns4:view>
+    
+    <ns4:view type="webservice" id="view_webservice">
+        <ns4:title xml:lang="en">FastQC WebService</ns4:title>
+        <ns4:customContent xml:lang="en"/>
+    </ns4:view>
+    
+    
+    
+</ns4:runnableItem>
