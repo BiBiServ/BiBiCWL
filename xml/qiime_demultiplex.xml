@@ -44,20 +44,33 @@
         </ns4:execInfo>
         
         
-        <ns4:input id="qiime_input">
-            <ns4:name>QIIME input</ns4:name>
-            <ns4:shortDescription>FASTQ Input for QIIME</ns4:shortDescription>
+        <ns4:input id="input_merged_reads">
+            <ns4:name>Merged reads input</ns4:name>
+            <ns4:shortDescription>FASTQ file with merged reads</ns4:shortDescription>
             <ns4:description></ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
             <ns4:handling>FILE</ns4:handling>
             <ns4:option>-i </ns4:option>
         </ns4:input>
+        <ns4:input id="input_metadata_mapping_files">
+            <ns4:name>Metadata mapping files</ns4:name>
+            <ns4:shortDescription></ns4:shortDescription>
+            <ns4:description>
+                metadata mapping files (comma-separated if more than
+                one) [default: none]
+            </ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-m </ns4:option>
+        </ns4:input>
         
         
-        <ns4:output id="qiime_output">
-            <ns4:name>QIIME ouput</ns4:name>
-            <ns4:shortDescription>Output of QIIME.</ns4:shortDescription>
-            <ns4:description></ns4:description>
+        <ns4:output id="output_demultiplexed_files">
+            <ns4:name>Demultiplexed merged read files</ns4:name>
+            <ns4:shortDescription>Demultiplexed files or splitted libraries.</ns4:shortDescription>
+            <ns4:description>
+                
+            </ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
             <ns4:handling>FILE</ns4:handling>
             <ns4:option>-o </ns4:option>
@@ -99,7 +112,7 @@
             <ns4:defaultValue>not-barcoded</ns4:defaultValue>
             <ns4:guiElement>INPUTTEXT</ns4:guiElement>
         </ns4:param>
-        <ns4:param id="metadata_mapping_files">
+        <!--ns4:param id="metadata_mapping_files">
             <ns4:name>metadata mapping files</ns4:name>
             <ns4:shortDescription>metadata mapping files (comma-separated if more than one)</ns4:shortDescription>
             <ns4:description>
@@ -109,14 +122,14 @@
             <ns4:type>string</ns4:type>
             <ns4:option>-m </ns4:option>
             <ns4:guiElement>INPUTTEXT</ns4:guiElement>
-        </ns4:param>
+        </ns4:param-->
         
         
         
         <ns4:function id="fastqc_function">
             <ns4:shortDescription>Performs a fast quality control on the FASTQ file</ns4:shortDescription>
-            <ns4:inputref ref="qiime_input"/>
-            <ns4:outputref ref="qiime_output"/>
+            <ns4:inputref ref="input_merged_reads"/>
+            <ns4:outputref ref="output_demultiplexed_files"/>
             
             <ns4:paramGroup id="qiime_demultiplex_params">
                 <ns4:paramref ref="metadata_mapping_files"/>
@@ -126,9 +139,9 @@
             </ns4:paramGroup>
             
             <ns4:paramAndInputOutputOrder>
-                <ns4:reference>qiime_input</ns4:reference>
+                <ns4:reference>input_merged_reads</ns4:reference>
                 <ns4:reference>sample_id</ns4:reference>
-                <ns4:reference>qiime_output</ns4:reference>
+                <ns4:reference>output_demultiplexed_files</ns4:reference>
                 <ns4:reference>qhred_quality_threshold</ns4:reference>
                 <ns4:reference>barcode_type</ns4:reference>
                 <ns4:reference>metadata_mapping_files</ns4:reference>

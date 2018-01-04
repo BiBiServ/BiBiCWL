@@ -45,19 +45,27 @@
         </ns4:execInfo>
         
         
-        <ns4:input id="qiime_input">
-            <ns4:name>QIIME input</ns4:name>
-            <ns4:shortDescription>FASTQ Input for QIIME</ns4:shortDescription>
+        <ns4:input id="input_open_reference_otus">
+            <ns4:name>QIIME open reference OTUs</ns4:name>
+            <ns4:shortDescription>Open reference OTUs from QIIME's pick open reference OTUs function Input for QIIME</ns4:shortDescription>
             <ns4:description></ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
             <ns4:handling>FILE</ns4:handling>
             <ns4:option>-i </ns4:option>
         </ns4:input>
+        <ns4:input id="input_sample_metadata">
+            <ns4:name>Sample metadata</ns4:name>
+            <ns4:shortDescription>Metadata of the sample</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-m </ns4:option>
+        </ns4:input>
         
         
-        <ns4:output id="qiime_output">
-            <ns4:name>QIIME ouput</ns4:name>
-            <ns4:shortDescription>Output of QIIME.</ns4:shortDescription>
+        <ns4:output id="output_biom">
+            <ns4:name>Biom ouput</ns4:name>
+            <ns4:shortDescription>Output of QIIME's Biom tool.</ns4:shortDescription>
             <ns4:description></ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
             <ns4:handling>FILE</ns4:handling>
@@ -65,7 +73,7 @@
         </ns4:output>
         
         
-        <ns4:param id="sample_metadata">
+        <!--ns4:param id="sample_metadata">
             <ns4:name>Sample metadata</ns4:name>
             <ns4:shortDescription>File with Metadata of the sample.</ns4:shortDescription>
             <ns4:description>
@@ -76,22 +84,23 @@
             <ns4:type>string</ns4:type>
             <ns4:option>-m </ns4:option>
             <ns4:guiElement>INPUTTEXT</ns4:guiElement>
-        </ns4:param>
+        </ns4:param-->
         
         
         <ns4:function id="function_qiime_biom_add_metadata">
             <ns4:shortDescription>Performs a fast quality control on the FASTQ file</ns4:shortDescription>
-            <ns4:inputref ref="qiime_input"/>
-            <ns4:outputref ref="qiime_output"/>
+            <ns4:inputref ref="input_open_reference_otus"/>
+            <ns4:inputref ref="input_sample_metadata"/>
+            <ns4:outputref ref="output_biom"/>
             
-            <ns4:paramGroup id="qiime_biom_add_metadata_paramgroup">
+            <!--ns4:paramGroup id="qiime_biom_add_metadata_paramgroup">
                 <ns4:paramref ref="sample_metadata"/>
-            </ns4:paramGroup>
+            </ns4:paramGroup-->
             
             <ns4:paramAndInputOutputOrder>
-                <ns4:reference>qiime_input</ns4:reference>
-                <ns4:reference>qiime_output</ns4:reference>
-                <ns4:reference>sample_metadata</ns4:reference>
+                <ns4:reference>input_open_reference_otus</ns4:reference>
+                <ns4:reference>output_biom</ns4:reference>
+                <ns4:reference>input_sample_metadata</ns4:reference>
             </ns4:paramAndInputOutputOrder>
         </ns4:function>
         

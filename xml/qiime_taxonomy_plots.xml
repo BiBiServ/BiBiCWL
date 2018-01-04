@@ -4,13 +4,13 @@
     xmlns:ns3="bibiserv:de.unibi.techfak.bibiserv.cms.minihtml" 
     xmlns:ns4="bibiserv:de.unibi.techfak.bibiserv.cms" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    id="qiime_alpha_diversity"
+    id="qiime_taxonomy_plots"
     xsi:schemaLocation="bibiserv:de.unibi.techfak.bibiserv.cms http://bibiserv.techfak.uni-bielefeld.de/xsd/bibiserv2/BiBiServAbstraction.xsd">
     
     
     
     
-    <ns4:name>QIIME compute alpha diversity</ns4:name>
+    <ns4:name>QIIME summarzize taxa through plots</ns4:name>
     <ns4:shortDescription></ns4:shortDescription>
     <ns4:description></ns4:description>
     
@@ -41,13 +41,13 @@
             <ns4:executableType>docker</ns4:executableType>
             <ns4:image>quay.io/biocontainers/qiime</ns4:image>
             <ns4:path></ns4:path>
-            <ns4:callingInformation>alpha_rarefaction.py</ns4:callingInformation>
+            <ns4:callingInformation>summarize_taxa_through_plots.py</ns4:callingInformation>
         </ns4:execInfo>
         
         
         <ns4:input id="input_otu_table">
             <ns4:name>OTU table</ns4:name>
-            <ns4:shortDescription>OTU table for computing alpha diversity</ns4:shortDescription>
+            <ns4:shortDescription>OTU table for computing alpha or beta diversity</ns4:shortDescription>
             <ns4:description></ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
             <ns4:handling>FILE</ns4:handling>
@@ -74,7 +74,7 @@
             <ns4:handling>FILE</ns4:handling>
             <ns4:option>-t </ns4:option>
         </ns4:input>
-        <ns4:input id="input_parameter_file">
+        <!--ns4:input id="input_parameter_file">
             <ns4:name>Parameter file</ns4:name>
             <ns4:shortDescription>path to parameter file</ns4:shortDescription>
             <ns4:description>
@@ -85,10 +85,10 @@
             </ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
             <ns4:handling>FILE</ns4:handling>
-        </ns4:input>
+        </ns4:input-->
         
         
-        <ns4:output id="output_alpha_diversity">
+        <ns4:output id="output_beta_diversity">
             <ns4:name>QIIME ouput</ns4:name>
             <ns4:shortDescription>Output of QIIME.</ns4:shortDescription>
             <ns4:description></ns4:description>
@@ -131,14 +131,14 @@
         </ns4:enumParam>
         
         
-        <ns4:function id="function_qiime_alpha_diversity">
-            <ns4:name>Compute alpha diversity</ns4:name>
+        <ns4:function id="function_qiime_beta_diversity">
+            <ns4:name>Compute beta diversity</ns4:name>
             <ns4:shortDescription></ns4:shortDescription>
             <ns4:inputref ref="input_mapping"/>
             <ns4:inputref ref="input_otu_table"/>
-            <ns4:inputref ref="input_parameter_file"/>
+            <!--ns4:inputref ref="input_parameter_file"/-->
             <ns4:inputref ref="input_tree_file"/>
-            <ns4:outputref ref="output_alpha_diversity"/>
+            <ns4:outputref ref="output_beta_diversity"/>
             
             <ns4:paramGroup id="qiime_alpha_diversity_paramgroup">
                 <ns4:paramref ref="parallel"/>
@@ -148,8 +148,8 @@
                 <ns4:reference>input_otu_table</ns4:reference>
                 <ns4:reference>input_mapping</ns4:reference>
                 <ns4:reference>input_tree_file</ns4:reference>
-                <ns4:reference>input_parameter_file</ns4:reference>
-                <ns4:reference>output_alpha_diversity</ns4:reference>
+                <!--ns4:reference>input_parameter_file</ns4:reference-->
+                <ns4:reference>output_beta_diversity</ns4:reference>
                 <ns4:reference>parallel</ns4:reference>
                 <ns4:reference>jobs_to_start</ns4:reference>
             </ns4:paramAndInputOutputOrder>
@@ -162,12 +162,12 @@
     
     
     <ns4:view type="submission" id="view_submission">
-        <ns4:title>QIIME alpha diversity Submission</ns4:title>
+        <ns4:title>QIIME beta diversity Submission</ns4:title>
         <ns4:customContent xml:lang="en"/>
     </ns4:view>
     
     <ns4:view type="webservice" id="view_webservice">
-        <ns4:title xml:lang="en">QIIME alpha diversity WebService</ns4:title>
+        <ns4:title xml:lang="en">QIIME beta diversity WebService</ns4:title>
         <ns4:customContent xml:lang="en"/>
     </ns4:view>
     

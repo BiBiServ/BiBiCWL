@@ -44,17 +44,43 @@
         </ns4:execInfo>
         
         
-        <ns4:input id="qiime_input">
-            <ns4:name>QIIME input</ns4:name>
+        <ns4:input id="input_splitted_libraries">
+            <ns4:name>Splitted libraries</ns4:name>
             <ns4:shortDescription>Splitted library input for QIIME</ns4:shortDescription>
             <ns4:description></ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
             <ns4:handling>FILE</ns4:handling>
             <ns4:option>-i </ns4:option>
         </ns4:input>
+        <ns4:input id="input_parameter_file">
+            <ns4:name>Parameter file</ns4:name>
+            <ns4:shortDescription></ns4:shortDescription>
+            <ns4:description>
+                Path to the parameter file, which specifies changes to
+                the default behavior. See
+                http://www.qiime.org/documentation/file_formats.html
+                #qiime-parameters . [if omitted, default values will
+                be used]
+            </ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-p </ns4:option>
+        </ns4:input>
+        <ns4:input id="input_reference_sequences">
+            <ns4:name>Reference sequences</ns4:name>
+            <ns4:shortDescription></ns4:shortDescription>
+            <ns4:description>
+                the reference sequences [default:
+                /usr/local/lib/python2.7/site-packages/qiime_default_r
+                eference/gg_13_8_otus/rep_set/97_otus.fasta]
+            </ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>FILE</ns4:handling>
+            <ns4:option>-r </ns4:option>
+        </ns4:input>
         
         
-        <ns4:output id="qiime_output">
+        <ns4:output id="output_open_reference_otus">
             <ns4:name>QIIME ouput</ns4:name>
             <ns4:shortDescription>Output of QIIME.</ns4:shortDescription>
             <ns4:description></ns4:description>
@@ -90,7 +116,7 @@
             <ns4:option>-m </ns4:option>
             <ns4:guiElement>INPUTTEXT</ns4:guiElement>
         </ns4:param>
-        <ns4:param id="parameter_file">
+        <!--ns4:param id="parameter_file">
             <ns4:name>Parameter file</ns4:name>
             <ns4:shortDescription>Path to the parameter file, which specifies changes to the default behavior.</ns4:shortDescription>
             <ns4:description>
@@ -115,7 +141,7 @@
             <ns4:type>string</ns4:type>
             <ns4:option>-r </ns4:option>
             <ns4:guiElement>INPUTTEXT</ns4:guiElement>
-        </ns4:param>
+        </ns4:param-->
         
         
         
@@ -174,28 +200,32 @@
         
         <ns4:function id="fastqc_function">
             <ns4:shortDescription>Performs a fast quality control on the FASTQ file</ns4:shortDescription>
-            <ns4:inputref ref="qiime_input"/>
-            <ns4:outputref ref="qiime_output"/>
+            <ns4:inputref ref="input_splitted_libraries"/>
+            <ns4:inputref ref="input_parameter_file"/>
+            <ns4:inputref ref="input_reference_sequences"/>
+            <ns4:outputref ref="output_open_reference_otus"/>
             
             <ns4:paramGroup id="qiime_demultiplex_params">
                 <ns4:paramref ref="jobs_to_start"/>
                 <ns4:paramref ref="otu_picking_method"/>
                 <ns4:paramref ref="parallel"/>
-                <ns4:paramref ref="parameter_file"/>
-                <ns4:paramref ref="reference_sequences"/>
+                <!--ns4:paramref ref="parameter_file"/-->
+                <!--ns4:paramref ref="reference_sequences"/-->
                 <ns4:paramref ref="suppress_step4"/>
                 <ns4:paramref ref="verbose"/>
             </ns4:paramGroup>
             
             <ns4:paramAndInputOutputOrder>
-                <ns4:reference>qiime_input</ns4:reference>
+                <ns4:reference>input_splitted_libraries</ns4:reference>
                 <ns4:reference>parallel</ns4:reference>
                 <ns4:reference>jobs_to_start</ns4:reference>
                 <ns4:reference>otu_picking_method</ns4:reference>
                 <ns4:reference>verbose</ns4:reference>
-                <ns4:reference>parameter_file</ns4:reference>
-                <ns4:reference>reference_sequences</ns4:reference>
-                <ns4:reference>qiime_output</ns4:reference>
+                <!--ns4:reference>parameter_file</ns4:reference-->
+                <!--ns4:reference>reference_sequences</ns4:reference-->
+                <ns4:reference>input_parameter_file</ns4:reference>
+                <ns4:reference>input_reference_sequences</ns4:reference>
+                <ns4:reference>output_open_reference_otus</ns4:reference>
                 <ns4:reference>suppress_step4</ns4:reference>
             </ns4:paramAndInputOutputOrder>
         </ns4:function>
