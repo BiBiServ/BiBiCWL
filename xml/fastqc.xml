@@ -11,32 +11,42 @@
     
     
     <ns4:name>FastQC</ns4:name>
-    <ns4:shortDescription></ns4:shortDescription>
+    <ns4:shortDescription>A fast tool for performing quality control on FASTQ files.</ns4:shortDescription>
     <ns4:description></ns4:description>
     
     
     
     
     <ns4:responsibleAuthor>
-        <ns4:firstname>S.</ns4:firstname>
+        <ns4:firstname>Simon</ns4:firstname>
         <ns4:lastname>Andrews</ns4:lastname>
         <ns4:email></ns4:email>
     </ns4:responsibleAuthor>
     
     
+    <ns4:support>
+        <ns4:firstname>Jean</ns4:firstname>
+        <ns4:lastname>Saydo</ns4:lastname>
+        <ns4:email>jsaydo@techfak.uni-bielefeld.de</ns4:email>
+    </ns4:support>
+    
+    
+    
     
     
     <ns4:executable>
+        
+        
         <ns4:version>0.1</ns4:version>
         <ns4:execInfo>
             <ns4:executableType>docker</ns4:executableType>
-            <ns4:image>quay.io/biocontainers/fastqc:0.11.5--pl5.22.0_3</ns4:image>
+            <ns4:image>quay.io/biocontainers/fastqc</ns4:image>
             <ns4:path></ns4:path>
             <ns4:callingInformation>fastqc</ns4:callingInformation>
         </ns4:execInfo>
         
         
-        <ns4:input id="fastqc_input">
+        <ns4:input id="input_fastqc">
             <ns4:name>FastQC input</ns4:name>
             <ns4:shortDescription>FASTQ input for the FastQC tool</ns4:shortDescription>
             <ns4:description></ns4:description>
@@ -45,7 +55,7 @@
         </ns4:input>
         
         
-        <ns4:output id="fastqc_output">
+        <ns4:output id="output_fastqc">
             <ns4:name>FastQC ouput</ns4:name>
             <ns4:shortDescription>Output of FastQC.</ns4:shortDescription>
             <ns4:description></ns4:description>
@@ -55,14 +65,19 @@
         </ns4:output>
         
         
-        <ns4:function id="fastqc_function">
-            <ns4:shortDescription>Performs a fast quality control on the FASTQ file</ns4:shortDescription>
-            <ns4:inputref ref="fastqc_input"/>
-            <ns4:outputref ref="fastqc_output"/>
+        <ns4:function id="function_fastqc">
+            
+            <ns4:name>FastQC</ns4:name>
+            <ns4:shortDescription>Performs a fast quality control on a FASTQ file</ns4:shortDescription>
+            
+            <ns4:inputref ref="input_fastqc"/>
+            <ns4:outputref ref="output_fastqc"/>
+            
             <ns4:paramAndInputOutputOrder>
-                <ns4:reference>fastqc_output</ns4:reference>
-                <ns4:reference>fastqc_input</ns4:reference>
+                <ns4:reference>output_fastqc</ns4:reference>
+                <ns4:reference>input_fastqc</ns4:reference>
             </ns4:paramAndInputOutputOrder>
+            
         </ns4:function>
         
         
@@ -72,7 +87,7 @@
     
     
     <ns4:view type="submission" id="view_submission">
-        <ns4:title>FastQC submission</ns4:title>
+        <ns4:title>FastQC Submission</ns4:title>
         <ns4:customContent xml:lang="en"/>
     </ns4:view>
     

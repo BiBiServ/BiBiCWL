@@ -6,6 +6,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     id="flash2" 
     xsi:schemaLocation="bibiserv:de.unibi.techfak.bibiserv.cms http://bibiserv.techfak.uni-bielefeld.de/xsd/bibiserv2/BiBiServAbstraction.xsd">
+    
+    
     <ns4:name>FLASH2</ns4:name>
     <ns4:shortDescription>FLASH2 is a modified version of FLASH, a very fast read merger.</ns4:shortDescription>
     <ns4:description>FLASH2 is a modified version of FLASH, a very fast read merger.</ns4:description>

@@ -26,10 +26,177 @@
         /TODO!!!!
     -->
     <ns4:responsibleAuthor>
-        <ns4:firstname>S.</ns4:firstname>
-        <ns4:lastname>Andrews</ns4:lastname>
+        <ns4:firstname>J Gregory</ns4:firstname>
+        <ns4:lastname>Caporaso</ns4:lastname>
         <ns4:email></ns4:email>
     </ns4:responsibleAuthor>
+    
+    
+    <ns4:author>
+        <ns4:firstname>Justin</ns4:firstname>
+        <ns4:lastname>Kuczynski</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Jesse</ns4:firstname>
+        <ns4:lastname>Stombaugh</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Kyle</ns4:firstname>
+        <ns4:lastname>Bittinger</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Frederic D</ns4:firstname>
+        <ns4:lastname>Bushman</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Elizabeth K</ns4:firstname>
+        <ns4:lastname>Costello</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Noah</ns4:firstname>
+        <ns4:lastname>Fierer</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Antonio Gonzalez</ns4:firstname>
+        <ns4:lastname>Pena</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Julia K</ns4:firstname>
+        <ns4:lastname>Goodrich</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Jeffrey I</ns4:firstname>
+        <ns4:lastname>Gordon</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Gavin A</ns4:firstname>
+        <ns4:lastname>Huttley</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Scott T</ns4:firstname>
+        <ns4:lastname>Kelley</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Dan</ns4:firstname>
+        <ns4:lastname>Knights</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Jeremy E</ns4:firstname>
+        <ns4:lastname>Koenig</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Ruth E</ns4:firstname>
+        <ns4:lastname>Ley</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Catherine A</ns4:firstname>
+        <ns4:lastname>Lozupone</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Daniel</ns4:firstname>
+        <ns4:lastname>McDonald</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Brian D</ns4:firstname>
+        <ns4:lastname>Muegge</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Meg</ns4:firstname>
+        <ns4:lastname>Pirrung</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Jens</ns4:firstname>
+        <ns4:lastname>Reeder</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Joel R</ns4:firstname>
+        <ns4:lastname>Sevinsky</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Peter J</ns4:firstname>
+        <ns4:lastname>Turnbaugh</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>William A</ns4:firstname>
+        <ns4:lastname>Walters</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Jeremy</ns4:firstname>
+        <ns4:lastname>Widmann</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Tanya</ns4:firstname>
+        <ns4:lastname>Yatsunenko</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Jesse</ns4:firstname>
+        <ns4:lastname>Zaneveld</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Rob</ns4:firstname>
+        <ns4:lastname>Knight</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    
+    
+    <ns4:support>
+        <ns4:firstname>Jean</ns4:firstname>
+        <ns4:lastname>Saydo</ns4:lastname>
+        <ns4:email>jsaydo@techfak.uni-bielefeld.de</ns4:email>
+    </ns4:support>
+    
+    
     
     
     
@@ -100,7 +267,7 @@
             </ns4:description>
             <ns4:type>int</ns4:type>
             <ns4:option>-O </ns4:option>
-            <ns4:guiElement>INTPUTTEXT</ns4:guiElement>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
         </ns4:param>
         <ns4:param id="otu_picking_method">
             <ns4:name>OTU picking method</ns4:name>
@@ -116,32 +283,7 @@
             <ns4:option>-m </ns4:option>
             <ns4:guiElement>INPUTTEXT</ns4:guiElement>
         </ns4:param>
-        <!--ns4:param id="parameter_file">
-            <ns4:name>Parameter file</ns4:name>
-            <ns4:shortDescription>Path to the parameter file, which specifies changes to the default behavior.</ns4:shortDescription>
-            <ns4:description>
-                Path to the parameter file, which specifies changes to
-                        the default behavior. See
-                        http://www.qiime.org/documentation/file_formats.html
-                        #qiime-parameters . [if omitted, default values will
-                        be used]
-            </ns4:description>
-            <ns4:type>string</ns4:type>
-            <ns4:option>-p </ns4:option>
-            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
-        </ns4:param>
-        <ns4:param id="reference_sequences">
-            <ns4:name>Reference sequences</ns4:name>
-            <ns4:shortDescription></ns4:shortDescription>
-            <ns4:description>
-                the reference sequences [default:
-                        /usr/local/lib/python2.7/site-packages/qiime_default_r
-                        eference/gg_13_8_otus/rep_set/97_otus.fasta]
-            </ns4:description>
-            <ns4:type>string</ns4:type>
-            <ns4:option>-r </ns4:option>
-            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
-        </ns4:param-->
+        
         
         
         
@@ -163,8 +305,8 @@
             <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
         </ns4:enumParam>
         <ns4:enumParam id="verbose">
-            <ns4:name>Verbosity</ns4:name>
-            <ns4:shortDescription>Whether or not the output should be verbose</ns4:shortDescription>
+            <ns4:name>Run in verbose mode</ns4:name>
+            <ns4:shortDescription>Whether or not the verbosity flag should be used</ns4:shortDescription>
             <ns4:description></ns4:description>
             <ns4:type>string</ns4:type>
             <ns4:values>
@@ -179,23 +321,78 @@
             </ns4:values>
             <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
         </ns4:enumParam>
+        <ns4:enumParam id="step_four">
+            <ns4:name>Suppress step 4</ns4:name>
+            <ns4:shortDescription>Whether or not step 4 should be suppressed</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>string</ns4:type>
+            <ns4:values>
+                <ns4:key>suppress_step_four</ns4:key>
+                <ns4:value>--suppress-step4 </ns4:value>
+                <ns4:name>yes</ns4:name>
+            </ns4:values>
+            <ns4:values>
+                <ns4:key>do_not_suppress_step_four</ns4:key>
+                <ns4:value></ns4:value>
+                <ns4:name>no</ns4:name>
+            </ns4:values>
+            <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
+        </ns4:enumParam>
+        
+        
+        
+        
+        <!--ns4:enumParam id="parallel">
+            <ns4:name>Run in parallel</ns4:name>
+            <ns4:shortDescription>Whether or not parallel computation should be used</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>string</ns4:type>
+            <ns4:values>
+                <ns4:key>yes</ns4:key>
+                <ns4:value>-a </ns4:value>
+                <ns4:name>Yes</ns4:name>
+            </ns4:values>
+            <ns4:values>
+                <ns4:key>no</ns4:key>
+                <ns4:value></ns4:value>
+                <ns4:name>No</ns4:name>
+            </ns4:values>
+            <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
+        </ns4:enumParam>
+        <ns4:enumParam id="verbose">
+            <ns4:name>Verbosity</ns4:name>
+            <ns4:shortDescription>Whether or not the output should be verbose</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>string</ns4:type>
+            <ns4:values>
+                <ns4:key>yes</ns4:key>
+                <ns4:value>-v </ns4:value>
+                <ns4:name>Yes</ns4:name>
+            </ns4:values>
+            <ns4:values>
+                <ns4:key>no</ns4:key>
+                <ns4:value></ns4:value>
+                <ns4:name>No</ns4:name>
+            </ns4:values>
+            <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
+        </ns4:enumParam>
         <ns4:enumParam id="suppress_step4">
             <ns4:name>Suppress step4</ns4:name>
             <ns4:shortDescription>Whether or not step 4 should be suppressed</ns4:shortDescription>
             <ns4:description></ns4:description>
             <ns4:type>string</ns4:type>
             <ns4:values>
-                <ns4:key>suppress_step4_yes</ns4:key>
-                <ns4:value>--suppress-step4 </ns4:value>
-                <ns4:name>yes</ns4:name>
+                <ns4:key>yes</ns4:key>
+                <ns4:value>suppress-step4 </ns4:value>
+                <ns4:name>Yes</ns4:name>
             </ns4:values>
             <ns4:values>
-                <ns4:key>suppress_step4_no</ns4:key>
+                <ns4:key>no</ns4:key>
                 <ns4:value></ns4:value>
-                <ns4:name>no</ns4:name>
+                <ns4:name>No</ns4:name>
             </ns4:values>
             <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
-        </ns4:enumParam>
+        </ns4:enumParam-->
         
         
         <ns4:function id="fastqc_function">
@@ -209,9 +406,7 @@
                 <ns4:paramref ref="jobs_to_start"/>
                 <ns4:paramref ref="otu_picking_method"/>
                 <ns4:paramref ref="parallel"/>
-                <!--ns4:paramref ref="parameter_file"/-->
-                <!--ns4:paramref ref="reference_sequences"/-->
-                <ns4:paramref ref="suppress_step4"/>
+                <ns4:paramref ref="step_four"/>
                 <ns4:paramref ref="verbose"/>
             </ns4:paramGroup>
             
@@ -221,12 +416,10 @@
                 <ns4:reference>jobs_to_start</ns4:reference>
                 <ns4:reference>otu_picking_method</ns4:reference>
                 <ns4:reference>verbose</ns4:reference>
-                <!--ns4:reference>parameter_file</ns4:reference-->
-                <!--ns4:reference>reference_sequences</ns4:reference-->
                 <ns4:reference>input_parameter_file</ns4:reference>
                 <ns4:reference>input_reference_sequences</ns4:reference>
                 <ns4:reference>output_open_reference_otus</ns4:reference>
-                <ns4:reference>suppress_step4</ns4:reference>
+                <ns4:reference>step_four</ns4:reference>
             </ns4:paramAndInputOutputOrder>
         </ns4:function>
         

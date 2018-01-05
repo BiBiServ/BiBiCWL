@@ -27,10 +27,176 @@
         /TODO!!!!
     -->
     <ns4:responsibleAuthor>
-        <ns4:firstname></ns4:firstname>
-        <ns4:lastname></ns4:lastname>
+        <ns4:firstname>J Gregory</ns4:firstname>
+        <ns4:lastname>Caporaso</ns4:lastname>
         <ns4:email></ns4:email>
     </ns4:responsibleAuthor>
+    
+    
+    <ns4:author>
+        <ns4:firstname>Justin</ns4:firstname>
+        <ns4:lastname>Kuczynski</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Jesse</ns4:firstname>
+        <ns4:lastname>Stombaugh</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Kyle</ns4:firstname>
+        <ns4:lastname>Bittinger</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Frederic D</ns4:firstname>
+        <ns4:lastname>Bushman</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Elizabeth K</ns4:firstname>
+        <ns4:lastname>Costello</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Noah</ns4:firstname>
+        <ns4:lastname>Fierer</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Antonio Gonzalez</ns4:firstname>
+        <ns4:lastname>Pena</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Julia K</ns4:firstname>
+        <ns4:lastname>Goodrich</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Jeffrey I</ns4:firstname>
+        <ns4:lastname>Gordon</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Gavin A</ns4:firstname>
+        <ns4:lastname>Huttley</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Scott T</ns4:firstname>
+        <ns4:lastname>Kelley</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Dan</ns4:firstname>
+        <ns4:lastname>Knights</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Jeremy E</ns4:firstname>
+        <ns4:lastname>Koenig</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Ruth E</ns4:firstname>
+        <ns4:lastname>Ley</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Catherine A</ns4:firstname>
+        <ns4:lastname>Lozupone</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Daniel</ns4:firstname>
+        <ns4:lastname>McDonald</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Brian D</ns4:firstname>
+        <ns4:lastname>Muegge</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Meg</ns4:firstname>
+        <ns4:lastname>Pirrung</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Jens</ns4:firstname>
+        <ns4:lastname>Reeder</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Joel R</ns4:firstname>
+        <ns4:lastname>Sevinsky</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Peter J</ns4:firstname>
+        <ns4:lastname>Turnbaugh</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>William A</ns4:firstname>
+        <ns4:lastname>Walters</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Jeremy</ns4:firstname>
+        <ns4:lastname>Widmann</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Tanya</ns4:firstname>
+        <ns4:lastname>Yatsunenko</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Jesse</ns4:firstname>
+        <ns4:lastname>Zaneveld</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    <ns4:author>
+        <ns4:firstname>Rob</ns4:firstname>
+        <ns4:lastname>Knight</ns4:lastname>
+        <ns4:email></ns4:email>
+    </ns4:author>
+    
+    
+    
+    <ns4:support>
+        <ns4:firstname>Jean</ns4:firstname>
+        <ns4:lastname>Saydo</ns4:lastname>
+        <ns4:email>jsaydo@techfak.uni-bielefeld.de</ns4:email>
+    </ns4:support>
+    
     
     
     
@@ -88,8 +254,10 @@
         
         
         <ns4:function id="function_qiime_taxonomy_plots">
+            
             <ns4:name>Compute beta diversity</ns4:name>
             <ns4:shortDescription></ns4:shortDescription>
+            
             <ns4:inputref ref="input_mapping"/>
             <ns4:inputref ref="input_otu_table"/>
             <ns4:inputref ref="input_parameter_file"/>
@@ -101,6 +269,7 @@
                 <ns4:reference>input_mapping</ns4:reference>
                 <ns4:reference>input_parameter_file</ns4:reference>
             </ns4:paramAndInputOutputOrder>
+            
         </ns4:function>
         
         
