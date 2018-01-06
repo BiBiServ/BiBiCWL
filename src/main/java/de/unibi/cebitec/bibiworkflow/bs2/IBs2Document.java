@@ -61,7 +61,7 @@ public interface IBs2Document {
      * @param id ID of the object to be
      * @return type of the input or null if didn't find ID
      */
-    ArgumentType getTypeOfArgumentById(String id) throws Exception;
+    EArgumentType getTypeOfArgumentById(String id) throws Exception;
     
     /**
      * Gets the "additionalString" with the assigned id.

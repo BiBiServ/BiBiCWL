@@ -7,7 +7,7 @@ package de.unibi.cebitec.bibiworkflow.converter;
 
 import de.unibi.cebitec.bibiworkflow.app.IModelListener;
 import de.unibi.cebitec.bibiworkflow.bs2.Bs2Document;
-import de.unibi.cebitec.bibiworkflow.bs2.ArgumentType;
+import de.unibi.cebitec.bibiworkflow.bs2.EArgumentType;
 import de.unibi.cebitec.bibiworkflow.bs2.IBs2Document;
 import de.unibi.cebitec.bibiworkflow.cwl.CwlTool;
 import de.unibi.cebitec.bibiworkflow.cwl.ICwlTool;
@@ -120,7 +120,7 @@ public class Converter implements IConverter
         int position = 0;
         for (String id : bs2Doc.getCommandLineArgumentOrderAsReferences(function))
         {
-            ArgumentType inputType_bs2 = bs2Doc.getTypeOfArgumentById(id);
+            EArgumentType inputType_bs2 = bs2Doc.getTypeOfArgumentById(id);
             
             if (null == inputType_bs2)
             {

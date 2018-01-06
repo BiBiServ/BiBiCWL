@@ -9,7 +9,7 @@ package de.unibi.cebitec.bibiworkflow.bs2;
  *
  * @author pol3waf
  */
-public enum ArgumentType {
+public enum EArgumentType {
     input,
     param,
     enumParam,

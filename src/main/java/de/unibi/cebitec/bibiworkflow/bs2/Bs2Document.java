@@ -304,9 +304,9 @@ public class Bs2Document implements IBs2Document
      * @return type or null (if didn't find ID)
      */
     @Override
-    public ArgumentType getTypeOfArgumentById(String id)
+    public EArgumentType getTypeOfArgumentById(String id)
     {
-        ArgumentType type = null;
+        EArgumentType type = null;
         
         // search inputs for the given id
         for (TinputOutput input : this.runnableItem.getExecutable().getInput())
@@ -314,7 +314,7 @@ public class Bs2Document implements IBs2Document
             String inputId = input.getId();
             if (inputId.equals(id))
             {
-                type = ArgumentType.input;
+                type = EArgumentType.input;
             }
         }
         
@@ -324,7 +324,7 @@ public class Bs2Document implements IBs2Document
             String paramId = param.getId();
             if (paramId.equals(id))
             {
-                type = ArgumentType.param;
+                type = EArgumentType.param;
             }
         }
         
@@ -334,7 +334,7 @@ public class Bs2Document implements IBs2Document
             String eParamId = eparam.getId();
             if (eParamId.equals(id))
             {
-                type = ArgumentType.enumParam;
+                type = EArgumentType.enumParam;
             }
         }
         
@@ -343,7 +343,7 @@ public class Bs2Document implements IBs2Document
         {
             if (key.equals(id))
             {
-                type = ArgumentType.additionalString;
+                type = EArgumentType.additionalString;
             }
         }
         
@@ -352,7 +352,7 @@ public class Bs2Document implements IBs2Document
         {
             if (output.getId().equals(id))
             {
-                type = ArgumentType.output;
+                type = EArgumentType.output;
             }
         }
         
