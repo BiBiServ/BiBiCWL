@@ -62,10 +62,10 @@ public class Converter implements IConverter
         for (Tfunction function : bs2Doc.getFunctions())
         {
             ICwlTool cwlTool = convertFunctionToCwlTool(function);
-            this.cwlTools.put(function.getName().get(0).getValue(), cwlTool);
+            this.cwlTools.put(function.getId(), cwlTool);               // using the function's ID as CWLTool name instead of the function's
+                                                                        // name, because it's more robust
         }
         
-        // DO SOMETHING !!!
         return (HashMap<String, ICwlTool>) this.cwlTools.clone();
     }
     
@@ -90,6 +90,7 @@ public class Converter implements IConverter
         convertBaseCommand(cwlTool);
         convertFunctionInputs(function, cwlTool);
         convertFunctionOutputs(function, cwlTool);
+        checkForDocker(cwlTool);
         return cwlTool;
     }
     
@@ -478,6 +479,22 @@ public class Converter implements IConverter
     
     
     
+    /**
+     * Check whether docker is being used in the bs2 file and add a hint to the
+     * CWLTool if it is.
+     * @param cwlTool 
+     */
+    private void checkForDocker(ICwlTool cwlTool) 
+    {
+        if (bs2Doc.isUsingDocker())
+        {
+            cwlTool.addHint(ICwlTool.ERequirementClass.DockerRequirement, bs2Doc.getDockerImageLocation());
+        }
+    }
+    
+    
+    
+    
     /*
         adding and removing Listners and nofitying them about stuff ...
     */
@@ -515,6 +532,6 @@ public class Converter implements IConverter
             l.documentHasChanged();
         }
     }
-    
+
     
 }

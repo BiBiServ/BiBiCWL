@@ -63,6 +63,11 @@ public class CwlTool implements ICwlTool {
     private ArrayList<Argument> argumentList;
     
     
+    /**
+     * Hints are a list of soft requirements. (i.e. need not be met)
+     */
+    @JsonProperty
+    private HashMap<String, Requirement> hints;
     
     /**
      * Default constructor which creates a bare bones but functional CWL-Tool.
@@ -79,6 +84,7 @@ public class CwlTool implements ICwlTool {
         this.requirements = null;
         this.requirementsList = new ArrayList<>();
         this.argumentList = new ArrayList<>();
+        this.hints = new HashMap<>();
     }
     
     
@@ -100,6 +106,7 @@ public class CwlTool implements ICwlTool {
         this.requirements = null;
         this.requirementsList = new ArrayList<>();
         this.argumentList = new ArrayList<>();
+        this.hints = new HashMap<>();
     }
     
     
@@ -109,7 +116,7 @@ public class CwlTool implements ICwlTool {
      * @param requirementClassEnum 
      */
     @Override
-    public void addRequirement(RequirementClass requirementClassEnum) {
+    public void addRequirement(ERequirementClass requirementClassEnum) {
         try {
             // create the Requirement SubClass depending on the enum given by 
             // creating the required constructor and then creating the instance
@@ -247,5 +254,15 @@ public class CwlTool implements ICwlTool {
     }
     
     
+    @Override
+    public void addHint(ERequirementClass requirementClass, String argument)
+    {
+        switch (requirementClass)
+        {
+            case DockerRequirement: 
+                this.hints.put(ICwlTool.ERequirementClass.DockerRequirement.name(), new DockerRequirement(argument)); 
+                break;
+        }
+    }
     
 }

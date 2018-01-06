@@ -55,6 +55,20 @@ public interface IBs2Document {
     
     
     /**
+     * Checks whether the BibiApp is using Docker or not.
+     * @return true if it does, false if not
+     */
+    boolean isUsingDocker();
+    
+    
+    /**
+     * Get the docker image location.
+     * @return docker image location or null if it doesn't exist
+     */
+    String getDockerImageLocation();
+    
+    
+    /**
      * Checks what type of "input" an id is pointing at. The function checks 
      * all TinputOutputs, Tparams, TenumParams of the TrunnableItem and the 
      * additionalStrings list of the bs2Document.

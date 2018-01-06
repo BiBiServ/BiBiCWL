@@ -8,6 +8,7 @@ package de.unibi.cebitec.bibiworkflow.converter;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import java.util.HashMap;
 
@@ -41,6 +42,7 @@ public class YamlWriter
             LOGGER.info("trying to write yamlString ...");
             mapper.setSerializationInclusion(Include.NON_NULL);
             mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+            mapper.enable(YAMLGenerator.Feature.MINIMIZE_QUOTES);
             yamlString = mapper.writeValueAsString(object);
         }
         catch (JsonProcessingException ex) 

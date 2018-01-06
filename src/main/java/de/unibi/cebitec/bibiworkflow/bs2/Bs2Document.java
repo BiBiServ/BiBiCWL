@@ -297,6 +297,45 @@ public class Bs2Document implements IBs2Document
     
     
     /**
+     * Checks whether the BiBiApp is using Docker or not.
+     * @return true if Docker is used, false if not
+     */
+    @Override
+    public boolean isUsingDocker()
+    {
+        if (this.runnableItem.getExecutable().getExecInfo().isSetExecutableType())
+        {
+            String executableType = this.runnableItem.getExecutable().getExecInfo().getExecutableType();
+            return executableType.equals("docker");
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    
+    
+    /**
+     * Get the Docker image location of the BiBiApp for pulling it.
+     * @return Docker image location if it exists, null if not
+     */
+    @Override
+    public String getDockerImageLocation()
+    {
+        if (this.isUsingDocker())
+        {
+            return this.runnableItem.getExecutable().getExecInfo().getImage();
+        }
+        else
+        {
+            return null;
+        }
+    }
+    
+    
+    
+    /**
      * Checks what type of "input" an id is pointing at. The function checks 
      * all TinputOutputs, Tparams, TenumParams of the TrunnableItem and the 
      * additionalStrings list of the bs2Document.

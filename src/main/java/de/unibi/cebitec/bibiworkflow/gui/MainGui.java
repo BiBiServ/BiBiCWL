@@ -216,7 +216,14 @@ public final class MainGui extends Application implements IMainGui
     @Override
     public void updateDocument(HashMap<String, String> documents)
     {
-        documentView.setText(documents.toString());
+        String concatenatedDocuments = "";
+        for (String name : documents.keySet())
+        {
+            concatenatedDocuments = concatenatedDocuments.concat("# " + name + "\n\n" + documents.get(name) + "\n\n\n\n");
+        }
+        
+//        documentView.setText(documents.toString());
+        documentView.setText(concatenatedDocuments);
     }
 
     @Override

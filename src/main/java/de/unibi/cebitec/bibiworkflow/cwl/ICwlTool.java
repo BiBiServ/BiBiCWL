@@ -28,7 +28,7 @@ public interface ICwlTool {
     
     */
     
-    public enum RequirementClass
+    public enum ERequirementClass
     {
         InlineJavascriptRequirement,
         SchemaDefRequirement,
@@ -71,7 +71,16 @@ public interface ICwlTool {
      * Adds a sub-class of Requirement to the Requirement array of the CWLTool.
      * @param requirementClass
      */
-    public void addRequirement(RequirementClass requirementClass);
+    public void addRequirement(ERequirementClass requirementClass);
+    
+    
+    
+    /**
+     * Adds a sub-class of Requirement to the hints list of the CWLTool.
+     * @param requirementClass type of the requirement
+     * @param argument the value which should be passed
+     */
+    public void addHint(ERequirementClass requirementClass, String argument);
     
     
     /**

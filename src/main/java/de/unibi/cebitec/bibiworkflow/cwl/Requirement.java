@@ -14,81 +14,111 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 abstract class Requirement
 {
     
-    @JsonProperty
+    
     protected String requirementClass;
-
-//    Requirement() {
-//        this.requirementClass = "";
-//    }
     
 }
 
 
 
+
+/*
+------------------------------------------------------------/
+    Implementations of the abstract requirement class     /
+========================================================/
+*/
+
 class DockerRequirement extends Requirement
 {
-    protected DockerRequirement()
+    @JsonProperty
+    private final String dockerPull;
+    
+    protected DockerRequirement(String dockerPull)
     {
-        super.requirementClass = this.getClass().getName();
+        super.requirementClass = this.getClass().getSimpleName();
+        this.dockerPull = dockerPull;
     }
     
     // TODO: do more ...
 }
 
 
+
+
 class EnvVarRequirement extends Requirement
 {
     protected EnvVarRequirement()
     {
-        super.requirementClass = this.getClass().getName();
+        super.requirementClass = this.getClass().getSimpleName();
     }
 }
+
+
+
 
 class InitialWorkdirRequirement extends Requirement
 {
     protected InitialWorkdirRequirement()
     {
-        super.requirementClass = this.getClass().getName();
+        super.requirementClass = this.getClass().getSimpleName();
     }
 }
+
+
+
 
 class InlineJavaScriptRequirement extends Requirement
 {
     protected InlineJavaScriptRequirement()
     {
-        super.requirementClass = this.getClass().getName();
+        super.requirementClass = this.getClass().getSimpleName();
     }
 }
+
+
+
 
 class SchemaDefRequirement extends Requirement
 {
     protected SchemaDefRequirement()
     {
-        super.requirementClass = this.getClass().getName();
+        super.requirementClass = this.getClass().getSimpleName();
     }
 }
+
+
+
 
 class ShellCommandRequirement extends Requirement
 {
     protected ShellCommandRequirement()
     {
-        super.requirementClass = this.getClass().getName();
+        super.requirementClass = this.getClass().getSimpleName();
     }
 }
+
+
+
 
 class SoftwareRequirement extends Requirement
 {
     protected SoftwareRequirement()
     {
-        super.requirementClass = this.getClass().getName();
+        super.requirementClass = this.getClass().getSimpleName();
     }
 }
+
+
+
 
 class ResourceRequirement extends Requirement
 {
     protected ResourceRequirement()
     {
-        super.requirementClass = this.getClass().getName();
+        super.requirementClass = this.getClass().getSimpleName();
     }
 }
+
+
+
 
