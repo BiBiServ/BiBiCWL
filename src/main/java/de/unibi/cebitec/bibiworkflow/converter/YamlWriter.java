@@ -68,7 +68,7 @@ public class YamlWriter
         objects.forEach( (name, cwlTool) ->
         {
             String yamlDocument = this.writeObjectToYaml(cwlTool);
-            LOGGER.info("\nYAML output is:\n" + name + "\n" + yamlDocument + "\n\n");
+            LOGGER.info("\n\nYAML output is:\n" + name + "\n\n" + yamlDocument + "\n\n");
             yamlDocuments.put(name, yamlDocument);
         }
         );

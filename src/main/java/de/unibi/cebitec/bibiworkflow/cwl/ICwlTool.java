@@ -71,7 +71,7 @@ public interface ICwlTool {
      * Adds a sub-class of Requirement to the Requirement array of the CWLTool.
      * @param requirementClass
      */
-    public void addRequirement(ERequirementClass requirementClass);
+    public void addRequirement(ERequirementClass requirementClass, String argument);
     
     
     

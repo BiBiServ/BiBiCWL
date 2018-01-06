@@ -57,6 +57,11 @@ public class Converter implements IConverter
     public HashMap<String, ICwlTool> convertBs2(TrunnableItem runnableItem) throws Exception
     {
 //        HashMap<String, ICwlTool> cwlTools = new HashMap<>();
+        
+        // clear the HashMap so that tools from previous runs don't end up in 
+        // the current run.
+        this.cwlTools.clear();
+        
         this.bs2Doc = new Bs2Document(runnableItem);
         
         for (Tfunction function : bs2Doc.getFunctions())
@@ -486,6 +491,12 @@ public class Converter implements IConverter
      */
     private void checkForDocker(ICwlTool cwlTool) 
     {
+        /*
+            
+        TODO: !!! ??? !!!!
+            Should the Docker requiremnet be set as hint or as requirement?
+            
+        */
         if (bs2Doc.isUsingDocker())
         {
             cwlTool.addHint(ICwlTool.ERequirementClass.DockerRequirement, bs2Doc.getDockerImageLocation());

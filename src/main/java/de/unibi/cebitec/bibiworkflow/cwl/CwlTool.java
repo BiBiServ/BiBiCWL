@@ -47,27 +47,27 @@ public class CwlTool implements ICwlTool {
      * _Array_ of requirements of the CWL-Tool. This member variable will be read when 
      * writing the CWL-Tool into a file.
      */
-    @JsonProperty
-    private Requirement[] requirements;
-    
+//    @JsonProperty
+//    private Requirement[] requirements;
+//    
     /**
-     * List of requirements which will be converted into an array when writing 
-     * the CWL-Tool into a file.
+     * List of requirements (which will be converted into an array when writing 
+     * the CWL-Tool into a file).
      */
     @JsonProperty
-    private ArrayList<Requirement> requirementsList;
+    private HashMap<String, Requirement> requirements = null;
     
     @JsonProperty
     private Argument[] arguments;
     @JsonProperty
-    private ArrayList<Argument> argumentList;
+    private ArrayList<Argument> argumentList = null;
     
     
     /**
      * Hints are a list of soft requirements. (i.e. need not be met)
      */
     @JsonProperty
-    private HashMap<String, Requirement> hints;
+    private HashMap<String, Requirement> hints = null;
     
     /**
      * Default constructor which creates a bare bones but functional CWL-Tool.
@@ -81,10 +81,10 @@ public class CwlTool implements ICwlTool {
         this.stdout = null;
         this.inputs = new HashMap<>();
         this.outputs = new HashMap<>();
-        this.requirements = null;
-        this.requirementsList = new ArrayList<>();
-        this.argumentList = new ArrayList<>();
-        this.hints = new HashMap<>();
+//        this.requirements = null;
+//        this.requirementsList = new ArrayList<>();
+//        this.argumentList = new ArrayList<>();
+//        this.hints = new HashMap<>();
     }
     
     
@@ -103,29 +103,85 @@ public class CwlTool implements ICwlTool {
         this.stdout = null;
         this.inputs = new HashMap<>();
         this.outputs = new HashMap<>();
-        this.requirements = null;
-        this.requirementsList = new ArrayList<>();
-        this.argumentList = new ArrayList<>();
-        this.hints = new HashMap<>();
+//        this.requirements = null;
+//        this.requirementsList = new ArrayList<>();
+//        this.argumentList = new ArrayList<>();
+//        this.hints = new HashMap<>();
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    /**
+     * Sets up a stdout for the CWL tool with the given reference of the 
+     * dependant input.
+     * @param inputReference input field to be used as source for the output file's name
+     */
+    public void setupStdout(String inputReference) {
+        this.stdout = "$( inputs." + inputReference + " )";
+    }
+    
+    
+    
+    
+    @Override
+    public void addHint(ERequirementClass requirementClass, String argument)
+    {
+        if (this.hints == null)
+        {
+            this.hints = new HashMap<>();
+        }
+        
+        Requirement r = createRequirement(requirementClass, argument);
+        this.hints.put(requirementClass.name(), r);
+    }
+    
     
     
     
     /**
      * 
-     * @param requirementClassEnum 
+     * @param requirementClass 
+     * @param argument 
      */
     @Override
-    public void addRequirement(ERequirementClass requirementClassEnum) {
-        try {
-            // create the Requirement SubClass depending on the enum given by 
-            // creating the required constructor and then creating the instance
-            Requirement requirement = (Requirement) Class.forName(requirementClassEnum.name()).newInstance();
-            this.requirementsList.add(requirement);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-            LOGGER.log(Level.SEVERE, null, ex);
+    public void addRequirement(ERequirementClass requirementClass, String argument) {
+        
+        if (this.requirements == null)
+        {
+            this.requirements = new HashMap<>();
         }
+        
+        Requirement r = createRequirement(requirementClass, argument);
+        this.requirements.put(requirementClass.name(), r);
     }
+    
+    
+    
+    
+    /**
+     * Creates a requirement for use in the requirements or hints list.
+     * @param requirementClass
+     * @param argument
+     * @return 
+     */
+    private Requirement createRequirement(ERequirementClass requirementClass, String argument)
+    {
+        Requirement r = null;
+        switch (requirementClass)
+        {
+            case DockerRequirement: 
+                r = new DockerRequirement(argument); 
+                break;
+        }
+        
+        return r;
+    }
+    
     
     
     
@@ -145,6 +201,7 @@ public class CwlTool implements ICwlTool {
     
     
     
+    
     /**
      * Adds an input of type "File" to the list of inputs.
      * @param position
@@ -159,6 +216,7 @@ public class CwlTool implements ICwlTool {
         FileInput input = new FileInput(position, id, prefix, separate, fileType);
         this.inputs.put(id, input);
     }
+    
     
     
     
@@ -183,6 +241,7 @@ public class CwlTool implements ICwlTool {
     
     
     
+    
     /**
      * Adds an output to the list of outputs.
      * @param id
@@ -198,6 +257,7 @@ public class CwlTool implements ICwlTool {
     
     
     
+    
     /**
      * Adds an Argument to the List of arguments.
      * @param position position where the argument should be placed in the command line command
@@ -206,9 +266,15 @@ public class CwlTool implements ICwlTool {
     @Override
     public void addArgument(int position, String argument)
     {
+        if (this.argumentList == null)
+        {
+            this.argumentList = new ArrayList<>();
+        }
+        
         Argument a = new Argument(position, argument);
         this.argumentList.add(a);
     }
+    
     
     
     
@@ -223,6 +289,7 @@ public class CwlTool implements ICwlTool {
     {
         this.baseCommand = baseCommad;
     }
+    
     
     
     
@@ -244,25 +311,6 @@ public class CwlTool implements ICwlTool {
     
     
     
-    /**
-     * Sets up a stdout for the CWL tool with the given reference of the 
-     * dependant input.
-     * @param inputReference input field to be used as source for the output file's name
-     */
-    public void setupStdout(String inputReference) {
-        this.stdout = "$( inputs." + inputReference + " )";
-    }
     
-    
-    @Override
-    public void addHint(ERequirementClass requirementClass, String argument)
-    {
-        switch (requirementClass)
-        {
-            case DockerRequirement: 
-                this.hints.put(ICwlTool.ERequirementClass.DockerRequirement.name(), new DockerRequirement(argument)); 
-                break;
-        }
-    }
     
 }
