@@ -17,26 +17,38 @@ class InputBinding {
     private static final Logger LOGGER = Logger.getLogger(InputBinding.class.getName());
     
     @JsonProperty
-    private String prefix;
+    private String prefix = null;
     @JsonProperty
-    private boolean separate;
+    private Boolean separate = null;
     @JsonProperty
     private int position;
     
     
-    protected InputBinding(String prefix, boolean separate, int position)
+    protected InputBinding(String prefix, Boolean separate, int position)
     {
+        
+        
+        if (separate == null)
+        {
+            LOGGER.fine("no separator for the prefix");
+        }
+        else
+        {
+            this.separate = separate;
+        }
+        
+        
         // prefix is optional ???
-        if (prefix == null)
+        if (prefix == null || prefix.equals("") || prefix.equals(" "))
         {
             LOGGER.fine("no prefix used for this inputbinding");
+            this.separate = null;
         }
         else
         {
             this.prefix = prefix;
         }
         
-        this.separate = separate;
         this.position = position;
     }
 }

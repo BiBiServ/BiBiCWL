@@ -12,7 +12,7 @@ package de.unibi.cebitec.bibiworkflow.cwl;
 class SimpleInput extends Input<String> {
     
     
-    public SimpleInput(int position, String id, String type, String prefix, boolean seprate)
+    public SimpleInput(int position, String id, String type, String prefix, Boolean seprate)
     {
         super.id = id;
         super.type = type;

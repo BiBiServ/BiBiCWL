@@ -198,10 +198,14 @@ public class Converter implements IConverter
         String oType = output.getType();
         String oHandling = output.getHandling();
         
-        if (oHandling.equals("stdout"))
+        // convert oHandling to lower case for easier checking
+        String oHandlingLowerCase = oHandling.toLowerCase();
+        
+        if (oHandlingLowerCase.equals("stdout"))
         {
             cwlTool.addOutput(oId, "stdout", null, null);              // doesn't need the "glob" field because this is set in the stdout field of the CwlTool
-            String inputReference = oId + "_inputFileName";      // this will be used to find the suitable input with the file's name
+//            String inputReference = oId + "_inputFileName";      // this will be used to find the suitable input with the file's name
+            String inputReference = oId + "_outputFileName";
             cwlTool.setupStdout(inputReference);
         }
         else
@@ -271,19 +275,34 @@ public class Converter implements IConverter
     {
         String id = input.getId();                              // using the ID is better than the element's name, right?
         String type = "File";                                   // no string input allowed?
-        String prefix;
-        String fileType = input.getType();                      // what about different file types? How should this be handled --> check CWL documentation
+        String prefix = null;
+        Boolean separate = null;
+        String fileType = null;                                 // what about different file types? How should this be handled --> check CWL documentation
                                                                 // CWL supports ontologies like EDAM! USE IT!!!!
+        // check for "ToolDependentRepresentation" in filetype
+        if (input.isSetType())
+        {
+            if (input.getType().toLowerCase().equals("tooldependentrepresentation"))
+            {
+                fileType = null;
+            }
+            else
+            {
+                fileType = input.getType();
+            }
+        }
         
         if (input.isSetOption())
         {
             prefix = input.getOption();                      // the option usually encompasses the separator in the bs2 format
+            separate = false;
         }
         else
         {
             prefix = null;
+            separate = null;
         }
-        boolean separate = false;                               // should I really hard-code this?
+        
         cwlTool.addInputFile(position, id, prefix, separate, fileType);
     }
     
@@ -299,9 +318,15 @@ public class Converter implements IConverter
     private void convertParam(Tparam param, int position, ICwlTool cwlTool)
     {
         String id = param.getId();
-        String type = param.getType().value();
-        String prefix = param.getOption();
-        boolean separate = false;
+        String type = param.getType().value().toLowerCase();                // lower case? is this always correct ???
+        String prefix = null;
+        Boolean separate = null;
+        
+        if (param.isSetOption())
+        {
+            prefix = param.getOption();
+            separate = false;
+        }
         
         // what should I do about min/ max values??? There is no such thing in CWL
         // One could use javaScript to check this, right?
@@ -334,10 +359,17 @@ public class Converter implements IConverter
 //        enumParam.getValues().get(position)
         
         String id = enumParam.getId();                                  // combine ID with key/ name of value
-        String type = enumParam.getType().value();                      // !!! THIS MUST BE BOOLEAN in order to support multiple choices which are handled as flags !!!
-                                                                        
-        String prefix = enumParam.getOption();
-        boolean separate = false;
+        String type = enumParam.getType().value().toLowerCase();        // !!! THIS MUST BE BOOLEAN in order to support multiple choices which are handled as flags !!!
+                                                                        // ??? lower case ???
+        String prefix = "";
+        Boolean separate = null;
+        if (enumParam.isSetOption())
+        {
+            prefix = enumParam.getOption();
+            separate = false;
+        }
+        
+        
         
         if (enumParam.getGuiElement().equals("SELECTONERADIO"))
         {
@@ -345,14 +377,14 @@ public class Converter implements IConverter
             {
                 String key = value.getKey();
                 String val = value.getValue();
-                String name = value.getName().get(0).getValue();        // de-hardcode this??? or should I use the key instead???
+//                String name = value.getName().get(0).getValue();        // de-hardcode this??? or should I use the key instead??? --> yes!
                 
                 // add the value of the inputfield to the prefix so it can be toggled on or off
                 // it's not nice but it should work!
                 String combinedValue = prefix + val;
                 
                 // add the prefix+value and the name to the hashmap
-                options.put(name, combinedValue);
+                options.put(key, combinedValue);
             }
             
             // create the the exclusive multi-field input
@@ -435,7 +467,7 @@ public class Converter implements IConverter
     private void convertOutputArguments(TinputOutput output, int position, ICwlTool cwlTool)
     {
         
-        String id = output.getId() + "_ouputFileName";      // how to name this ??? is this even needed? 
+        String id = output.getId() + "_outputFileName";      // how to name this ??? is this even needed? 
         String handling = output.getHandling();
         
         // check the handling: if it's "stdout", the argument should not be used 
@@ -450,8 +482,8 @@ public class Converter implements IConverter
             // add an input which is used to determine the output location/ file
             // of the corresponding output.
             
-            String type = "String";                             // hard-coded ... is this OK ???
-            boolean separate = false;
+            String type = "string";                             // hard-coded ... is this OK ???
+            Boolean separate = null;                            // really ???
             String prefix;
             if (output.isSetOption())
             {

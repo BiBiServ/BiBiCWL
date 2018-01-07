@@ -16,7 +16,7 @@ public class FileInput extends Input
     @JsonProperty
     String fileType;
     
-    public FileInput(int position, String id, String prefix, boolean separate, String fileType)
+    public FileInput(int position, String id, String prefix, Boolean separate, String fileType)
     {
         super.type = "File";
         super.id = id;

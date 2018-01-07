@@ -49,11 +49,11 @@ public interface ICwlTool {
      * @param prefix
      * @param separate 
      */
-    public void addInput(int position, String id, String type, String prefix, boolean separate);
+    public void addInput(int position, String id, String type, String prefix, Boolean separate);
     
-    public void addInputFile(int position, String id, String prefix, boolean separate, String fileType);
+    public void addInputFile(int position, String id, String prefix, Boolean separate, String fileType);
     
-    public void addInput(int position, String id, String type, String prefix, boolean separate, int min, int max);
+    public void addInput(int position, String id, String type, String prefix, Boolean separate, int min, int max);
     
     
     /**

@@ -21,7 +21,7 @@ public class MultiFieldInput extends Input<ArrayList<CommandInputRecord>>
 {
     
     // dont serialize this!!!
-    private final String INPUTTYPE = "boolean";
+    private final String INPUTTYPE = "boolean";                                     // should i really hard-code this ???
 
     private final static Logger LOGGER = Logger.getLogger(MultiFieldInput.class.getName());
     

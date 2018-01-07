@@ -22,7 +22,7 @@ public class CwlTool implements ICwlTool {
 
     @JsonProperty
     private String cwlVersion;  //make this a enum? why? --> name mismatching cwl defenition
-    @JsonProperty
+    @JsonProperty("class")
     private String cwlClass;    //make this a enum? why? --> name mismatching cwl defenition
     @JsonProperty
     private String baseCommand;
@@ -122,7 +122,7 @@ public class CwlTool implements ICwlTool {
      * @param inputReference input field to be used as source for the output file's name
      */
     public void setupStdout(String inputReference) {
-        this.stdout = "$( inputs." + inputReference + " )";
+        this.stdout = "$(inputs." + inputReference + ")";
     }
     
     
@@ -194,7 +194,7 @@ public class CwlTool implements ICwlTool {
      * @param separate 
      */
     @Override
-    public void addInput(int position, String id, String type, String prefix, boolean separate) {
+    public void addInput(int position, String id, String type, String prefix, Boolean separate) {
         SimpleInput input = new SimpleInput(position, id, type, prefix, separate);
         inputs.put(id, input);
     }
@@ -212,7 +212,7 @@ public class CwlTool implements ICwlTool {
      * @param fileType 
      */
     @Override
-    public void addInputFile(int position, String id, String prefix, boolean separate, String fileType) {
+    public void addInputFile(int position, String id, String prefix, Boolean separate, String fileType) {
         FileInput input = new FileInput(position, id, prefix, separate, fileType);
         this.inputs.put(id, input);
     }
@@ -235,7 +235,7 @@ public class CwlTool implements ICwlTool {
      * @param max
      */
     @Override
-    public void addInput(int position, String id, String type, String prefix, boolean separate, int min, int max) {
+    public void addInput(int position, String id, String type, String prefix, Boolean separate, int min, int max) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
