@@ -73,7 +73,7 @@
         
         <ns4:execInfo>
             <ns4:executableType>docker</ns4:executableType>
-            <ns4:image>flash2:v2.2.00</ns4:image>
+            <ns4:image>jsaydo/flash2:v2.2.00</ns4:image>
             <ns4:path>/progs/flash</ns4:path>
             <ns4:callingInformation>flash2</ns4:callingInformation>
         </ns4:execInfo>
@@ -95,7 +95,7 @@
         </ns4:input>
         
         
-        <ns4:output id="flash_output">
+        <ns4:output id="flash_stdout">
             <ns4:name>Output</ns4:name>
             <ns4:shortDescription>Standard output of FLASH</ns4:shortDescription>
             <ns4:description></ns4:description>
@@ -107,27 +107,27 @@
         <ns4:outputfile id="extendedFrags">
             <ns4:name>Extended Frags</ns4:name>
             <ns4:folder></ns4:folder>
-            <ns4:filename>extendedFrags</ns4:filename>
+            <ns4:filename>out.extendedFrags.fastq</ns4:filename>
             <ns4:contenttype>text/plain</ns4:contenttype>
         </ns4:outputfile>
         <ns4:outputfile id="hist">
             <ns4:name>Histogram 1</ns4:name>
-            <ns4:filename>hist</ns4:filename>
+            <ns4:filename>out.hist</ns4:filename>
             <ns4:contenttype>text/plain</ns4:contenttype>
         </ns4:outputfile>
         <ns4:outputfile id="histogram">
             <ns4:name>Histogram 2</ns4:name>
-            <ns4:filename>histogram</ns4:filename>
+            <ns4:filename>out.histogram</ns4:filename>
             <ns4:contenttype>text/plain</ns4:contenttype>
         </ns4:outputfile>
         <ns4:outputfile id="notCombined_1">
             <ns4:name>Not combined Frags from FASTQ input 1</ns4:name>
-            <ns4:filename>notCombined_1.fastq</ns4:filename>
+            <ns4:filename>out.notCombined_1.fastq</ns4:filename>
             <ns4:contenttype>text/plain</ns4:contenttype>
         </ns4:outputfile>
         <ns4:outputfile id="notCombined_2">
             <ns4:name>Not combined Frags from FASTQ input 2</ns4:name>
-            <ns4:filename>notCombined_2</ns4:filename>
+            <ns4:filename>out.notCombined_2.fastq</ns4:filename>
             <ns4:contenttype>text/plain</ns4:contenttype>
         </ns4:outputfile>
         
@@ -159,9 +159,17 @@
             <ns4:defaultValue>0.01</ns4:defaultValue>
             <ns4:guiElement>INPUTTEXT</ns4:guiElement>
         </ns4:param>
+        <ns4:param id="use_outies">
+            <ns4:name>Use outies</ns4:name>
+            <ns4:shortDescription>Whether or not to use outies</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>boolean</ns4:type>
+            <ns4:option>-O </ns4:option>
+            <ns4:guiElement>SELECTBOOLEANCHECKBOX</ns4:guiElement>
+        </ns4:param>
         
         
-        <ns4:enumParam id="use_outies">
+        <!--ns4:enumParam id="use_outies">
             <ns4:name>Use outies</ns4:name>
             <ns4:shortDescription>Whether or not to use outies.</ns4:shortDescription>
             <ns4:description>my description</ns4:description>
@@ -177,7 +185,7 @@
                 <ns4:name>No</ns4:name>
             </ns4:values>
             <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
-        </ns4:enumParam>
+        </ns4:enumParam-->
         
         
         <!--ns4:paramGroup id="merge_reads_params">
@@ -191,7 +199,7 @@
         </ns4:paramGroup-->
         
         
-        <ns4:function id="merge_reads_function">
+        <ns4:function id="function_merge_reads">
             
             <ns4:name>Merge reads</ns4:name>
             <ns4:shortDescription>Merge reads of paired end reads</ns4:shortDescription>
@@ -200,7 +208,7 @@
             <ns4:inputref ref="fastq_1"/>
             <ns4:inputref ref="fastq_2"/>
             
-            <ns4:outputref ref="flash_output"/>
+            <ns4:outputref ref="flash_stdout"/>
             
             <ns4:outputfileref ref="extendedFrags"/>
             <ns4:outputfileref ref="hist"/>
@@ -225,7 +233,7 @@
                 <ns4:reference>max_size</ns4:reference>
                 <ns4:reference>density</ns4:reference>
                 <ns4:reference>use_outies</ns4:reference>
-                <ns4:reference>flash_output</ns4:reference>
+                <ns4:reference>flash_stdout</ns4:reference>
             </ns4:paramAndInputOutputOrder>
             
             <!--ns4:example>

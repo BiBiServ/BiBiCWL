@@ -57,10 +57,10 @@ public class CwlTool implements ICwlTool {
     @JsonProperty
     private HashMap<String, Requirement> requirements = null;
     
+//    @JsonProperty
+//    private Argument[] arguments;
     @JsonProperty
-    private Argument[] arguments;
-    @JsonProperty
-    private ArrayList<Argument> argumentList = null;
+    private ArrayList<Argument> arguments = null;
     
     
     /**
@@ -266,13 +266,13 @@ public class CwlTool implements ICwlTool {
     @Override
     public void addArgument(int position, String argument)
     {
-        if (this.argumentList == null)
+        if (this.arguments == null)
         {
-            this.argumentList = new ArrayList<>();
+            this.arguments = new ArrayList<>();
         }
         
         Argument a = new Argument(position, argument);
-        this.argumentList.add(a);
+        this.arguments.add(a);
     }
     
     

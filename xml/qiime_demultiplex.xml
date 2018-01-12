@@ -205,7 +205,7 @@
         <ns4:version>0.1</ns4:version>
         <ns4:execInfo>
             <ns4:executableType>docker</ns4:executableType>
-            <ns4:image>quay.io/biocontainers/qiime</ns4:image>
+            <ns4:image>quay.io/biocontainers/qiime:1.9.1--np110py27_1</ns4:image>
             <ns4:path></ns4:path>
             <ns4:callingInformation>split_libraries_fastq.py</ns4:callingInformation>
         </ns4:execInfo>
@@ -252,7 +252,7 @@
             <ns4:option>--sample_id </ns4:option>
             <ns4:guiElement>INPUTTEXT</ns4:guiElement>
         </ns4:param>
-        <ns4:param id="qhred_quality_threshold">
+        <ns4:param id="phred_quality_threshold">
             <ns4:name>Phred quality threshold</ns4:name>
             <ns4:shortDescription>Maximum nonacceptable Phred quality score</ns4:shortDescription>
             <ns4:description>
@@ -262,6 +262,20 @@
             <ns4:type>int</ns4:type>
             <ns4:option>-q </ns4:option>
             <ns4:defaultValue>19</ns4:defaultValue>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="phred_offset">
+            <ns4:name>Phred offset</ns4:name>
+            <ns4:shortDescription>Phred offset (33 or 64)</ns4:shortDescription>
+            <ns4:description>
+                the ascii offset to use when decoding phred scores
+                (either 33 or 64). Warning: in most cases you don't
+                need to pass this value [default: determined
+                automatically]
+            </ns4:description>
+            <ns4:type>int</ns4:type>
+            <ns4:option>--phred_offset </ns4:option>
+            <ns4:defaultValue>33</ns4:defaultValue>
             <ns4:guiElement>INPUTTEXT</ns4:guiElement>
         </ns4:param>
         <ns4:param id="barcode_type">
@@ -281,7 +295,7 @@
         </ns4:param>
         
         
-        <ns4:function id="fastqc_function">
+        <ns4:function id="function_qiime_demultiplex">
             <ns4:shortDescription>Performs a fast quality control on the FASTQ file</ns4:shortDescription>
             <ns4:inputref ref="input_merged_reads"/>
             <ns4:inputref ref="input_metadata_mapping_files"/>
@@ -289,7 +303,8 @@
             
             <ns4:paramGroup id="qiime_demultiplex_params">
                 <ns4:paramref ref="barcode_type"/>
-                <ns4:paramref ref="qhred_quality_threshold"/>
+                <ns4:paramref ref="phred_quality_threshold"/>
+                <ns4:paramref ref="phred_offset"/>
                 <ns4:paramref ref="sample_id"/>
             </ns4:paramGroup>
             
@@ -297,7 +312,8 @@
                 <ns4:reference>input_merged_reads</ns4:reference>
                 <ns4:reference>sample_id</ns4:reference>
                 <ns4:reference>output_demultiplexed_files</ns4:reference>
-                <ns4:reference>qhred_quality_threshold</ns4:reference>
+                <ns4:reference>phred_quality_threshold</ns4:reference>
+                <ns4:reference>phred_offset</ns4:reference>
                 <ns4:reference>barcode_type</ns4:reference>
                 <ns4:reference>input_metadata_mapping_files</ns4:reference>
             </ns4:paramAndInputOutputOrder>

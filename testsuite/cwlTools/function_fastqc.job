@@ -1,0 +1,3 @@
+input_fastqc:
+    class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/cwlTools/out.extendedFrags.fastq

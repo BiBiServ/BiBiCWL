@@ -195,7 +195,6 @@ public class Converter implements IConverter
         TinputOutput output = bs2Doc.getFunctionOutput(function);
         
         String oId = output.getId();
-        String oType = output.getType();
         String oHandling = output.getHandling();
         
         // convert oHandling to lower case for easier checking
@@ -210,6 +209,8 @@ public class Converter implements IConverter
         }
         else
         {
+            String oType = "File";
+            
             if (outputsThatUseInputs.contains(oId))
             {
                 String inputReference = oId + "_outputFileName";
@@ -473,8 +474,9 @@ public class Converter implements IConverter
         // check the handling: if it's "stdout", the argument should not be used 
         // in CWL as a declared input but rather as a reference in the stdout
         // field. The latter will be done when checking and creating outputs.
-        if (handling.equals("stdout"))
+        if (handling.toLowerCase().equals("stdout"))
         {
+            outputsThatUseInputs.add(id);
             LOGGER.info("Entry" + id + " in bs2 ParamAndInputputOrder will be omitted, because stdout is handled differently in CWL and will be processed in the convertFunctionOuputs() function.");
         }
         else
@@ -488,15 +490,18 @@ public class Converter implements IConverter
             if (output.isSetOption())
             {
                 prefix = output.getOption();
+                outputsThatUseInputs.add(id);
+                cwlTool.addInput(position, id, type, prefix, separate);         // this is duplicated from the lines below.
             }
             else
             {
                 prefix = null;
             }
-            cwlTool.addInput(position, id, type, prefix, separate);
+//            cwlTool.addInput(position, id, type, prefix, separate);           // this is probably needed ... ???
+            
         }
         
-        outputsThatUseInputs.add(id);
+        
     }
     
     
