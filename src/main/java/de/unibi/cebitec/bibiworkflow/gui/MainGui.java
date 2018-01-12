@@ -10,6 +10,7 @@ package de.unibi.cebitec.bibiworkflow.gui;
 import de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler;
 import de.unibi.cebitec.bibiworkflow.io.SaveToDirectoryEventHandler;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -18,12 +19,15 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBase;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
@@ -48,6 +52,9 @@ public final class MainGui extends Application implements IMainGui
     private Button startConversionButton;
     private Button openFileButton;
     private Button saveToDirectoryButton;
+    
+    // Options
+    private static ArrayList<ButtonBase> options = new ArrayList<>();
     
     // Textboxes
     private static TextArea documentView;
@@ -148,10 +155,12 @@ public final class MainGui extends Application implements IMainGui
         HBox buttonPane = new HBox();
         FlowPane infoPane = new FlowPane();
         StackPane documentPane = new StackPane();           // why a stackpane ??? ????
+        VBox optionsPane = new VBox();
         
         borderPane.setTop(buttonPane);
-        borderPane.setBottom(infoPane);
+        borderPane.setLeft(optionsPane);
         borderPane.setCenter(documentPane);
+        borderPane.setBottom(infoPane);
         
         
         /*
@@ -190,6 +199,25 @@ public final class MainGui extends Application implements IMainGui
                 this.openFileButton,
                 this.startConversionButton,
                 this.saveToDirectoryButton
+        );
+        
+        
+        
+        /*
+            Options (equivalent to some of the commandline options)
+        */
+        // formatting
+        optionsPane.setPadding(new Insets(10));
+        Label optionsTitle = new Label("Options:");
+        
+        // options ...
+        CheckBox checkbox_noShellQuotes = new CheckBox("noShellQuote");
+        options.add(checkbox_noShellQuotes);
+        
+        // add everything to the options pane
+        optionsPane.getChildren().addAll(
+                optionsTitle,
+                checkbox_noShellQuotes
         );
         
         
@@ -237,4 +265,27 @@ public final class MainGui extends Application implements IMainGui
         this.saveToDirectoryButton.setOnAction(saveToDirectoryEventHandler);
     }
     
+    
+    
+    @Override
+    public HashMap<String, String> getOptions()
+    {
+        HashMap<String, String> optionsMap = new HashMap<>();
+        for (ButtonBase option : options)
+        {
+            String key;
+            String value;
+            
+            if (option instanceof CheckBox)
+            {
+                key = option.getText();
+                value = ((Boolean)((CheckBox) option).isSelected()).toString();
+                optionsMap.put(key, value);
+            }
+            
+            // TODO: add more ...
+        }
+        
+        return optionsMap;
+    }
 }

@@ -23,6 +23,10 @@ class InputBinding {
     @JsonProperty
     private int position;
     
+    // shellQuote is true by default in CWL. (null would be treated as true)
+    @JsonProperty
+    private Boolean shellQuote = null;
+    
     
     protected InputBinding(String prefix, Boolean separate, int position)
     {
@@ -50,5 +54,18 @@ class InputBinding {
         }
         
         this.position = position;
+    }
+    
+    
+    
+    
+    protected void deactivateShellQuote()
+    {
+        this.shellQuote = false;
+    }
+    
+    protected void activateShellQuote()
+    {
+        this.shellQuote = true;
     }
 }

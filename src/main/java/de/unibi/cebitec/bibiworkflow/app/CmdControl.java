@@ -79,6 +79,7 @@ public class CmdControl implements IControl
     
     
     
+    @Override
     public void saveCwlTools()
     {
         LOGGER.info("Converting CwlTools to YAML ...");
@@ -100,39 +101,8 @@ public class CmdControl implements IControl
      */
     private void processAdditionalCommandLineArguments()
     {
-        
-        
-        /*
-            put the stuff below into separate methods because things might
-            get messy ...
-        */
-        
-        
-        // check output
-        if (this.cmd.hasOption("output"))
-        {
-            try {
-                fileHandler.setOutDir(this.cmd.getOptionValue("output"));
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(CmdControl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        
-        /*
-            check requirements
-                system requirements
-                ???
-        */
-        
-        
-        /*
-            check hints
-                docker
-                ???
-        */
-        
-        
+        this.processOutputArgument();
+        this.processArgument_noShellQuote();
     }
     
     
@@ -165,6 +135,28 @@ public class CmdControl implements IControl
     
     
     
+    private void processOutputArgument()
+    {
+        if (this.cmd.hasOption("output"))
+        {
+            try {
+                fileHandler.setOutDir(this.cmd.getOptionValue("output"));
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(CmdControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    private void processArgument_noShellQuote()
+    {
+        if (this.cmd.hasOption("noShellQuote"))
+        {
+            converter.setOption_noShellQuote();
+        }
+    }
     
-    
+
 }
+    
+    
+    

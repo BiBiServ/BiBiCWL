@@ -542,6 +542,22 @@ public class Converter implements IConverter
     
     
     
+    /**
+     * Set up the CWL Tool to not use shellQuotes. Therefore a 
+     * ShellCommandlineRequirement is going to be created, and the option 
+     * shellQuote: false is going to be added to every input.
+     */
+    @Override
+    public void setOption_noShellQuote()
+    {
+        for (ICwlTool cwlTool : cwlTools.values())
+        {
+            cwlTool.setUpOption_noShellQuote();
+        }
+    }
+    
+    
+    
     
     /*
         adding and removing Listners and nofitying them about stuff ...

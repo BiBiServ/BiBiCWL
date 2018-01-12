@@ -64,6 +64,10 @@ public class GuiControl implements IControl, IModelListener
             LOGGER.info("Converting bs2-document to CwlTools ...");
             this.converter.convertBs2(this.fileHandler.importBs2AsRunnableItem() );
             
+            // process options / arguments ... same as command line stuff or similar ...
+            HashMap<String, String> options = this.mainGui.getOptions();
+            this.processArguments(options);
+            
             LOGGER.info("Converting CwlTools to YAML ...");
             HashMap<String, ICwlTool> cwlTools = this.converter.getCwlTools();
             YamlWriter ym = new YamlWriter();
@@ -135,6 +139,14 @@ public class GuiControl implements IControl, IModelListener
     public void newDocumentCreated()
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void processArguments(HashMap<String, String> options)
+    {
+        if (options.get("noShellQuote").equals("true"))
+        {
+            converter.setOption_noShellQuote();
+        }
     }
     
     

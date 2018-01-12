@@ -127,6 +127,23 @@ public class CwlTool implements ICwlTool {
     
     
     
+    /**
+     * Sets up the ShellCommandRequirement for the CWL CommandLineTool and 
+     * the shellQuote fields for every input.
+     */
+    @Override
+    public void setUpOption_noShellQuote()
+    {
+        this.addRequirement(ERequirementClass.ShellCommandRequirement, null);
+        
+        for (Input input : this.inputs.values())
+        {
+            input.inputBinding.deactivateShellQuote();
+        }
+    }
+    
+    
+    
     
     @Override
     public void addHint(ERequirementClass requirementClass, String argument)
@@ -176,6 +193,9 @@ public class CwlTool implements ICwlTool {
         {
             case DockerRequirement: 
                 r = new DockerRequirement(argument); 
+                break;
+            case ShellCommandRequirement:
+                r = new ShellCommandRequirement();      // argument not needed here
                 break;
         }
         

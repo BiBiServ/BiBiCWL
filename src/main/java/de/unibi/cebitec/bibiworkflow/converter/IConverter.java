@@ -18,11 +18,13 @@ public interface IConverter {
     
     
     
+    void addModelListener(IModelListener modelListener);
+    void removeModelListener(IModelListener modelListener);
+    
     HashMap<String, ICwlTool> convertBs2(TrunnableItem runnableItem) throws Exception;
     
     HashMap<String, ICwlTool> getCwlTools();
     
-    void addModelListener(IModelListener modelListener);
-    void removeModelListener(IModelListener modelListener);
+    void setOption_noShellQuote();
     
 }

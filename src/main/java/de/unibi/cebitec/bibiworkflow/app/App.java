@@ -59,6 +59,9 @@ public class App
                 + "be placed in /tmp/");
         options.addOption(outputFolder);
         
+        Option suppressShellQuote = new Option("q", "noShellQuote", false, 
+                "suppress the use of shellQuotes in the CWL CommandlineTool");
+        options.addOption(suppressShellQuote);
         
         // set up command line parser and formatting
         CommandLineParser parser = new DefaultParser();

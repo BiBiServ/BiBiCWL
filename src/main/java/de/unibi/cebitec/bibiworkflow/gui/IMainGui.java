@@ -24,6 +24,7 @@ public interface IMainGui {
      * well.
      * @param oh EventHandler for opening files
      * @param ch EventHandler for converting files
+     * @param sh
      */
     void launchGUI(OpenFileEventHandler oh, ConvertBs2ToCwlEventHandler ch, SaveToDirectoryEventHandler sh);
     
@@ -71,5 +72,11 @@ public interface IMainGui {
      */
     void updateDocument(HashMap<String, String> documents);
     
+    
+    /**
+     * Get the options from the GUI in a nice HashMap.
+     * @return 
+     */
+    HashMap<String, String> getOptions();
     
 }

@@ -16,6 +16,8 @@ public interface ICwlTool {
     String CWLVERSION = "v1.0";
     // rename parameter "CWLCLASS" into "class" ????
     String CWLCLASS = "CWLTool";
+
+    
     
     
     /*
@@ -70,6 +72,7 @@ public interface ICwlTool {
     /**
      * Adds a sub-class of Requirement to the Requirement array of the CWLTool.
      * @param requirementClass
+     * @param argument
      */
     public void addRequirement(ERequirementClass requirementClass, String argument);
     
@@ -103,4 +106,7 @@ public interface ICwlTool {
     
     
     public void setupStdout(String inputReference);
+    
+    
+    public void setUpOption_noShellQuote();
 }

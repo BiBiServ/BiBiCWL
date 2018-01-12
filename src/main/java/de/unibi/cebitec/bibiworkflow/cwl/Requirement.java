@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 abstract class Requirement
 {
     
-    
+    @JsonProperty("class")
     protected String requirementClass;
     
 }
