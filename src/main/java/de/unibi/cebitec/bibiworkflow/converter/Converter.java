@@ -197,17 +197,14 @@ public class Converter implements IConverter
         String oId = output.getId();
         String oHandling = output.getHandling();
         
-        // convert oHandling to lower case for easier checking
-        String oHandlingLowerCase = oHandling.toLowerCase();
-        
-        if (oHandlingLowerCase.equals("stdout"))
+        if (oHandling.toLowerCase().equals("stdout"))
         {
-            cwlTool.addOutput(oId, "stdout", null, null);              // doesn't need the "glob" field because this is set in the stdout field of the CwlTool
+            cwlTool.addOutput(oId, "stdout", null, null);          // doesn't need the "glob" field because this is set in the stdout field of the CwlTool
 //            String inputReference = oId + "_inputFileName";      // this will be used to find the suitable input with the file's name
             String inputReference = oId + "_outputFileName";
             cwlTool.setupStdout(inputReference);
         }
-        else
+        else if (oHandling.toLowerCase().equals("file"))
         {
             String oType = "File";
             
@@ -221,6 +218,16 @@ public class Converter implements IConverter
                 cwlTool.addOutput(oId, oType, null, null);              // @TODO: should probably use something else ...
             }
         }
+        else if (oHandling.toLowerCase().equals("directory"))
+        {
+            LOGGER.finer("Ouput is a directory and therefore does not need "
+                    + "to be listed as an output in CWL but was used as an "
+                    + "argument only. This is probably crap ...");
+        }
+        else
+        {
+            LOGGER.finer("Handling of BiBi output unknown.");
+        }
         
         
         /*
@@ -233,7 +240,7 @@ public class Converter implements IConverter
             String ofType = "File";
             String ofFileType = of.getContenttype();                // check if stuff is set up properly before applying things ...
             String ofFileName = of.getFilename();
-            String ofFirectory = of.getFolder();
+            String ofDirectory = of.getFolder();
             String ofName = of.getName().get(0).getValue();        // leave as is ???
             
             if (outputsThatUseInputs.contains(ofId))
