@@ -1,12 +1,9 @@
 ---
 cwlVersion: v1.0
 baseCommand: split_libraries_fastq.py
-requirements:
-  - class: ShellCommandRequirement
-arguments: [shellQuote: false]
 inputs:
   input_merged_reads:
-    type: File?
+    type: File
     inputBinding:
       prefix: '-i '
       separate: false
@@ -20,7 +17,7 @@ inputs:
       position: 4
       shellQuote: false
   input_metadata_mapping_files:
-    type: File?
+    type: File
     inputBinding:
       prefix: '-m '
       separate: false
@@ -32,6 +29,12 @@ inputs:
       prefix: '--sample_id '
       separate: false
       position: 2
+      shellQuote: false
+  output_demultiplexed_directory_outputFileName:
+    type: string
+    inputBinding:
+      prefix: '-o '
+      position: 3
       shellQuote: false
   barcode_type:
     type: string
@@ -47,27 +50,24 @@ inputs:
       separate: false
       position: 5
       shellQuote: false
-  output_demultiplexed_files_outputFileName:
-    type: string
-    inputBinding:
-      prefix: '-o '
-      position: 3
-      shellQuote: false
 outputs:
-  output_qiime_demultiplex_histograms:
-    type: File
-    outputBinding:
-      glob: histograms.txt
-  output_demultiplexed_seqs:
+  outputfile_demultiplexed_seqs:
     type: File
     outputBinding:
       glob: seqs.fna
-  output_demultiplex_split_library_log:
+  outputfile_demultiplex_split_library_log:
     type: File
     outputBinding:
       glob: split_library_log.txt
-      
+  outputfile_qiime_demultiplex_histograms:
+    type: File
+    outputBinding:
+      glob: histograms.txt
+requirements:
+  ShellCommandRequirement:
+    class: ShellCommandRequirement
 hints:
   DockerRequirement:
     dockerPull: quay.io/biocontainers/qiime:1.9.1--np110py27_1
+    class: DockerRequirement
 class: CommandLineTool

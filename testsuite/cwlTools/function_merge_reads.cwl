@@ -61,4 +61,5 @@ outputs:
 hints:
   DockerRequirement:
     dockerPull: jsaydo/flash2:v2.2.00
+    class: DockerRequirement
 class: CommandLineTool

@@ -14,4 +14,4 @@ sample_id: frag
 
 barcode_type: 'not-barcoded'
 
-output_demultiplexed_files_outputFileName: .
+output_demultiplexed_directory_outputFileName: .
