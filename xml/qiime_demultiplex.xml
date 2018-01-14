@@ -232,16 +232,32 @@
         </ns4:input>
         
         
-        <ns4:output id="output_demultiplexed_files">
+        <ns4:output id="output_demultiplexed_directory">
             <ns4:name>Demultiplexed merged read files</ns4:name>
             <ns4:shortDescription>Demultiplexed files or splitted libraries.</ns4:shortDescription>
             <ns4:description>
                 
             </ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
-            <ns4:handling>FILE</ns4:handling>
+            <ns4:handling>DIRECTORY</ns4:handling>
             <ns4:option>-o </ns4:option>
         </ns4:output>
+        
+        <ns4:outputfile id="outputfile_qiime_demultiplex_histograms">
+            <ns4:name>histograms</ns4:name>
+            <ns4:filename>histograms.txt</ns4:filename>
+            <ns4:contenttype>text/plain</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="outputfile_demultiplexed_seqs">
+            <ns4:name>Seqs</ns4:name>
+            <ns4:filename>seqs.fna</ns4:filename>
+            <ns4:contenttype>text/plain</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="outputfile_demultiplex_split_library_log">
+            <ns4:name>Splitted library</ns4:name>
+            <ns4:filename>split_library_log.txt</ns4:filename>
+            <ns4:contenttype>text/plain</ns4:contenttype>
+        </ns4:outputfile>
         
         
         <ns4:param id="sample_id">
@@ -299,7 +315,11 @@
             <ns4:shortDescription>Performs a fast quality control on the FASTQ file</ns4:shortDescription>
             <ns4:inputref ref="input_merged_reads"/>
             <ns4:inputref ref="input_metadata_mapping_files"/>
-            <ns4:outputref ref="output_demultiplexed_files"/>
+            <ns4:outputref ref="output_demultiplexed_directory"/>
+            
+            <ns4:outputfileref ref="outputfile_demultiplex_split_library_log"/>
+            <ns4:outputfileref ref="outputfile_demultiplexed_seqs"/>
+            <ns4:outputfileref ref="outputfile_qiime_demultiplex_histograms"/>
             
             <ns4:paramGroup id="qiime_demultiplex_params">
                 <ns4:paramref ref="barcode_type"/>
@@ -311,7 +331,7 @@
             <ns4:paramAndInputOutputOrder>
                 <ns4:reference>input_merged_reads</ns4:reference>
                 <ns4:reference>sample_id</ns4:reference>
-                <ns4:reference>output_demultiplexed_files</ns4:reference>
+                <ns4:reference>output_demultiplexed_directory</ns4:reference>
                 <ns4:reference>phred_quality_threshold</ns4:reference>
                 <ns4:reference>phred_offset</ns4:reference>
                 <ns4:reference>barcode_type</ns4:reference>
