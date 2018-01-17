@@ -1,0 +1,9 @@
+input_metadata_mapping_files: 
+    class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/outputs/combinedMapping/combined_mapping.txt
+
+input_out_table_mc2_w_tax_no_pynast_failures_biom:
+    class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/otu_table_mc2_w_tax_no_pynast_failures.biom
+
+output_biom_outputFileName: otu_table_mc2_w_tax_no_pynast_failures_metadata.biom

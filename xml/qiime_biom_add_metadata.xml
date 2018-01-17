@@ -208,22 +208,30 @@
             <ns4:executableType>docker</ns4:executableType>
             <ns4:image>quay.io/biocontainers/qiime:1.9.1--np110py27_1</ns4:image>
             <ns4:path></ns4:path>
-            <ns4:callingInformation>biom add-metadata</ns4:callingInformation>
+            <!--
+                The "add-metadata" part of the command is put into an additionalString
+                in the paramsAndInputOuputOrder.
+            -->
+            <ns4:callingInformation>biom</ns4:callingInformation>
         </ns4:execInfo>
         
         
-        <ns4:input id="input_open_reference_otus">
-            <ns4:name>QIIME open reference OTUs</ns4:name>
-            <ns4:shortDescription>Open reference OTUs from QIIME's pick open reference OTUs function Input for QIIME</ns4:shortDescription>
+        <ns4:input id="input_out_table_mc2_w_tax_no_pynast_failures_biom">
+            <ns4:name>QIIME open reference OTU biom data</ns4:name>
+            <ns4:shortDescription>Open reference OTU biom data from QIIME's pick open reference OTUs function Input for QIIME</ns4:shortDescription>
             <ns4:description></ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
             <ns4:handling>FILE</ns4:handling>
             <ns4:option>-i </ns4:option>
         </ns4:input>
-        <ns4:input id="input_sample_metadata">
+        <ns4:input id="input_metadata_mapping_files">
             <ns4:name>Sample metadata</ns4:name>
             <ns4:shortDescription>Metadata of the sample</ns4:shortDescription>
-            <ns4:description></ns4:description>
+            <ns4:description>
+                The sample metadata mapping file (will add
+                sample metadata to the input BIOM table, if
+                provided).
+            </ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
             <ns4:handling>FILE</ns4:handling>
             <ns4:option>-m </ns4:option>
@@ -238,6 +246,20 @@
             <ns4:handling>FILE</ns4:handling>
             <ns4:option>-o </ns4:option>
         </ns4:output>
+        <ns4:output id="PLACEHOLDER_output_biom">
+            <ns4:name>Placeholder output</ns4:name>
+            <ns4:shortDescription></ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>DIRECTORY</ns4:handling>
+        </ns4:output>
+        
+        
+        <ns4:outputfile id="outputfile_out_table_mc2_w_tax_no_pynast_failures_metadata_biom">
+            <ns4:name>out_table_mc2_w_tax_no_pynast_failures_metadata_biom</ns4:name>
+            <ns4:filename>out_table_mc2_w_tax_no_pynast_failures_metadata.biom</ns4:filename>
+            <ns4:contenttype>text/plain</ns4:contenttype>
+        </ns4:outputfile>
         
         
         <!--ns4:param id="sample_metadata">
@@ -256,18 +278,31 @@
         
         <ns4:function id="function_qiime_biom_add_metadata">
             <ns4:shortDescription>Performs a fast quality control on the FASTQ file</ns4:shortDescription>
-            <ns4:inputref ref="input_open_reference_otus"/>
-            <ns4:inputref ref="input_sample_metadata"/>
+            
+            <ns4:inputref ref="input_out_table_mc2_w_tax_no_pynast_failures_biom"/>
+            <ns4:inputref ref="input_metadata_mapping_files"/>
             <ns4:outputref ref="output_biom"/>
             
-            <!--ns4:paramGroup id="qiime_biom_add_metadata_paramgroup">
-                <ns4:paramref ref="sample_metadata"/>
-            </ns4:paramGroup-->
+<!--            <ns4:outputfileref ref="outputfile_out_table_mc2_w_tax_no_pynast_failures_metadata_biom"/>-->
             
             <ns4:paramAndInputOutputOrder>
-                <ns4:reference>input_open_reference_otus</ns4:reference>
+                <!--
+                    The "add-metadata" part of the actual command needs to
+                    be added here because cwl puts single-quotes around the
+                    "command" which can't be deactivated as far as I know.
+                    However, quotes can be disabled for inputs, outputs and 
+                    arguments. 
+                -->
+                <ns4:additionalString>add-metadata</ns4:additionalString>
+                <ns4:reference>input_out_table_mc2_w_tax_no_pynast_failures_biom</ns4:reference>
+                <ns4:reference>input_metadata_mapping_files</ns4:reference>
+                <!-- 
+                     the latter two are for the case that the placeholder output 
+                     is used. Otherwise use the other output ... 
+                -->
+                <!--ns4:additionalString>-o /var/spool/cwl</ns4:additionalString-->
+                <!--ns4:additionalString>-o $HOME</ns4:additionalString-->
                 <ns4:reference>output_biom</ns4:reference>
-                <ns4:reference>input_sample_metadata</ns4:reference>
             </ns4:paramAndInputOutputOrder>
         </ns4:function>
         
