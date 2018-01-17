@@ -213,11 +213,14 @@ public final class MainGui extends Application implements IMainGui
         // options ...
         CheckBox checkbox_noShellQuotes = new CheckBox("noShellQuote");
         options.add(checkbox_noShellQuotes);
+        CheckBox checkbox_optionalInputs = new CheckBox("optionalInputs");
+        options.add(checkbox_optionalInputs);
         
         // add everything to the options pane
         optionsPane.getChildren().addAll(
                 optionsTitle,
-                checkbox_noShellQuotes
+                checkbox_noShellQuotes,
+                checkbox_optionalInputs
         );
         
         

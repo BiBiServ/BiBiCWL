@@ -19,6 +19,8 @@ class Argument
     private final String valueFrom;
     @JsonProperty
     private final int position;
+    @JsonProperty
+    private Boolean shellQuote = null;
     
     
     
@@ -26,5 +28,16 @@ class Argument
     {
         this.position = position;
         this.valueFrom = value;
+    }
+    
+    
+    protected void deactivateShellQuote()
+    {
+        this.shellQuote = false;
+    }
+    
+    protected void activateShellQuote()
+    {
+        this.shellQuote = true;
     }
 }

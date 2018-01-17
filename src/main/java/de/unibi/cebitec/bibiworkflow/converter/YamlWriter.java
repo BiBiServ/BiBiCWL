@@ -43,7 +43,11 @@ public class YamlWriter
             mapper.setSerializationInclusion(Include.NON_NULL);
             mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
             mapper.enable(YAMLGenerator.Feature.MINIMIZE_QUOTES);
+//            mapper.enable(YAMLGenerator.Feature.ALWAYS_QUOTE_NUMBERS_AS_STRINGS);
+            
+            
             yamlString = mapper.writeValueAsString(object);
+            yamlString = this.fixNullQuotes(yamlString);
         }
         catch (JsonProcessingException ex) 
         {
@@ -74,6 +78,14 @@ public class YamlWriter
         );
         
         return yamlDocuments;
+    }
+    
+    
+    
+    
+    private String fixNullQuotes(String yamlString)
+    {
+        return yamlString.replaceAll("<null>", "\"null\"");
     }
     
     

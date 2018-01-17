@@ -566,6 +566,18 @@ public class Converter implements IConverter
     
     
     
+    @Override
+    public void setOption_optionalInputFiles()
+    {
+        for (ICwlTool cwlTool : cwlTools.values())
+        {
+            cwlTool.setUpOption_optionalInputFiles();
+        }
+    }
+    
+    
+    
+    
     /*
         adding and removing Listners and nofitying them about stuff ...
     */

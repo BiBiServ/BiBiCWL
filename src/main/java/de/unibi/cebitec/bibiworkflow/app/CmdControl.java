@@ -103,6 +103,7 @@ public class CmdControl implements IControl
     {
         this.processOutputArgument();
         this.processArgument_noShellQuote();
+        this.processArgument_optionalInputs();
     }
     
     
@@ -135,6 +136,7 @@ public class CmdControl implements IControl
     
     
     
+    
     private void processOutputArgument()
     {
         if (this.cmd.hasOption("output"))
@@ -146,12 +148,26 @@ public class CmdControl implements IControl
             }
         }
     }
-
+    
+    
+    
+    
     private void processArgument_noShellQuote()
     {
         if (this.cmd.hasOption("noShellQuote"))
         {
             converter.setOption_noShellQuote();
+        }
+    }
+    
+    
+    
+    
+    private void processArgument_optionalInputs()
+    {
+        if (this.cmd.hasOption("optionalInputs"))
+        {
+            converter.setOption_optionalInputFiles();
         }
     }
     

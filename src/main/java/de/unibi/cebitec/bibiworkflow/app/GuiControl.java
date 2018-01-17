@@ -147,6 +147,10 @@ public class GuiControl implements IControl, IModelListener
         {
             converter.setOption_noShellQuote();
         }
+        if (options.get("optionalInputs").equals("true"))
+        {
+            converter.setOption_optionalInputFiles();
+        }
     }
     
     

@@ -64,6 +64,14 @@ public class App
                 "suppress the use of shellQuotes in the CWL CommandlineTool");
         options.addOption(suppressShellQuote);
         
+        Option optionalInputs = new Option("p", "optionalInput", false, 
+                "With this option enabled, InputFiles will be flagged as "
+                + "optional, so that they don't have to be specified in the "
+                + "CWL job file. However, the underlying program might still"
+                + "require those inputs and running the program without them"
+                + "might result in an error.");
+        options.addOption(optionalInputs);
+        
         // set up command line parser and formatting
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();

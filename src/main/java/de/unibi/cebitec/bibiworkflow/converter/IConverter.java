@@ -26,5 +26,7 @@ public interface IConverter {
     HashMap<String, ICwlTool> getCwlTools();
     
     void setOption_noShellQuote();
+
+    void setOption_optionalInputFiles();
     
 }

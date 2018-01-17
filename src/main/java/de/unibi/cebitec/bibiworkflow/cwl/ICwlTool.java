@@ -17,6 +17,7 @@ public interface ICwlTool {
     // rename parameter "CWLCLASS" into "class" ????
     String CWLCLASS = "CWLTool";
 
+
     
     
     
@@ -109,4 +110,7 @@ public interface ICwlTool {
     
     
     public void setUpOption_noShellQuote();
+    
+    public void setUpOption_optionalInputFiles();
+
 }

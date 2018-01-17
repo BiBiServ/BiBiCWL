@@ -140,6 +140,30 @@ public class CwlTool implements ICwlTool {
         {
             input.inputBinding.deactivateShellQuote();
         }
+        if (this.arguments != null)
+        {
+            for (Argument arg : this.arguments)
+            {
+                arg.deactivateShellQuote();
+            }
+        }
+    }
+    
+    
+    
+    /**
+     * Sets the FileInput to allow for "null" input. (I.e. this means that the 
+     * input needn't be specified in the CWL job file.)
+     */
+    public void setUpOption_optionalInputFiles()
+    {
+        for (Input input : this.inputs.values())
+        {
+            if (input instanceof FileInput)
+            {
+               ((FileInput) input).allowNull();
+            }
+        }
     }
     
     
