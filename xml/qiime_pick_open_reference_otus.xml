@@ -247,6 +247,13 @@
         </ns4:input>
         
         
+        <ns4:output id="PLACEHOLDER_output_open_reference_otus_directory">
+            <ns4:name>Placeholder output</ns4:name>
+            <ns4:shortDescription>Placeholder output</ns4:shortDescription>
+            <ns4:description>Placeholder ... which is not really existent and will be hadled via a static commandline argument</ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>DIRECTORY</ns4:handling>
+        </ns4:output>
         <ns4:output id="output_open_reference_otus_directory">
             <ns4:name>QIIME ouput directory</ns4:name>
             <ns4:shortDescription>Output dir for QIIME.</ns4:shortDescription>
@@ -255,6 +262,24 @@
             <ns4:handling>DIRECTORY</ns4:handling>
             <ns4:option>-o </ns4:option>
         </ns4:output>
+        
+        
+        <ns4:outputfile id="rep_set_tre">
+            <ns4:name>Rep Set</ns4:name>
+            <ns4:filename>rep_set.tre</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="otu_table_mc2_w_tax_no_pynast_failures_biom">
+            <ns4:name>otu table mc2 w tax no pynast failures biom</ns4:name>
+            <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures.biom</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        
+        <!-- 
+            There are a lot of other output files which are not used in the
+            16S pipeline. Still, they should be included in the near future 
+            so that the tool is feature complete. 
+        -->
         
         
         <ns4:param id="jobs_to_start">
@@ -281,118 +306,33 @@
             </ns4:description>
             <ns4:type>string</ns4:type>
             <ns4:option>-m </ns4:option>
+            <ns4:defaultValue>uclust</ns4:defaultValue>
             <ns4:guiElement>INPUTTEXT</ns4:guiElement>
         </ns4:param>
-        
-        
-        
-        
-        <ns4:enumParam id="parallel">
+        <ns4:param id="parallel">
             <ns4:name>Run in parallel</ns4:name>
             <ns4:shortDescription>Whether or not parallel computation should be used</ns4:shortDescription>
             <ns4:description></ns4:description>
-            <ns4:type>string</ns4:type>
-            <ns4:values>
-                <ns4:key>use_parallel</ns4:key>
-                <ns4:value>-a </ns4:value>
-                <ns4:name>yes</ns4:name>
-            </ns4:values>
-            <ns4:values>
-                <ns4:key>do_not_use_parallel</ns4:key>
-                <ns4:value></ns4:value>
-                <ns4:name>no</ns4:name>
-            </ns4:values>
-            <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
-        </ns4:enumParam>
-        <ns4:enumParam id="verbose">
-            <ns4:name>Run in verbose mode</ns4:name>
+            <ns4:type>boolean</ns4:type>
+            <ns4:option>-a </ns4:option>
+            <ns4:guiElement>SELECTBOOLEANCHECKBOX</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="verbose">
+            <ns4:name>Use verbose output</ns4:name>
             <ns4:shortDescription>Whether or not the verbosity flag should be used</ns4:shortDescription>
             <ns4:description></ns4:description>
-            <ns4:type>string</ns4:type>
-            <ns4:values>
-                <ns4:key>use_verbose</ns4:key>
-                <ns4:value>-v </ns4:value>
-                <ns4:name>yes</ns4:name>
-            </ns4:values>
-            <ns4:values>
-                <ns4:key>do_not_use_verbose</ns4:key>
-                <ns4:value></ns4:value>
-                <ns4:name>no</ns4:name>
-            </ns4:values>
-            <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
-        </ns4:enumParam>
-        <ns4:enumParam id="step_four">
+            <ns4:type>boolean</ns4:type>
+            <ns4:option>-v </ns4:option>
+            <ns4:guiElement>SELECTBOOLEANCHECKBOX</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="step_four">
             <ns4:name>Suppress step 4</ns4:name>
             <ns4:shortDescription>Whether or not step 4 should be suppressed</ns4:shortDescription>
             <ns4:description></ns4:description>
-            <ns4:type>string</ns4:type>
-            <ns4:values>
-                <ns4:key>suppress_step_four</ns4:key>
-                <ns4:value>--suppress-step4 </ns4:value>
-                <ns4:name>yes</ns4:name>
-            </ns4:values>
-            <ns4:values>
-                <ns4:key>do_not_suppress_step_four</ns4:key>
-                <ns4:value></ns4:value>
-                <ns4:name>no</ns4:name>
-            </ns4:values>
-            <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
-        </ns4:enumParam>
-        
-        
-        
-        
-        <!--ns4:enumParam id="parallel">
-            <ns4:name>Run in parallel</ns4:name>
-            <ns4:shortDescription>Whether or not parallel computation should be used</ns4:shortDescription>
-            <ns4:description></ns4:description>
-            <ns4:type>string</ns4:type>
-            <ns4:values>
-                <ns4:key>yes</ns4:key>
-                <ns4:value>-a </ns4:value>
-                <ns4:name>Yes</ns4:name>
-            </ns4:values>
-            <ns4:values>
-                <ns4:key>no</ns4:key>
-                <ns4:value></ns4:value>
-                <ns4:name>No</ns4:name>
-            </ns4:values>
-            <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
-        </ns4:enumParam>
-        <ns4:enumParam id="verbose">
-            <ns4:name>Verbosity</ns4:name>
-            <ns4:shortDescription>Whether or not the output should be verbose</ns4:shortDescription>
-            <ns4:description></ns4:description>
-            <ns4:type>string</ns4:type>
-            <ns4:values>
-                <ns4:key>yes</ns4:key>
-                <ns4:value>-v </ns4:value>
-                <ns4:name>Yes</ns4:name>
-            </ns4:values>
-            <ns4:values>
-                <ns4:key>no</ns4:key>
-                <ns4:value></ns4:value>
-                <ns4:name>No</ns4:name>
-            </ns4:values>
-            <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
-        </ns4:enumParam>
-        <ns4:enumParam id="suppress_step4">
-            <ns4:name>Suppress step4</ns4:name>
-            <ns4:shortDescription>Whether or not step 4 should be suppressed</ns4:shortDescription>
-            <ns4:description></ns4:description>
-            <ns4:type>string</ns4:type>
-            <ns4:values>
-                <ns4:key>yes</ns4:key>
-                <ns4:value>suppress-step4 </ns4:value>
-                <ns4:name>Yes</ns4:name>
-            </ns4:values>
-            <ns4:values>
-                <ns4:key>no</ns4:key>
-                <ns4:value></ns4:value>
-                <ns4:name>No</ns4:name>
-            </ns4:values>
-            <ns4:guiElement>SELECTONERADIO</ns4:guiElement>
-        </ns4:enumParam-->
+            <ns4:type>boolean</ns4:type>
+            <ns4:option>--suppress_step4 </ns4:option>
+            <ns4:guiElement>SELECTBOOLEANCHECKBOX</ns4:guiElement>
+        </ns4:param>
         
         
         <ns4:function id="function_qiime_pick_open_reference_otus">
@@ -400,7 +340,9 @@
             <ns4:inputref ref="input_splitted_libraries"/>
             <ns4:inputref ref="input_parameter_file"/>
             <ns4:inputref ref="input_reference_sequences"/>
-            <ns4:outputref ref="output_open_reference_otus"/>
+            <ns4:outputref ref="PLACEHOLDER_output_open_reference_otus_directory"/>
+            <ns4:outputfileref ref="rep_set_tre"/>
+            <ns4:outputfileref ref="otu_table_mc2_w_tax_no_pynast_failures_biom"/>
             
             <ns4:paramGroup id="qiime_demultiplex_params">
                 <ns4:paramref ref="jobs_to_start"/>
@@ -418,8 +360,13 @@
                 <ns4:reference>verbose</ns4:reference>
                 <ns4:reference>input_parameter_file</ns4:reference>
                 <ns4:reference>input_reference_sequences</ns4:reference>
-                <ns4:reference>output_open_reference_otus</ns4:reference>
                 <ns4:reference>step_four</ns4:reference>
+                <!-- 
+                     the latter two are for the case that the placeholder output 
+                     is used. Otherwise use the other output ... 
+                -->
+                <ns4:additionalString>-f -o /var/spool/cwl</ns4:additionalString>
+                <ns4:reference>PLACEHOLDER_output_open_reference_otus_directory</ns4:reference>
             </ns4:paramAndInputOutputOrder>
         </ns4:function>
         

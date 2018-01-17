@@ -1,0 +1,24 @@
+input_splitted_libraries:
+  class: File
+  path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/seqs.fna
+
+parallel: false
+
+#otu_picking_method: usearch61
+otu_picking_method: uclust
+
+#input_reference_sequences: # this input was manually modified
+
+step_four: true
+
+jobs_to_start: 1
+
+# this one always needs to be "/var/spool/cwl -f" which is the workdir in CWL + the "-f" flag for forcing the use of an existing directory
+#output_open_reference_otus_directory_outputFileName: /var/spool/cwl/pick_open_reference_otus_output
+#output_open_reference_otus_directory_outputFileName: /var/spool/cwl -f
+
+#PLACEHOLDER_output_open_reference_otus_directory_outputFileName: output_open_reference_otus_directory_outputFileName.stdout
+
+verbose: false
+
+#input_parameter_file: # this input was manually modified
