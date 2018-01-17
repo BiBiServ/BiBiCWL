@@ -208,9 +208,9 @@ public class Converter implements IConverter
         {
             String oType = "File";
             
-            if (outputsThatUseInputs.contains(oId))
+            if (outputsThatUseInputs.contains(oId + "_outputFileName"))
             {
-                String inputReference = oId + "_outputFileName";
+                String inputReference = "$(inputs." + oId + "_outputFileName)";
                 cwlTool.addOutput(oId, oType, inputReference, null);
             }
             else
@@ -243,7 +243,7 @@ public class Converter implements IConverter
             String ofDirectory = of.getFolder();
             String ofName = of.getName().get(0).getValue();        // leave as is ???
             
-            if (outputsThatUseInputs.contains(ofId))
+            if (outputsThatUseInputs.contains("$(inputs." + ofId + "_outputFileName)"))
             {
                 String inputReference = ofId + "_outputFileName";
                 cwlTool.addOutput(ofId, ofType, inputReference, ofFileType);
@@ -500,10 +500,10 @@ public class Converter implements IConverter
                 outputsThatUseInputs.add(id);
                 cwlTool.addInput(position, id, type, prefix, separate);         // this is duplicated from the lines below.
             }
-            else
-            {
-                prefix = null;
-            }
+//            else
+//            {
+//                prefix = null;
+//            }
 //            cwlTool.addInput(position, id, type, prefix, separate);           // this is probably needed ... ???
             
         }
