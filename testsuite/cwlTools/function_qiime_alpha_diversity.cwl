@@ -8,53 +8,57 @@ inputs:
       prefix: '-i '
       separate: false
       position: 1
-  output_alpha_diversity_outputFileName:
+      shellQuote: false
+  PLACEHOLDER_output_alpha_diversity_outputFileName:
     type: string
     inputBinding:
-      prefix: '-o '
-      position: 5
+      position: 8
+      shellQuote: false
   parallel:
-    type:
-    - type: record
-      fields:
-        use_parallel:
-          type: boolean
-          inputBinding:
-            prefix: '-a '
-            separate: false
-            position: 6
-    - type: record
-      fields:
-        do_not_use_parallel:
-          type: boolean
-          inputBinding:
-            position: 6
+    type: boolean
+    inputBinding:
+      prefix: '-a '
+      separate: false
+      position: 5
+      shellQuote: false
   input_mapping:
     type: File
     inputBinding:
       prefix: '-m '
       separate: false
       position: 2
+      shellQuote: false
   input_tree_file:
     type: File
     inputBinding:
       prefix: '-t '
       separate: false
       position: 3
+      shellQuote: false
   jobs_to_start:
     type: int
     inputBinding:
       prefix: '-O '
       separate: false
-      position: 7
+      position: 6
+      shellQuote: false
   input_parameter_file:
     type: File
     inputBinding:
+      prefix: '-p '
+      separate: false
       position: 4
-outputs:
-  output_alpha_diversity:
-    type: ToolDependentRepresentation
+      shellQuote: false
+outputs: {}
+requirements:
+  ShellCommandRequirement:
+    class: ShellCommandRequirement
+arguments:
+- valueFrom: -f -o /var/spool/cwl
+  position: 7
+  shellQuote: false
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/qiime
+    dockerPull: quay.io/biocontainers/qiime:1.9.1--np110py27_1
+    class: DockerRequirement
 class: CommandLineTool

@@ -4,6 +4,8 @@ input_metadata_mapping_files:
 
 input_out_table_mc2_w_tax_no_pynast_failures_biom:
     class: File
-    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/otu_table_mc2_w_tax_no_pynast_failures.biom
+#    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/otu_table_mc2_w_tax_no_pynast_failures.biom
+    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/otu_table_mc2_w_tax.biom
 
-output_biom_outputFileName: otu_table_mc2_w_tax_no_pynast_failures_metadata.biom
+#output_biom_outputFileName: otu_table_mc2_w_tax_no_pynast_failures_metadata.biom
+output_biom_outputFileName: otu_table_mc2_w_tax_metadata.biom

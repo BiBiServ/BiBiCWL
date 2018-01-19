@@ -1,0 +1,11 @@
+input_otu_table:
+    class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/otu_table_mc2_w_tax.biom
+
+input_mapping:
+    class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/combined_mapping.txt
+    
+input_parameter_file:
+    class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/alpha_parameter.txt

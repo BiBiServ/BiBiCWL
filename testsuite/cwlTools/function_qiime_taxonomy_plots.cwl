@@ -8,25 +8,31 @@ inputs:
       prefix: '-i '
       separate: false
       position: 1
+      shellQuote: false
   input_mapping:
     type: File
     inputBinding:
       prefix: '-m '
       separate: false
-      position: 3
-  output_taxa_plots_outputFileName:
-    type: string
-    inputBinding:
-      prefix: '-o '
       position: 2
+      shellQuote: false
   input_parameter_file:
     type: File
     inputBinding:
-      position: 4
+      prefix: '-p '
+      separate: false
+      position: 3
+      shellQuote: false
 outputs:
-  output_taxa_plots:
-    type: ToolDependentRepresentation
+  outputfile_taxa_plots:
+    type: File
+    outputBinding:
+      glob: '*'
+requirements:
+  ShellCommandRequirement:
+    class: ShellCommandRequirement
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/qiime
+    dockerPull: quay.io/biocontainers/qiime:1.9.1--np110py27_1
+    class: DockerRequirement
 class: CommandLineTool
