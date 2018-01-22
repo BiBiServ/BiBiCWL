@@ -28,6 +28,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 
@@ -168,6 +169,7 @@ public final class MainGui extends Application implements IMainGui
         */
         documentView = new TextArea();
         documentView.setEditable(false);
+        documentView.setFont(Font.font("Monospaced", 13));
         documentPane.setPadding(new Insets(10));
         documentPane.getChildren().add(documentView);
         

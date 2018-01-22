@@ -7,10 +7,8 @@ package de.unibi.cebitec.bibiworkflow.cwl;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**

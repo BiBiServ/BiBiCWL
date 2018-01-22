@@ -4,7 +4,6 @@ import de.unibi.cebitec.bibiworkflow.converter.Converter;
 import de.unibi.cebitec.bibiworkflow.converter.IConverter;
 import de.unibi.cebitec.bibiworkflow.gui.IMainGui;
 import de.unibi.cebitec.bibiworkflow.gui.MainGui;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import jdk.nashorn.internal.runtime.ParserException;
 import org.apache.commons.cli.CommandLine;
