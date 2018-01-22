@@ -7,6 +7,7 @@ package de.unibi.cebitec.bibiworkflow.converter;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
@@ -44,7 +45,7 @@ public class YamlWriter
             mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
             mapper.enable(YAMLGenerator.Feature.MINIMIZE_QUOTES);
 //            mapper.enable(YAMLGenerator.Feature.ALWAYS_QUOTE_NUMBERS_AS_STRINGS);
-            
+            mapper.configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true);
             
             yamlString = mapper.writeValueAsString(object);
             yamlString = this.fixNullQuotes(yamlString);

@@ -6,6 +6,7 @@
 package de.unibi.cebitec.bibiworkflow.cwl;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import java.util.logging.Logger;
  *
  * @author pol3waf
  */
+@JsonPropertyOrder({"cwlVersion", "class", "baseCommand", "requirements", "hints", "arguments", "inputs", "outputs"})
 public class CwlTool implements ICwlTool {
     
     private final static Logger LOGGER = Logger.getLogger(CwlTool.class.getName());
@@ -68,6 +70,11 @@ public class CwlTool implements ICwlTool {
      */
     @JsonProperty
     private HashMap<String, Requirement> hints = null;
+    
+    
+    
+    
+    
     
     /**
      * Default constructor which creates a bare bones but functional CWL-Tool.
