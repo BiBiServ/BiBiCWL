@@ -35,5 +35,35 @@ public class CommandInputRecord {
     }
     
     
+    protected void makeAllInputsOptional()
+    {
+        for (Input i : fields.values())
+        {
+            i.enableOptional();
+        }
+    }
+    
+    protected void makeAllInputsRequired()
+    {
+        for (Input i : fields.values())
+        {
+            i.disableOptional();
+        }
+    }
+
+    void enableShellQuoteForAllInputs() {
+        for (Input i : fields.values())
+        {
+            i.enableShellQuote();
+        }
+    }
+
+    void disableShellQuoteForAllInputs() {
+        for (Input i : fields.values())
+        {
+            i.disableShellQuote();
+        }
+    }
+    
     
 }

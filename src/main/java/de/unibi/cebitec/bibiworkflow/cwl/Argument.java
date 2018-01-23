@@ -31,7 +31,7 @@ class Argument
     }
     
     
-    protected void deactivateShellQuote()
+    protected void disableShellQuote()
     {
         this.shellQuote = false;
     }

@@ -63,5 +63,37 @@ public class MultiFieldInput extends Input<ArrayList<CommandInputRecord>>
             super.type.add(cir);
         }
     }
+@Override
+    protected void enableOptional() {
+        for (CommandInputRecord cir : this.type)
+        {
+            cir.makeAllInputsOptional();
+        }
+    }
+
+    @Override
+    protected void disableOptional() {
+        for (CommandInputRecord cir : this.type)
+        {
+            cir.makeAllInputsRequired();
+        }
+    }
+
+
+    @Override
+    protected void enableShellQuote() {
+        for (CommandInputRecord cir : this.type)
+        {
+            cir.enableShellQuoteForAllInputs();
+        }
+    }
+
+    @Override
+    protected void disableShellQuote() {
+        for (CommandInputRecord cir : this.type)
+        {
+            cir.disableShellQuoteForAllInputs();
+        }
+    }
     
 }

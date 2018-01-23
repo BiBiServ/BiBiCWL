@@ -143,13 +143,14 @@ public class CwlTool implements ICwlTool {
         
         for (Input input : this.inputs.values())
         {
-            input.inputBinding.deactivateShellQuote();
+//            input.inputBinding.disableShellQuote();
+            input.disableShellQuote();
         }
         if (this.arguments != null)
         {
             for (Argument arg : this.arguments)
             {
-                arg.deactivateShellQuote();
+                arg.disableShellQuote();
             }
         }
     }
@@ -164,10 +165,11 @@ public class CwlTool implements ICwlTool {
     {
         for (Input input : this.inputs.values())
         {
-            if (input instanceof FileInput)
-            {
-               ((FileInput) input).allowNull();
-            }
+//            if (input instanceof FileInput)
+//            {
+//               ((FileInput) input).allowNull();
+//            }
+            input.enableOptional();
         }
     }
     

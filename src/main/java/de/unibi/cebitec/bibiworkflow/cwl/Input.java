@@ -29,4 +29,16 @@ abstract class Input <T>
     {
         return this.id;
     }
+    
+    
+    
+    abstract protected void enableOptional();
+    
+    abstract protected void disableOptional();
+    
+    abstract protected void enableShellQuote();
+
+    abstract protected void disableShellQuote();
+    
+    
 }

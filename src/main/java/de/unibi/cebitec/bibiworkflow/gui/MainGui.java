@@ -59,6 +59,7 @@ public final class MainGui extends Application implements IMainGui
     
     // Textboxes
     private static TextArea documentView;
+    private static TextArea notification_field;
     
     
     // Scene
@@ -230,7 +231,14 @@ public final class MainGui extends Application implements IMainGui
            status information bar
         */
         statusInfo = new Label("Status: ");
+//        notification_field = new TextArea();
+//        notification_field.setMinHeight(20);
+//        notification_field.setMaxHeight(500);
+//        notification_field.set;
+//        notification_field.setFont(Font.font("Monospaced", 13));
         infoPane.setPadding(new Insets(10));
+        infoPane.setMinHeight(10);
+        infoPane.setMaxHeight(400);
         infoPane.getChildren().addAll(statusInfo);
         
         
