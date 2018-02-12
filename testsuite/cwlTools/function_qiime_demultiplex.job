@@ -1,6 +1,6 @@
 input_merged_reads:
     class: File
-    path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/outputs/flash/out.extendedFrags.fastq
+    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/flash_output/out.extendedFrags.fastq
 
 input_metadata_mapping_files:
     class: File

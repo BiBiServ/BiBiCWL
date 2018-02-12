@@ -1,0 +1,21 @@
+#fastq_2:
+#  class: File
+#  path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/test/frag_2.fastq.gz
+#  path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/BGP4_1.fastq.gz
+
+fastq_1:
+  class: File
+#  path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/test/frag_1.fastq.gz
+  path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/BGP4_2.fastq.gz
+
+interleaved_input: true
+
+flash_stdout_outputFileName: mystdout.txt
+
+density: 0.01
+
+use_outies: false
+
+min_size: 10
+
+max_size: 65

@@ -167,13 +167,6 @@
             <ns4:option>-O </ns4:option>
             <ns4:guiElement>SELECTBOOLEANCHECKBOX</ns4:guiElement>
         </ns4:param>
-        <ns4:param id="interleaved_input">
-            <ns4:name>Use interleaved input</ns4:name>
-            <ns4:shortDescription>Whether or not interleaved input should be used.</ns4:shortDescription>
-            <ns4:description>Whether or not interleaved input should be used. Then only one input file is needed instead of two.</ns4:description>
-            <ns4:type>boolean</ns4:type>
-            <ns4:guiElement>SELECTBOOLEANCHECKBOX</ns4:guiElement>
-        </ns4:param>
         
         
         <!--ns4:enumParam id="use_outies">
@@ -206,9 +199,9 @@
         </ns4:paramGroup-->
         
         
-        <ns4:function id="function_flash_merge_reads">
+        <ns4:function id="function_merge_reads">
             
-            <ns4:name>Flash merge reads</ns4:name>
+            <ns4:name>Merge reads</ns4:name>
             <ns4:shortDescription>Merge reads of paired end reads</ns4:shortDescription>
             <ns4:description>ma descritption</ns4:description>
             
@@ -231,7 +224,6 @@
                 <ns4:paramref ref="max_size"/>
                 <ns4:paramref ref="density"/>
                 <ns4:paramref ref="use_outies"/>
-                <ns4:paramref ref="interleaved_input"/>
             </ns4:paramGroup>
             
             <ns4:paramAndInputOutputOrder>
@@ -241,7 +233,6 @@
                 <ns4:reference>max_size</ns4:reference>
                 <ns4:reference>density</ns4:reference>
                 <ns4:reference>use_outies</ns4:reference>
-                <ns4:reference>interleaved_input</ns4:reference>
                 <ns4:reference>flash_stdout</ns4:reference>
             </ns4:paramAndInputOutputOrder>
             

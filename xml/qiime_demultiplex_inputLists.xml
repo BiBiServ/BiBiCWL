@@ -4,16 +4,15 @@
     xmlns:ns3="bibiserv:de.unibi.techfak.bibiserv.cms.minihtml" 
     xmlns:ns4="bibiserv:de.unibi.techfak.bibiserv.cms" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    id="qiime_taxonomy_plots"
+    id="qiime_demultiplex_inputlists" 
     xsi:schemaLocation="bibiserv:de.unibi.techfak.bibiserv.cms http://bibiserv.techfak.uni-bielefeld.de/xsd/bibiserv2/BiBiServAbstraction.xsd">
     
     
     
     
-    <ns4:name>QIIME summarzize taxa through plots</ns4:name>
-    <ns4:shortDescription></ns4:shortDescription>
+    <ns4:name>QIIME Demultiplexing list input version</ns4:name>
+    <ns4:shortDescription>Demultiplexing function of QIIME</ns4:shortDescription>
     <ns4:description></ns4:description>
-    
     
     
     
@@ -201,95 +200,143 @@
     
     
     
+    
     <ns4:executable>
         <ns4:version>0.1</ns4:version>
         <ns4:execInfo>
             <ns4:executableType>docker</ns4:executableType>
             <ns4:image>quay.io/biocontainers/qiime:1.9.1--np110py27_1</ns4:image>
             <ns4:path></ns4:path>
-            <ns4:callingInformation>summarize_taxa_through_plots.py</ns4:callingInformation>
+            <ns4:callingInformation>split_libraries_fastq.py</ns4:callingInformation>
         </ns4:execInfo>
         
         
-        <ns4:input id="input_otu_table">
-            <ns4:name>OTU table</ns4:name>
-            <ns4:shortDescription>OTU table for computing plots</ns4:shortDescription>
+        <ns4:input id="input_merged_reads">
+            <ns4:name>Merged reads input</ns4:name>
+            <ns4:shortDescription>FASTQ file with merged reads</ns4:shortDescription>
             <ns4:description></ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
-            <ns4:handling>FILE</ns4:handling>
+            <ns4:handling>stream</ns4:handling>
             <ns4:option>-i </ns4:option>
         </ns4:input>
-        <ns4:input id="input_mapping">
-            <ns4:name>Mapping</ns4:name>
-            <ns4:shortDescription>path to mapping file</ns4:shortDescription>
+        <ns4:input id="input_metadata_mapping_files">
+            <ns4:name>Metadata mapping files</ns4:name>
+            <ns4:shortDescription></ns4:shortDescription>
             <ns4:description>
-                path to the mapping file [REQUIRED if passing -c]
+                metadata mapping files (comma-separated if more than
+                one) [default: none]
             </ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
-            <ns4:handling>FILE</ns4:handling>
+            <ns4:handling>argument</ns4:handling>
             <ns4:option>-m </ns4:option>
         </ns4:input>
-        <ns4:input id="input_parameter_file">
-            <ns4:name>Parameter file</ns4:name>
-            <ns4:shortDescription>path to parameter file</ns4:shortDescription>
+        
+        
+        <ns4:output id="output_demultiplexed_directory">
+            <ns4:name>Demultiplexed merged read files</ns4:name>
+            <ns4:shortDescription>Demultiplexed files or splitted libraries.</ns4:shortDescription>
             <ns4:description>
-                path to the parameter file, which specifies changes to
-                the default behavior. See
-                http://www.qiime.org/documentation/file_formats.html#qiime-parameters . 
-                [if omitted, default values will be used]
+                
             </ns4:description>
-            <ns4:type>ToolDependentRepresentation</ns4:type>
-            <ns4:handling>FILE</ns4:handling>
-            <ns4:option>-p </ns4:option>
-        </ns4:input>
-        
-        
-        <ns4:output id="output_taxa_plots">
-            <ns4:name>QIIME ouput</ns4:name>
-            <ns4:shortDescription>Output of QIIME.</ns4:shortDescription>
-            <ns4:description></ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
             <ns4:handling>DIRECTORY</ns4:handling>
             <ns4:option>-o </ns4:option>
         </ns4:output>
-        <ns4:output id="PLACEHOLDER_output_taxa_plots">
-            <ns4:name></ns4:name>
-            <ns4:shortDescription></ns4:shortDescription>
-            <ns4:description></ns4:description>
-            <ns4:type>ToolDependentRepresentation</ns4:type>
-            <ns4:handling>DIRECTORY</ns4:handling>
-        </ns4:output>
         
-        
-        <ns4:outputfile id="outputfile_taxa_plots">
-            <ns4:name>output taxa plots</ns4:name>
-            <!-- 
-                fix this!!! 
-            -->
-            <ns4:filename>*</ns4:filename>
+        <ns4:outputfile id="outputfile_qiime_demultiplex_histograms">
+            <ns4:name>histograms</ns4:name>
+            <ns4:filename>histograms.txt</ns4:filename>
+            <ns4:contenttype>text/plain</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="outputfile_demultiplexed_seqs">
+            <ns4:name>Seqs</ns4:name>
+            <ns4:filename>seqs.fna</ns4:filename>
+            <ns4:contenttype>text/plain</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="outputfile_demultiplex_split_library_log">
+            <ns4:name>Splitted library</ns4:name>
+            <ns4:filename>split_library_log.txt</ns4:filename>
             <ns4:contenttype>text/plain</ns4:contenttype>
         </ns4:outputfile>
         
         
-        <ns4:function id="function_qiime_taxonomy_plots">
+        <ns4:param id="sample_id">
+            <ns4:name>Sample ID</ns4:name>
+            <ns4:shortDescription>ID of the sample.</ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>string</ns4:type>
+            <ns4:option>--sample_id </ns4:option>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="phred_quality_threshold">
+            <ns4:name>Phred quality threshold</ns4:name>
+            <ns4:shortDescription>Maximum nonacceptable Phred quality score</ns4:shortDescription>
+            <ns4:description>
+                The maximum unacceptable Phred quality score (e.g.,
+                        for Q20 and better, specify -q 19) [default: 3]
+            </ns4:description>
+            <ns4:type>int</ns4:type>
+            <ns4:option>-q </ns4:option>
+            <ns4:defaultValue>19</ns4:defaultValue>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="phred_offset">
+            <ns4:name>Phred offset</ns4:name>
+            <ns4:shortDescription>Phred offset (33 or 64)</ns4:shortDescription>
+            <ns4:description>
+                the ascii offset to use when decoding phred scores
+                (either 33 or 64). Warning: in most cases you don't
+                need to pass this value [default: determined
+                automatically]
+            </ns4:description>
+            <ns4:type>int</ns4:type>
+            <ns4:option>--phred_offset </ns4:option>
+            <ns4:defaultValue>33</ns4:defaultValue>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        <ns4:param id="barcode_type">
+            <ns4:name>Barcode type</ns4:name>
+            <ns4:shortDescription>The type of barcode used.</ns4:shortDescription>
+            <ns4:description>
+                The type of barcode used. This can be an integer, e.g.
+                        for length 6 barcodes, or "golay_12" for golay error-
+                        correcting barcodes. Error correction will only be
+                        applied for "golay_12" barcodes. If data is not
+                        barcoded, pass "not-barcoded". [default: golay_12]
+            </ns4:description>
+            <ns4:type>string</ns4:type>
+            <ns4:option>--barcode_type </ns4:option>
+            <ns4:defaultValue>not-barcoded</ns4:defaultValue>
+            <ns4:guiElement>INPUTTEXT</ns4:guiElement>
+        </ns4:param>
+        
+        
+        <ns4:function id="function_qiime_demultiplex">
+            <ns4:shortDescription>Performs a fast quality control on the FASTQ file</ns4:shortDescription>
+            <ns4:inputref ref="input_merged_reads"/>
+            <ns4:inputref ref="input_metadata_mapping_files"/>
+            <ns4:outputref ref="output_demultiplexed_directory"/>
             
-            <ns4:name>Compute beta diversity</ns4:name>
-            <ns4:shortDescription></ns4:shortDescription>
+            <ns4:outputfileref ref="outputfile_demultiplex_split_library_log"/>
+            <ns4:outputfileref ref="outputfile_demultiplexed_seqs"/>
+            <ns4:outputfileref ref="outputfile_qiime_demultiplex_histograms"/>
             
-            <ns4:inputref ref="input_mapping"/>
-            <ns4:inputref ref="input_otu_table"/>
-            <ns4:inputref ref="input_parameter_file"/>
-            <ns4:outputref ref="output_taxa_plots"/>
-            
-            <ns4:outputfileref ref="outputfile_taxa_plots"/>
+            <ns4:paramGroup id="qiime_demultiplex_params">
+                <ns4:paramref ref="barcode_type"/>
+                <ns4:paramref ref="phred_quality_threshold"/>
+                <ns4:paramref ref="phred_offset"/>
+                <ns4:paramref ref="sample_id"/>
+            </ns4:paramGroup>
             
             <ns4:paramAndInputOutputOrder>
-                <ns4:reference>input_otu_table</ns4:reference>
-                <ns4:reference>input_mapping</ns4:reference>
-                <ns4:reference>input_parameter_file</ns4:reference>
-                <ns4:reference>output_taxa_plots</ns4:reference>
+                <ns4:reference>input_merged_reads</ns4:reference>
+                <ns4:reference>sample_id</ns4:reference>
+                <ns4:reference>output_demultiplexed_directory</ns4:reference>
+                <ns4:reference>phred_quality_threshold</ns4:reference>
+                <ns4:reference>phred_offset</ns4:reference>
+                <ns4:reference>barcode_type</ns4:reference>
+                <ns4:reference>input_metadata_mapping_files</ns4:reference>
             </ns4:paramAndInputOutputOrder>
-            
         </ns4:function>
         
         
@@ -299,12 +346,12 @@
     
     
     <ns4:view type="submission" id="view_submission">
-        <ns4:title>QIIME taxa plots Submission</ns4:title>
+        <ns4:title>QIIME demultiplex submission</ns4:title>
         <ns4:customContent xml:lang="en"/>
     </ns4:view>
     
     <ns4:view type="webservice" id="view_webservice">
-        <ns4:title xml:lang="en">QIIME taxa plots WebService</ns4:title>
+        <ns4:title xml:lang="en">QIIME demultiplex WebService</ns4:title>
         <ns4:customContent xml:lang="en"/>
     </ns4:view>
     

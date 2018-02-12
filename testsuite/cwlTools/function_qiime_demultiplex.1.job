@@ -1,0 +1,18 @@
+input_merged_reads:
+    - class: File
+      path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/testrun/flash_output_1/out.extendedFrags.fastq
+    - class: File
+      path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/testrun/flash_output_2/out.extendedFrags.fastq
+input_metadata_mapping_files:
+    class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/outputs/combinedMapping/combined_mapping.txt
+    
+phred_quality_threshold: 19
+
+phred_offset: 33
+
+sample_id: BGP1.1,BGP1.2
+
+barcode_type: 'not-barcoded'
+
+output_demultiplexed_directory_outputFileName: .

@@ -4,7 +4,7 @@ baseCommand: flash2
 stdout: $(inputs.flash_stdout_outputFileName)
 inputs:
   fastq_2:
-    type: File
+    type: ["null", File]
     inputBinding:
       position: 2
   density:
@@ -35,6 +35,12 @@ inputs:
       prefix: '-M '
       separate: false
       position: 4
+  interleaved_input:
+    type: boolean
+    inputBinding:
+        prefix: --interleaved-input
+        separate: false
+        position: 5
 outputs:
   extendedFrags:
     type: File
