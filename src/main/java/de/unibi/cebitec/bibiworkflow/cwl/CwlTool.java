@@ -74,6 +74,11 @@ public class CwlTool implements ICwlTool {
     
     
     
+    
+    
+    
+    
+    
     /**
      * Default constructor which creates a bare bones but functional CWL-Tool.
      * The CWL-Version ("v.1.0") and class ("CommandLineTool") of the CWL-Tool 
@@ -91,6 +96,7 @@ public class CwlTool implements ICwlTool {
 //        this.argumentList = new ArrayList<>();
 //        this.hints = new HashMap<>();
     }
+    
     
     
     
@@ -121,6 +127,13 @@ public class CwlTool implements ICwlTool {
     
     
     
+    
+    
+    
+    
+    
+    
+    
     /**
      * Sets up a stdout for the CWL tool with the given reference of the 
      * dependant input.
@@ -129,6 +142,7 @@ public class CwlTool implements ICwlTool {
     public void setupStdout(String inputReference) {
         this.stdout = "$(inputs." + inputReference + ")";
     }
+    
     
     
     
@@ -157,6 +171,7 @@ public class CwlTool implements ICwlTool {
     
     
     
+    
     /**
      * Sets the FileInput to allow for "null" input. (I.e. this means that the 
      * input needn't be specified in the CWL job file.)
@@ -170,6 +185,21 @@ public class CwlTool implements ICwlTool {
 //               ((FileInput) input).allowNull();
 //            }
             input.enableOptional();
+        }
+    }
+    
+    
+    
+    
+    
+    public void setUpOption_inputArray()
+    {
+        if ( ! inputs.isEmpty() )
+        {
+            for (Input input : this.inputs.values())
+            {
+                input.enableArrayInput();
+            }
         }
     }
     

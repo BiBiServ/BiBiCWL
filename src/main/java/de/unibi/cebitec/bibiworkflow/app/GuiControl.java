@@ -140,7 +140,10 @@ public class GuiControl implements IControl, IModelListener
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    
+    
+    
     private void processArguments(HashMap<String, String> options)
     {
         if (options.get("noShellQuote").equals("true"))
@@ -150,6 +153,10 @@ public class GuiControl implements IControl, IModelListener
         if (options.get("optionalInputs").equals("true"))
         {
             converter.setOption_optionalInputFiles();
+        }
+        if (options.get("arrayFileInputs").equals("true"))
+        {
+            converter.setOption_arrayFileInputs();
         }
     }
     

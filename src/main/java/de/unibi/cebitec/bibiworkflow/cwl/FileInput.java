@@ -6,7 +6,9 @@
 package de.unibi.cebitec.bibiworkflow.cwl;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import de.unibi.cebitec.bibiworkflow.app.GuiControl;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,6 +16,9 @@ import java.util.ArrayList;
  */
 public class FileInput extends Input
 {
+    
+    private static final Logger LOGGER = Logger.getLogger(FileInput.class.getName());
+    
     @JsonProperty
     protected String fileType;
     
@@ -65,7 +70,8 @@ public class FileInput extends Input
             ((ArrayList)this.type).add("<null>");
         }
     }
-
+    
+    
     @Override
     protected void disableOptional() {
         if (this.type instanceof ArrayList)
@@ -87,10 +93,63 @@ public class FileInput extends Input
     {
         this.inputBinding.activateShellQuote();
     }
-
+    
+    
     @Override
     protected void disableShellQuote()
     {
         this.inputBinding.deactivateShellQuote();
+    }
+    
+    
+    
+    
+    
+    /*
+        OK ... now I am adding more functions and sometimes there are dependencies.
+        FIX THIS!!!!!
+        --> make one "assemble input parts"-function which takes in all the options
+            and fills in the member variables (or variables marked with @jsonProperty)
+            and run that function every time some stuff is changed.
+    */
+    
+    
+    @Override
+    protected void enableArrayInput()
+    {
+        if ( ! super.isArrayInput )
+        {
+            super.isArrayInput = true;
+            
+            if ( super.isOptional )
+            {
+                ((ArrayList)this.type).remove("File");
+                ((ArrayList)this.type).add("File[]");
+            }
+            else
+            {
+                this.type = "File[]";
+            }
+        }
+    }
+    
+    
+    @Override
+    protected void disableArrayInput()
+    {
+        if ( super.isArrayInput )
+        {
+            super.isArrayInput = false;
+            
+            if ( super.isOptional )
+            {
+                ((ArrayList)this.type).remove("File[]");
+                ((ArrayList)this.type).add("File");
+            }
+            else
+            {
+                this.type = "File";
+            }
+        }
     }
 }

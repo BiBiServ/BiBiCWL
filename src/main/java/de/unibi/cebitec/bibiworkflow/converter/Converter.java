@@ -38,10 +38,25 @@ public class Converter implements IConverter
     private final ArrayList<IModelListener> modelListeners = new ArrayList<>();
     
     
+    
+    
+    
+    
+    
+    
+    
+    
     public Converter()
     {
         
     }
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -76,6 +91,7 @@ public class Converter implements IConverter
     
     
     
+    
     public HashMap<String, ICwlTool> getCwlTools()
     {
         if (this.cwlTools.isEmpty())
@@ -98,6 +114,7 @@ public class Converter implements IConverter
         checkForDocker(cwlTool);
         return cwlTool;
     }
+    
     
     
     
@@ -180,6 +197,7 @@ public class Converter implements IConverter
     
     
     
+    
     /**
      * Convert bs2 outputs and file-outputs of a given bs2 function into CWL 
      * outputs.
@@ -259,6 +277,7 @@ public class Converter implements IConverter
     
     
     
+    
     /**
      * Converts an additionalString into a CWL argument.
      * @param as 
@@ -268,6 +287,7 @@ public class Converter implements IConverter
     {
         cwlTool.addArgument(position, as);
     }
+    
     
     
     
@@ -315,6 +335,8 @@ public class Converter implements IConverter
     }
     
     
+    
+    
     /**
      * Converts a bs2 Tparam into a CWL input.
      * Depending on the type of the param (e.g. Integer, String, ...) and 
@@ -341,6 +363,7 @@ public class Converter implements IConverter
         
         cwlTool.addInput(position, id, type, prefix, separate);
     }
+    
     
     
     
@@ -379,6 +402,7 @@ public class Converter implements IConverter
         
         
         
+        
         if (enumParam.getGuiElement().equals("SELECTONERADIO"))
         {
             for (TenumValue value : enumParam.getValues())
@@ -404,7 +428,8 @@ public class Converter implements IConverter
             // TODO: Does this case ever occur?   --- yes of course, see: CHECKBOXFIELD
             throw new Exception("Non-exclusive multi-field input found!");
         }
-        
+    }
+    
         /*
         how do you do this?????
         
@@ -435,7 +460,8 @@ public class Converter implements IConverter
                       fields:
                         - itemE
         */
-    }
+    
+    
     
     
     
@@ -451,6 +477,7 @@ public class Converter implements IConverter
     {
         
     }
+    
     
     
     
@@ -496,6 +523,7 @@ public class Converter implements IConverter
             String prefix;
             if (output.isSetOption())
             {
+                LOGGER.info("Output " + id + " uses an option. Create input field for specifying output file or directory");
                 prefix = output.getOption();
                 outputsThatUseInputs.add(id);
                 cwlTool.addInput(position, id, type, prefix, separate);         // this is duplicated from the lines below.
@@ -510,6 +538,7 @@ public class Converter implements IConverter
         
         
     }
+    
     
     
     
@@ -549,6 +578,19 @@ public class Converter implements IConverter
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    /*
+        =========== OPTIONS ============
+    */
+    
+    
+    
     /**
      * Set up the CWL Tool to not use shellQuotes. Therefore a 
      * ShellCommandlineRequirement is going to be created, and the option 
@@ -576,6 +618,31 @@ public class Converter implements IConverter
     }
     
     
+    
+    
+    @Override
+    public void setOption_arrayFileInputs()
+    {
+        for (ICwlTool cwlTool : cwlTools.values())
+        {
+            cwlTool.setUpOption_inputArray();
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+        ============= Set up listener stuff ==============
+    */
     
     
     /*

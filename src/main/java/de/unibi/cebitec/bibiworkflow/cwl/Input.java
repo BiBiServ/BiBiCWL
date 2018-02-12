@@ -25,6 +25,11 @@ abstract class Input <T>
     
     
     
+    protected boolean isOptional = false;
+    protected boolean isShellQuote = false;
+    protected boolean isArrayInput = false;
+    
+    
     protected String getId()
     {
         return this.id;
@@ -39,6 +44,8 @@ abstract class Input <T>
     abstract protected void enableShellQuote();
 
     abstract protected void disableShellQuote();
+
+    abstract protected void enableArrayInput();
     
-    
+    abstract protected void disableArrayInput();
 }

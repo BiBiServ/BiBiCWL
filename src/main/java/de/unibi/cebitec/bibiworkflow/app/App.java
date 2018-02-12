@@ -55,7 +55,7 @@ public class App
         options.addOption(bs2file);
         
         Option outputFolder = new Option("o", "output", true, "Defines the "
-                + "output folder. If none is provided, the output files will"
+                + "output folder. If none is provided, the output files will "
                 + "be placed in /tmp/");
         options.addOption(outputFolder);
         
@@ -66,10 +66,20 @@ public class App
         Option optionalInputs = new Option("p", "optionalInput", false, 
                 "With this option enabled, InputFiles will be flagged as "
                 + "optional, so that they don't have to be specified in the "
-                + "CWL job file. However, the underlying program might still"
-                + "require those inputs and running the program without them"
+                + "CWL job file. However, the underlying program might still "
+                + "require those inputs and running the program without them "
                 + "might result in an error.");
         options.addOption(optionalInputs);
+        
+        Option arrayFileInputs = new Option("a", "arrayFileInputs", false,
+                "If this option is used, file inputs of the generated CWLTool "
+                + "will be set to be array inputs in order to allow multiple "
+                + "input files for one input field."
+                + "Currently there is no equivalent in the BiBiApp tool "
+                + "description so that this option would have to be ticked "
+                + "manually.");
+        options.addOption(arrayFileInputs);
+        
         
         // set up command line parser and formatting
         CommandLineParser parser = new DefaultParser();

@@ -16,8 +16,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.cli.CommandLine;
 
+
+
 /**
- *
+ * The command line controller takes in the commands
+ * which were specified on the command line and sets up the conversion of the
+ * BiBiApp to CWLTool in accordance with the options which were specified.
  * @author pol3waf
  */
 public class CmdControl implements IControl
@@ -32,6 +36,17 @@ public class CmdControl implements IControl
     
     
     
+    
+    
+    
+    
+    
+    
+    /**
+     * Constructor for this class. 
+     * @param converter
+     * @param cmd 
+     */
     public CmdControl(IConverter converter, CommandLine cmd)
     {
         this.converter = converter;
@@ -55,6 +70,16 @@ public class CmdControl implements IControl
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    /**
+     * Convert the whole bs2 file to CWL.
+     */
     @Override
     public void convertBs2ToCWL()
     {
@@ -79,6 +104,11 @@ public class CmdControl implements IControl
     
     
     
+    /**
+     * Save the CWLTools to disk. If the "output" option was used, the CWLTools 
+     * will be saved to the specified location (otherwise to the default value
+     * which is set in the YAMLWriter).
+     */
     @Override
     public void saveCwlTools()
     {
@@ -104,6 +134,7 @@ public class CmdControl implements IControl
         this.processOutputArgument();
         this.processArgument_noShellQuote();
         this.processArgument_optionalInputs();
+        this.processArgument_arrayInputFiles();
     }
     
     
@@ -137,6 +168,9 @@ public class CmdControl implements IControl
     
     
     
+    /**
+     * Processes the output of BiBiCWL. I.e. where to put the CWLTools in the end.
+     */
     private void processOutputArgument()
     {
         if (this.cmd.hasOption("output"))
@@ -152,6 +186,9 @@ public class CmdControl implements IControl
     
     
     
+    /**
+     * Sets up the noShellQuote option for the CWLTool.
+     */
     private void processArgument_noShellQuote()
     {
         if (this.cmd.hasOption("noShellQuote"))
@@ -162,7 +199,9 @@ public class CmdControl implements IControl
     
     
     
-    
+    /**
+     * Sets up the optionalInputs option for the CWLTool.
+     */
     private void processArgument_optionalInputs()
     {
         if (this.cmd.hasOption("optionalInputs"))
@@ -171,7 +210,19 @@ public class CmdControl implements IControl
         }
     }
     
-
+    
+    
+    
+    /**
+     * Sets up the noShellQuote option for the CWLTool.
+     */
+    private void processArgument_arrayInputFiles()
+    {
+        if (this.cmd.hasOption("arrayInputFiles"))
+        {
+            converter.setOption_arrayFileInputs();
+        }
+    }
 }
     
     

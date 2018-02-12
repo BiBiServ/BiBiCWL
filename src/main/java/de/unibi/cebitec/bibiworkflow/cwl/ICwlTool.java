@@ -112,5 +112,7 @@ public interface ICwlTool {
     public void setUpOption_noShellQuote();
     
     public void setUpOption_optionalInputFiles();
+    
+    public void setUpOption_inputArray();
 
 }

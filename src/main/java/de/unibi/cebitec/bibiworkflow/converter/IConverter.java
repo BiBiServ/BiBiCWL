@@ -29,4 +29,6 @@ public interface IConverter {
 
     void setOption_optionalInputFiles();
     
+    void setOption_arrayFileInputs();
+    
 }
