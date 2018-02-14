@@ -22,13 +22,77 @@ public class FileInput extends Input
     @JsonProperty
     protected String fileType;
     
+    
+    private final String defaultType = "File";
+    private final String defaultArrayType = "File[]";
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public FileInput(int position, String id, String prefix, Boolean separate, String fileType)
     {
-        super.type = "File";
+        super.type = defaultType;
         super.id = id;
         super.inputBinding = new InputBinding(prefix, separate, position);
         this.fileType = fileType;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /**
+     * This method looks at several key options like isShellQuote, isOptional
+     * and isArrayInput and assembles them into a coherent representation of the
+     * input.
+     * This is done to avoid individual cross-checking the input's state every
+     * time a option is activated or deactivated.
+     */
+    private void assembleInputParts()
+    {
+        // set the atomar type (which is either "File" or "File[]"
+        String atomarType;
+        if (this.isArrayInput)
+        {
+            atomarType = this.defaultArrayType;
+        }
+        else
+        {
+            atomarType = this.defaultType;
+        }
+        
+        // if isOptional is true, create an array of types with one type being 
+        // "null" and the other being the atomar type
+        if (this.isOptional)
+        {
+            ArrayList<String> typeArray = new ArrayList<>();
+            typeArray.add("<null>");
+            typeArray.add(atomarType);
+            this.type = typeArray;
+        }
+        else
+        {
+            this.type = atomarType;
+        }
+        
+    }
+    
     
     
     
@@ -55,44 +119,54 @@ public class FileInput extends Input
     
     
     @Override
-    protected void enableOptional() {
-        
-        if (this.type instanceof String)
-        {
-            String oldType = (String) super.type;
-            ArrayList<String> typesList = new ArrayList<>();
-            typesList.add(oldType);
-            typesList.add("<null>");
-            this.type = typesList;
-        }
-        else if (this.type instanceof ArrayList)
-        {
-            ((ArrayList)this.type).add("<null>");
-        }
+    protected void enableOptional()
+    {
+        this.isOptional = true;
+        this.assembleInputParts();
+//        if (this.type instanceof String)
+//        {
+//            String oldType = (String) super.type;
+//            ArrayList<String> typesList = new ArrayList<>();
+//            typesList.add(oldType);
+//            typesList.add("<null>");
+//            this.type = typesList;
+//        }
+//        else if (this.type instanceof ArrayList)
+//        {
+//            ((ArrayList)this.type).add("<null>");
+//        }
     }
+    
+    
     
     
     @Override
-    protected void disableOptional() {
-        if (this.type instanceof ArrayList)
-        {
-            ((ArrayList)this.type).remove("<null>");
-            
-            // if there is only one element left in the list, convert type to a simple string
-            if (((ArrayList)this.type).size() == 1)
-            {
-                this.type = ((ArrayList)this.type).get(0);
-            }
-        }
+    protected void disableOptional()
+    {
+        this.isOptional = false;
+        this.assembleInputParts();
+//        if (this.type instanceof ArrayList)
+//        {
+//            ((ArrayList)this.type).remove("<null>");
+//            
+//            // if there is only one element left in the list, convert type to a simple string
+//            if (((ArrayList)this.type).size() == 1)
+//            {
+//                this.type = ((ArrayList)this.type).get(0);
+//            }
+//        }
     }
     
     
-
+    
+    
     @Override
     protected void enableShellQuote()
     {
         this.inputBinding.activateShellQuote();
     }
+    
+    
     
     
     @Override
@@ -117,39 +191,45 @@ public class FileInput extends Input
     @Override
     protected void enableArrayInput()
     {
-        if ( ! super.isArrayInput )
-        {
-            super.isArrayInput = true;
-            
-            if ( super.isOptional )
-            {
-                ((ArrayList)this.type).remove("File");
-                ((ArrayList)this.type).add("File[]");
-            }
-            else
-            {
-                this.type = "File[]";
-            }
-        }
+        this.isArrayInput = true;
+        this.assembleInputParts();
+//        if ( ! super.isArrayInput )
+//        {
+//            super.isArrayInput = true;
+//            
+//            if ( super.isOptional )
+//            {
+//                ((ArrayList)this.type).remove("File");
+//                ((ArrayList)this.type).add("File[]");
+//            }
+//            else
+//            {
+//                this.type = "File[]";
+//            }
+//        }
     }
+    
+    
     
     
     @Override
     protected void disableArrayInput()
     {
-        if ( super.isArrayInput )
-        {
-            super.isArrayInput = false;
-            
-            if ( super.isOptional )
-            {
-                ((ArrayList)this.type).remove("File[]");
-                ((ArrayList)this.type).add("File");
-            }
-            else
-            {
-                this.type = "File";
-            }
-        }
+        this.isArrayInput = false;
+        this.assembleInputParts();
+//        if ( super.isArrayInput )
+//        {
+//            super.isArrayInput = false;
+//            
+//            if ( super.isOptional )
+//            {
+//                ((ArrayList)this.type).remove("File[]");
+//                ((ArrayList)this.type).add("File");
+//            }
+//            else
+//            {
+//                this.type = "File";
+//            }
+//        }
     }
 }
