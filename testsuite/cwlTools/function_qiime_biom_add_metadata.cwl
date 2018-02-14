@@ -22,7 +22,7 @@ inputs:
       shellQuote: false
     type:
     - "null"
-    - File[]
+    - File
   input_out_table_mc2_w_tax_no_pynast_failures_biom:
     inputBinding:
       position: 2
@@ -31,7 +31,7 @@ inputs:
       shellQuote: false
     type:
     - "null"
-    - File[]
+    - File
   output_biom_outputFileName:
     inputBinding:
       position: 4

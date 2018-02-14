@@ -22,7 +22,7 @@ inputs:
       shellQuote: false
     type:
     - "null"
-    - File[]
+    - File
   parallel:
     inputBinding:
       position: 2
@@ -49,7 +49,7 @@ inputs:
       shellQuote: false
     type:
     - "null"
-    - File[]
+    - File
   step_four:
     inputBinding:
       position: 8
@@ -85,7 +85,7 @@ inputs:
       shellQuote: false
     type:
     - "null"
-    - File[]
+    - File
 outputs:
   rep_set_tre:
     outputBinding:

@@ -53,8 +53,17 @@ steps:
       min_size: flash_min_size
       fastq_1: flash_interleavedFASTQ
       max_size: flash_max_size
-    out: [extendedFrags, histogram, hist, flash_stdout, notCombined_1, notCombined_2]
-    
+    out:
+      - extendedFrags
+      - histogram
+      - hist
+      - flash_stdout
+      - notCombined_1
+      - notCombined_2
+    scatter:
+      - flash_interleavedFASTQ
+    scatterMethod: dotproduct
+  
   
   qiime_demultiplex:
     run: function_qiime_demultiplex.xwl
@@ -66,7 +75,10 @@ steps:
       output_demultiplexed_directory_outputFileName: qiime_demultiplex_output_directory
       barcode_type: qiime_barcode_type
       phred_offset: qiime_phred_offset
-    out: [outputfile_demultiplexed_seqs, outputfile_demultiplex_split_library_log, outputfile_qiime_demultiplex_histograms]
+    out:
+      - outputfile_demultiplexed_seqs
+      - outputfile_demultiplex_split_library_log
+      - outputfile_qiime_demultiplex_histograms
   
   
   qiime_pick_open_reference_otus:
@@ -80,17 +92,16 @@ steps:
       jobs_to_start: qiime_jobs_to_start
       verbose: qiime_verbose
       input_parameter_file: qiime_parameter_file
-    out: [rep_set_tre, otu_table_mc2_w_tax_no_pynast_failures_biom]
+    out: 
+      - rep_set_tre
+      - otu_table_mc2_w_tax_no_pynast_failures_biom
   
   
   qiime_biom_add_metadata:
     run: function_qiime_biom_add_metadata.cwl
     in:
-      
-
-  input_metadata_mapping_files: qiime_metadata_mappingFile
-  input_out_table_mc2_w_tax_no_pynast_failures_biom: qiime_pick_open_reference_otus/otu_table_mc2_w_tax_no_pynast_failures_biom
-  output_biom_outputFileName: qiime_biom_output_file_name
-
-      
-    out: [output_biom]
+      input_metadata_mapping_files: qiime_metadata_mappingFile
+      input_out_table_mc2_w_tax_no_pynast_failures_biom: qiime_pick_open_reference_otus/otu_table_mc2_w_tax_no_pynast_failures_biom
+      output_biom_outputFileName: qiime_biom_output_file_name
+    out:
+      - output_biom
