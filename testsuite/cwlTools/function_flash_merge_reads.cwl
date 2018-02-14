@@ -10,11 +10,13 @@ inputs:
   interleaved_input:
     inputBinding:
       position: 7
+      prefix: '--interleaved-input '
+      separate: false
     type: boolean
   fastq_2:
     inputBinding:
       position: 2
-    type: File
+    type: ["null", File]
   density:
     inputBinding:
       position: 5
@@ -66,4 +68,4 @@ outputs:
     outputBinding:
       glob: out.notCombined_2.fastq
     type: File
-stdout: $(inputs.flash_stdout_outputFileName)
+stdout: flash_stdout.txt

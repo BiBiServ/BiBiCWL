@@ -36,7 +36,7 @@ inputs:
       shellQuote: false
     type:
     - "null"
-    - File[]
+    - File
   sample_id:
     inputBinding:
       position: 2
