@@ -1,0 +1,76 @@
+### flash
+
+fastq_1:
+  - class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/BGP1_1.fastq.gz
+  - class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/BGP1_2.fastq.gz
+  - class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/BGP2_1.fastq.gz
+  - class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/BGP2_2.fastq.gz
+  - class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/BGP3_1.fastq.gz
+  - class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/BGP3_2.fastq.gz
+  - class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/BGP4_1.fastq.gz
+  - class: File
+    path: /home/pol3waf/Programming/Projects/MasterProject/SampleData/FASTQ/BGP4_2.fastq.gz
+
+
+flash_use_interleaved: true
+
+flash_stdout_outputFileName: flash_stdout.txt
+
+flash_density: 0.01
+
+flash_use_outies: false
+
+flash_min_size: 10
+
+flash_max_size: 65
+
+
+
+
+
+
+
+
+
+
+### QIIME
+
+qiime_metadata_mappingFile:
+  class: File
+  path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/predefine_files/combined_mapping.txt.valid
+
+
+qiime_parameter_file:
+  class: File
+  path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/predefine_files/alpha_parameters_TOUSE.txt
+
+
+#qiime_reference_sequences: File
+
+
+qiime_sample_ids: sample_id: BGP1.1,BGP1.2
+
+qiime_demultiplex_output_directory: .
+
+qiime_barcode_type: 'not-barcoded'
+
+qiime_phred_offset: 33
+
+qiime_parallel: false
+
+qiime_otu_picking_method: uclust
+
+qiime_skip_step_four: true
+
+qiime_jobs_to_start: 1
+
+qiime_verbose: false
+
+qiime_biom_output_file_name: otu_table_mc2_w_tax_no_pynast_failures_metadata.biom
