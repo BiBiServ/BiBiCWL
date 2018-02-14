@@ -172,7 +172,7 @@
             <ns4:shortDescription>Whether or not interleaved input should be used.</ns4:shortDescription>
             <ns4:description>Whether or not interleaved input should be used. Then only one input file is needed instead of two.</ns4:description>
             <ns4:type>boolean</ns4:type>
-            <ns4:option>--interleaved-input </ns4:option>
+            <ns4:option>--interleaved-input</ns4:option>
             <ns4:guiElement>SELECTBOOLEANCHECKBOX</ns4:guiElement>
         </ns4:param>
         

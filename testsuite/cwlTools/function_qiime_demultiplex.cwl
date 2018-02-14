@@ -12,6 +12,7 @@ hints:
 inputs:
   input_merged_reads:
     inputBinding:
+      itemSeparator: ","
       position: 1
       prefix: '-i '
       separate: false

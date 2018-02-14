@@ -55,7 +55,7 @@ qiime_parameter_file:
 #qiime_reference_sequences: File
 
 
-qiime_sample_ids: BGP1.1,BGP1.2
+qiime_sample_ids: BGP1.1,BGP1.2,BGP2.1,BGP2.2,BGP3.1,BGP3.2,BGP4.1,BGP4.2
 
 qiime_demultiplex_output_directory: .
 

@@ -10,7 +10,7 @@ inputs:
   interleaved_input:
     inputBinding:
       position: 7
-      prefix: '--interleaved-input '
+      prefix: --interleaved-input
       separate: false
     type: boolean
   fastq_2:
