@@ -5,10 +5,13 @@ baseCommand: alpha_rarefaction.py
 requirements:
   ShellCommandRequirement:
     class: ShellCommandRequirement
+  EnvVarRequirement:
+    envDef:
+      MPLBACKEND: "Agg"
 hints:
   DockerRequirement:
     class: DockerRequirement
-    dockerPull: jsaydo/qiime_matplotlib_backend_agg:latest
+    dockerPull: quay.io/biocontainers/qiime:1.9.1--np112py27_1 
 arguments:
 - position: 7
   shellQuote: false
@@ -59,96 +62,102 @@ inputs:
 outputs:
   observed_otusunmodifiedidentifier:
     outputBinding:
-      glob: observed_otusUnmodifiedIdentifier.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/observed_otusUnmodifiedIdentifier.png
     type: File
   chao1linkerprimersequence:
     outputBinding:
-      glob: chao1LinkerPrimerSequence.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/chao1LinkerPrimerSequence.png
     type: File
   chao1localisation:
     outputBinding:
-      glob: chao1Localisation.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/chao1Localisation.png
     type: File
   observed_otusdescription:
     outputBinding:
-      glob: observed_otusDescription.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/observed_otusDescription.png
     type: File
   shannon:
     outputBinding:
-      glob: shannon.txt
+      glob: alpha_out/alpha_div_collated/shannon.txt
     type: File
   chao1description:
     outputBinding:
-      glob: chao1Description.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/chao1Description.png
     type: File
   chao1barcodesequence:
     outputBinding:
-      glob: chao1BarcodeSequence.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/chao1BarcodeSequence.png
     type: File
-  log_20180216210531:
+  log:
     outputBinding:
-      glob: log_20180216210531.txt
+      glob: alpha_out/log_*.txt
     type: File
   shannonlinkerprimersequence:
     outputBinding:
-      glob: shannonLinkerPrimerSequence.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/shannonLinkerPrimerSequence.png
     type: File
   observed_otus:
     outputBinding:
-      glob: observed_otus.txt
+      glob: alpha_out/alpha_div_collated/observed_otus.txt
     type: File
   shannondescription:
     outputBinding:
-      glob: shannonDescription.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/shannonDescription.png
     type: File
   observed_otuslocalisation:
     outputBinding:
-      glob: observed_otusLocalisation.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/observed_otusLocalisation.png
     type: File
   chao1unmodifiedidentifier:
     outputBinding:
-      glob: chao1UnmodifiedIdentifier.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/chao1UnmodifiedIdentifier.png
     type: File
   observed_otuslinkerprimersequence:
     outputBinding:
-      glob: observed_otusLinkerPrimerSequence.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/observed_otusLinkerPrimerSequence.png
     type: File
   chao1sampleid:
     outputBinding:
-      glob: chao1SampleID.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/chao1SampleID.png
     type: File
   PLACEHOLDER_output_alpha_diversity:
     type: stdout
   shannonlocalisation:
     outputBinding:
-      glob: shannonLocalisation.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/shannonLocalisation.png
     type: File
   observed_otussampleid:
     outputBinding:
-      glob: observed_otusSampleID.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/observed_otusSampleID.png
     type: File
   shannonbarcodesequence:
     outputBinding:
-      glob: shannonBarcodeSequence.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/shannonBarcodeSequence.png
     type: File
   rarefaction_plots:
     outputBinding:
-      glob: rarefaction_plots.html
+      glob: alpha_out/alpha_rarefaction_plots/rarefaction_plots.html
     type: File
   shannonsampleid:
     outputBinding:
-      glob: shannonSampleID.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/shannonSampleID.png
     type: File
   shannonunmodifiedidentifier:
     outputBinding:
-      glob: shannonUnmodifiedIdentifier.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/shannonUnmodifiedIdentifier.png
     type: File
   chao1:
     outputBinding:
-      glob: chao1.txt
+      glob: alpha_out/alpha_div_collated/chao1.txt
     type: File
+#      basename: chao1.txt
+#      dirname: alpha_out/alpha_div_collated
   observed_otusbarcodesequence:
     outputBinding:
-      glob: observed_otusBarcodeSequence.png
+      glob: alpha_out/alpha_rarefaction_plots/average_plots/observed_otusBarcodeSequence.png
     type: File
+  alpha_diversity_directory_output:
+    type: Directory
+    outputBinding:
+      glob: alpha_out
 stdout: alpha_stdout.txt

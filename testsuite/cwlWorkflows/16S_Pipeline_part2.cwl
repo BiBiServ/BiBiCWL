@@ -68,9 +68,9 @@ outputs:
   chao1barcodesequence:
     type: File
     outputSource: alpha_diversity/chao1barcodesequence
-  log_20180216210531:
+  alpha_out_log:
     type: File
-    outputSource: alpha_diversity/log_20180216210531
+    outputSource: alpha_diversity/log
   shannonlinkerprimersequence:
     type: File
     outputSource: alpha_diversity/shannonlinkerprimersequence
@@ -206,7 +206,7 @@ steps:
       - shannon
       - chao1description
       - chao1barcodesequence
-      - log_20180216210531
+      - log
       - shannonlinkerprimersequence
       - observed_otus
       - shannondescription

@@ -1,22 +1,20 @@
 input_otu_table:
     class: File
-    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/otu_table_mc2_w_tax_no_pynast_failures_w_metadata.biom
+    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/testrun/otu_table_mc2_w_tax_no_pynast_failures.biom
 
 input_mapping:
-    class: File
-    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/otu_table_mc2_w_tax_no_pynast_failures_w_metadata.biom
+  class: File
+  path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/predefined_files/combined_mapping.txt.valid
 
 input_tree_file:
     class: File
-    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/rep_set.tre
+    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/testrun/rep_set.tre
 
 input_parameter_file:
-    class: File
-    path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/myRuns/
+  class: File
+  path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/predefined_files/alpha_parameters_TOUSE.txt
 
-parallel: false
 
 jobs_to_start: 1
-  
-    
-    
+
+parallel: false
