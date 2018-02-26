@@ -205,13 +205,13 @@
         <ns4:version>0.1</ns4:version>
         <ns4:execInfo>
             <ns4:executableType>docker</ns4:executableType>
-            <ns4:image>quay.io/biocontainers/qiime:1.9.1--np110py27_1</ns4:image>
+            <ns4:image>jsaydo/qiime_matplotlib_backend_agg:latest</ns4:image>
             <ns4:path></ns4:path>
             <ns4:callingInformation>split_libraries_fastq.py</ns4:callingInformation>
         </ns4:execInfo>
         
         
-        <ns4:input id="input_merged_reads">
+        <ns4:input id="input_merged_reads_zip">
             <ns4:name>Merged reads input</ns4:name>
             <ns4:shortDescription>FASTQ file with merged reads</ns4:shortDescription>
             <ns4:description></ns4:description>
@@ -313,7 +313,7 @@
         
         <ns4:function id="function_qiime_demultiplex">
             <ns4:shortDescription>Performs a fast quality control on the FASTQ file</ns4:shortDescription>
-            <ns4:inputref ref="input_merged_reads"/>
+            <ns4:inputref ref="input_merged_reads_zip"/>
             <ns4:inputref ref="input_metadata_mapping_files"/>
             <ns4:outputref ref="output_demultiplexed_directory"/>
             
@@ -329,7 +329,7 @@
             </ns4:paramGroup>
             
             <ns4:paramAndInputOutputOrder>
-                <ns4:reference>input_merged_reads</ns4:reference>
+                <ns4:reference>input_merged_reads_zip</ns4:reference>
                 <ns4:reference>sample_id</ns4:reference>
                 <ns4:reference>output_demultiplexed_directory</ns4:reference>
                 <ns4:reference>phred_quality_threshold</ns4:reference>

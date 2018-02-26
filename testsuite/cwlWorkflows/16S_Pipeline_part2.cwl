@@ -47,37 +47,81 @@ outputs:
   otu_table_failures_biom_metadata:
     type: File
     outputSource: qiime_biom_add_metadata/output_biom
-  alpha_out:
+  observed_otusunmodifiedidentifier:
     type: File
-    outputSource: alpha_rarefaction/alpha_out
+    outputSource: alpha_diversity/observed_otusunmodifiedidentifier
+  chao1linkerprimersequence:
+    type: File
+    outputSource: alpha_diversity/chao1linkerprimersequence
+  chao1localisation:
+    type: File
+    outputSource: alpha_diversity/chao1localisation
+  observed_otusdescription:
+    type: File
+    outputSource: alpha_diversity/observed_otusdescription
+  shannon:
+    type: File
+    outputSource: alpha_diversity/shannon
+  chao1description:
+    type: File
+    outputSource: alpha_diversity/chao1description
+  chao1barcodesequence:
+    type: File
+    outputSource: alpha_diversity/chao1barcodesequence
+  log_20180216210531:
+    type: File
+    outputSource: alpha_diversity/log_20180216210531
+  shannonlinkerprimersequence:
+    type: File
+    outputSource: alpha_diversity/shannonlinkerprimersequence
+  observed_otus:
+    type: File
+    outputSource: alpha_diversity/observed_otus
+  shannondescription:
+    type: File
+    outputSource: alpha_diversity/shannondescription
+  observed_otuslocalisation:
+    type: File
+    outputSource: alpha_diversity/observed_otuslocalisation
+  chao1unmodifiedidentifier:
+    type: File
+    outputSource: alpha_diversity/chao1unmodifiedidentifier
+  observed_otuslinkerprimersequence:
+    type: File
+    outputSource: alpha_diversity/observed_otuslinkerprimersequence
+  chao1sampleid:
+    type: File
+    outputSource: alpha_diversity/chao1sampleid
+  PLACEHOLDER_output_alpha_diversity:
+    type: File
+    outputSource: alpha_diversity/PLACEHOLDER_output_alpha_diversity
+  shannonlocalisation:
+    type: File
+    outputSource: alpha_diversity/shannonlocalisation
+  observed_otussampleid:
+    type: File
+    outputSource: alpha_diversity/observed_otussampleid
+  shannonbarcodesequence:
+    type: File
+    outputSource: alpha_diversity/shannonbarcodesequence
+  rarefaction_plots:
+    type: File
+    outputSource: alpha_diversity/rarefaction_plots
+  shannonsampleid:
+    type: File
+    outputSource: alpha_diversity/shannonsampleid
+  shannonunmodifiedidentifier:
+    type: File
+    outputSource: alpha_diversity/shannonunmodifiedidentifier
+  chao1:
+    type: File
+    outputSource: alpha_diversity/chao1
+  observed_otusbarcodesequence:
+    type: File
+    outputSource: alpha_diversity/observed_otusbarcodesequence
 
-      - observed_otusunmodifiedidentifier
-      - chao1linkerprimersequence
-      - chao1localisation
-      - observed_otusdescription
-      - shannon
-      - chao1description
-      - chao1barcodesequence
-      - log_20180216210531
-      - shannonlinkerprimersequence
-      - observed_otus
-      - shannondescription
-      - observed_otuslocalisation
-      - chao1unmodifiedidentifier
-      - observed_otuslinkerprimersequence
-      - chao1sampleid
-      - PLACEHOLDER_output_alpha_diversity
-      - shannonlocalisation
-      - observed_otussampleid
-      - shannonbarcodesequence
-      - rarefaction_plots
-      - shannonsampleid
-      - shannonunmodifiedidentifier
-      - chao1
-      - observed_otusbarcodesequence
-    
-    
-    
+
+
 
 
 

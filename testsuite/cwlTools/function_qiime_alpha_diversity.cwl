@@ -8,11 +8,11 @@ requirements:
 hints:
   DockerRequirement:
     class: DockerRequirement
-    dockerPull: quay.io/biocontainers/qiime:1.9.1--np110py27_1
+    dockerPull: jsaydo/qiime_matplotlib_backend_agg:latest
 arguments:
 - position: 7
   shellQuote: false
-  valueFrom: -f -o /var/spool/cwl
+  valueFrom: -f -o alpha_out
 inputs:
   input_otu_table:
     inputBinding:
@@ -56,4 +56,99 @@ inputs:
       separate: false
       shellQuote: false
     type: File
-outputs: {}
+outputs:
+  observed_otusunmodifiedidentifier:
+    outputBinding:
+      glob: observed_otusUnmodifiedIdentifier.png
+    type: File
+  chao1linkerprimersequence:
+    outputBinding:
+      glob: chao1LinkerPrimerSequence.png
+    type: File
+  chao1localisation:
+    outputBinding:
+      glob: chao1Localisation.png
+    type: File
+  observed_otusdescription:
+    outputBinding:
+      glob: observed_otusDescription.png
+    type: File
+  shannon:
+    outputBinding:
+      glob: shannon.txt
+    type: File
+  chao1description:
+    outputBinding:
+      glob: chao1Description.png
+    type: File
+  chao1barcodesequence:
+    outputBinding:
+      glob: chao1BarcodeSequence.png
+    type: File
+  log_20180216210531:
+    outputBinding:
+      glob: log_20180216210531.txt
+    type: File
+  shannonlinkerprimersequence:
+    outputBinding:
+      glob: shannonLinkerPrimerSequence.png
+    type: File
+  observed_otus:
+    outputBinding:
+      glob: observed_otus.txt
+    type: File
+  shannondescription:
+    outputBinding:
+      glob: shannonDescription.png
+    type: File
+  observed_otuslocalisation:
+    outputBinding:
+      glob: observed_otusLocalisation.png
+    type: File
+  chao1unmodifiedidentifier:
+    outputBinding:
+      glob: chao1UnmodifiedIdentifier.png
+    type: File
+  observed_otuslinkerprimersequence:
+    outputBinding:
+      glob: observed_otusLinkerPrimerSequence.png
+    type: File
+  chao1sampleid:
+    outputBinding:
+      glob: chao1SampleID.png
+    type: File
+  PLACEHOLDER_output_alpha_diversity:
+    type: stdout
+  shannonlocalisation:
+    outputBinding:
+      glob: shannonLocalisation.png
+    type: File
+  observed_otussampleid:
+    outputBinding:
+      glob: observed_otusSampleID.png
+    type: File
+  shannonbarcodesequence:
+    outputBinding:
+      glob: shannonBarcodeSequence.png
+    type: File
+  rarefaction_plots:
+    outputBinding:
+      glob: rarefaction_plots.html
+    type: File
+  shannonsampleid:
+    outputBinding:
+      glob: shannonSampleID.png
+    type: File
+  shannonunmodifiedidentifier:
+    outputBinding:
+      glob: shannonUnmodifiedIdentifier.png
+    type: File
+  chao1:
+    outputBinding:
+      glob: chao1.txt
+    type: File
+  observed_otusbarcodesequence:
+    outputBinding:
+      glob: observed_otusBarcodeSequence.png
+    type: File
+stdout: alpha_stdout.txt

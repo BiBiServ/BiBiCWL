@@ -207,7 +207,7 @@
         <ns4:version>0.1</ns4:version>
         <ns4:execInfo>
             <ns4:executableType>docker</ns4:executableType>
-          <ns4:image>quay.io/biocontainers/qiime:1.9.1--np110py27_1</ns4:image>
+          <ns4:image>jsaydo/qiime_matplotlib_backend_agg:latest</ns4:image>
             <ns4:path></ns4:path>
               <ns4:callingInformation>alpha_rarefaction.py</ns4:callingInformation>
         </ns4:execInfo>
@@ -270,8 +270,150 @@
           <ns4:shortDescription></ns4:shortDescription>
           <ns4:description></ns4:description>
           <ns4:type>ToolDependentRepresentation</ns4:type>
-          <ns4:handling>DIRECTORY</ns4:handling>
+          <ns4:handling>STDOUT</ns4:handling>
         </ns4:output>
+      
+      
+
+         <ns4:outputfile id="observed_otus">
+           <ns4:name>observed_otus</ns4:name>
+           <ns4:folder>alpha_out/alpha_div_collated</ns4:folder>
+           <ns4:filename>observed_otus.txt</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="shannon">
+           <ns4:name>shannon</ns4:name>
+           <ns4:folder>alpha_out/alpha_div_collated</ns4:folder>
+           <ns4:filename>shannon.txt</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="chao1">
+           <ns4:name>chao1</ns4:name>
+           <ns4:folder>alpha_out/alpha_div_collated</ns4:folder>
+           <ns4:filename>chao1.txt</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="log_20180216210531">
+           <ns4:name>log_20180216210531</ns4:name>
+           <ns4:folder>alpha_out</ns4:folder>
+           <ns4:filename>log_20180216210531.txt</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="rarefaction_plots">
+           <ns4:name>rarefaction_plots</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots</ns4:folder>
+           <ns4:filename>rarefaction_plots.html</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="observed_otuslinkerprimersequence">
+           <ns4:name>observed_otuslinkerprimersequence</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>observed_otusLinkerPrimerSequence.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="observed_otussampleid">
+           <ns4:name>observed_otussampleid</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>observed_otusSampleID.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="observed_otusdescription">
+           <ns4:name>observed_otusdescription</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>observed_otusDescription.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="shannondescription">
+           <ns4:name>shannondescription</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>shannonDescription.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="chao1localisation">
+           <ns4:name>chao1localisation</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>chao1Localisation.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="observed_otusbarcodesequence">
+           <ns4:name>observed_otusbarcodesequence</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>observed_otusBarcodeSequence.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="chao1description">
+           <ns4:name>chao1description</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>chao1Description.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="chao1unmodifiedidentifier">
+           <ns4:name>chao1unmodifiedidentifier</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>chao1UnmodifiedIdentifier.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="chao1sampleid">
+           <ns4:name>chao1sampleid</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>chao1SampleID.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="shannonlinkerprimersequence">
+           <ns4:name>shannonlinkerprimersequence</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>shannonLinkerPrimerSequence.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="observed_otusunmodifiedidentifier">
+           <ns4:name>observed_otusunmodifiedidentifier</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>observed_otusUnmodifiedIdentifier.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="chao1barcodesequence">
+           <ns4:name>chao1barcodesequence</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>chao1BarcodeSequence.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="shannonlocalisation">
+           <ns4:name>shannonlocalisation</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>shannonLocalisation.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="shannonunmodifiedidentifier">
+           <ns4:name>shannonunmodifiedidentifier</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>shannonUnmodifiedIdentifier.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="shannonsampleid">
+           <ns4:name>shannonsampleid</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>shannonSampleID.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="shannonbarcodesequence">
+           <ns4:name>shannonbarcodesequence</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>shannonBarcodeSequence.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="chao1linkerprimersequence">
+           <ns4:name>chao1linkerprimersequence</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>chao1LinkerPrimerSequence.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>
+         <ns4:outputfile id="observed_otuslocalisation">
+           <ns4:name>observed_otuslocalisation</ns4:name>
+           <ns4:folder>alpha_out/alpha_rarefaction_plots/average_plots</ns4:folder>
+           <ns4:filename>observed_otusLocalisation.png</ns4:filename>
+           <ns4:contenttype>plain/text</ns4:contenttype>
+         </ns4:outputfile>     
+      
       
         
         <ns4:param id="jobs_to_start">
@@ -319,11 +461,36 @@
             <ns4:name>Compute alpha diversity</ns4:name>
             <ns4:shortDescription></ns4:shortDescription>
             
-          <ns4:inputref ref="input_mapping"/>
+            <ns4:inputref ref="input_mapping"/>
             <ns4:inputref ref="input_otu_table"/>
             <ns4:inputref ref="input_parameter_file"/>
             <ns4:inputref ref="input_tree_file"/>
+            
             <ns4:outputref ref="PLACEHOLDER_output_alpha_diversity"/>
+            
+            <ns4:outputfileref ref="observed_otus"/>
+            <ns4:outputfileref ref="shannon"/>
+            <ns4:outputfileref ref="chao1"/>
+            <ns4:outputfileref ref="log_20180216210531"/>
+            <ns4:outputfileref ref="rarefaction_plots"/>
+            <ns4:outputfileref ref="observed_otuslinkerprimersequence"/>
+            <ns4:outputfileref ref="observed_otussampleid"/>
+            <ns4:outputfileref ref="observed_otusdescription"/>
+            <ns4:outputfileref ref="shannondescription"/>
+            <ns4:outputfileref ref="chao1localisation"/>
+            <ns4:outputfileref ref="observed_otusbarcodesequence"/>
+            <ns4:outputfileref ref="chao1description"/>
+            <ns4:outputfileref ref="chao1unmodifiedidentifier"/>
+            <ns4:outputfileref ref="chao1sampleid"/>
+            <ns4:outputfileref ref="shannonlinkerprimersequence"/>
+            <ns4:outputfileref ref="observed_otusunmodifiedidentifier"/>
+            <ns4:outputfileref ref="chao1barcodesequence"/>
+            <ns4:outputfileref ref="shannonlocalisation"/>
+            <ns4:outputfileref ref="shannonunmodifiedidentifier"/>
+            <ns4:outputfileref ref="shannonsampleid"/>
+            <ns4:outputfileref ref="shannonbarcodesequence"/>
+            <ns4:outputfileref ref="chao1linkerprimersequence"/>
+            <ns4:outputfileref ref="observed_otuslocalisation"/>
             
             <ns4:paramGroup id="qiime_alpha_diversity_paramgroup">
                 <ns4:paramref ref="parallel"/>
@@ -337,7 +504,8 @@
                 <ns4:reference>input_parameter_file</ns4:reference>
                 <ns4:reference>parallel</ns4:reference>
                 <ns4:reference>jobs_to_start</ns4:reference>
-                <ns4:additionalString>-f -o /var/spool/cwl</ns4:additionalString>
+                <!--ns4:additionalString>-f -o /var/spool/cwl</ns4:additionalString-->
+                <ns4:additionalString>-f -o alpha_out</ns4:additionalString>
                 <ns4:reference>PLACEHOLDER_output_alpha_diversity</ns4:reference>
             </ns4:paramAndInputOutputOrder>
         </ns4:function>

@@ -5,7 +5,7 @@ inputs:
   input_merged_reads:
     type: File[]
     inputBinding:
-      itemSeparator: ","
+      itemSeparator: ','
       prefix: '-i '
       separate: false
       position: 1
