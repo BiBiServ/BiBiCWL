@@ -466,6 +466,15 @@ public class Bs2Document implements IBs2Document
     }
     
     
+    
+    
+    
+    @Override
+    public boolean hasFunctionOutputFiles(Tfunction function)
+    {
+        return function.isSetOutputfileref();
+    }
+    
 
     
     

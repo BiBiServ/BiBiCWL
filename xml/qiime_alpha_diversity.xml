@@ -258,7 +258,7 @@
         
         
         <ns4:output id="output_alpha_diversity">
-            <ns4:name>QIIME ouput</ns4:name>
+            <ns4:name>QIIME output</ns4:name>
             <ns4:shortDescription>Output of QIIME.</ns4:shortDescription>
             <ns4:description></ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
@@ -293,10 +293,10 @@
            <ns4:filename>chao1.txt</ns4:filename>
            <ns4:contenttype>plain/text</ns4:contenttype>
          </ns4:outputfile>
-         <ns4:outputfile id="log_20180216210531">
-           <ns4:name>log_20180216210531</ns4:name>
+         <ns4:outputfile id="alpha_out_log">
+           <ns4:name>alpha out log</ns4:name>
            <ns4:folder>alpha_out</ns4:folder>
-           <ns4:filename>log_20180216210531.txt</ns4:filename>
+           <ns4:filename>log_*.txt</ns4:filename>
            <ns4:contenttype>plain/text</ns4:contenttype>
          </ns4:outputfile>
          <ns4:outputfile id="rarefaction_plots">
@@ -471,7 +471,7 @@
             <ns4:outputfileref ref="observed_otus"/>
             <ns4:outputfileref ref="shannon"/>
             <ns4:outputfileref ref="chao1"/>
-            <ns4:outputfileref ref="log_20180216210531"/>
+            <ns4:outputfileref ref="alpha_out_log"/>
             <ns4:outputfileref ref="rarefaction_plots"/>
             <ns4:outputfileref ref="observed_otuslinkerprimersequence"/>
             <ns4:outputfileref ref="observed_otussampleid"/>

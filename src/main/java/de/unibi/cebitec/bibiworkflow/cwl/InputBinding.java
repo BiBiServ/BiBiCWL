@@ -23,6 +23,10 @@ class InputBinding {
     @JsonProperty
     private int position;
     
+    // itemSeparator is only needed if the input field is an array-input.
+    @JsonProperty
+    protected String itemSeparator = null;
+    
     // shellQuote is true by default in CWL. (null would be treated as true)
     @JsonProperty
     private Boolean shellQuote = null;
@@ -67,5 +71,16 @@ class InputBinding {
     protected void activateShellQuote()
     {
         this.shellQuote = true;
+    }
+    
+    
+    protected void enableItemSeparator(String itemSeparator)
+    {
+        this.itemSeparator = itemSeparator;
+    }
+    
+    protected void disableItemSeparator()
+    {
+        this.itemSeparator = null;
     }
 }

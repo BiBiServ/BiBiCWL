@@ -18,8 +18,10 @@ import de.unibi.techfak.bibiserv.cms.TinputOutput;
 import de.unibi.techfak.bibiserv.cms.ToutputFile;
 import de.unibi.techfak.bibiserv.cms.Tparam;
 import de.unibi.techfak.bibiserv.cms.TrunnableItem;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.logging.Logger;
 
 /**
@@ -37,7 +39,7 @@ public class Converter implements IConverter
     
     private final ArrayList<IModelListener> modelListeners = new ArrayList<>();
     
-    
+    private final ArrayList<String> outputFileFolderList = new ArrayList<>();
     
     
     
@@ -206,11 +208,43 @@ public class Converter implements IConverter
      */
     private void convertFunctionOutputs(Tfunction function, ICwlTool cwlTool)
     {
-        /*
-          convert the single output (of type TinputOutput) of the function
-        */
-        LOGGER.finest("Processing bs2 funciton output.");
+        
+        //  convert the single output (of type TinputOutput) of the function
+        LOGGER.finest("Processing bs2 function output.");
         TinputOutput output = bs2Doc.getFunctionOutput(function);
+        processBiBiOutputToCwl(output, cwlTool);
+        
+        
+        //  convert all outputFiles (of type ToutputFile) of the function and 
+        //  check whether directories are defined.
+        ArrayList<ToutputFile> outputFiles = bs2Doc.getFunctionOutputFiles(function);
+        HashSet<String> directories = new HashSet<>();
+        for (ToutputFile of : outputFiles)
+        {
+            processBiBiOutputFileToCwl(of, cwlTool);
+            
+            if (of.isSetFolder() && !of.getFolder().isEmpty())
+            {
+                directories.add(of.getFolder());
+            }
+        }
+        
+        
+        //  if available, create CWL output directories from the directories
+        //  which were specified in the BiBiApp description
+        createCwlOutputDirectories(directories, cwlTool);
+    }
+    
+    
+    
+    
+    /**
+     * Creates a CWL output from the BiBiApp output element.
+     * @param output Output element which is used to create the CWL output
+     * @param cwlTool CWL tool for which the output should be created
+     */
+    private void processBiBiOutputToCwl(TinputOutput output, ICwlTool cwlTool)
+    {
         
         String oId = output.getId();
         String oHandling = output.getHandling();
@@ -219,7 +253,7 @@ public class Converter implements IConverter
         {
             cwlTool.addOutput(oId, "stdout", null, null);          // doesn't need the "glob" field because this is set in the stdout field of the CwlTool
 //            String inputReference = oId + "_inputFileName";      // this will be used to find the suitable input with the file's name
-            String inputReference = oId + "_outputFileName";
+            String inputReference = oId + "_outputFileName";        // perhaps make this hardcoded (i.e. make this an argument instead of an input)?
             cwlTool.setupStdout(inputReference);
         }
         else if (oHandling.toLowerCase().equals("file"))
@@ -236,25 +270,24 @@ public class Converter implements IConverter
                 cwlTool.addOutput(oId, oType, null, null);              // @TODO: should probably use something else ...
             }
         }
-        else if (oHandling.toLowerCase().equals("directory"))
-        {
-            LOGGER.finer("Ouput is a directory and therefore does not need "
-                    + "to be listed as an output in CWL but was used as an "
-                    + "argument only. This is probably crap ...");
-        }
         else
         {
             LOGGER.finer("Handling of BiBi output unknown.");
         }
         
-        
-        /*
-          convert all outputFiles (of type ToutputFile) of the function
-        */
-        ArrayList<ToutputFile> outputFiles = bs2Doc.getFunctionOutputFiles(function);
-        for (ToutputFile of : outputFiles)
-        {
-            String ofId = of.getId();
+    }
+    
+    
+    
+    
+    /**
+     * Creates a CWL output from a BibiApp outputFile.
+     * @param of BiBi outputFile which is to be converted to a CWL output
+     * @param cwlTool CWL tool for which the output should be created
+     */
+    private void processBiBiOutputFileToCwl(ToutputFile of, ICwlTool cwlTool)
+    {
+        String ofId = of.getId();
             String ofType = "File";
             String ofFileType = of.getContenttype();                // check if stuff is set up properly before applying things ...
             String ofFileName = of.getFilename();
@@ -268,12 +301,61 @@ public class Converter implements IConverter
             }
             else
             {
-                cwlTool.addOutput(ofId, ofType, ofFileName, ofFileType);        // just use the filename from the outputFile object ???
-            }                                                                   // or read some input field?
-        }
-        
-        
+                String glob;
+                if (of.isSetFolder())
+                {
+                    glob = of.getFolder() + "/" + ofFileName;
+                }
+                else
+                {
+                    glob = ofFileName;
+                }
+                cwlTool.addOutput(ofId, ofType, glob, ofFileType);        // just use the filename from the outputFile object ???
+            }
     }
+    
+    
+    
+    
+    /**
+     * Creates a set of CWL directory outputs from a given HashSet of directory 
+     * paths.
+     * 
+     * e.g. for a path "some/directory/with/sub/directories" a CWL directory
+     * output with the id "some_directory" and glob pattern "some" will be
+     * created.
+     * If another path with another directory "some/other/directory" is in the
+     * set, no other CWL output will be created because the directory "some"
+     * is parent to all subdirectories.
+     * If yet another path with "another/directory" is in the set, a new CWL
+     * directory output will be created.
+     * 
+     * @param directories set of directory paths
+     * @param cwlTool CWL tool for which the outputs should be created
+     */
+    private void createCwlOutputDirectories(HashSet<String> directories, ICwlTool cwlTool)
+    {
+        if (!directories.isEmpty())
+        {
+            // get parent directory names and dispose of duplicates
+            HashSet<String> parentDirectoriesWithoutDuplicates = new HashSet<>();
+            for (String s : directories)
+            {
+                String parentDirectory = getParentDirectoryNameFromPath(s);
+                parentDirectoriesWithoutDuplicates.add(parentDirectory);
+            }
+            
+            // create CWL directory outputs (no duplicates left hopefully)
+            for (String parentDirectory : parentDirectoriesWithoutDuplicates)
+            {
+                String id = parentDirectory + "_directory";
+                String type = "Directory";
+                cwlTool.addOutput(id, type, parentDirectory, null);
+            }
+            
+        }
+    }
+    
     
     
     
@@ -621,14 +703,26 @@ public class Converter implements IConverter
     
     
     @Override
-    public void setOption_arrayFileInputs()
+    public void setOption_arrayFileInputs(String elementSeparator)
     {
         for (ICwlTool cwlTool : cwlTools.values())
         {
-            cwlTool.setUpOption_inputArray();
+            cwlTool.setUpOption_inputArray(elementSeparator);
         }
     }
     
+    
+    
+    
+    @Deprecated
+    @Override
+    public void setOption_useDirectoryOutputs()
+    {
+        for (Tfunction function : bs2Doc.getFunctions())
+        {
+            
+        }
+    }
     
     
     
@@ -684,4 +778,28 @@ public class Converter implements IConverter
     }
 
     
+    
+    
+    /**
+     * Returns the first part of the given file path.
+     * @param filePath
+     * @return 
+     */
+    private String getParentDirectoryNameFromPath(String filePath)
+    {
+        System.out.println("Extracting parent dir from:   " + filePath);
+        String name;
+        int end = filePath.indexOf("/");
+        
+        if (end > 0)
+        {
+            name = filePath.substring(0, end);
+        }
+        else
+        {
+            name = filePath;
+        }
+        System.out.println("ParentDir is:   " + name);
+        return name;
+    }
 }

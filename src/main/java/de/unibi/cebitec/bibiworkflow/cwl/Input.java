@@ -22,7 +22,7 @@ abstract class Input <T>
     protected InputBinding inputBinding;
     @JsonProperty
     protected String format;
-    
+
     
     
     protected boolean isOptional = false;
@@ -45,7 +45,7 @@ abstract class Input <T>
 
     abstract protected void disableShellQuote();
 
-    abstract protected void enableArrayInput();
+    abstract protected void enableArrayInput(String elementSeparator);
     
     abstract protected void disableArrayInput();
 }

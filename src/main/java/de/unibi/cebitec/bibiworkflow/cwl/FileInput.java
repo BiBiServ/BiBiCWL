@@ -6,7 +6,6 @@
 package de.unibi.cebitec.bibiworkflow.cwl;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import de.unibi.cebitec.bibiworkflow.app.GuiControl;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
@@ -25,6 +24,9 @@ public class FileInput extends Input
     
     private final String defaultType = "File";
     private final String defaultArrayType = "File[]";
+    
+    
+    private String elementSeparator = null;
     
     
     
@@ -71,10 +73,12 @@ public class FileInput extends Input
         if (this.isArrayInput)
         {
             atomarType = this.defaultArrayType;
+            this.inputBinding.enableItemSeparator(this.elementSeparator);
         }
         else
         {
             atomarType = this.defaultType;
+            this.inputBinding.disableItemSeparator();
         }
         
         // if isOptional is true, create an array of types with one type being 
@@ -97,25 +101,6 @@ public class FileInput extends Input
     
     
     
-    protected void allowNull()
-    {
-        /*
-            TODO:   the "<null>" thingy should be changed in the future. 
-                    For now it is used to sort out the formatting of the 
-                    "null"-string issue when converting the objects to YAML
-                    by calling an extra function in the YAMLConverter:
-                    
-                    fixNullQuotes(String yamldocument)
-        */
-        this.type = new String[] {"<null>", "File"};
-    }
-    
-    protected void doNotAllowNull()
-    {
-        this.type = "File";
-    }
-    
-    
     
     
     @Override
@@ -123,18 +108,6 @@ public class FileInput extends Input
     {
         this.isOptional = true;
         this.assembleInputParts();
-//        if (this.type instanceof String)
-//        {
-//            String oldType = (String) super.type;
-//            ArrayList<String> typesList = new ArrayList<>();
-//            typesList.add(oldType);
-//            typesList.add("<null>");
-//            this.type = typesList;
-//        }
-//        else if (this.type instanceof ArrayList)
-//        {
-//            ((ArrayList)this.type).add("<null>");
-//        }
     }
     
     
@@ -145,16 +118,6 @@ public class FileInput extends Input
     {
         this.isOptional = false;
         this.assembleInputParts();
-//        if (this.type instanceof ArrayList)
-//        {
-//            ((ArrayList)this.type).remove("<null>");
-//            
-//            // if there is only one element left in the list, convert type to a simple string
-//            if (((ArrayList)this.type).size() == 1)
-//            {
-//                this.type = ((ArrayList)this.type).get(0);
-//            }
-//        }
     }
     
     
@@ -189,24 +152,11 @@ public class FileInput extends Input
     
     
     @Override
-    protected void enableArrayInput()
+    protected void enableArrayInput(String elememtSeparator)
     {
+        this.elementSeparator = elememtSeparator;
         this.isArrayInput = true;
         this.assembleInputParts();
-//        if ( ! super.isArrayInput )
-//        {
-//            super.isArrayInput = true;
-//            
-//            if ( super.isOptional )
-//            {
-//                ((ArrayList)this.type).remove("File");
-//                ((ArrayList)this.type).add("File[]");
-//            }
-//            else
-//            {
-//                this.type = "File[]";
-//            }
-//        }
     }
     
     
@@ -215,21 +165,8 @@ public class FileInput extends Input
     @Override
     protected void disableArrayInput()
     {
+        this.elementSeparator = null;
         this.isArrayInput = false;
         this.assembleInputParts();
-//        if ( super.isArrayInput )
-//        {
-//            super.isArrayInput = false;
-//            
-//            if ( super.isOptional )
-//            {
-//                ((ArrayList)this.type).remove("File[]");
-//                ((ArrayList)this.type).add("File");
-//            }
-//            else
-//            {
-//                this.type = "File";
-//            }
-//        }
     }
 }

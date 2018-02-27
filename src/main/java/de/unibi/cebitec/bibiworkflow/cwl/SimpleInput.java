@@ -5,10 +5,7 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
-import de.unibi.cebitec.bibiworkflow.app.GuiControl;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.logging.Logger;
 
 /**
@@ -77,22 +74,18 @@ class SimpleInput extends Input {
     
     
     
-    /*
-        OK ... now I am adding more functions and sometimes there are dependencies.
-        FIX THIS!!!!!
-        --> make one "assemble input parts"-function which takes in all the options
-            and fills in the member variables (or variables marked with @jsonProperty)
-            and run that function every time some stuff is changed.
-    */
-
+    
     @Override
-    protected void enableArrayInput() {
-        LOGGER.info("ArrayInputs not suported for SimpleInputs");
+    protected void enableArrayInput(String itemSeparator) {
+        LOGGER.info("ArrayInputs not yet suported for SimpleInputs");
     }
-
+    
+    
+    
+    
     @Override
     protected void disableArrayInput() {
-        LOGGER.info("ArrayInputs not suported for SimpleInputs");
+        LOGGER.info("ArrayInputs not yet suported for SimpleInputs");
     }
     
     

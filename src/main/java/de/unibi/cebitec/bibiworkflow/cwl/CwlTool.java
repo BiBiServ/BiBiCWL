@@ -176,6 +176,7 @@ public class CwlTool implements ICwlTool {
      * Sets the FileInput to allow for "null" input. (I.e. this means that the 
      * input needn't be specified in the CWL job file.)
      */
+    @Override
     public void setUpOption_optionalInputFiles()
     {
         for (Input input : this.inputs.values())
@@ -192,13 +193,27 @@ public class CwlTool implements ICwlTool {
     
     
     
-    public void setUpOption_inputArray()
+    @Override
+    public void setUpOption_inputArray(String elementSeparator)
     {
         if ( ! inputs.isEmpty() )
         {
             for (Input input : this.inputs.values())
             {
-                input.enableArrayInput();
+                String id_low = input.getId().toLowerCase();
+                if (id_low.endsWith("_zip") || id_low.endsWith("_array") || id_low.endsWith("_list"))
+                {
+                    System.out.println("found zipped input! " + id_low);
+                    input.enableArrayInput(elementSeparator);
+                }
+                else
+                {
+                    LOGGER.info("Input file " + input.getId() + 
+                            " is not set up as array input because it is not "
+                            + "tagged with '_zip', '_array' or '_list'. "
+                            + "Hopefully, this is intentional and the input is "
+                            + "just one regular file or parameter.");
+                }
             }
         }
     }

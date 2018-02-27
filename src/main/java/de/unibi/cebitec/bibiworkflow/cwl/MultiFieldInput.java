@@ -5,7 +5,6 @@
  */
 package de.unibi.cebitec.bibiworkflow.cwl;
 
-import de.unibi.cebitec.bibiworkflow.app.GuiControl;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
@@ -100,25 +99,19 @@ public class MultiFieldInput extends Input<ArrayList<CommandInputRecord>>
     
     
     
-    /*
-        OK ... now I am adding more functions and sometimes there are dependencies.
-        FIX THIS!!!!!
-        --> make one "assemble input parts"-function which takes in all the options
-            and fills in the member variables (or variables marked with @jsonProperty)
-            and run that function every time some stuff is changed.
-    */
-    
-    
     
     
     @Override
-    protected void enableArrayInput() {
-        LOGGER.info("ArrayInputs not suported for MultiFieldInputs");
+    protected void enableArrayInput(String elementSeparator) {
+        LOGGER.info("ArrayInputs not yet suported for MultiFieldInputs");
     }
-
+    
+    
+    
+    
     @Override
     protected void disableArrayInput() {
-        LOGGER.info("ArrayInputs not suported for MultiFieldInputs");
+        LOGGER.info("ArrayInputs not yet suported for MultiFieldInputs");
     }
     
 }

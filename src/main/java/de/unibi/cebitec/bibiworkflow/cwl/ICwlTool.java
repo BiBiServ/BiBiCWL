@@ -113,6 +113,6 @@ public interface ICwlTool {
     
     public void setUpOption_optionalInputFiles();
     
-    public void setUpOption_inputArray();
+    public void setUpOption_inputArray(String itemSeparator);
 
 }

@@ -135,6 +135,7 @@ public class CmdControl implements IControl
         this.processArgument_noShellQuote();
         this.processArgument_optionalInputs();
         this.processArgument_arrayInputFiles();
+        this.processArgument_itemSeparator();
     }
     
     
@@ -218,10 +219,19 @@ public class CmdControl implements IControl
      */
     private void processArgument_arrayInputFiles()
     {
+        String itemSeparator = null;
         if (this.cmd.hasOption("arrayInputFiles"))
         {
-            converter.setOption_arrayFileInputs();
+            if (this.cmd.hasOption("itemSeparator"))
+            {
+                itemSeparator = this.cmd.getOptionValue("itemSeparator");
+            }
+            converter.setOption_arrayFileInputs(itemSeparator);
         }
+    }
+
+    private void processArgument_itemSeparator() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
     

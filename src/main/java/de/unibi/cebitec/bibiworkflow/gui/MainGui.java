@@ -19,10 +19,11 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBase;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
@@ -55,7 +56,7 @@ public final class MainGui extends Application implements IMainGui
     private Button saveToDirectoryButton;
     
     // Options
-    private static ArrayList<ButtonBase> options = new ArrayList<>();
+    private static ArrayList<Control> options = new ArrayList<>();
     
     // Textboxes
     private static TextArea documentView;
@@ -69,6 +70,18 @@ public final class MainGui extends Application implements IMainGui
     private static final double VGAP = 5;
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * Constructor for the MainGUI.
      */
@@ -76,6 +89,16 @@ public final class MainGui extends Application implements IMainGui
     {
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -89,6 +112,8 @@ public final class MainGui extends Application implements IMainGui
     }
     
     
+    
+    
     @Override
     public void start(Stage mainWindow)
     {
@@ -99,7 +124,7 @@ public final class MainGui extends Application implements IMainGui
         mainWindow.setScene(this.scene);
         mainWindow.show();
     }
-
+    
     
     
     
@@ -115,7 +140,9 @@ public final class MainGui extends Application implements IMainGui
             this.mainWindow.hide();
         }
     }
-
+    
+    
+    
     
     /**
      * Set the open action.
@@ -133,12 +160,102 @@ public final class MainGui extends Application implements IMainGui
         }
     }
     
-
+    
+    
     
     @Override
     public void setStartConversionAction(final EventHandler<ActionEvent> eh) {
         this.startConversionButton.setOnAction(eh);
     }
+    
+    
+    
+    
+    
+    @Override
+    public void updateDocument(String document)
+    {
+        documentView.setText(document);
+    }
+    
+    
+    
+    
+    @Override
+    public void updateDocument(HashMap<String, String> documents)
+    {
+        String concatenatedDocuments = "";
+        for (String name : documents.keySet())
+        {
+            concatenatedDocuments = concatenatedDocuments.concat("# " + name + "\n\n" + documents.get(name) + "\n\n\n\n");
+        }
+        
+//        documentView.setText(documents.toString());
+        documentView.setText(concatenatedDocuments);
+    }
+    
+    
+    
+    
+    @Override
+    public void setSaveFileAction(EventHandler<ActionEvent> eh) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
+    
+    @Override
+    public void setSaveToDirectoryAction(SaveToDirectoryEventHandler saveToDirectoryEventHandler) {
+        this.saveToDirectoryButton.setOnAction(saveToDirectoryEventHandler);
+    }
+    
+    
+    
+    
+    @Override
+    public HashMap<String, String> getOptions()
+    {
+        HashMap<String, String> optionsMap = new HashMap<>();
+        for (Control option : options)
+        {
+            String key;
+            String value;
+            
+            if (option instanceof CheckBox)
+            {
+                key = ((CheckBox)option).getText();
+                value = ((Boolean)((CheckBox) option).isSelected()).toString();
+                optionsMap.put(key, value);
+            }
+            
+            /*
+                This has to be changed ... value is hardcoded for now, since there
+                are no other textfields planned (for the moment).
+                the options panel should be changed in general ...
+            */
+            else if (option instanceof TextField)
+            {
+                key = "itemSeparator";
+                value = ((TextField)option).getText();
+                optionsMap.put(key, value);
+            }
+            
+            // TODO: add more ...
+        }
+        
+        return optionsMap;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -220,14 +337,19 @@ public final class MainGui extends Application implements IMainGui
         options.add(checkbox_optionalInputs);
         CheckBox checkbox_arrayFileInputs = new CheckBox("arrayFileInputs");
         options.add(checkbox_arrayFileInputs);
+        Label separatorLabel = new Label("item separator:");
+        options.add(separatorLabel);
+        TextField itemSeparator = new TextField("separator");
+        itemSeparator.setMaxWidth(100);
+        options.add(itemSeparator);
         
         // add everything to the options pane
-        optionsPane.getChildren().addAll(
-                optionsTitle,
-                checkbox_noShellQuotes,
-                checkbox_optionalInputs,
-                checkbox_arrayFileInputs
-        );
+        for (Control e : options)
+        {
+            optionsPane.getChildren().add(e);
+        }
+        
+        
         
         
         /*
@@ -248,60 +370,10 @@ public final class MainGui extends Application implements IMainGui
         this.scene = new Scene(borderPane, 800, 600);
         borderPane.setPrefSize(scene.getWidth(), scene.getWidth());
     }
-
-    
-    
-    @Override
-    public void updateDocument(String document)
-    {
-        documentView.setText(document);
-    }
-    
-    @Override
-    public void updateDocument(HashMap<String, String> documents)
-    {
-        String concatenatedDocuments = "";
-        for (String name : documents.keySet())
-        {
-            concatenatedDocuments = concatenatedDocuments.concat("# " + name + "\n\n" + documents.get(name) + "\n\n\n\n");
-        }
-        
-//        documentView.setText(documents.toString());
-        documentView.setText(concatenatedDocuments);
-    }
-
-    @Override
-    public void setSaveFileAction(EventHandler<ActionEvent> eh) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
-    @Override
-    public void setSaveToDirectoryAction(SaveToDirectoryEventHandler saveToDirectoryEventHandler) {
-        this.saveToDirectoryButton.setOnAction(saveToDirectoryEventHandler);
-    }
     
     
     
-    @Override
-    public HashMap<String, String> getOptions()
-    {
-        HashMap<String, String> optionsMap = new HashMap<>();
-        for (ButtonBase option : options)
-        {
-            String key;
-            String value;
-            
-            if (option instanceof CheckBox)
-            {
-                key = option.getText();
-                value = ((Boolean)((CheckBox) option).isSelected()).toString();
-                optionsMap.put(key, value);
-            }
-            
-            // TODO: add more ...
-        }
-        
-        return optionsMap;
-    }
+    
+    
+    
 }

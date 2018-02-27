@@ -102,4 +102,9 @@ public interface IBs2Document {
     
     
     ArrayList<ToutputFile> getFunctionOutputFiles(Tfunction function);
+    
+    
+    boolean hasFunctionOutputFiles(Tfunction function);
+    
+    
 }

@@ -156,7 +156,8 @@ public class GuiControl implements IControl, IModelListener
         }
         if (options.get("arrayFileInputs").equals("true"))
         {
-            converter.setOption_arrayFileInputs();
+            String itemSeparator = options.get("itemSeparator");
+            converter.setOption_arrayFileInputs(itemSeparator);
         }
     }
     

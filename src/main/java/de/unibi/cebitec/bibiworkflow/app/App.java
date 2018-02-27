@@ -80,6 +80,12 @@ public class App
                 + "manually.");
         options.addOption(arrayFileInputs);
         
+        Option itemSeparator = new Option("s", "itemSeparator", true,
+                "The itemSeparator is used together with the arrayFileInputs "
+                + "option. This option allows for the definition of a string "
+                + "which separates the elements of an arrayFileInput.");
+        options.addOption(itemSeparator);
+        
         
         // set up command line parser and formatting
         CommandLineParser parser = new DefaultParser();
