@@ -205,7 +205,7 @@
         <ns4:version>0.1</ns4:version>
         <ns4:execInfo>
             <ns4:executableType>docker</ns4:executableType>
-            <ns4:image>jsaydo/qiime_matplotlib_backend_agg:latest</ns4:image>
+            <ns4:image>quay.io/biocontainers/qiime:1.9.1--np112py27_1</ns4:image>
             <ns4:path></ns4:path>
             <ns4:callingInformation>beta_diversity_through_plots.py</ns4:callingInformation>
         </ns4:execInfo>
@@ -256,11 +256,11 @@
         
         
         <ns4:output id="output_beta_diversity">
-            <ns4:name>QIIME ouput</ns4:name>
+            <ns4:name>QIIME output</ns4:name>
             <ns4:shortDescription>Output of QIIME.</ns4:shortDescription>
             <ns4:description></ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
-            <ns4:handling>FILE</ns4:handling>
+            <ns4:handling>DIRECTORY</ns4:handling>
             <ns4:option>-o </ns4:option>
         </ns4:output>
         <ns4:output id="PLACEHOLDER_output_beta_diversity">
@@ -268,9 +268,649 @@
             <ns4:shortDescription></ns4:shortDescription>
             <ns4:description></ns4:description>
             <ns4:type>ToolDependentRepresentation</ns4:type>
-            <ns4:handling>DIRECTORY</ns4:handling>
-            <ns4:option></ns4:option>
+            <ns4:handling>STDOUT</ns4:handling>
         </ns4:output>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <ns4:outputfile id="beta_out_log">
+            <ns4:name>log file</ns4:name>
+            <ns4:folder>beta_out</ns4:folder>
+            <ns4:filename>log_*.txt</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="jquery_ui_b_d">
+            <ns4:name>jquery-ui-1</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>jquery-ui-1.8.17.custom.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="d_e">
+            <ns4:name>d3</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>d3.v3.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="jquery_b_f">
+            <ns4:name>jquery-1</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>jquery-1.6.2.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="d_g">
+            <ns4:name>d3</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>d3.parcoords.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="detector_h">
+            <ns4:name>Detector</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js/js</ns4:folder>
+            <ns4:filename>Detector.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="svgrenderer_i">
+            <ns4:name>SVGRenderer</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js/js</ns4:folder>
+            <ns4:filename>SVGRenderer.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="orbitcontrols_j">
+            <ns4:name>OrbitControls</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js/js</ns4:folder>
+            <ns4:filename>OrbitControls.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="colorconverter_ba">
+            <ns4:name>ColorConverter</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js/js</ns4:folder>
+            <ns4:filename>ColorConverter.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="jquery_b_b">
+            <ns4:name>jquery-1</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>jquery-1.7.1.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="filesaver_bc">
+            <ns4:name>FileSaver</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>FileSaver.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="threx_bd">
+            <ns4:name>THREEx</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>THREEx.screenshot.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="jquery_be">
+            <ns4:name>jquery</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>jquery.colorPicker.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="underscore_min_bf">
+            <ns4:name>underscore-min</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>underscore-min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="chosen_bg">
+            <ns4:name>chosen</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>chosen.jquery.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="thre_bh">
+            <ns4:name>three</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>three.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="spectrum_bi">
+            <ns4:name>spectrum</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>spectrum.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="chroma_bj">
+            <ns4:name>chroma</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>chroma.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="emperor_ca">
+            <ns4:name>emperor</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/js</ns4:folder>
+            <ns4:filename>emperor.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="trajectory_cb">
+            <ns4:name>trajectory</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/js</ns4:folder>
+            <ns4:filename>trajectory.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="draw_c">
+            <ns4:name>draw</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/js</ns4:folder>
+            <ns4:filename>draw.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="util_cd">
+            <ns4:name>util</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/js</ns4:folder>
+            <ns4:filename>util.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_ce">
+            <ns4:name>ui</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/js</ns4:folder>
+            <ns4:filename>ui.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="animate_cf">
+            <ns4:name>animate</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/js</ns4:folder>
+            <ns4:filename>animate.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="emperor_cg">
+            <ns4:name>emperor</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/css</ns4:folder>
+            <ns4:filename>emperor.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="spectrum_ch">
+            <ns4:name>spectrum</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css</ns4:folder>
+            <ns4:filename>spectrum.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="d_ci">
+            <ns4:name>d3</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css</ns4:folder>
+            <ns4:filename>d3.parcoords.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="jquery_ui_b_cj">
+            <ns4:name>jquery-ui-1</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css</ns4:folder>
+            <ns4:filename>jquery-ui-1.8.16.custom.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="colorpicker_da">
+            <ns4:name>colorPicker</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css</ns4:folder>
+            <ns4:filename>colorPicker.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="chosen_db">
+            <ns4:name>chosen</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css</ns4:folder>
+            <ns4:filename>chosen.min.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_glas_gf_f_bxea_dc">
+            <ns4:name>ui-bg_glass_65_ffffff_1x400</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_glass_65_ffffff_1x400.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_glas_jf_fefbec_bxea_d">
+            <ns4:name>ui-bg_glass_95_fef1ec_1x400</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_glass_95_fef1ec_1x400.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_icons_efefef_cfgxcea_de">
+            <ns4:name>ui-icons_454545_256x240</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-icons_454545_256x240.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_glas_hf_dadada_bxea_df">
+            <ns4:name>ui-bg_glass_75_dadada_1x400</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_glass_75_dadada_1x400.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_icons_c_cfgxcea_dg">
+            <ns4:name>ui-icons_222222_256x240</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-icons_222222_256x240.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_highlight_soft_hf_c_bxba_dh">
+            <ns4:name>ui-bg_highlight-soft_75_cccccc_1x100</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_highlight-soft_75_cccccc_1x100.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_glas_hf_egegeg_bxea_di">
+            <ns4:name>ui-bg_glass_75_e6e6e6_1x400</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_glass_75_e6e6e6_1x400.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_icons_cda_cfgxcea_dj">
+            <ns4:name>ui-icons_cd0a0a_256x240</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-icons_cd0a0a_256x240.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_flat_a_a_eaxba_ea">
+            <ns4:name>ui-bg_flat_0_aaaaaa_40x100</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_flat_0_aaaaaa_40x100.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_glas_f_fbfje_bxea_eb">
+            <ns4:name>ui-bg_glass_55_fbf9ee_1x400</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_glass_55_fbf9ee_1x400.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_flat_hf_f_eaxba_ec">
+            <ns4:name>ui-bg_flat_75_ffffff_40x100</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_flat_75_ffffff_40x100.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_icons_i_cfgxcea_ed">
+            <ns4:name>ui-icons_888888_256x240</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-icons_888888_256x240.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_icons_ceidf_cfgxcea_e">
+            <ns4:name>ui-icons_2e83ff_256x240</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-icons_2e83ff_256x240.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="jquery_uic_ef">
+            <ns4:name>jquery-ui2</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css</ns4:folder>
+            <ns4:filename>jquery-ui2.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="favicon_eg">
+            <ns4:name>favicon</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/img</ns4:folder>
+            <ns4:filename>favicon.ico</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="play_eh">
+            <ns4:name>play</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/img</ns4:folder>
+            <ns4:filename>play.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="emperor_ei">
+            <ns4:name>emperor</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/img</ns4:folder>
+            <ns4:filename>emperor.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="pause_ej">
+            <ns4:name>pause</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/img</ns4:folder>
+            <ns4:filename>pause.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="reset_fa">
+            <ns4:name>reset</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot/emperor_required_resources/img</ns4:folder>
+            <ns4:filename>reset.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="index_fb">
+            <ns4:name>index</ns4:name>
+            <ns4:folder>beta_out/unweighted_unifrac_emperor_pcoa_plot</ns4:folder>
+            <ns4:filename>index.html</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="jquery_ui_b_fc">
+            <ns4:name>jquery-ui-1</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>jquery-ui-1.8.17.custom.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="d_fd">
+            <ns4:name>d3</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>d3.v3.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="jquery_b_fe">
+            <ns4:name>jquery-1</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>jquery-1.6.2.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="d_f">
+            <ns4:name>d3</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>d3.parcoords.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="detector_fg">
+            <ns4:name>Detector</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js/js</ns4:folder>
+            <ns4:filename>Detector.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="svgrenderer_fh">
+            <ns4:name>SVGRenderer</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js/js</ns4:folder>
+            <ns4:filename>SVGRenderer.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="orbitcontrols_fi">
+            <ns4:name>OrbitControls</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js/js</ns4:folder>
+            <ns4:filename>OrbitControls.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="colorconverter_fj">
+            <ns4:name>ColorConverter</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js/js</ns4:folder>
+            <ns4:filename>ColorConverter.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="jquery_b_ga">
+            <ns4:name>jquery-1</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>jquery-1.7.1.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="filesaver_gb">
+            <ns4:name>FileSaver</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>FileSaver.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="threx_gc">
+            <ns4:name>THREEx</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>THREEx.screenshot.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="jquery_gd">
+            <ns4:name>jquery</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>jquery.colorPicker.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="underscore_min_ge">
+            <ns4:name>underscore-min</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>underscore-min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="chosen_gf">
+            <ns4:name>chosen</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>chosen.jquery.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="thre_g">
+            <ns4:name>three</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>three.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="spectrum_gh">
+            <ns4:name>spectrum</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>spectrum.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="chroma_gi">
+            <ns4:name>chroma</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/js</ns4:folder>
+            <ns4:filename>chroma.min.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="emperor_gj">
+            <ns4:name>emperor</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/js</ns4:folder>
+            <ns4:filename>emperor.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="trajectory_ha">
+            <ns4:name>trajectory</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/js</ns4:folder>
+            <ns4:filename>trajectory.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="draw_hb">
+            <ns4:name>draw</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/js</ns4:folder>
+            <ns4:filename>draw.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="util_hc">
+            <ns4:name>util</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/js</ns4:folder>
+            <ns4:filename>util.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_hd">
+            <ns4:name>ui</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/js</ns4:folder>
+            <ns4:filename>ui.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="animate_he">
+            <ns4:name>animate</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/js</ns4:folder>
+            <ns4:filename>animate.js</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="emperor_hf">
+            <ns4:name>emperor</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/emperor/css</ns4:folder>
+            <ns4:filename>emperor.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="spectrum_hg">
+            <ns4:name>spectrum</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css</ns4:folder>
+            <ns4:filename>spectrum.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="d_h">
+            <ns4:name>d3</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css</ns4:folder>
+            <ns4:filename>d3.parcoords.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="jquery_ui_b_hi">
+            <ns4:name>jquery-ui-1</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css</ns4:folder>
+            <ns4:filename>jquery-ui-1.8.16.custom.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="colorpicker_hj">
+            <ns4:name>colorPicker</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css</ns4:folder>
+            <ns4:filename>colorPicker.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="chosen_ia">
+            <ns4:name>chosen</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css</ns4:folder>
+            <ns4:filename>chosen.min.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_glas_gf_f_bxea_ib">
+            <ns4:name>ui-bg_glass_65_ffffff_1x400</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_glass_65_ffffff_1x400.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_glas_jf_fefbec_bxea_ic">
+            <ns4:name>ui-bg_glass_95_fef1ec_1x400</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_glass_95_fef1ec_1x400.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_icons_efefef_cfgxcea_id">
+            <ns4:name>ui-icons_454545_256x240</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-icons_454545_256x240.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_glas_hf_dadada_bxea_ie">
+            <ns4:name>ui-bg_glass_75_dadada_1x400</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_glass_75_dadada_1x400.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_icons_c_cfgxcea_if">
+            <ns4:name>ui-icons_222222_256x240</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-icons_222222_256x240.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_highlight_soft_hf_c_bxba_ig">
+            <ns4:name>ui-bg_highlight-soft_75_cccccc_1x100</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_highlight-soft_75_cccccc_1x100.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_glas_hf_egegeg_bxea_ih">
+            <ns4:name>ui-bg_glass_75_e6e6e6_1x400</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_glass_75_e6e6e6_1x400.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_icons_cda_cfgxcea_i">
+            <ns4:name>ui-icons_cd0a0a_256x240</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-icons_cd0a0a_256x240.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_flat_a_a_eaxba_ij">
+            <ns4:name>ui-bg_flat_0_aaaaaa_40x100</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_flat_0_aaaaaa_40x100.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_glas_f_fbfje_bxea_ja">
+            <ns4:name>ui-bg_glass_55_fbf9ee_1x400</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_glass_55_fbf9ee_1x400.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_bg_flat_hf_f_eaxba_jb">
+            <ns4:name>ui-bg_flat_75_ffffff_40x100</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-bg_flat_75_ffffff_40x100.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_icons_i_cfgxcea_jc">
+            <ns4:name>ui-icons_888888_256x240</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-icons_888888_256x240.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="ui_icons_ceidf_cfgxcea_jd">
+            <ns4:name>ui-icons_2e83ff_256x240</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css/images</ns4:folder>
+            <ns4:filename>ui-icons_2e83ff_256x240.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="jquery_uic_je">
+            <ns4:name>jquery-ui2</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/css</ns4:folder>
+            <ns4:filename>jquery-ui2.css</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="favicon_jf">
+            <ns4:name>favicon</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/img</ns4:folder>
+            <ns4:filename>favicon.ico</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="play_jg">
+            <ns4:name>play</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/img</ns4:folder>
+            <ns4:filename>play.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="emperor_jh">
+            <ns4:name>emperor</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/img</ns4:folder>
+            <ns4:filename>emperor.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="pause_ji">
+            <ns4:name>pause</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/img</ns4:folder>
+            <ns4:filename>pause.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="reset_j">
+            <ns4:name>reset</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot/emperor_required_resources/img</ns4:folder>
+            <ns4:filename>reset.png</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="index_ba">
+            <ns4:name>index</ns4:name>
+            <ns4:folder>beta_out/weighted_unifrac_emperor_pcoa_plot</ns4:folder>
+            <ns4:filename>index.html</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="unweighted_unifrac_dm_bab">
+            <ns4:name>unweighted_unifrac_dm</ns4:name>
+            <ns4:folder>beta_out</ns4:folder>
+            <ns4:filename>unweighted_unifrac_dm.txt</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="weighted_unifrac_pc_bac">
+            <ns4:name>weighted_unifrac_pc</ns4:name>
+            <ns4:folder>beta_out</ns4:folder>
+            <ns4:filename>weighted_unifrac_pc.txt</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="unweighted_unifrac_pc_bad">
+            <ns4:name>unweighted_unifrac_pc</ns4:name>
+            <ns4:folder>beta_out</ns4:folder>
+            <ns4:filename>unweighted_unifrac_pc.txt</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+        <ns4:outputfile id="weighted_unifrac_dm_bae">
+            <ns4:name>weighted_unifrac_dm</ns4:name>
+            <ns4:folder>beta_out</ns4:folder>
+            <ns4:filename>weighted_unifrac_dm.txt</ns4:filename>
+            <ns4:contenttype>plain/text</ns4:contenttype>
+        </ns4:outputfile>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         <ns4:param id="jobs_to_start">
@@ -322,7 +962,127 @@
             <ns4:inputref ref="input_otu_table"/>
             <!--ns4:inputref ref="input_parameter_file"/-->
             <ns4:inputref ref="input_tree_file"/>
+            
             <ns4:outputref ref="PLACEHOLDER_output_beta_diversity"/>
+            
+            
+            
+            
+            
+            
+            
+            
+            <ns4:outputfileref ref="beta_out_log"/>
+            <ns4:outputfileref ref="jquery_ui_b_d"/>
+            <ns4:outputfileref ref="d_e"/>
+            <ns4:outputfileref ref="jquery_b_f"/>
+            <ns4:outputfileref ref="d_g"/>
+            <ns4:outputfileref ref="detector_h"/>
+            <ns4:outputfileref ref="svgrenderer_i"/>
+            <ns4:outputfileref ref="orbitcontrols_j"/>
+            <ns4:outputfileref ref="colorconverter_ba"/>
+            <ns4:outputfileref ref="jquery_b_b"/>
+            <ns4:outputfileref ref="filesaver_bc"/>
+            <ns4:outputfileref ref="threx_bd"/>
+            <ns4:outputfileref ref="jquery_be"/>
+            <ns4:outputfileref ref="underscore_min_bf"/>
+            <ns4:outputfileref ref="chosen_bg"/>
+            <ns4:outputfileref ref="thre_bh"/>
+            <ns4:outputfileref ref="spectrum_bi"/>
+            <ns4:outputfileref ref="chroma_bj"/>
+            <ns4:outputfileref ref="emperor_ca"/>
+            <ns4:outputfileref ref="trajectory_cb"/>
+            <ns4:outputfileref ref="draw_c"/>
+            <ns4:outputfileref ref="util_cd"/>
+            <ns4:outputfileref ref="ui_ce"/>
+            <ns4:outputfileref ref="animate_cf"/>
+            <ns4:outputfileref ref="emperor_cg"/>
+            <ns4:outputfileref ref="spectrum_ch"/>
+            <ns4:outputfileref ref="d_ci"/>
+            <ns4:outputfileref ref="jquery_ui_b_cj"/>
+            <ns4:outputfileref ref="colorpicker_da"/>
+            <ns4:outputfileref ref="chosen_db"/>
+            <ns4:outputfileref ref="ui_bg_glas_gf_f_bxea_dc"/>
+            <ns4:outputfileref ref="ui_bg_glas_jf_fefbec_bxea_d"/>
+            <ns4:outputfileref ref="ui_icons_efefef_cfgxcea_de"/>
+            <ns4:outputfileref ref="ui_bg_glas_hf_dadada_bxea_df"/>
+            <ns4:outputfileref ref="ui_icons_c_cfgxcea_dg"/>
+            <ns4:outputfileref ref="ui_bg_highlight_soft_hf_c_bxba_dh"/>
+            <ns4:outputfileref ref="ui_bg_glas_hf_egegeg_bxea_di"/>
+            <ns4:outputfileref ref="ui_icons_cda_cfgxcea_dj"/>
+            <ns4:outputfileref ref="ui_bg_flat_a_a_eaxba_ea"/>
+            <ns4:outputfileref ref="ui_bg_glas_f_fbfje_bxea_eb"/>
+            <ns4:outputfileref ref="ui_bg_flat_hf_f_eaxba_ec"/>
+            <ns4:outputfileref ref="ui_icons_i_cfgxcea_ed"/>
+            <ns4:outputfileref ref="ui_icons_ceidf_cfgxcea_e"/>
+            <ns4:outputfileref ref="jquery_uic_ef"/>
+            <ns4:outputfileref ref="favicon_eg"/>
+            <ns4:outputfileref ref="play_eh"/>
+            <ns4:outputfileref ref="emperor_ei"/>
+            <ns4:outputfileref ref="pause_ej"/>
+            <ns4:outputfileref ref="reset_fa"/>
+            <ns4:outputfileref ref="index_fb"/>
+            <ns4:outputfileref ref="jquery_ui_b_fc"/>
+            <ns4:outputfileref ref="d_fd"/>
+            <ns4:outputfileref ref="jquery_b_fe"/>
+            <ns4:outputfileref ref="d_f"/>
+            <ns4:outputfileref ref="detector_fg"/>
+            <ns4:outputfileref ref="svgrenderer_fh"/>
+            <ns4:outputfileref ref="orbitcontrols_fi"/>
+            <ns4:outputfileref ref="colorconverter_fj"/>
+            <ns4:outputfileref ref="jquery_b_ga"/>
+            <ns4:outputfileref ref="filesaver_gb"/>
+            <ns4:outputfileref ref="threx_gc"/>
+            <ns4:outputfileref ref="jquery_gd"/>
+            <ns4:outputfileref ref="underscore_min_ge"/>
+            <ns4:outputfileref ref="chosen_gf"/>
+            <ns4:outputfileref ref="thre_g"/>
+            <ns4:outputfileref ref="spectrum_gh"/>
+            <ns4:outputfileref ref="chroma_gi"/>
+            <ns4:outputfileref ref="emperor_gj"/>
+            <ns4:outputfileref ref="trajectory_ha"/>
+            <ns4:outputfileref ref="draw_hb"/>
+            <ns4:outputfileref ref="util_hc"/>
+            <ns4:outputfileref ref="ui_hd"/>
+            <ns4:outputfileref ref="animate_he"/>
+            <ns4:outputfileref ref="emperor_hf"/>
+            <ns4:outputfileref ref="spectrum_hg"/>
+            <ns4:outputfileref ref="d_h"/>
+            <ns4:outputfileref ref="jquery_ui_b_hi"/>
+            <ns4:outputfileref ref="colorpicker_hj"/>
+            <ns4:outputfileref ref="chosen_ia"/>
+            <ns4:outputfileref ref="ui_bg_glas_gf_f_bxea_ib"/>
+            <ns4:outputfileref ref="ui_bg_glas_jf_fefbec_bxea_ic"/>
+            <ns4:outputfileref ref="ui_icons_efefef_cfgxcea_id"/>
+            <ns4:outputfileref ref="ui_bg_glas_hf_dadada_bxea_ie"/>
+            <ns4:outputfileref ref="ui_icons_c_cfgxcea_if"/>
+            <ns4:outputfileref ref="ui_bg_highlight_soft_hf_c_bxba_ig"/>
+            <ns4:outputfileref ref="ui_bg_glas_hf_egegeg_bxea_ih"/>
+            <ns4:outputfileref ref="ui_icons_cda_cfgxcea_i"/>
+            <ns4:outputfileref ref="ui_bg_flat_a_a_eaxba_ij"/>
+            <ns4:outputfileref ref="ui_bg_glas_f_fbfje_bxea_ja"/>
+            <ns4:outputfileref ref="ui_bg_flat_hf_f_eaxba_jb"/>
+            <ns4:outputfileref ref="ui_icons_i_cfgxcea_jc"/>
+            <ns4:outputfileref ref="ui_icons_ceidf_cfgxcea_jd"/>
+            <ns4:outputfileref ref="jquery_uic_je"/>
+            <ns4:outputfileref ref="favicon_jf"/>
+            <ns4:outputfileref ref="play_jg"/>
+            <ns4:outputfileref ref="emperor_jh"/>
+            <ns4:outputfileref ref="pause_ji"/>
+            <ns4:outputfileref ref="reset_j"/>
+            <ns4:outputfileref ref="index_ba"/>
+            <ns4:outputfileref ref="unweighted_unifrac_dm_bab"/>
+            <ns4:outputfileref ref="weighted_unifrac_pc_bac"/>
+            <ns4:outputfileref ref="unweighted_unifrac_pc_bad"/>
+            <ns4:outputfileref ref="weighted_unifrac_dm_bae"/>
+            
+            
+            
+            
+            
+            
+            
+            
             
             <ns4:paramGroup id="qiime_beta_diversity_paramgroup">
                 <ns4:paramref ref="parallel"/>
@@ -336,11 +1096,11 @@
                 <!--ns4:reference>input_parameter_file</ns4:reference-->
                 <ns4:reference>parallel</ns4:reference>
                 <ns4:reference>jobs_to_start</ns4:reference>
-                <ns4:additionalString>-f -o /var/spool/cwl</ns4:additionalString>
+                <!--ns4:additionalString>-f -o /var/spool/cwl</ns4:additionalString-->
+                <ns4:additionalString>-f -o beta_out</ns4:additionalString>
                 <ns4:reference>PLACEHOLDER_output_beta_diversity</ns4:reference>
             </ns4:paramAndInputOutputOrder>
         </ns4:function>
-        
         
     </ns4:executable>
     

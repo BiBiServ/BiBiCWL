@@ -1,0 +1,310 @@
+
+  log_cabiachbjceci_c:
+    type: File
+    outputSource: alpha_diversity/log_cabiachbjceci_c
+  jquery_ui_b_d:
+    type: File
+    outputSource: alpha_diversity/jquery_ui_b_d
+  d_e:
+    type: File
+    outputSource: alpha_diversity/d_e
+  jquery_b_f:
+    type: File
+    outputSource: alpha_diversity/jquery_b_f
+  d_g:
+    type: File
+    outputSource: alpha_diversity/d_g
+  detector_h:
+    type: File
+    outputSource: alpha_diversity/detector_h
+  svgrenderer_i:
+    type: File
+    outputSource: alpha_diversity/svgrenderer_i
+  orbitcontrols_j:
+    type: File
+    outputSource: alpha_diversity/orbitcontrols_j
+  colorconverter_ba:
+    type: File
+    outputSource: alpha_diversity/colorconverter_ba
+  jquery_b_b:
+    type: File
+    outputSource: alpha_diversity/jquery_b_b
+  filesaver_bc:
+    type: File
+    outputSource: alpha_diversity/filesaver_bc
+  threx_bd:
+    type: File
+    outputSource: alpha_diversity/threx_bd
+  jquery_be:
+    type: File
+    outputSource: alpha_diversity/jquery_be
+  underscore_min_bf:
+    type: File
+    outputSource: alpha_diversity/underscore_min_bf
+  chosen_bg:
+    type: File
+    outputSource: alpha_diversity/chosen_bg
+  thre_bh:
+    type: File
+    outputSource: alpha_diversity/thre_bh
+  spectrum_bi:
+    type: File
+    outputSource: alpha_diversity/spectrum_bi
+  chroma_bj:
+    type: File
+    outputSource: alpha_diversity/chroma_bj
+  emperor_ca:
+    type: File
+    outputSource: alpha_diversity/emperor_ca
+  trajectory_cb:
+    type: File
+    outputSource: alpha_diversity/trajectory_cb
+  draw_c:
+    type: File
+    outputSource: alpha_diversity/draw_c
+  util_cd:
+    type: File
+    outputSource: alpha_diversity/util_cd
+  ui_ce:
+    type: File
+    outputSource: alpha_diversity/ui_ce
+  animate_cf:
+    type: File
+    outputSource: alpha_diversity/animate_cf
+  emperor_cg:
+    type: File
+    outputSource: alpha_diversity/emperor_cg
+  spectrum_ch:
+    type: File
+    outputSource: alpha_diversity/spectrum_ch
+  d_ci:
+    type: File
+    outputSource: alpha_diversity/d_ci
+  jquery_ui_b_cj:
+    type: File
+    outputSource: alpha_diversity/jquery_ui_b_cj
+  colorpicker_da:
+    type: File
+    outputSource: alpha_diversity/colorpicker_da
+  chosen_db:
+    type: File
+    outputSource: alpha_diversity/chosen_db
+  ui_bg_glas_gf_f_bxea_dc:
+    type: File
+    outputSource: alpha_diversity/ui_bg_glas_gf_f_bxea_dc
+  ui_bg_glas_jf_fefbec_bxea_d:
+    type: File
+    outputSource: alpha_diversity/ui_bg_glas_jf_fefbec_bxea_d
+  ui_icons_efefef_cfgxcea_de:
+    type: File
+    outputSource: alpha_diversity/ui_icons_efefef_cfgxcea_de
+  ui_bg_glas_hf_dadada_bxea_df:
+    type: File
+    outputSource: alpha_diversity/ui_bg_glas_hf_dadada_bxea_df
+  ui_icons_c_cfgxcea_dg:
+    type: File
+    outputSource: alpha_diversity/ui_icons_c_cfgxcea_dg
+  ui_bg_highlight_soft_hf_c_bxba_dh:
+    type: File
+    outputSource: alpha_diversity/ui_bg_highlight_soft_hf_c_bxba_dh
+  ui_bg_glas_hf_egegeg_bxea_di:
+    type: File
+    outputSource: alpha_diversity/ui_bg_glas_hf_egegeg_bxea_di
+  ui_icons_cda_cfgxcea_dj:
+    type: File
+    outputSource: alpha_diversity/ui_icons_cda_cfgxcea_dj
+  ui_bg_flat_a_a_eaxba_ea:
+    type: File
+    outputSource: alpha_diversity/ui_bg_flat_a_a_eaxba_ea
+  ui_bg_glas_f_fbfje_bxea_eb:
+    type: File
+    outputSource: alpha_diversity/ui_bg_glas_f_fbfje_bxea_eb
+  ui_bg_flat_hf_f_eaxba_ec:
+    type: File
+    outputSource: alpha_diversity/ui_bg_flat_hf_f_eaxba_ec
+  ui_icons_i_cfgxcea_ed:
+    type: File
+    outputSource: alpha_diversity/ui_icons_i_cfgxcea_ed
+  ui_icons_ceidf_cfgxcea_e:
+    type: File
+    outputSource: alpha_diversity/ui_icons_ceidf_cfgxcea_e
+  jquery_uic_ef:
+    type: File
+    outputSource: alpha_diversity/jquery_uic_ef
+  favicon_eg:
+    type: File
+    outputSource: alpha_diversity/favicon_eg
+  play_eh:
+    type: File
+    outputSource: alpha_diversity/play_eh
+  emperor_ei:
+    type: File
+    outputSource: alpha_diversity/emperor_ei
+  pause_ej:
+    type: File
+    outputSource: alpha_diversity/pause_ej
+  reset_fa:
+    type: File
+    outputSource: alpha_diversity/reset_fa
+  index_fb:
+    type: File
+    outputSource: alpha_diversity/index_fb
+  jquery_ui_b_fc:
+    type: File
+    outputSource: alpha_diversity/jquery_ui_b_fc
+  d_fd:
+    type: File
+    outputSource: alpha_diversity/d_fd
+  jquery_b_fe:
+    type: File
+    outputSource: alpha_diversity/jquery_b_fe
+  d_f:
+    type: File
+    outputSource: alpha_diversity/d_f
+  detector_fg:
+    type: File
+    outputSource: alpha_diversity/detector_fg
+  svgrenderer_fh:
+    type: File
+    outputSource: alpha_diversity/svgrenderer_fh
+  orbitcontrols_fi:
+    type: File
+    outputSource: alpha_diversity/orbitcontrols_fi
+  colorconverter_fj:
+    type: File
+    outputSource: alpha_diversity/colorconverter_fj
+  jquery_b_ga:
+    type: File
+    outputSource: alpha_diversity/jquery_b_ga
+  filesaver_gb:
+    type: File
+    outputSource: alpha_diversity/filesaver_gb
+  threx_gc:
+    type: File
+    outputSource: alpha_diversity/threx_gc
+  jquery_gd:
+    type: File
+    outputSource: alpha_diversity/jquery_gd
+  underscore_min_ge:
+    type: File
+    outputSource: alpha_diversity/underscore_min_ge
+  chosen_gf:
+    type: File
+    outputSource: alpha_diversity/chosen_gf
+  thre_g:
+    type: File
+    outputSource: alpha_diversity/thre_g
+  spectrum_gh:
+    type: File
+    outputSource: alpha_diversity/spectrum_gh
+  chroma_gi:
+    type: File
+    outputSource: alpha_diversity/chroma_gi
+  emperor_gj:
+    type: File
+    outputSource: alpha_diversity/emperor_gj
+  trajectory_ha:
+    type: File
+    outputSource: alpha_diversity/trajectory_ha
+  draw_hb:
+    type: File
+    outputSource: alpha_diversity/draw_hb
+  util_hc:
+    type: File
+    outputSource: alpha_diversity/util_hc
+  ui_hd:
+    type: File
+    outputSource: alpha_diversity/ui_hd
+  animate_he:
+    type: File
+    outputSource: alpha_diversity/animate_he
+  emperor_hf:
+    type: File
+    outputSource: alpha_diversity/emperor_hf
+  spectrum_hg:
+    type: File
+    outputSource: alpha_diversity/spectrum_hg
+  d_h:
+    type: File
+    outputSource: alpha_diversity/d_h
+  jquery_ui_b_hi:
+    type: File
+    outputSource: alpha_diversity/jquery_ui_b_hi
+  colorpicker_hj:
+    type: File
+    outputSource: alpha_diversity/colorpicker_hj
+  chosen_ia:
+    type: File
+    outputSource: alpha_diversity/chosen_ia
+  ui_bg_glas_gf_f_bxea_ib:
+    type: File
+    outputSource: alpha_diversity/ui_bg_glas_gf_f_bxea_ib
+  ui_bg_glas_jf_fefbec_bxea_ic:
+    type: File
+    outputSource: alpha_diversity/ui_bg_glas_jf_fefbec_bxea_ic
+  ui_icons_efefef_cfgxcea_id:
+    type: File
+    outputSource: alpha_diversity/ui_icons_efefef_cfgxcea_id
+  ui_bg_glas_hf_dadada_bxea_ie:
+    type: File
+    outputSource: alpha_diversity/ui_bg_glas_hf_dadada_bxea_ie
+  ui_icons_c_cfgxcea_if:
+    type: File
+    outputSource: alpha_diversity/ui_icons_c_cfgxcea_if
+  ui_bg_highlight_soft_hf_c_bxba_ig:
+    type: File
+    outputSource: alpha_diversity/ui_bg_highlight_soft_hf_c_bxba_ig
+  ui_bg_glas_hf_egegeg_bxea_ih:
+    type: File
+    outputSource: alpha_diversity/ui_bg_glas_hf_egegeg_bxea_ih
+  ui_icons_cda_cfgxcea_i:
+    type: File
+    outputSource: alpha_diversity/ui_icons_cda_cfgxcea_i
+  ui_bg_flat_a_a_eaxba_ij:
+    type: File
+    outputSource: alpha_diversity/ui_bg_flat_a_a_eaxba_ij
+  ui_bg_glas_f_fbfje_bxea_ja:
+    type: File
+    outputSource: alpha_diversity/ui_bg_glas_f_fbfje_bxea_ja
+  ui_bg_flat_hf_f_eaxba_jb:
+    type: File
+    outputSource: alpha_diversity/ui_bg_flat_hf_f_eaxba_jb
+  ui_icons_i_cfgxcea_jc:
+    type: File
+    outputSource: alpha_diversity/ui_icons_i_cfgxcea_jc
+  ui_icons_ceidf_cfgxcea_jd:
+    type: File
+    outputSource: alpha_diversity/ui_icons_ceidf_cfgxcea_jd
+  jquery_uic_je:
+    type: File
+    outputSource: alpha_diversity/jquery_uic_je
+  favicon_jf:
+    type: File
+    outputSource: alpha_diversity/favicon_jf
+  play_jg:
+    type: File
+    outputSource: alpha_diversity/play_jg
+  emperor_jh:
+    type: File
+    outputSource: alpha_diversity/emperor_jh
+  pause_ji:
+    type: File
+    outputSource: alpha_diversity/pause_ji
+  reset_j:
+    type: File
+    outputSource: alpha_diversity/reset_j
+  index_ba:
+    type: File
+    outputSource: alpha_diversity/index_ba
+  unweighted_unifrac_dm_bab:
+    type: File
+    outputSource: alpha_diversity/unweighted_unifrac_dm_bab
+  weighted_unifrac_pc_bac:
+    type: File
+    outputSource: alpha_diversity/weighted_unifrac_pc_bac
+  unweighted_unifrac_pc_bad:
+    type: File
+    outputSource: alpha_diversity/unweighted_unifrac_pc_bad
+  weighted_unifrac_dm_bae:
+    type: File
+    outputSource: alpha_diversity/weighted_unifrac_dm_bae

@@ -10,13 +10,13 @@ input_tree_file:
     class: File
     path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/testrun/rep_set.tre
 
-input_parameter_file:
-  class: File
-  path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/predefined_files/alpha_parameters_TOUSE.txt
+#input_parameter_file:
+#  class: File
+#  path: /home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/testsuite/predefined_files/alpha_parameters_TOUSE.txt
 
 
 jobs_to_start: 1
 
 parallel: false
 
-PLACEHOLDER_output_alpha_diversity_outputFileName: alpha_out_stdout.txt
+PLACEHOLDER_output_beta_diversity_outputFileName: beta_out_stdout.txt

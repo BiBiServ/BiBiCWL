@@ -1,0 +1,301 @@
+
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_lc_c">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L2</ns4:name>
+    <ns4:folder>taxa_plots</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L2.txt</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_lf_d">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L5</ns4:name>
+    <ns4:folder>taxa_plots</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L5.biom</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="haedmknqkqklnxsplcsjshbadjbog_legend_e">
+    <ns4:name>hA4DmkNqkQKlnxxspl2Sjs71ADj1OG_legend</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>hA4DmkNqkQKlnxxspl2Sjs71ADj1OG_legend.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="ifwzoulaqgwawnjaercbxcyqtwilj_legend_f">
+    <ns4:name>IfWzzOul0qgW0Wnj0eRcbXCyqTWIl9_legend</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>IfWzzOul0qgW0Wnj0eRcbXCyqTWIl9_legend.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="ynebxlczbgrdrizmbeqfxwaukqdwn_g">
+    <ns4:name>YneBxl2ZBgR3riZMb4QfxwaukqdDwN</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>YneBxl2ZBgR3riZMb4QfxwaukqdDwN.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="afctyigohreonslnfiwnhdwebyuh_legend_h">
+    <ns4:name>A5cctyigO7rEonSlNNfiwnhdwebyu7_legend</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>A5cctyigO7rEonSlNNfiwnhdwebyu7_legend.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="fekdqpflgtiqoshewndkcgomfwbdgp_legend_i">
+    <ns4:name>F4kdqPflgt8qOs7ewNdk2GoM5Wbd6P_legend</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>F4kdqPflgt8qOs7ewNdk2GoM5Wbd6P_legend.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="cehunmjdnkbclnudzuxcewjhjczs_j">
+    <ns4:name>24hunmj3DNk1clnUdZuxceWjHj2Zss</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>24hunmj3DNk1clnUdZuxceWjHj2Zss.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="pjmnidbohzpzfhrwcojldnaclieiu_ba">
+    <ns4:name>p9mNidbOHZzPZF7rWcOjL3naclie8u</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>p9mNidbOHZzPZF7rWcOjL3naclie8u.png</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="ibpiazyaufifqfwzhkpojxejohbf_b">
+    <ns4:name>81pi0ZzYaaU5IFQ5wzhkpoJxEjoH15</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>81pi0ZzYaaU5IFQ5wzhkpoJxEjoH15.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="afctyigohreonslnfiwnhdwebyuh_bc">
+    <ns4:name>A5cctyigO7rEonSlNNfiwnhdwebyu7</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>A5cctyigO7rEonSlNNfiwnhdwebyu7.png</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="pgqgijzbfykxjtlpfzrdhnrmqau_legend_bd">
+    <ns4:name>pPg6q6ijzZB5YkXJTlP5zrd7nrMq0U_legend</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>pPg6q6ijzZB5YkXJTlP5zrd7nrMq0U_legend.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="pgqgijzbfykxjtlpfzrdhnrmqau_be">
+    <ns4:name>pPg6q6ijzZB5YkXJTlP5zrd7nrMq0U</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>pPg6q6ijzZB5YkXJTlP5zrd7nrMq0U.png</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="cangiuaygcbuicoutasbdbgzsyfzte_bf">
+    <ns4:name>CAngIu0ygCBU82oUt0S131GzSY5zTe</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>CAngIu0ygCBU82oUt0S131GzSY5zTe.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="syzbntxipqukslkalckcdtrplrbra_legend_bg">
+    <ns4:name>SSYz1NTX8pqUksLK0lCkcDtRplRBr0_legend</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>SSYz1NTX8pqUksLK0lCkcDtRplRBr0_legend.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="cfjfuryjmyxakqguzbisgfzezsw_bh">
+    <ns4:name>2fJ5UrY9MyXAKq66UZ1iSGfz4EZsWw</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>2fJ5UrY9MyXAKq66UZ1iSGfz4EZsWw.png</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="uhsfhegeraqifmoapzukbfsmnuqae_bi">
+    <ns4:name>U7SFHEgGerAQ8FMOAPzUkb5SMNuqA4</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>U7SFHEgGerAQ8FMOAPzUkb5SMNuqA4.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="tspikzdwuxjzwhkfbcrwfjabmfcxic_legend_bj">
+    <ns4:name>TSP8KzDWuXjzwhKfB2RW5jABMfcx82_legend</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>TSP8KzDWuXjzwhKfB2RW5jABMfcx82_legend.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="tspikzdwuxjzwhkfbcrwfjabmfcxic_ca">
+    <ns4:name>TSP8KzDWuXjzwhKfB2RW5jABMfcx82</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>TSP8KzDWuXjzwhKfB2RW5jABMfcx82.png</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="fcusznluboazwzhgohbmgfqmdeltn_cb">
+    <ns4:name>5CUSzNlubo0zwZh6OhhbM6fQMDeltn</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>5CUSzNlubo0zwZh6OhhbM6fQMDeltn.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="cfjfuryjmyxakqguzbisgfzezsw_legend_c">
+    <ns4:name>2fJ5UrY9MyXAKq66UZ1iSGfz4EZsWw_legend</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>2fJ5UrY9MyXAKq66UZ1iSGfz4EZsWw_legend.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="tnqrelxolfkbenxhgberegwlagqa_legend_cd">
+    <ns4:name>TNqRELXolfKBEnxXHg1er4gWl066qa_legend</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>TNqRELXolfKBEnxXHg1er4gWl066qa_legend.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="ifwzoulaqgwawnjaercbxcyqtwilj_ce">
+    <ns4:name>IfWzzOul0qgW0Wnj0eRcbXCyqTWIl9</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>IfWzzOul0qgW0Wnj0eRcbXCyqTWIl9.png</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="syzbntxipqukslkalckcdtrplrbra_cf">
+    <ns4:name>SSYz1NTX8pqUksLK0lCkcDtRplRBr0</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>SSYz1NTX8pqUksLK0lCkcDtRplRBr0.png</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="pjmnidbohzpzfhrwcojldnaclieiu_legend_cg">
+    <ns4:name>p9mNidbOHZzPZF7rWcOjL3naclie8u_legend</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>p9mNidbOHZzPZF7rWcOjL3naclie8u_legend.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="tnqrelxolfkbenxhgberegwlagqa_ch">
+    <ns4:name>TNqRELXolfKBEnxXHg1er4gWl066qa</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>TNqRELXolfKBEnxXHg1er4gWl066qa.png</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="hkyaraxslgophuzkerhbkzojqmzjph_ci">
+    <ns4:name>7Ky0R0XSL6OphUzK4R7BkZojQmZJPh</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>7Ky0R0XSL6OphUzK4R7BkZojQmZJPh.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="bmarozexproceymgbhfhjboxfghocr_cj">
+    <ns4:name>bMAROZ4xPRoc4ym6b7fhJBox5GhO2R</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>bMAROZ4xPRoc4ym6b7fhJBox5GhO2R.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="haedmknqkqklnxsplcsjshbadjbog_da">
+    <ns4:name>hA4DmkNqkQKlnxxspl2Sjs71ADj1OG</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>hA4DmkNqkQKlnxxspl2Sjs71ADj1OG.png</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="fekdqpflgtiqoshewndkcgomfwbdgp_db">
+    <ns4:name>F4kdqPflgt8qOs7ewNdk2GoM5Wbd6P</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>F4kdqPflgt8qOs7ewNdk2GoM5Wbd6P.png</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="liyzatketdoqziyrcaxywyuabsay_dc">
+    <ns4:name>LLiYZatk4tdoqZ8yrcaXYWyUuABsAY</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>LLiYZatk4tdoqZ8yrcaXYWyUuABsAY.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="heabpjfxkgeqzycdizhwjzluecafk_d">
+    <ns4:name>7eABpJfXkGEQZy23IzHWjzLlU4C0fk</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/charts</ns4:folder>
+    <ns4:filename>7eABpJfXkGEQZy23IzHWjzLlU4C0fk.pdf</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="area_charts_de">
+    <ns4:name>area_charts</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots</ns4:folder>
+    <ns4:filename>area_charts.html</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="overlib_df">
+    <ns4:name>overlib</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/js</ns4:folder>
+    <ns4:filename>overlib.js</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="bar_charts_dg">
+    <ns4:name>bar_charts</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots</ns4:folder>
+    <ns4:filename>bar_charts.html</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="qime_style_dh">
+    <ns4:name>qiime_style</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/css</ns4:folder>
+    <ns4:filename>qiime_style.css</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_lc_di">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L2</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/raw_data</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L2.txt</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_le_dj">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L4</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/raw_data</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L4.txt</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_lf_ea">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L5</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/raw_data</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L5.txt</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_lg_eb">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L6</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/raw_data</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L6.txt</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_ld_ec">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L3</ns4:name>
+    <ns4:folder>taxa_plots/taxa_summary_plots/raw_data</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L3.txt</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_ld_ed">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L3</ns4:name>
+    <ns4:folder>taxa_plots</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L3.biom</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_le_e">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L4</ns4:name>
+    <ns4:folder>taxa_plots</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L4.txt</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_lg_ef">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L6</ns4:name>
+    <ns4:folder>taxa_plots</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L6.biom</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_lf_eg">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L5</ns4:name>
+    <ns4:folder>taxa_plots</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L5.txt</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="log_cabiachcbhdc_eh">
+    <ns4:name>log_20180227221732</ns4:name>
+    <ns4:folder>taxa_plots</ns4:folder>
+    <ns4:filename>log_20180227221732.txt</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_lc_ei">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L2</ns4:name>
+    <ns4:folder>taxa_plots</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L2.biom</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_lg_ej">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L6</ns4:name>
+    <ns4:folder>taxa_plots</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L6.txt</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_ld_fa">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L3</ns4:name>
+    <ns4:folder>taxa_plots</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L3.txt</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
+<ns4:outputfile id="otu_table_mc_w_tax_no_pynast_failures_le_fb">
+    <ns4:name>otu_table_mc2_w_tax_no_pynast_failures_L4</ns4:name>
+    <ns4:folder>taxa_plots</ns4:folder>
+    <ns4:filename>otu_table_mc2_w_tax_no_pynast_failures_L4.biom</ns4:filename>
+    <ns4:contenttype>plain/text</ns4:contenttype>
+</ns4:outputfile>
