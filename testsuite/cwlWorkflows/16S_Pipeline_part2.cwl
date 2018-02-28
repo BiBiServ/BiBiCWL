@@ -33,6 +33,9 @@ inputs:
   qiime_jobs_to_start: int
   qiime_verbose: boolean
   qiime_biom_output_file_name: string
+  qiime_alpha_stdout_filename: string
+  qiime_beta_stdout_filename: string
+  qiime_taxa_plots_stdout_filename: string
 
 
 
@@ -47,79 +50,88 @@ outputs:
   otu_table_failures_biom_metadata:
     type: File
     outputSource: qiime_biom_add_metadata/output_biom
-  observed_otusunmodifiedidentifier:
-    type: File
-    outputSource: alpha_diversity/observed_otusunmodifiedidentifier
-  chao1linkerprimersequence:
-    type: File
-    outputSource: alpha_diversity/chao1linkerprimersequence
-  chao1localisation:
-    type: File
-    outputSource: alpha_diversity/chao1localisation
-  observed_otusdescription:
-    type: File
-    outputSource: alpha_diversity/observed_otusdescription
-  shannon:
-    type: File
-    outputSource: alpha_diversity/shannon
-  chao1description:
-    type: File
-    outputSource: alpha_diversity/chao1description
-  chao1barcodesequence:
-    type: File
-    outputSource: alpha_diversity/chao1barcodesequence
-  alpha_out_log:
-    type: File
-    outputSource: alpha_diversity/log
-  shannonlinkerprimersequence:
-    type: File
-    outputSource: alpha_diversity/shannonlinkerprimersequence
-  observed_otus:
-    type: File
-    outputSource: alpha_diversity/observed_otus
-  shannondescription:
-    type: File
-    outputSource: alpha_diversity/shannondescription
-  observed_otuslocalisation:
-    type: File
-    outputSource: alpha_diversity/observed_otuslocalisation
-  chao1unmodifiedidentifier:
-    type: File
-    outputSource: alpha_diversity/chao1unmodifiedidentifier
-  observed_otuslinkerprimersequence:
-    type: File
-    outputSource: alpha_diversity/observed_otuslinkerprimersequence
-  chao1sampleid:
-    type: File
-    outputSource: alpha_diversity/chao1sampleid
-  PLACEHOLDER_output_alpha_diversity:
-    type: File
-    outputSource: alpha_diversity/PLACEHOLDER_output_alpha_diversity
-  shannonlocalisation:
-    type: File
-    outputSource: alpha_diversity/shannonlocalisation
-  observed_otussampleid:
-    type: File
-    outputSource: alpha_diversity/observed_otussampleid
-  shannonbarcodesequence:
-    type: File
-    outputSource: alpha_diversity/shannonbarcodesequence
-  rarefaction_plots:
-    type: File
-    outputSource: alpha_diversity/rarefaction_plots
-  shannonsampleid:
-    type: File
-    outputSource: alpha_diversity/shannonsampleid
-  shannonunmodifiedidentifier:
-    type: File
-    outputSource: alpha_diversity/shannonunmodifiedidentifier
-  chao1:
-    type: File
-    outputSource: alpha_diversity/chao1
-  observed_otusbarcodesequence:
-    type: File
-    outputSource: alpha_diversity/observed_otusbarcodesequence
-
+  alpha_diversity_output_directory:
+    type: Directory
+    outputSource: alpha_diversity/alpha_out_directory
+  beta_diversity_output_directory:
+    type: Directory
+    outputSource: beta_diversity/beta_out_directory
+  taxonomy_plots_output_directory:
+    type: Directory
+    outputSource: taxonomy_plots/taxa_plots_directory
+  #observed_otusunmodifiedidentifier:
+    #type: File
+    #outputSource: alpha_diversity/observed_otusunmodifiedidentifier
+  #chao1linkerprimersequence:
+    #type: File
+    #outputSource: alpha_diversity/chao1linkerprimersequence
+  #chao1localisation:
+    #type: File
+    #outputSource: alpha_diversity/chao1localisation
+  #observed_otusdescription:
+    #type: File
+    #outputSource: alpha_diversity/observed_otusdescription
+  #shannon:
+    #type: File
+    #outputSource: alpha_diversity/shannon
+  #chao1description:
+    #type: File
+    #outputSource: alpha_diversity/chao1description
+  #chao1barcodesequence:
+    #type: File
+    #outputSource: alpha_diversity/chao1barcodesequence
+  #alpha_out_log:
+    #type: File
+    #outputSource: alpha_diversity/log
+  #shannonlinkerprimersequence:
+    #type: File
+    #outputSource: alpha_diversity/shannonlinkerprimersequence
+  #observed_otus:
+    #type: File
+    #outputSource: alpha_diversity/observed_otus
+  #shannondescription:
+    #type: File
+    #outputSource: alpha_diversity/shannondescription
+  #observed_otuslocalisation:
+    #type: File
+    #outputSource: alpha_diversity/observed_otuslocalisation
+  #chao1unmodifiedidentifier:
+    #type: File
+    #outputSource: alpha_diversity/chao1unmodifiedidentifier
+  #observed_otuslinkerprimersequence:
+    #type: File
+    #outputSource: alpha_diversity/observed_otuslinkerprimersequence
+  #chao1sampleid:
+    #type: File
+    #outputSource: alpha_diversity/chao1sampleid
+  #PLACEHOLDER_output_alpha_diversity:
+    #type: File
+    #outputSource: alpha_diversity/PLACEHOLDER_output_alpha_diversity
+  #shannonlocalisation:
+    #type: File
+    #outputSource: alpha_diversity/shannonlocalisation
+  #observed_otussampleid:
+    #type: File
+    #outputSource: alpha_diversity/observed_otussampleid
+  #shannonbarcodesequence:
+    #type: File
+    #outputSource: alpha_diversity/shannonbarcodesequence
+  #rarefaction_plots:
+    #type: File
+    #outputSource: alpha_diversity/rarefaction_plots
+  #shannonsampleid:
+    #type: File
+    #outputSource: alpha_diversity/shannonsampleid
+  #shannonunmodifiedidentifier:
+    #type: File
+    #outputSource: alpha_diversity/shannonunmodifiedidentifier
+  #chao1:
+    #type: File
+    #outputSource: alpha_diversity/chao1
+  #observed_otusbarcodesequence:
+    #type: File
+    #outputSource: alpha_diversity/observed_otusbarcodesequence
+  
 
 
 
@@ -198,30 +210,53 @@ steps:
       input_tree_file: qiime_pick_open_reference_otus/rep_set_tre
       jobs_to_start: qiime_jobs_to_start
       input_parameter_file: qiime_parameter_file
+      PLACEHOLDER_output_alpha_diversity_outputFileName: qiime_alpha_stdout_filename
     out:
-      - observed_otusunmodifiedidentifier
-      - chao1linkerprimersequence
-      - chao1localisation
-      - observed_otusdescription
-      - shannon
-      - chao1description
-      - chao1barcodesequence
-      - log
-      - shannonlinkerprimersequence
-      - observed_otus
-      - shannondescription
-      - observed_otuslocalisation
-      - chao1unmodifiedidentifier
-      - observed_otuslinkerprimersequence
-      - chao1sampleid
-      - PLACEHOLDER_output_alpha_diversity
-      - shannonlocalisation
-      - observed_otussampleid
-      - shannonbarcodesequence
-      - rarefaction_plots
-      - shannonsampleid
-      - shannonunmodifiedidentifier
-      - chao1
-      - observed_otusbarcodesequence
+       - alpha_out_directory
+#      - observed_otusunmodifiedidentifier
+#      - chao1linkerprimersequence
+#      - chao1localisation
+#      - observed_otusdescription
+#      - shannon
+#      - chao1description
+#      - chao1barcodesequence
+#      - log
+#      - shannonlinkerprimersequence
+#      - observed_otus
+#      - shannondescription
+#      - observed_otuslocalisation
+#      - chao1unmodifiedidentifier
+#      - observed_otuslinkerprimersequence
+#      - chao1sampleid
+#      - PLACEHOLDER_output_alpha_diversity
+#      - shannonlocalisation
+#      - observed_otussampleid
+#      - shannonbarcodesequence
+#      - rarefaction_plots
+#      - shannonsampleid
+#      - shannonunmodifiedidentifier
+#      - chao1
+#      - observed_otusbarcodesequence
 
     
+  beta_diversity:
+    run: ../cwlTools/function_qiime_beta_diversity.cwl
+    in:
+      input_otu_table: qiime_biom_add_metadata/output_biom
+      parallel: qiime_parallel
+      input_mapping: qiime_metadata_mappingFile
+      input_tree_file: qiime_pick_open_reference_otus/rep_set_tre
+      jobs_to_start: qiime_jobs_to_start
+      PLACEHOLDER_output_beta_diversity_outputFileName: qiime_beta_stdout_filename
+    out:
+       - beta_out_directory
+  
+  
+  taxonomy_plots:
+    run: ../cwlTools/function_qiime_taxonomy_plots.cwl
+    in:
+      input_otu_table: qiime_pick_open_reference_otus/otu_table_mc2_w_tax_no_pynast_failures_biom
+      input_mapping: qiime_metadata_mappingFile
+      PLACEHOLDER_output_taxa_plots_outputFileName: qiime_taxa_plots_stdout_filename
+    out:
+       - taxa_plots_directory
