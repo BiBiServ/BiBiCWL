@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-package class diagram">
+  <ClassDiagramComponents>
+    <Interface name="IControl" package="de.unibi.cebitec.bibiworkflow.app" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Methods>
+        <Method name="convertBs2ToCWL" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Class name="Controller" package="de.unibi.cebitec.bibiworkflow.app" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="LOGGER" type="Logger" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="converter" type="IConverter" visibility="private" isFinal="true"/>
+        <Field name="mainGui" type="IMainGui" visibility="private" isFinal="true"/>
+        <Field name="fileHandler" type="FileHandler" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="IConverter" name="converter"/>
+          <Argument type="IMainGui" name="mainGui"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setUpGUI" returnType="void" visibility="private"/>
+        <Method name="convertBs2ToCWL" returnType="void" visibility="public"/>
+        <Method name="notifyDocumentChange" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="App" package="de.unibi.cebitec.bibiworkflow.app" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="LOGGER" type="Logger" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getGreeting" returnType="String" visibility="public"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="ArgumentType" package="de.unibi.cebitec.bibiworkflow.bs2" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Literals>
+        <Literal name="input"/>
+        <Literal name="param"/>
+        <Literal name="enumParam"/>
+        <Literal name="additionalString"/>
+        <Literal name="output"/>
+        <Literal name="outputFile"/>
+      </Literals>
+    </Enum>
+    <Class name="Bs2Document" package="de.unibi.cebitec.bibiworkflow.bs2" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="LOGGER" type="Logger" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="runnableItem" type="TrunnableItem" visibility="private" isFinal="true"/>
+        <Field name="additionalStrings" type="HashMap&lt;String, String&gt;" visibility="private" isFinal="true"/>
+        <Field name="argumentOrder" type="ArrayList&lt;String&gt;" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="TrunnableItem" name="ri"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCommandLineArgumentOrderAsReferences" returnType="ArrayList&lt;String&gt;" visibility="public">
+          <Argument type="Tfunction" name="function"/>
+        </Method>
+        <Method name="getFunctions" returnType="List&lt;Tfunction&gt;" visibility="public"/>
+        <Method name="getIntputById" returnType="TinputOutput" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getParamById" returnType="Tparam" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getEnumParamById" returnType="TenumParam" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getAdditionalStringById" returnType="String" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getOutputById" returnType="TinputOutput" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getOutputFileById" returnType="ToutputFile" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getBaseCommand" returnType="String" visibility="public"/>
+        <Method name="getTypeOfArgumentById" returnType="ArgumentType" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getPositionOfInput" returnType="int" visibility="public">
+          <Argument type="Tfunction.Inputref" name="inputref"/>
+        </Method>
+        <Method name="getPositionOfParameter" returnType="int" visibility="public">
+          <Argument type="TenumParam" name="enumparam"/>
+        </Method>
+        <Method name="getPositionOfParameter" returnType="int" visibility="public">
+          <Argument type="Tparam" name="param"/>
+        </Method>
+        <Method name="getFunctionOutput" returnType="TinputOutput" visibility="public">
+          <Argument type="Tfunction" name="function"/>
+        </Method>
+        <Method name="getFunctionOutputFiles" returnType="ArrayList&lt;ToutputFile&gt;" visibility="public">
+          <Argument type="Tfunction" name="function"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="IBs2Document" package="de.unibi.cebitec.bibiworkflow.bs2" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Methods>
+        <Method name="getFunctions" returnType="List&lt;Tfunction&gt;" visibility="public"/>
+        <Method name="getIntputById" returnType="TinputOutput" visibility="package">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getPositionOfInput" returnType="int" visibility="package">
+          <Argument type="Inputref" name="inputref"/>
+        </Method>
+        <Method name="getPositionOfParameter" returnType="int" visibility="package">
+          <Argument type="Tparam" name="param"/>
+        </Method>
+        <Method name="getPositionOfParameter" returnType="int" visibility="package">
+          <Argument type="TenumParam" name="enumparam"/>
+        </Method>
+        <Method name="getParamById" returnType="Tparam" visibility="package">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getEnumParamById" returnType="TenumParam" visibility="package">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getCommandLineArgumentOrderAsReferences" returnType="ArrayList&lt;String&gt;" visibility="package">
+          <Argument type="Tfunction" name="function"/>
+        </Method>
+        <Method name="getBaseCommand" returnType="String" visibility="package"/>
+        <Method name="getTypeOfArgumentById" returnType="ArgumentType" visibility="package">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getAdditionalStringById" returnType="String" visibility="package">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getOutputById" returnType="TinputOutput" visibility="package">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getOutputFileById" returnType="ToutputFile" visibility="package">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getFunctionOutput" returnType="TinputOutput" visibility="package">
+          <Argument type="Tfunction" name="function"/>
+        </Method>
+        <Method name="getFunctionOutputFiles" returnType="ArrayList&lt;ToutputFile&gt;" visibility="package">
+          <Argument type="Tfunction" name="function"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="IConverter" package="de.unibi.cebitec.bibiworkflow.converter" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Methods>
+        <Method name="convertBs2" returnType="HashMap&lt;String, ICwlTool&gt;" visibility="public">
+          <Argument type="TrunnableItem" name="runnableItem"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="Converter" package="de.unibi.cebitec.bibiworkflow.converter" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="LOGGER" type="Logger" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="bs2Doc" type="IBs2Document" visibility="private"/>
+        <Field name="outputsThatUseInputs" type="ArrayList&lt;String&gt;" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="convertBs2" returnType="HashMap&lt;String, ICwlTool&gt;" visibility="public">
+          <Argument type="TrunnableItem" name="runnableItem"/>
+        </Method>
+        <Method name="convertFunctionToCwlTool" returnType="ICwlTool" visibility="private">
+          <Argument type="Tfunction" name="function"/>
+        </Method>
+        <Method name="convertBaseCommand" returnType="void" visibility="private">
+          <Argument type="ICwlTool" name="cwlTool"/>
+        </Method>
+        <Method name="convertFunctionInputs" returnType="void" visibility="private">
+          <Argument type="Tfunction" name="function"/>
+          <Argument type="ICwlTool" name="cwlTool"/>
+        </Method>
+        <Method name="convertFunctionOutputs" returnType="void" visibility="private">
+          <Argument type="Tfunction" name="function"/>
+          <Argument type="ICwlTool" name="cwlTool"/>
+        </Method>
+        <Method name="convertAdditionalString" returnType="void" visibility="private">
+          <Argument type="String" name="as"/>
+          <Argument type="int" name="position"/>
+          <Argument type="ICwlTool" name="cwlTool"/>
+        </Method>
+        <Method name="convertInput" returnType="void" visibility="private">
+          <Argument type="TinputOutput" name="input"/>
+          <Argument type="int" name="position"/>
+          <Argument type="ICwlTool" name="cwlTool"/>
+        </Method>
+        <Method name="convertParam" returnType="void" visibility="private">
+          <Argument type="Tparam" name="param"/>
+          <Argument type="int" name="position"/>
+          <Argument type="ICwlTool" name="cwlTool"/>
+        </Method>
+        <Method name="convertEnumParam" returnType="void" visibility="private">
+          <Argument type="TenumParam" name="enumParam"/>
+          <Argument type="int" name="position"/>
+          <Argument type="ICwlTool" name="cwlTool"/>
+        </Method>
+        <Method name="convertOutput" returnType="void" visibility="private">
+          <Argument type="TinputOutput" name="output"/>
+          <Argument type="ICwlTool" name="cwlTool"/>
+        </Method>
+        <Method name="convertOutputArguments" returnType="void" visibility="private">
+          <Argument type="TinputOutput" name="output"/>
+          <Argument type="int" name="position"/>
+          <Argument type="ICwlTool" name="cwlTool"/>
+        </Method>
+        <Method name="convertOutputArguments" returnType="void" visibility="private">
+          <Argument type="ToutputFile" name="output"/>
+          <Argument type="int" name="position"/>
+          <Argument type="ICwlTool" name="cwlTool"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="InputBinding" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="LOGGER" type="Logger" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="prefix" type="String" visibility="private"/>
+        <Field name="separate" type="boolean" visibility="private"/>
+        <Field name="position" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="protected">
+          <Argument type="String" name="prefix"/>
+          <Argument type="boolean" name="separate"/>
+          <Argument type="int" name="position"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Argument" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="valueFrom" type="String" visibility="private" isFinal="true"/>
+        <Field name="position" type="int" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="protected">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="value"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="SimpleInput" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="prefix"/>
+          <Argument type="boolean" name="seprate"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Interface name="ICwlTool" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Methods>
+        <Method name="addInput" returnType="void" visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="prefix"/>
+          <Argument type="boolean" name="separate"/>
+        </Method>
+        <Method name="addInputFile" returnType="void" visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="prefix"/>
+          <Argument type="boolean" name="separate"/>
+          <Argument type="String" name="fileType"/>
+        </Method>
+        <Method name="addInput" returnType="void" visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="prefix"/>
+          <Argument type="boolean" name="separate"/>
+          <Argument type="int" name="min"/>
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="addOutput" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="glob"/>
+          <Argument type="String" name="format"/>
+        </Method>
+        <Method name="addRequirement" returnType="void" visibility="public">
+          <Argument type="RequirementClass" name="requirementClass"/>
+        </Method>
+        <Method name="addArgument" returnType="void" visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="argument"/>
+        </Method>
+        <Method name="setBaseCommand" returnType="void" visibility="public">
+          <Argument type="String" name="baseCommand"/>
+        </Method>
+        <Method name="addExclusiveMultiFieldInput" returnType="void" visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="id"/>
+          <Argument type="HashMap&lt;String, String&gt;" name="options"/>
+        </Method>
+        <Method name="setupStdout" returnType="void" visibility="public">
+          <Argument type="String" name="inputReference"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="OutputBinding" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="glob" type="String" visibility="private" isFinal="true"/>
+        <Field name="loadContent" type="Boolean" visibility="private" isFinal="true"/>
+        <Field name="outputEval" type="String" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="protected">
+          <Argument type="String" name="glob"/>
+          <Argument type="boolean" name="loadContent"/>
+          <Argument type="String" name="outputEval"/>
+        </Constructor>
+        <Constructor visibility="protected">
+          <Argument type="String" name="glob"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="CommandInputRecord" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields>
+        <Field name="type" type="String" visibility="private" isFinal="true"/>
+        <Field name="fields" type="HashMap&lt;String, Input&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="protected">
+          <Argument type="ArrayList&lt;Input&gt;" name="inputs"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="SimpleInput" name="input"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Input" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" isAbstract="true" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="id" type="String" visibility="protected"/>
+        <Field name="type" type="T" visibility="protected"/>
+        <Field name="inputBinding" type="InputBinding" visibility="protected"/>
+        <Field name="format" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getId" returnType="String" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="Requirement" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" isAbstract="true" xPosition="2120.0" yPosition="420.0">
+      <Fields>
+        <Field name="requirementClass" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="DockerRequirement" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="protected"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="EnvVarRequirement" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="protected"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="InitialWorkdirRequirement" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="protected"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="InlineJavaScriptRequirement" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="920.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="protected"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="SchemaDefRequirement" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="1220.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="protected"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ShellCommandRequirement" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="1520.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="protected"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="SoftwareRequirement" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="1820.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="protected"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ResourceRequirement" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="2120.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="protected"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="MultiFieldInput" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="20.0" yPosition="1220.0">
+      <Fields>
+        <Field name="INPUTTYPE" type="String" visibility="private" isFinal="true"/>
+        <Field name="LOGGER" type="Logger" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="id"/>
+          <Argument type="HashMap&lt;String, String&gt;" name="options"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addCommandInputRecords" returnType="void" visibility="private">
+          <Argument type="int" name="position"/>
+          <Argument type="HashMap&lt;String, String&gt;" name="options"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CwlTool" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="320.0" yPosition="1220.0">
+      <Fields>
+        <Field name="LOGGER" type="Logger" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="cwlVersion" type="String" visibility="private"/>
+        <Field name="cwlClass" type="String" visibility="private"/>
+        <Field name="baseCommand" type="String" visibility="private"/>
+        <Field name="stdout" type="String" visibility="private"/>
+        <Field name="inputs" type="HashMap&lt;String, Input&gt;" visibility="private"/>
+        <Field name="outputs" type="HashMap&lt;String, Output&gt;" visibility="private"/>
+        <Field name="requirements" type="Requirement[]" visibility="private"/>
+        <Field name="requirementsList" type="ArrayList&lt;Requirement&gt;" visibility="private"/>
+        <Field name="arguments" type="Argument[]" visibility="private"/>
+        <Field name="argumentList" type="ArrayList&lt;Argument&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="cwlVersion"/>
+          <Argument type="String" name="cwlClass"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addRequirement" returnType="void" visibility="public">
+          <Argument type="RequirementClass" name="requirementClassEnum"/>
+        </Method>
+        <Method name="addInput" returnType="void" visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="prefix"/>
+          <Argument type="boolean" name="separate"/>
+        </Method>
+        <Method name="addInputFile" returnType="void" visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="prefix"/>
+          <Argument type="boolean" name="separate"/>
+          <Argument type="String" name="fileType"/>
+        </Method>
+        <Method name="addInput" returnType="void" visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="prefix"/>
+          <Argument type="boolean" name="separate"/>
+          <Argument type="int" name="min"/>
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="addOutput" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="glob"/>
+          <Argument type="String" name="format"/>
+        </Method>
+        <Method name="addArgument" returnType="void" visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="argument"/>
+        </Method>
+        <Method name="setBaseCommand" returnType="void" visibility="public">
+          <Argument type="String" name="baseCommad"/>
+        </Method>
+        <Method name="addExclusiveMultiFieldInput" returnType="void" visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="id"/>
+          <Argument type="HashMap&lt;String, String&gt;" name="options"/>
+        </Method>
+        <Method name="setupStdout" returnType="void" visibility="public">
+          <Argument type="String" name="inputReference"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Output" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="620.0" yPosition="1220.0">
+      <Fields>
+        <Field name="LOGGER" type="Logger" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="String" visibility="private" isFinal="true"/>
+        <Field name="type" type="String" visibility="private" isFinal="true"/>
+        <Field name="outputBinding" type="OutputBinding" visibility="private"/>
+        <Field name="format" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="protected">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="glob"/>
+          <Argument type="String" name="format"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="FileInput" package="de.unibi.cebitec.bibiworkflow.cwl" visibility="public" xPosition="920.0" yPosition="1220.0">
+      <Fields>
+        <Field name="fileType" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="position"/>
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="prefix"/>
+          <Argument type="boolean" name="separate"/>
+          <Argument type="String" name="fileType"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Interface name="IMainGui" package="de.unibi.cebitec.bibiworkflow.gui" visibility="public" xPosition="1220.0" yPosition="1220.0">
+      <Methods>
+        <Method name="launchGUI" returnType="void" visibility="package">
+          <Argument type="OpenFileEventHandler" name="ofeh"/>
+          <Argument type="ConvertBs2ToCwlEventHandler" name="ceh"/>
+        </Method>
+        <Method name="showGui" returnType="void" visibility="package">
+          <Argument type="boolean" name="shouldShow"/>
+        </Method>
+        <Method name="setOpenFileAction" returnType="void" visibility="package">
+          <Argument type="EventHandler&lt;ActionEvent&gt;" name="eh"/>
+        </Method>
+        <Method name="setSaveFileAction" returnType="void" visibility="package">
+          <Argument type="EventHandler&lt;ActionEvent&gt;" name="eh"/>
+        </Method>
+        <Method name="setStartConversionAction" returnType="void" visibility="package">
+          <Argument type="EventHandler&lt;ActionEvent&gt;" name="eh"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="IModelListener" package="de.unibi.cebitec.bibiworkflow.gui" visibility="public" xPosition="1520.0" yPosition="1220.0">
+      <Methods>
+        <Method name="documentHasChanged" returnType="void" visibility="public">
+          <Argument type="String" name="document"/>
+        </Method>
+        <Method name="newDocumentCreated" returnType="void" visibility="public">
+          <Argument type="String" name="document"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="MainGui" package="de.unibi.cebitec.bibiworkflow.gui" visibility="public" isFinal="true" xPosition="1820.0" yPosition="1220.0">
+      <Fields>
+        <Field name="LOGGER" type="Logger" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="openFileEventHandler" type="OpenFileEventHandler" visibility="private" isStatic="true"/>
+        <Field name="convertBs2ToCwlEventHandler" type="ConvertBs2ToCwlEventHandler" visibility="private" isStatic="true"/>
+        <Field name="mainWindow" type="Stage" visibility="private"/>
+        <Field name="welcomeLabel" type="Label" visibility="private"/>
+        <Field name="loadedFileLabel" type="Label" visibility="private"/>
+        <Field name="statusInfo" type="Label" visibility="private"/>
+        <Field name="startConversionButton" type="Button" visibility="private"/>
+        <Field name="openFileButton" type="Button" visibility="private"/>
+        <Field name="documentView" type="TextArea" visibility="private"/>
+        <Field name="scene" type="Scene" visibility="private"/>
+        <Field name="HGAP" type="double" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="VGAP" type="double" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="launchGUI" returnType="void" visibility="public">
+          <Argument type="OpenFileEventHandler" name="ofeh"/>
+          <Argument type="ConvertBs2ToCwlEventHandler" name="ceh"/>
+        </Method>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="Stage" name="mainWindow"/>
+        </Method>
+        <Method name="showGui" returnType="void" visibility="public">
+          <Argument type="boolean" name="shouldShow"/>
+        </Method>
+        <Method name="setOpenFileAction" returnType="void" visibility="public">
+          <Argument type="EventHandler&lt;ActionEvent&gt;" name="eh"/>
+        </Method>
+        <Method name="setSaveFileAction" returnType="void" visibility="public">
+          <Argument type="EventHandler&lt;ActionEvent&gt;" name="eh"/>
+        </Method>
+        <Method name="setStartConversionAction" returnType="void" visibility="public">
+          <Argument type="EventHandler&lt;ActionEvent&gt;" name="eh"/>
+        </Method>
+        <Method name="setUpGui" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="ConvertBs2ToCwlEventHandler" package="de.unibi.cebitec.bibiworkflow.io" visibility="public" xPosition="2120.0" yPosition="1220.0">
+      <Fields>
+        <Field name="controller" type="Controller" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Controller" name="controller"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="handle" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="OpenFileEventHandler" package="de.unibi.cebitec.bibiworkflow.io" visibility="public" xPosition="20.0" yPosition="1620.0">
+      <Fields>
+        <Field name="fileHandler" type="FileHandler" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="FileHandler" name="fh"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="handle" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FileHandler" package="de.unibi.cebitec.bibiworkflow.io" visibility="public" xPosition="320.0" yPosition="1620.0">
+      <Fields>
+        <Field name="inFile" type="File" visibility="private"/>
+        <Field name="outFile" type="File" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setInFile" returnType="void" visibility="public">
+          <Argument type="File" name="file"/>
+        </Method>
+        <Method name="setOutFile" returnType="void" visibility="public">
+          <Argument type="File" name="file"/>
+        </Method>
+        <Method name="convertBs2ToRunnableItem" returnType="TrunnableItem" visibility="public"/>
+        <Method name="writeStringToFile" returnType="void" visibility="public">
+          <Argument type="String" name="text"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="YamlWriter" package="de.unibi.cebitec.bibiworkflow.io" visibility="public" xPosition="620.0" yPosition="1620.0">
+      <Fields>
+        <Field name="LOGGER" type="Logger" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="mapper" type="YAMLMapper" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="writeObjectToYaml" returnType="String" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.bs2.IBs2Document" target="de.unibi.cebitec.bibiworkflow.cwl.Output" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="de.unibi.cebitec.bibiworkflow.gui.MainGui" target="de.unibi.cebitec.bibiworkflow.gui.IMainGui"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="de.unibi.cebitec.bibiworkflow.app.Controller" target="de.unibi.cebitec.bibiworkflow.app.IControl"/>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.converter.Converter" target="de.unibi.cebitec.bibiworkflow.cwl.CwlTool" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="de.unibi.cebitec.bibiworkflow.cwl.ResourceRequirement" target="de.unibi.cebitec.bibiworkflow.cwl.Requirement"/>
+    <HasRelation name="requirementsList" source="de.unibi.cebitec.bibiworkflow.cwl.CwlTool" target="de.unibi.cebitec.bibiworkflow.cwl.Requirement" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Requirement&gt;"/>
+    <HasRelation name="fields" source="de.unibi.cebitec.bibiworkflow.cwl.CommandInputRecord" target="de.unibi.cebitec.bibiworkflow.cwl.Input" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;String, Input&gt;"/>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.gui.MainGui" target="de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.bs2.IBs2Document" target="de.unibi.cebitec.bibiworkflow.cwl.Input" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.bs2.IBs2Document" target="de.unibi.cebitec.bibiworkflow.cwl.Argument" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.cwl.ICwlTool" target="de.unibi.cebitec.bibiworkflow.cwl.Requirement" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="de.unibi.cebitec.bibiworkflow.cwl.ShellCommandRequirement" target="de.unibi.cebitec.bibiworkflow.cwl.Requirement"/>
+    <HasRelation name="converter" source="de.unibi.cebitec.bibiworkflow.app.Controller" target="de.unibi.cebitec.bibiworkflow.converter.IConverter" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="de.unibi.cebitec.bibiworkflow.converter.Converter" target="de.unibi.cebitec.bibiworkflow.converter.IConverter"/>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.converter.Converter" target="de.unibi.cebitec.bibiworkflow.cwl.Output" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="de.unibi.cebitec.bibiworkflow.cwl.SoftwareRequirement" target="de.unibi.cebitec.bibiworkflow.cwl.Requirement"/>
+    <HasRelation name="argumentList" source="de.unibi.cebitec.bibiworkflow.cwl.CwlTool" target="de.unibi.cebitec.bibiworkflow.cwl.Argument" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Argument&gt;"/>
+    <IsRelation name="is" source="de.unibi.cebitec.bibiworkflow.cwl.SimpleInput" target="de.unibi.cebitec.bibiworkflow.cwl.Input"/>
+    <IsRelation name="is" source="de.unibi.cebitec.bibiworkflow.cwl.FileInput" target="de.unibi.cebitec.bibiworkflow.cwl.Input"/>
+    <HasRelation name="fileHandler" source="de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler" target="de.unibi.cebitec.bibiworkflow.io.FileHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="inputBinding" source="de.unibi.cebitec.bibiworkflow.cwl.Input" target="de.unibi.cebitec.bibiworkflow.cwl.InputBinding" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="controller" source="de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler" target="de.unibi.cebitec.bibiworkflow.app.Controller" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.bs2.Bs2Document" target="de.unibi.cebitec.bibiworkflow.cwl.Input" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.converter.IConverter" target="de.unibi.cebitec.bibiworkflow.cwl.CwlTool" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bs2Doc" source="de.unibi.cebitec.bibiworkflow.converter.Converter" target="de.unibi.cebitec.bibiworkflow.bs2.IBs2Document" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="outputs" source="de.unibi.cebitec.bibiworkflow.cwl.CwlTool" target="de.unibi.cebitec.bibiworkflow.cwl.Output" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;String, Output&gt;"/>
+    <IsRelation name="is" source="de.unibi.cebitec.bibiworkflow.cwl.InitialWorkdirRequirement" target="de.unibi.cebitec.bibiworkflow.cwl.Requirement"/>
+    <IsRelation name="is" source="de.unibi.cebitec.bibiworkflow.cwl.MultiFieldInput" target="de.unibi.cebitec.bibiworkflow.cwl.Input"/>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.bs2.Bs2Document" target="de.unibi.cebitec.bibiworkflow.cwl.Output" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fileHandler" source="de.unibi.cebitec.bibiworkflow.app.Controller" target="de.unibi.cebitec.bibiworkflow.io.FileHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="de.unibi.cebitec.bibiworkflow.cwl.DockerRequirement" target="de.unibi.cebitec.bibiworkflow.cwl.Requirement"/>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.gui.IMainGui" target="de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mainGui" source="de.unibi.cebitec.bibiworkflow.app.Controller" target="de.unibi.cebitec.bibiworkflow.gui.IMainGui" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.cwl.CwlTool" target="de.unibi.cebitec.bibiworkflow.cwl.Requirement" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="de.unibi.cebitec.bibiworkflow.cwl.SchemaDefRequirement" target="de.unibi.cebitec.bibiworkflow.cwl.Requirement"/>
+    <IsRelation name="is" source="de.unibi.cebitec.bibiworkflow.cwl.InlineJavaScriptRequirement" target="de.unibi.cebitec.bibiworkflow.cwl.Requirement"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="de.unibi.cebitec.bibiworkflow.cwl.CwlTool" target="de.unibi.cebitec.bibiworkflow.cwl.ICwlTool"/>
+    <HasRelation name="convertBs2ToCwlEventHandler" source="de.unibi.cebitec.bibiworkflow.gui.MainGui" target="de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="de.unibi.cebitec.bibiworkflow.bs2.Bs2Document" target="de.unibi.cebitec.bibiworkflow.cwl.Argument" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="inputs" source="de.unibi.cebitec.bibiworkflow.cwl.CwlTool" target="de.unibi.cebitec.bibiworkflow.cwl.Input" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;String, Input&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="de.unibi.cebitec.bibiworkflow.bs2.Bs2Document" target="de.unibi.cebitec.bibiworkflow.bs2.IBs2Document"/>
+    <IsRelation name="is" source="de.unibi.cebitec.bibiworkflow.cwl.EnvVarRequirement" target="de.unibi.cebitec.bibiworkflow.cwl.Requirement"/>
+    <HasRelation name="outputBinding" source="de.unibi.cebitec.bibiworkflow.cwl.Output" target="de.unibi.cebitec.bibiworkflow.cwl.OutputBinding" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="openFileEventHandler" source="de.unibi.cebitec.bibiworkflow.gui.MainGui" target="de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

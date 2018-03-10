@@ -1,0 +1,1257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:java="http://www.yworks.com/xml/yfiles-common/1.0/java" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <!--Created by yEd 3.17-->
+  <key attr.name="Description" attr.type="string" for="graph" id="d0"/>
+  <key for="port" id="d1" yfiles.type="portgraphics"/>
+  <key for="port" id="d2" yfiles.type="portgeometry"/>
+  <key for="port" id="d3" yfiles.type="portuserdata"/>
+  <key attr.name="uml-id" attr.type="string" for="node" id="d4"/>
+  <key attr.name="url" attr.type="string" for="node" id="d5"/>
+  <key attr.name="description" attr.type="string" for="node" id="d6"/>
+  <key for="node" id="d7" yfiles.type="nodegraphics"/>
+  <key for="graphml" id="d8" yfiles.type="resources"/>
+  <key attr.name="url" attr.type="string" for="edge" id="d9"/>
+  <key attr.name="description" attr.type="string" for="edge" id="d10"/>
+  <key for="edge" id="d11" yfiles.type="edgegraphics"/>
+  <graph edgedefault="directed" id="G">
+    <data key="d0"/>
+    <node id="n0">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.app.IControl]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="112.0" width="170.0" x="1065.0" y="2019.0"/>
+          <y:Fill color="#22FF22" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="62.576171875" x="53.7119140625" y="25.96875">IControl</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Interface" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel>~ convertBs2ToCWL
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n1">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.app.Controller]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="210.0" width="170.0" x="840.0" y="1970.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.42333984375" x="46.288330078125" y="25.96875">Controller</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- LOGGER
+- converter
+- mainGui
+- fileHandler
+</y:AttributeLabel>
+            <y:MethodLabel>+ (constructor)
+- setUpGUI
++ convertBs2ToCWL
+- notifyDocumentChange
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n2">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.app.App]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="140.0" width="170.0" x="2365.0" y="230.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="32.67236328125" x="68.663818359375" y="25.96875">App</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- LOGGER
+</y:AttributeLabel>
+            <y:MethodLabel>+ getGreeting
++ main
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n3">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.bs2.ArgumentType]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="98.0" width="170.0" x="2365.0" y="676.0"/>
+          <y:Fill color="#FFFF00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="112.3291015625" x="28.83544921875" y="25.96875">ArgumentType</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Enum" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel/>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n4">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.bs2.Bs2Document]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="378.0" width="170.0" x="2115.0" y="111.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="105.20703125" x="32.396484375" y="25.96875">Bs2Document</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- LOGGER
+- runnableItem
+- additionalStrings
+- argumentOrder
+</y:AttributeLabel>
+            <y:MethodLabel>+ (constructor)
++ getCommandLineArgumentOrderAsReferences
++ getFunctions
++ getIntputById
++ getParamById
++ getEnumParamById
++ getAdditionalStringById
++ getOutputById
++ getOutputFileById
++ getBaseCommand
++ getTypeOfArgumentById
++ getPositionOfInput
++ getPositionOfParameter
++ getPositionOfParameter
++ getFunctionOutput
++ getFunctionOutputFiles
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n5">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.bs2.IBs2Document]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="308.0" width="170.0" x="1515.0" y="2371.0"/>
+          <y:Fill color="#22FF22" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="110.0439453125" x="29.97802734375" y="25.96875">IBs2Document</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Interface" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel>+ getFunctions
+~ getIntputById
+~ getPositionOfInput
+~ getPositionOfParameter
+~ getPositionOfParameter
+~ getParamById
+~ getEnumParamById
+~ getCommandLineArgumentOrderAsReferences
+~ getBaseCommand
+~ getTypeOfArgumentById
+~ getAdditionalStringById
+~ getOutputById
+~ getOutputFileById
+~ getFunctionOutput
+~ getFunctionOutputFiles
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n6">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.converter.IConverter]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="112.0" width="170.0" x="840.0" y="1494.0"/>
+          <y:Fill color="#22FF22" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="81.7080078125" x="44.14599609375" y="25.96875">IConverter</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Interface" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel>+ convertBs2
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n7">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.converter.Converter]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="322.0" width="170.0" x="1290.0" y="1389.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.87109375" x="46.564453125" y="25.96875">Converter</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- LOGGER
+- bs2Doc
+- outputsThatUseInputs
+</y:AttributeLabel>
+            <y:MethodLabel>+ (constructor)
++ convertBs2
+- convertFunctionToCwlTool
+- convertBaseCommand
+- convertFunctionInputs
+- convertFunctionOutputs
+- convertAdditionalString
+- convertInput
+- convertParam
+- convertEnumParam
+- convertOutput
+- convertOutputArguments
+- convertOutputArguments
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n8">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.InputBinding]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="168.0" width="170.0" x="715.0" y="-9.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="98.80859375" x="35.595703125" y="25.96875">InputBinding</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- LOGGER
+- prefix
+- separate
+- position
+</y:AttributeLabel>
+            <y:MethodLabel># (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n9">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.Argument]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="140.0" width="170.0" x="1890.0" y="1030.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.86474609375" x="46.567626953125" y="25.96875">Argument</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- valueFrom
+- position
+</y:AttributeLabel>
+            <y:MethodLabel># (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n10">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.SimpleInput]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="112.0" width="170.0" x="1390.0" y="494.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="92.81005859375" x="38.594970703125" y="25.96875">SimpleInput</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel>+ (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n11">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.ICwlTool]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="224.0" width="170.0" x="715.0" y="988.0"/>
+          <y:Fill color="#22FF22" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="66.029296875" x="51.9853515625" y="25.96875">ICwlTool</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Interface" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel>+ addInput
++ addInputFile
++ addInput
++ addOutput
++ addRequirement
++ addArgument
++ setBaseCommand
++ addExclusiveMultiFieldInput
++ setupStdout
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n12">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.OutputBinding]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="168.0" width="170.0" x="1765.0" y="1466.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="111.2373046875" x="29.38134765625" y="25.96875">OutputBinding</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- glob
+- loadContent
+- outputEval
+</y:AttributeLabel>
+            <y:MethodLabel># (constructor)
+# (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n13">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.CommandInputRecord]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="154.0" width="170.0" x="715.0" y="548.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="166.9443359375" x="1.52783203125" y="25.96875">CommandInputRecord</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- type
+- fields
+</y:AttributeLabel>
+            <y:MethodLabel># (constructor)
++ (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n14">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.Input]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="168.0" width="170.0" x="715.0" y="216.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="42.86669921875" x="63.566650390625" y="25.96875">Input</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel># id
+# type
+# inputBinding
+# format
+</y:AttributeLabel>
+            <y:MethodLabel># getId
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n15">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.Requirement]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="112.0" width="170.0" x="490.0" y="694.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="98.90380859375" x="35.548095703125" y="25.96875">Requirement</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel># requirementClass
+</y:AttributeLabel>
+            <y:MethodLabel/>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n16">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.DockerRequirement]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="112.0" width="170.0" x="65.0" y="1494.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="150.20556640625" x="9.897216796875" y="25.96875">DockerRequirement</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel># (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n17">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.EnvVarRequirement]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="112.0" width="170.0" x="490.0" y="519.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="150.7578125" x="9.62109375" y="25.96875">EnvVarRequirement</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel># (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n18">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.InitialWorkdirRequirement]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="112.0" width="170.0" x="65.0" y="969.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="199.8505859375" x="-14.92529296875" y="25.96875">InitialWorkdirRequirement</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel># (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n19">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.InlineJavaScriptRequirement]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="112.0" width="170.0" x="490.0" y="1594.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="214.29150390625" x="-22.145751953125" y="25.96875">InlineJavaScriptRequirement</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel># (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n20">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.SchemaDefRequirement]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="112.0" width="170.0" x="65.0" y="1144.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="181.62646484375" x="-5.813232421875" y="25.96875">SchemaDefRequirement</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel># (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n21">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.ShellCommandRequirement]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="112.0" width="170.0" x="290.0" y="869.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="208.14697265625" x="-19.073486328125" y="25.96875">ShellCommandRequirement</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel># (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n22">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.SoftwareRequirement]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="112.0" width="170.0" x="165.0" y="694.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="165.078125" x="2.4609375" y="25.96875">SoftwareRequirement</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel># (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n23">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.ResourceRequirement]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="112.0" width="170.0" x="65.0" y="1319.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="166.5888671875" x="1.70556640625" y="25.96875">ResourceRequirement</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel># (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n24">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.MultiFieldInput]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="154.0" width="170.0" x="940.0" y="423.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="116.099609375" x="26.9501953125" y="25.96875">MultiFieldInput</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- INPUTTYPE
+- LOGGER
+</y:AttributeLabel>
+            <y:MethodLabel>+ (constructor)
+- addCommandInputRecords
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n25">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.CwlTool]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="406.0" width="170.0" x="1515.0" y="897.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="61.1923828125" x="54.40380859375" y="25.96875">CwlTool</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- LOGGER
+- cwlVersion
+- cwlClass
+- baseCommand
+- stdout
+- inputs
+- outputs
+- requirements
+- requirementsList
+- arguments
+- argumentList
+</y:AttributeLabel>
+            <y:MethodLabel>+ (constructor)
++ (constructor)
++ addRequirement
++ addInput
++ addInputFile
++ addInput
++ addOutput
++ addArgument
++ setBaseCommand
++ addExclusiveMultiFieldInput
++ setupStdout
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n26">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.Output]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="182.0" width="170.0" x="1515.0" y="1459.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="55.29541015625" x="57.352294921875" y="25.96875">Output</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- LOGGER
+- id
+- type
+- outputBinding
+- format
+</y:AttributeLabel>
+            <y:MethodLabel># (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n27">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.cwl.FileInput]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="126.0" width="170.0" x="1165.0" y="487.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="69.47607421875" x="50.261962890625" y="25.96875">FileInput</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>~ fileType
+</y:AttributeLabel>
+            <y:MethodLabel>+ (constructor)
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n28">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.gui.IMainGui]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="168.0" width="170.0" x="265.0" y="1666.0"/>
+          <y:Fill color="#22FF22" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="68.63818359375" x="50.680908203125" y="25.96875">IMainGui</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Interface" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel>~ launchGUI
+~ showGui
+~ setOpenFileAction
+~ setSaveFileAction
+~ setStartConversionAction
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n29">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.gui.IModelListener]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="126.0" width="170.0" x="2365.0" y="462.0"/>
+          <y:Fill color="#22FF22" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="113.27490234375" x="28.362548828125" y="25.96875">IModelListener</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Interface" use3DEffect="false">
+            <y:AttributeLabel/>
+            <y:MethodLabel>+ documentHasChanged
++ newDocumentCreated
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n30">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.gui.MainGui]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="392.0" width="170.0" x="265.0" y="1879.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="63.80126953125" x="53.099365234375" y="25.96875">MainGui</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- LOGGER
+- openFileEventHandler
+- convertBs2ToCwlEventHandler
+- mainWindow
+- welcomeLabel
+- loadedFileLabel
+- statusInfo
+- startConversionButton
+- openFileButton
+- documentView
+- scene
+- HGAP
+- VGAP
+</y:AttributeLabel>
+            <y:MethodLabel>+ (constructor)
++ launchGUI
++ start
++ showGui
++ setOpenFileAction
++ setSaveFileAction
++ setStartConversionAction
+- setUpGui
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n31">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.io.ConvertBs2ToCwlEventHandler]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="140.0" width="170.0" x="490.0" y="2005.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="231.677734375" x="-30.8388671875" y="25.96875">ConvertBs2ToCwlEventHandler</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- controller
+</y:AttributeLabel>
+            <y:MethodLabel>+ (constructor)
++ handle
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n32">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.io.OpenFileEventHandler]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="140.0" width="170.0" x="40.0" y="2330.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="168.57568359375" x="0.712158203125" y="25.96875">OpenFileEventHandler</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- fileHandler
+</y:AttributeLabel>
+            <y:MethodLabel>+ (constructor)
++ handle
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n33">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.io.FileHandler]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="196.0" width="170.0" x="840.0" y="2302.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="88.50634765625" x="40.746826171875" y="25.96875">FileHandler</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- inFile
+- outFile
+</y:AttributeLabel>
+            <y:MethodLabel>+ (constructor)
++ setInFile
++ setOutFile
++ convertBs2ToRunnableItem
++ writeStringToFile
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n34">
+      <data key="d4"><![CDATA[de.unibi.cebitec.bibiworkflow.io.YamlWriter]]></data>
+      <data key="d5"/>
+      <data key="d7">
+        <y:UMLClassNode>
+          <y:Geometry height="154.0" width="170.0" x="2365.0" y="-2.0"/>
+          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="86.8369140625" x="41.58154296875" y="25.96875">YamlWriter</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Class" use3DEffect="false">
+            <y:AttributeLabel>- LOGGER
+- mapper
+</y:AttributeLabel>
+            <y:MethodLabel>+ (constructor)
++ writeObjectToYaml
+</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <edge id="e0" source="n5" target="n26">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-154.0" tx="0.0" ty="91.0"/>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e1" source="n30" target="n28">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-196.0" tx="0.0" ty="84.0"/>
+          <y:LineStyle color="#000000" type="dashed_dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e2" source="n1" target="n0">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-0.0" tx="-85.0" ty="-0.0"/>
+          <y:LineStyle color="#000000" type="dashed_dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e3" source="n7" target="n25">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-161.0" tx="-85.0" ty="50.0">
+            <y:Point x="1375.0" y="1150.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e4" source="n23" target="n15">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-0.0" tx="-25.0" ty="56.0">
+            <y:Point x="550.0" y="1375.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e5" source="n25" target="n15">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-50.0" sy="-203.0" tx="50.0" ty="56.0">
+            <y:Point x="1550.0" y="850.0"/>
+            <y:Point x="625.0" y="850.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e6" source="n13" target="n14">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-77.0" tx="0.0" ty="84.0"/>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e7" source="n30" target="n32">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-85.0" sy="-0.0" tx="25.0" ty="-70.0">
+            <y:Point x="150.0" y="2075.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e8" source="n5" target="n14">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-85.0" sy="-0.0" tx="-85.0" ty="-0.0">
+            <y:Point x="0.0" y="2525.0"/>
+            <y:Point x="0.0" y="300.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e9" source="n5" target="n9">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-25.0" tx="0.0" ty="70.0">
+            <y:Point x="1975.0" y="2500.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e10" source="n11" target="n15">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-85.0" sy="-0.0" tx="25.0" ty="56.0">
+            <y:Point x="600.0" y="1100.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e11" source="n21" target="n15">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-56.0" tx="-85.0" ty="25.0">
+            <y:Point x="375.0" y="775.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e12" source="n1" target="n6">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-105.0" tx="0.0" ty="56.0"/>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e13" source="n7" target="n6">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-85.0" sy="-0.0" tx="85.0" ty="-0.0"/>
+          <y:LineStyle color="#000000" type="dashed_dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e14" source="n7" target="n26">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-0.0" tx="-85.0" ty="-0.0"/>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e15" source="n22" target="n15">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-0.0" tx="-85.0" ty="-0.0"/>
+          <y:LineStyle color="#000000" type="dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e16" source="n25" target="n9">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-0.0" tx="-85.0" ty="-0.0"/>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e17" source="n10" target="n14">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-56.0" tx="85.0" ty="50.0">
+            <y:Point x="1475.0" y="350.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e18" source="n27" target="n14">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-63.0" tx="85.0" ty="75.0">
+            <y:Point x="1250.0" y="375.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e19" source="n32" target="n33">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-0.0" tx="-85.0" ty="-0.0"/>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e20" source="n14" target="n8">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-84.0" tx="0.0" ty="84.0"/>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e21" source="n31" target="n1">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-0.0" tx="-85.0" ty="-0.0"/>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e22" source="n4" target="n14">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-85.0" sy="-0.0" tx="85.0" ty="-0.0"/>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e23" source="n6" target="n25">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-56.0" tx="-85.0" ty="25.0">
+            <y:Point x="925.0" y="1125.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e24" source="n7" target="n5">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="161.0" tx="-85.0" ty="-25.0">
+            <y:Point x="1375.0" y="2500.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e25" source="n25" target="n26">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="203.0" tx="0.0" ty="-91.0"/>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e26" source="n18" target="n15">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-0.0" tx="-50.0" ty="56.0">
+            <y:Point x="525.0" y="1025.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e27" source="n24" target="n14">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-85.0" sy="-0.0" tx="25.0" ty="84.0">
+            <y:Point x="825.0" y="500.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e28" source="n4" target="n26">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-85.0" sy="25.0" tx="85.0" ty="-25.0">
+            <y:Point x="1725.0" y="325.0"/>
+            <y:Point x="1725.0" y="1525.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e29" source="n1" target="n33">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="105.0" tx="0.0" ty="-98.0"/>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e30" source="n16" target="n15">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-0.0" tx="-12.5" ty="56.0">
+            <y:Point x="562.5" y="1550.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e31" source="n28" target="n32">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-85.0" sy="-0.0" tx="0.0" ty="-70.0">
+            <y:Point x="125.0" y="1750.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e32" source="n1" target="n28">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-25.0" sy="-105.0" tx="85.0" ty="-0.0">
+            <y:Point x="900.0" y="1750.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e33" source="n25" target="n15">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-25.0" sy="-203.0" tx="85.0" ty="-0.0">
+            <y:Point x="1575.0" y="750.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e34" source="n20" target="n15">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-0.0" tx="-37.5" ty="56.0">
+            <y:Point x="537.5" y="1200.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e35" source="n19" target="n15">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-56.0" tx="0.0" ty="56.0"/>
+          <y:LineStyle color="#000000" type="dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e36" source="n25" target="n11">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-85.0" sy="-0.0" tx="85.0" ty="-0.0"/>
+          <y:LineStyle color="#000000" type="dashed_dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e37" source="n30" target="n31">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-0.0" tx="-85.0" ty="-0.0"/>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e38" source="n4" target="n9">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="-25.0" sy="189.0" tx="85.0" ty="-0.0">
+            <y:Point x="2175.0" y="1100.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e39" source="n25" target="n14">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="-203.0" tx="85.0" ty="25.0">
+            <y:Point x="1600.0" y="325.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e40" source="n4" target="n5">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="189.0" tx="85.0" ty="-0.0">
+            <y:Point x="2200.0" y="2525.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dashed_dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e41" source="n17" target="n15">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="56.0" tx="0.0" ty="-56.0"/>
+          <y:LineStyle color="#000000" type="dotted" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e42" source="n26" target="n12">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="85.0" sy="-0.0" tx="-85.0" ty="-0.0"/>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e43" source="n30" target="n32">
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="196.0" tx="85.0" ty="-25.0">
+            <y:Point x="350.0" y="2375.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+  </graph>
+  <data key="d8">
+    <y:Resources/>
+  </data>
+</graphml>
