@@ -18,7 +18,6 @@ import de.unibi.techfak.bibiserv.cms.TinputOutput;
 import de.unibi.techfak.bibiserv.cms.ToutputFile;
 import de.unibi.techfak.bibiserv.cms.Tparam;
 import de.unibi.techfak.bibiserv.cms.TrunnableItem;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -111,8 +110,11 @@ public class Converter implements IConverter
     {
         ICwlTool cwlTool = new CwlTool();
         convertBaseCommand(cwlTool);
+        
+        // the order of these two matters!
         convertFunctionInputs(function, cwlTool);
         convertFunctionOutputs(function, cwlTool);
+        
         checkForDocker(cwlTool);
         return cwlTool;
     }
@@ -176,19 +178,18 @@ public class Converter implements IConverter
                     convertParam(param, position, cwlTool);
                     break;
                     
-                    // move this somewhere else???????????????????????????????????
                 case output:
                     // ??? DOES THIS MAKE SENSE ???
                     LOGGER.fine("convert output ... yes, checks for outputs should be moved somewhere else ...");
                     TinputOutput output = bs2Doc.getOutputById(id);
                     convertOutputArguments(output, position, cwlTool);
                     break;
-                case outputFile:
-                    // ????
-                    LOGGER.fine("convert outputFile ... yes, checks for outputFiles should probably be moved somewhere else ...");
-                    ToutputFile outputFile = bs2Doc.getOutputFileById(id);
-                    //??? what to do with this?
-                    break;
+//                case outputFile:
+//                    // not needed ... paramAndInputOutputOrder does not contain references to outputFiles
+//                    LOGGER.fine("convert outputFile ... yes, checks for outputFiles should probably be moved somewhere else ...");
+//                    ToutputFile outputFile = bs2Doc.getOutputFileById(id);
+//                    //??? what to do with this?
+//                    break;
                 default:
                     LOGGER.fine("Input is of unknow type ...");
                     break;
@@ -508,7 +509,7 @@ public class Converter implements IConverter
         else
         {
             // TODO: Does this case ever occur?   --- yes of course, see: CHECKBOXFIELD
-            throw new Exception("Non-exclusive multi-field input found!");
+            throw new Exception("Non-exclusive multi-field input found! Only SELECTONERADIO type is currently supported.");
         }
     }
     
@@ -555,6 +556,7 @@ public class Converter implements IConverter
      * @param output bs2 output to be converted
      * @param cwlTool CwlTool which should receive the output
      */
+    @Deprecated
     private void convertOutput(TinputOutput output, ICwlTool cwlTool)
     {
         
@@ -630,6 +632,7 @@ public class Converter implements IConverter
      * @param position
      * @param cwlTool 
      */
+    @Deprecated
     private void convertOutputArguments(ToutputFile output, int position, ICwlTool cwlTool)
     {
         throw new UnsupportedOperationException("converting OutputFile fields as arguments is not yet implemented ...");
@@ -759,6 +762,7 @@ public class Converter implements IConverter
     
     
     
+    @Deprecated
     private void notifyModelListenersAboutNewDocument()
     {
         for (IModelListener l : this.modelListeners)
@@ -769,6 +773,7 @@ public class Converter implements IConverter
     
     
     
+    @Deprecated
     private void notifyModelListenersAboutDocumentChange()
     {
         for (IModelListener l : this.modelListeners)

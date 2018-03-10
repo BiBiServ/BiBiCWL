@@ -27,6 +27,15 @@ public class MultiFieldInput extends Input<ArrayList<CommandInputRecord>>
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * Creates an input with multiple fields which hold different values. Those
      * input fields are designed as boolean CWL inputs and the contained values
@@ -46,6 +55,13 @@ public class MultiFieldInput extends Input<ArrayList<CommandInputRecord>>
     }
     
     
+    
+    
+    
+    
+    
+    
+    
     /**
      * Add CommnadInputRecords to the type ArrayList which contains all the 
      * fields of the multi-field input.
@@ -63,7 +79,12 @@ public class MultiFieldInput extends Input<ArrayList<CommandInputRecord>>
             super.type.add(cir);
         }
     }
-@Override
+    
+    
+    
+    
+    
+    @Override
     protected void enableOptional() {
         for (CommandInputRecord cir : this.type)
         {
