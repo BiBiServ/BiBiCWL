@@ -9,7 +9,7 @@ otu_picking_method: uclust
 
 #input_reference_sequences: # this input was manually modified
 
-step_four: true
+suppress_step_four: true
 
 jobs_to_start: 1
 

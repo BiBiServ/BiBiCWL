@@ -325,7 +325,7 @@
             <ns4:option>-v </ns4:option>
             <ns4:guiElement>SELECTBOOLEANCHECKBOX</ns4:guiElement>
         </ns4:param>
-        <ns4:param id="step_four">
+        <ns4:param id="suppress_step_four">
             <ns4:name>Suppress step 4</ns4:name>
             <ns4:shortDescription>Whether or not step 4 should be suppressed</ns4:shortDescription>
             <ns4:description></ns4:description>
@@ -348,7 +348,7 @@
                 <ns4:paramref ref="jobs_to_start"/>
                 <ns4:paramref ref="otu_picking_method"/>
                 <ns4:paramref ref="parallel"/>
-                <ns4:paramref ref="step_four"/>
+                <ns4:paramref ref="suppress_step_four"/>
                 <ns4:paramref ref="verbose"/>
             </ns4:paramGroup>
             
@@ -360,7 +360,7 @@
                 <ns4:reference>verbose</ns4:reference>
                 <ns4:reference>input_parameter_file</ns4:reference>
                 <ns4:reference>input_reference_sequences</ns4:reference>
-                <ns4:reference>step_four</ns4:reference>
+                <ns4:reference>suppress_step_four</ns4:reference>
                 <!-- 
                      the latter two are for the case that the placeholder output 
                      is used. Otherwise use the other output ... 

@@ -50,7 +50,7 @@ inputs:
     type:
     - "null"
     - File
-  step_four:
+  suppress_step_four:
     inputBinding:
       position: 8
       prefix: '--suppress_step4 '

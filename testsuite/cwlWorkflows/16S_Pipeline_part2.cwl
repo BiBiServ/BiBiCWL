@@ -182,7 +182,7 @@ steps:
       parallel: qiime_parallel
       otu_picking_method: qiime_otu_picking_method
       input_reference_sequences: qiime_reference_sequences
-      step_four: qiime_skip_step_four
+      suppress_step_four: qiime_skip_step_four
       jobs_to_start: qiime_jobs_to_start
       verbose: qiime_verbose
       input_parameter_file: qiime_parameter_file
