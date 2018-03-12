@@ -19,7 +19,7 @@ public class FileInput extends Input
     private static final Logger LOGGER = Logger.getLogger(FileInput.class.getName());
     
     @JsonProperty
-    protected String fileType;
+    protected String format;
     
     
     private final String defaultType = "File";
@@ -43,7 +43,7 @@ public class FileInput extends Input
         super.type = defaultType;
         super.id = id;
         super.inputBinding = new InputBinding(prefix, separate, position);
-        this.fileType = fileType;
+        this.format = fileType;
     }
     
     
