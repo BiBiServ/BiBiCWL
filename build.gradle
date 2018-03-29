@@ -9,6 +9,15 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'de.unibi.cebitec.bibiworkflow.app.App'
+    }
+}
+
+
+
+
 // Apply the application plugin to add support for building an application
 apply plugin: 'application'
 
@@ -44,14 +53,21 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+
+
+
+
+
+
+
 // Define the main class for the application
 mainClassName = 'de/unibi/cebitec/bibiworkflow/app/App'
 
 //ext.mainClass = 'de.unibi.cebitec.bibiworkflow.app.App'
 //ext.cliargs = '-i'
 
-//run.args = ['--gui-mode']
-run.args = ["--input=/home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/xml/blast_final.bs2"]
+run.args = ['--gui-mode']
+//run.args = ["--input=/home/pol3waf/Programming/Projects/MasterProject/bibi-workflow/xml/blast_final.bs2"]
 
 
 task copyDeps(type: Copy) {
