@@ -6,12 +6,27 @@
  * user guide available at https://docs.gradle.org/4.0.2/userguide/tutorial_java_projects.html
  */
 
+
+
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.3'
+    }
+}
+
+
+
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 jar {
     manifest {
-        attributes 'Main-Class': 'de.unibi.cebitec.bibiworkflow.app.App'
+        attributes ( "Main-Class" : "de.unibi.cebitec.bibiworkflow.app.App" )
     }
 }
 
