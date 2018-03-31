@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -279,7 +280,7 @@ public final class MainGui extends Application implements IMainGui
         borderPane.setTop(buttonPane);
         borderPane.setLeft(optionsPane);
         borderPane.setCenter(documentPane);
-        borderPane.setBottom(infoPane);
+//        borderPane.setBottom(infoPane);
         
         
         /*
@@ -332,14 +333,21 @@ public final class MainGui extends Application implements IMainGui
         
         // options ...
         CheckBox checkbox_noShellQuotes = new CheckBox("noShellQuote");
+        checkbox_noShellQuotes.setPadding(new Insets(5));
         options.add(checkbox_noShellQuotes);
+        options.add(new Separator());
         CheckBox checkbox_optionalInputs = new CheckBox("optionalInputs");
+        checkbox_optionalInputs.setPadding(new Insets(5));
         options.add(checkbox_optionalInputs);
+        options.add(new Separator());
         CheckBox checkbox_arrayFileInputs = new CheckBox("arrayFileInputs");
+        checkbox_arrayFileInputs.setPadding(new Insets(5));
         options.add(checkbox_arrayFileInputs);
         Label separatorLabel = new Label("item separator:");
+        separatorLabel.setPadding(new Insets(5));
         options.add(separatorLabel);
         TextField itemSeparator = new TextField("separator");
+        itemSeparator.setPadding(new Insets(5));
         itemSeparator.setMaxWidth(100);
         options.add(itemSeparator);
         
