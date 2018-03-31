@@ -1,49 +1,101 @@
-<ns4:runnableItem xmlns:ns2="bibiserv:de.unibi.techfak.bibiserv.cms.microhtml" xmlns:ns3="bibiserv:de.unibi.techfak.bibiserv.cms.minihtml" xmlns:ns4="bibiserv:de.unibi.techfak.bibiserv.cms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="bibi-worfkflow" xsi:schemaLocation="bibiserv:de.unibi.techfak.bibiserv.cms http://bibiserv.techfak.uni-bielefeld.de/xsd/bibiserv2/BiBiServAbstraction.xsd">
-    <name>Bibi-Workflow</name>
-    <shortDescription>Tool for creating CWL Tools from BiBiApp descriptions</shortDescription>
-    <description>
+<?xml version="1.0" encoding="UTF-8"?>
+<ns4:runnableItem 
+    xmlns:ns2="bibiserv:de.unibi.techfak.bibiserv.cms.microhtml" 
+    xmlns:ns3="bibiserv:de.unibi.techfak.bibiserv.cms.minihtml" 
+    xmlns:ns4="bibiserv:de.unibi.techfak.bibiserv.cms" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    id="bibi_workflow"
+    xsi:schemaLocation="bibiserv:de.unibi.techfak.bibiserv.cms http://bibiserv.techfak.uni-bielefeld.de/xsd/bibiserv2/BiBiServAbstraction.xsd">
+    
+    
+    
+    
+    <ns4:name>BiBiWorkflow</ns4:name>
+    <ns4:shortDescription>Tool for creating CWL Tools from BiBiApp descriptions</ns4:shortDescription>
+    <ns4:description>
         The Bibi-Workflow tool aims to convert BiBiApp descriptions into CommandLineTools 
         of the Common Workflow Language (CWL). These could then be used to compose CWL 
         workflows.
-    </description>
-    <responsibleAuthor>
-        <firstname>Jean</firstname>
-        <lastname>Saydo</lastname>
-        <email>jsaydo@techfak.uni-bielefeld.de</email>
-    </responsibleAuthor>
-    <executable>
-        <version>0.1</version>
-        <execInfo>
-            <path></path>
-            <callingInformation>bibi-workflow</callingInformation>
-        </execInfo>
-        <input id="bs2_input">
-            <name>Bs2 input file</name>
-            <shortDescription></shortDescription>
-            <description></description>
-            <type>ToolDependentRepresentation</type>
-            <handling>file</handling>
-            <option>--input </option>
-        </input>
-        <output id="cwl_tool_output">
-            <name>CWL Tool Output</name>
-            <shortDescription>CWL CommandLineTool</shortDescription>
-            <description>
+    </ns4:description>
+    
+    
+    
+    
+    <ns4:responsibleAuthor>
+        <ns4:firstname>Jean</ns4:firstname>
+        <ns4:lastname>Saydo</ns4:lastname>
+        <ns4:email>jsaydo@techfak.uni-bielefeld.de</ns4:email>
+    </ns4:responsibleAuthor>
+    
+    
+    
+    
+    <ns4:executable>
+        
+        
+        <ns4:version>0.1</ns4:version>
+        <ns4:execInfo>
+            <ns4:path>/homes/jsaydo/BiBiServInstance/bin/</ns4:path>
+            <ns4:callingInformation>bibi-workflow</ns4:callingInformation>
+        </ns4:execInfo>
+        
+        
+        <ns4:input id="bs2_input">
+            <ns4:name>Bs2 input file</ns4:name>
+            <ns4:shortDescription></ns4:shortDescription>
+            <ns4:description></ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>file</ns4:handling>
+            <ns4:option>--input </ns4:option>
+        </ns4:input>
+    
+        
+        <ns4:output id="cwl_tool_output">
+            <ns4:name>CWL Tool Output</ns4:name>
+            <ns4:shortDescription>CWL CommandLineTool</ns4:shortDescription>
+            <ns4:description>
                 The CWL document which describes the converted BibiApp as CWL  
                 CommandLineTool.
-            </description>
-            <type>ToolDependentRepresentation</type>
-            <handling>file</handling>
-            <option>--output </option>
-        </output>
-        <function id="convert_bibiapp_to_cwl">
-            <shortDescription>Convert BiBiApp to CWL CommandLineTool</shortDescription>
-            <inputref ref="bs2_input"/>
-            <outputref ref="cwl_tool_output"/>
-            <paramAndInputOutputOrder>
-                <reference>bs2_input</reference>
-                <reference>cwl_tool_output</reference>
-            </paramAndInputOutputOrder>
-        </function>
-    </executable>
-</runnableItem>
+            </ns4:description>
+            <ns4:type>ToolDependentRepresentation</ns4:type>
+            <ns4:handling>file</ns4:handling>
+            <ns4:option>--output </ns4:option>
+        </ns4:output>
+    
+        
+        <ns4:function id="convert_bibiapp_to_cwl">
+            
+            <ns4:shortDescription>Convert BiBiApp to CWL CommandLineTool</ns4:shortDescription>
+            <ns4:inputref ref="bs2_input"/>
+            <ns4:outputref ref="cwl_tool_output"/>
+            
+            <ns4:paramAndInputOutputOrder>
+                <ns4:reference>bs2_input</ns4:reference>
+                <ns4:reference>cwl_tool_output</ns4:reference>
+            </ns4:paramAndInputOutputOrder>
+            
+        </ns4:function>
+        
+        
+    </ns4:executable>
+    
+    
+    
+    
+    <ns4:view type="submission" id="bibiworkflow_view">
+        <ns4:title>my title</ns4:title>
+    </ns4:view>
+    
+    
+    
+    
+    <ns4:manual id="bibiworkflow_manual">
+        <ns4:introductoryText>
+            This is the introductory text. Where will it show up?
+        </ns4:introductoryText>
+    </ns4:manual>
+    
+    
+    
+    
+</ns4:runnableItem>
