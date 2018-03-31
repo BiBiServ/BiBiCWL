@@ -2,6 +2,18 @@
 # coding=utf-8
 
 """
+	
+	
+	Important note:
+	
+	This is a modified version of Madis Rummings 16s_pyflow.py script.
+	It is stripped of most of its features and only creates the mapping
+	file used in the pipeline.
+	
+	
+	
+	-------------------------------------------------------------------
+	
 	16s_pyflow.py
 
 	Date:   16/02/2016
