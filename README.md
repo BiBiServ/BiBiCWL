@@ -44,3 +44,9 @@ In order to use BiBiCWL as a command line application the following options are 
                     option. This option allows for the definition of a string
                     which separates the elements of an arrayFileInput.
 ```
+
+## Examples
+
+Example BiBiAppToolDescriptions can be found in the testsuite/bibiapp_tool_description/ directory.
+Their converted CWL counterparts can be found in the testsuite/cwlTools/ directory.
+The 16S rRNA analysis pipeline which was created as a proof of concept for the modularity CWL offers, can be found in the testsuite/cwlWorkflows/ directory.
