@@ -50,3 +50,4 @@ In order to use BiBiCWL as a command line application the following options are 
 Example BiBiAppToolDescriptions can be found in the testsuite/bibiapp_tool_description/ directory.
 Their converted CWL counterparts can be found in the testsuite/cwlTools/ directory.
 The 16S rRNA analysis pipeline which was created as a proof of concept for the modularity CWL offers, can be found in the testsuite/cwlWorkflows/ directory.
+As a starting point, job files are included, too. However, the file paths specified in them have to be changed.
