@@ -135,7 +135,7 @@ public class CmdControl implements IControl
         this.processArgument_noShellQuote();
         this.processArgument_optionalInputs();
         this.processArgument_arrayInputFiles();
-        this.processArgument_itemSeparator();
+//        this.processArgument_itemSeparator();
     }
     
     
