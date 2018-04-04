@@ -40,6 +40,9 @@ In order to use BiBiCWL as a command line application the following options are 
                     Currently there is no equivalent in the BiBiApp tool
                     description so that this option would have to be ticked
                     manually.
+                    This option is only applied to inputs if their ID has the 
+                    suffix "_array", "_zip" or "_list" because otherwise other
+                    inputs in the CWL Tool would be affected, too.
 -s --itemSeparator  The itemSeparator is used together with the arrayFileInputs
                     option. This option allows for the definition of a string
                     which separates the elements of an arrayFileInput.
