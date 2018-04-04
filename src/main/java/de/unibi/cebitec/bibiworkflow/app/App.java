@@ -10,9 +10,11 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.MissingArgumentException;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.ParseException;
+import org.apache.commons.cli.UnrecognizedOptionException;
 
 
 
@@ -63,7 +65,7 @@ public class App
                 "suppress the use of shellQuotes in the CWL CommandlineTool");
         options.addOption(suppressShellQuote);
         
-        Option optionalInputs = new Option("p", "optionalInput", false, 
+        Option optionalInputs = new Option("p", "optionalInputs", false, 
                 "With this option enabled, InputFiles will be flagged as "
                 + "optional, so that they don't have to be specified in the "
                 + "CWL job file. However, the underlying program might still "
@@ -77,7 +79,10 @@ public class App
                 + "input files for one input field."
                 + "Currently there is no equivalent in the BiBiApp tool "
                 + "description so that this option would have to be ticked "
-                + "manually.");
+                + "manually. "
+                + "This option is only applied to inputs if their ID has the "
+                + "suffix '_array', '_zip' or '_list' because otherwise other "
+                + "inputs in the CWL Tool would be affected, too.");
         options.addOption(arrayFileInputs);
         
         Option itemSeparator = new Option("s", "itemSeparator", true,
@@ -105,6 +110,22 @@ public class App
             System.exit(1);
             return;
         }
+        catch (MissingArgumentException e)
+        {
+            System.out.println(e.getMessage());
+            formatter.printHelp("bibi-workflow", options);
+            
+            System.exit(1);
+            return;
+        }
+        catch (UnrecognizedOptionException e)
+        {
+            System.out.println(e.getMessage());
+            formatter.printHelp("bibi-workflow", options);
+            
+            System.exit(1);
+            return;
+        }
         
         
         // do somthing with the input
@@ -113,10 +134,14 @@ public class App
             LOGGER.info("Starting application in GUI mode. All other parameters will be ignored.");
             startGuiMode();
         }
+        else if (cmd.hasOption("input"))
+        {
+            LOGGER.info("Starting application in command line mode.");
+            startCmdLineMode(cmd);
+        }
         else
         {
-            LOGGER.info("Starting application in command line mode. Some parameters might not yet work as intended.");
-            startCmdLineMode(cmd);
+            formatter.printHelp("bibicwl", options);
         }
         
         
