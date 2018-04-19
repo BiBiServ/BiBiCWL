@@ -12,7 +12,7 @@ hints:
 arguments:
 - position: 9
   shellQuote: false
-  valueFrom: -f -o /var/spool/cwl
+  valueFrom: -f -o $(runtime.outdir)
 inputs:
   input_splitted_libraries:
     inputBinding:
